@@ -1,0 +1,13 @@
+{
+  "type": "code",
+  "modid": "coreofarts",
+  "name": "Core of Arts",
+  "authors": [
+    "Fedarmens"
+  ],
+  "description": "The main mod-library for other mods from Fedarmens.",
+  "version": "0.1.0",
+  "dependencies": {
+    "game": ""
+  }
+}

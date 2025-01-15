@@ -1,0 +1,212 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VintagestoryLib">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="cairo-sharp">
+      <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite">
+      <HintPath>$(VINTAGE_STORY)/Lib/Microsoft.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+<ItemGroup>
+  <Content Include="assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Compile Remove="Mods\**" />
+  <EmbeddedResource Remove="Mods\**" />
+  <None Remove="Mods\**" />
+  <None Remove="assets\artofgrowing\itemtypes\grain\flaxbundle.json" />
+  <None Remove="assets\artofgrowing\itemtypes\grain\sunflower-head.json" />
+  <None Remove="assets\artofgrowing\itemtypes\tool\ridge.json" />
+  <None Remove="assets\artofgrowing\patches\barrelrecipes.json" />
+  <None Remove="assets\artofgrowing\patches\cabbage.json" />
+  <None Remove="assets\artofgrowing\patches\crop\amaranth.json" />
+  <None Remove="assets\artofgrowing\patches\crop\cabbage.json" />
+  <None Remove="assets\artofgrowing\patches\crop\carrot.json" />
+  <None Remove="assets\artofgrowing\patches\crop\flax.json" />
+  <None Remove="assets\artofgrowing\patches\crop\onion.json" />
+  <None Remove="assets\artofgrowing\patches\crop\parsnip.json" />
+  <None Remove="assets\artofgrowing\patches\crop\rice.json" />
+  <None Remove="assets\artofgrowing\patches\crop\rye.json" />
+  <None Remove="assets\artofgrowing\patches\crop\spelt.json" />
+  <None Remove="assets\artofgrowing\patches\crop\sunflower.json" />
+  <None Remove="assets\artofgrowing\patches\crop\turnip.json" />
+  <None Remove="assets\artofgrowing\patches\drygrass.json" />
+  <None Remove="assets\artofgrowing\patches\meatystew.json" />
+  <None Remove="assets\artofgrowing\patches\porridge.json" />
+  <None Remove="assets\artofgrowing\patches\scrambledeggs.json" />
+  <None Remove="assets\artofgrowing\patches\soup.json" />
+  <None Remove="assets\artofgrowing\patches\thatch.json" />
+  <None Remove="assets\artofgrowing\patches\trough-large.json" />
+  <None Remove="assets\artofgrowing\patches\vegetablestew.json" />
+  <None Remove="assets\artofgrowing\recipes\grid\grain-three.json" />
+  <None Remove="assets\artofgrowing\recipes\grid\grain-two.json" />
+  <None Remove="assets\artofgrowing\recipes\grid\ridge.json" />
+  <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\decent\stage12.json" />
+  <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\medium\stage12.json" />
+  <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\small\stage12.json" />
+  <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\wild\stage12.json" />
+  <None Remove="assets\artofgrowing\shapes\block\crop\seedcrop.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\amaranthbundle.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\decent\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\gigantic\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\hefty\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\large\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\medium\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\small\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\clear\wild\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\amaranthbundle.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\decent\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\gigantic\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\hefty\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\large\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\medium\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\small\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\wild\parsnip.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\decent.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\gigantic.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\hefty.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\large.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\medium.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\small.json" />
+  <None Remove="assets\artofgrowing\shapes\item\seedbag\wild.json" />
+  <None Remove="assets\artofgrowing\shapes\item\tool\ridge-wooden.json" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\amaranth\dry\decent.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\decent.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\gigantic.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\hefty.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\large.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\medium.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\small.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rice\dry\wild.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\decent.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\gigantic.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\hefty.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\large.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\medium.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\small.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\rye\dry\wild.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\decent.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\gigantic.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\hefty.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\large.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\medium.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\small.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\crop\spelt\dry\wild.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\dry\normal-top-amaranth.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\dry\straw-amaranth.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-side-flax.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-side-rice.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-side-rye.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-side-spelt.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-top-flax.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-top-rice.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-top-rye.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\normal-top-spelt.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\straw-flax.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\straw-rice.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\straw-rye.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\straw-spelt.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\normal-top-amaranth.png" />
+  <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\straw-amaranth.png" />
+  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-bottom12.png" />
+  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-middle9.png" />
+  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-top.png" />
+  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage.png" />
+  <None Remove="assets\artofgrowing\textures\item\food\vegetable\scallions.png" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\amaranth.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\cabbage.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\flax.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\onion.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\parsnip.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\rice.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\rye.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\seedcarrot.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\seedonion.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\seedparsnip.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\seedturnip.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\spelt.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\sunflower.json" />
+  <None Remove="assets\game\blocktypes\plant\crop\new\turnip.json" />
+  <None Remove="assets\game\itemtypes\food\newpickledvegetable.json" />
+  <None Remove="assets\game\itemtypes\food\newvegetable.json" />
+  <None Remove="assets\game\itemtypes\resource\grainseeds.json" />
+  <None Remove="assets\game\itemtypes\resource\newseeds.json" />
+  <None Remove="assets\game\textures\block\food\grain\amaranth-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\flax-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\rice-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\rye-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\spelt-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\sunflower-grain.png" />
+  <None Remove="assets\game\textures\block\food\grain\sunflower-pile.png" />
+  <None Remove="assets\game\textures\block\food\grain\sunflower.png" />
+  <None Remove="assets\game\textures\block\hay\thatch-side.png" />
+  <None Remove="assets\game\textures\block\hay\thatch-top.png" />
+  <None Remove="assets\game\textures\block\hay\thatch.png" />
+  <None Remove="assets\game\textures\block\plant\crop\cabbage\top1.png" />
+  <None Remove="assets\game\textures\block\plant\crop\cabbage\top2.png" />
+  <None Remove="assets\game\textures\block\plant\crop\cabbage\top3.png" />
+  <None Remove="assets\game\textures\block\plant\crop\cabbage\top4.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\e10.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\e11.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\e12.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\e9.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\s10.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\s11.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\s12.png" />
+  <None Remove="assets\game\textures\block\plant\crop\parsnip\s9.png" />
+  <None Remove="assets\game\textures\block\wood\barrel\raw-scallions.png" />
+  <None Remove="assets\haystorage.json" />
+  <Content Include="modinfo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+<ItemGroup>
+  <Content Update="assets\artofgrowing\shapes\item\food\amaranthbundle.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+</Project>

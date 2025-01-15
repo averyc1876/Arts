@@ -1,0 +1,127 @@
+{
+	"code": "pickledvegetable",
+	"maxstacksize": 64,
+	"attributes": {
+		"inContainerTexture": { "base": "artofcooking:block/wood/barrel/pickled-{type}" },
+		"inBarrelShape": "coreofart:/block/wood/barrel/{type}fill1",
+		"crockable": true,
+		"inPieProperties": {
+			"texture": "game:block/food/pie/fill-{type}",
+			"partType": "Filling"
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "potato" ]
+		}
+	],
+	"shapebytype": {
+		"*": { "base": "item/food/cookedvegetable/{type}" }
+	},
+	"texture": { "base": "item/food/cookedvegetable/pickled/{type}" },
+	"creativeinventory": {
+		"general": [ "" ],
+		"items": [ "" ],
+		"artofcooking": [ "" ]
+	},
+	"nutritionPropsByType": {
+		"*": {
+			"saturation": 80,
+			"foodcategory": "Vegetable"
+		}
+	},
+	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 1800 },
+			"transitionHours": { "avg": 240 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatio": 0.5
+		}
+	],
+	"materialDensity": 600,
+	"guiTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": -37,
+				"y": 135,
+				"z": -155
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0.1,
+				"z": 0.5
+			},
+			"scale": 5.35
+		}
+	},
+	"fpHandTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 45,
+				"y": 47,
+				"z": -30
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0.3,
+				"z": 0.5
+			},
+			"scale": 1.9
+		}
+	},
+	"tpHandTransformByType": {
+		"*": {
+			"translation": {
+				"x": -0.75,
+				"y": -0.13,
+				"z": -0.57
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": -67
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0.1,
+				"z": 0.5
+			},
+			"scale": 0.84
+		}
+	},
+	"groundTransformByType": {
+		"*": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 0,
+				"y": 0,
+				"z": 83
+			},
+			"origin": {
+				"x": 0.47,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 4.3
+		}
+	}
+}

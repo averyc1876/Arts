@@ -1,0 +1,16 @@
+{
+  "game:It changes...": "Оно меняется...",
+
+  "game:recipeingredient-item-vegetable-cookedcattailroot": "корень",
+  "game:recipeingredient-item-vegetable-cookedcattailroot-insturmentalcase": "корнем",
+  "game:meal-ingredient-soup-primary-vegetable-cookedcattailroot": "Корневой",
+  "game:meal-ingredient-soup-secondary-vegetable-cookedcattailroot": "Корень",
+  "game:meal-ingredient-stew-primary-vegetable-cookedcattailroot": "Корневое",
+  "game:meal-ingredient-stew-secondary-vegetable-cookedcattailroot": "Корневое",
+  "game:recipeingredient-item-vegetable-cookedpapyrusroot": "корень",
+  "game:recipeingredient-item-vegetable-cookedpapyrusroot-insturmentalcase": "корнем",
+  "game:meal-ingredient-soup-primary-vegetable-cookedpapyrusroot": "Корневой",
+  "game:meal-ingredient-soup-secondary-vegetable-cookedpapyrusroot": "Корень",
+  "game:meal-ingredient-stew-primary-vegetable-cookedpapyrusroot": "Корневое",
+  "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Корневое"
+}

@@ -1,0 +1,24 @@
+{
+	"editor": {
+		"backDropShape": "spoon-empty",
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+	},
+	"elements": [
+		{
+			"name": "Content",
+			"from": [ 5.8, 0.0, 7.5 ],
+			"to": [ 7.8, 0.6, 8.5 ],
+			"renderPass": 1,
+			"rotationOrigin": [ 7.3, 0.0, 9.0 ],
+			"faces": {
+				"up": { "texture": "#content", "uv": [ 0.0, 0.0, 2.0, 1.0 ] }
+			}
+		}
+	]}

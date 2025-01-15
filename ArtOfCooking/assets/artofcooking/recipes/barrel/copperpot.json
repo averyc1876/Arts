@@ -1,0 +1,23 @@
+{
+	"code": "copperpot",
+	"sealHours": 24,
+	"ingredients": [
+		{
+			"type": "item",
+			"code": "game:vinegarportion",
+			"name": "cider",
+			"litres": 20,
+			"consumeLitres": 2
+		},
+		{
+			"type": "block",
+			"code": "dirtycopperpot-empty",
+			"quantity": 1
+		}
+	],
+	"output": {
+		"type": "block",
+		"code": "copperpot-empty",
+		"quantity": 1
+	}
+}

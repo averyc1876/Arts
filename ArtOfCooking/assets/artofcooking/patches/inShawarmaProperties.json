@@ -1,0 +1,114 @@
+[
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cheddar-1slice": {
+        "texture": "block/food/pie/fill-cheddar",
+        "partType": "Filling"
+      },
+      "*-blue-1slice": {
+        "texture": "block/food/pie/fill-bluecheese",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/cheese.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-pinkapple": {
+        "texture": "block/food/pie/fill-apple",
+        "partType": "Filling"
+      },
+      "*-redapple": {
+        "texture": "block/food/pie/fill-apple",
+        "partType": "Filling"
+      },
+      "*-yellowapple": {
+        "texture": "block/food/pie/fill-apple",
+        "partType": "Filling"
+      },
+      "*": {
+        "texture": "block/food/pie/fill-{fruit}",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaProperties",
+    "value": {
+      "texture": "block/food/pie/fill-{type}",
+      "partType": "Filling"
+    },
+    "file": "game:itemtypes/food/pickledlegume.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaProperties",
+    "value": {
+      "texture": "block/food/pie/fill-{type}",
+      "partType": "Filling"
+    },
+    "file": "game:itemtypes/food/pickledvegetable.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "block/food/pie/fill-poultry",
+        "partType": "Filling"
+      },
+      "*-cured": {
+        "texture": "block/food/pie/fill-poultry",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/poultry.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      },
+      "*-cured": {
+        "texture": "block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      },
+      "*-vintage": {
+        "texture": "block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/redmeat.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "block/food/pie/fill-bushmeat",
+        "partType": "Filling"
+      },
+      "*-cured": {
+        "texture": "block/food/pie/fill-bushmeat",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/bushmeat.json",
+    "side": "Server"
+  }
+]

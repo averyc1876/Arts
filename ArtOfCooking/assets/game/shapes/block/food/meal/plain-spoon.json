@@ -1,0 +1,37 @@
+{
+	"editor": {
+		"backDropShape": "block/wood/spoon-empty",
+		"allAngles": false,
+		"singleTexture": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textures": {
+
+	},
+	"elements": [
+		{
+			"name": "bowl",
+			"from": [ 5.5, 0.0, 6.5 ],
+			"to": [ 8.5, 1.0, 9.5 ],
+			"rotationOrigin": [ -1.0, 0.0, 0.0 ],
+			"faces": {
+			},
+			"children": [
+				{
+					"name": "contents",
+					"from": [ 0.2, 0.9, 1.0 ],
+					"to": [ 2.2, 0.9, 2.0 ],
+					"renderPass": 3,
+					"rotationOrigin": [ 0.7, -1.0, 1.5 ],
+					"faces": {
+						"up": {
+							"texture": "#water",
+							"uv": [ 0.0, 0.0, 2.0, 1.0 ]
+						}
+					}
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,260 @@
+[
+  {
+    "ingredientPattern": "WB",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      },
+      "B": {
+        "type": "item",
+        "code": "game:bandage-clean"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:alcoholportion"
+        },
+        "requiresLitres": 0.2
+      }
+    },
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "game:bandage-alcoholed"
+    }
+  },
+  {
+    "ingredientPattern": "_L_,LBL,CLC",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "game:cattailtops"
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*"
+      },
+      "B": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:honeyportion"
+        },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "item",
+      "code": "game:beenade-opened"
+    }
+  },
+  {
+    "ingredientPattern": "_P_,PBP,CPC",
+    "ingredients": {
+      "P": {
+        "type": "item",
+        "code": "game:papyrustops"
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*"
+      },
+      "B": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:honeyportion"
+        },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "item",
+      "code": "game:beenade-opened"
+    }
+  },
+  {
+    "ingredientPattern": "WF",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      },
+      "F": {
+        "type": "item",
+        "code": "game:flour-*",
+        "allowedVariants": [ "flax", "millet", "rice", "rye", "spelt", "cassava", "amaranth", "sunflower" ],
+        "name": "type"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:waterportion"
+        },
+        "requiresLitres": 1
+      }
+    },
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "game:dough-{type}"
+    }
+  },
+  {
+    "ingredientPattern": "SBS,_L_",
+    "ingredients": {
+      "L": {
+        "type": "block",
+        "code": "game:linen-*"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:powder-sulfur"
+      },
+      "B": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:honeyportion"
+        },
+        "requiresLitres": 0.25
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:poultice-linen-honey-sulfur",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "SBS,_C_",
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:cattailtops",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "game:powder-sulfur"
+      },
+      "B": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:honeyportion"
+        },
+        "requiresLitres": 0.25
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:poultice-reed-honey-sulfur",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "SBS,_P_",
+    "ingredients": {
+      "P": {
+        "type": "item",
+        "code": "game:papyrustops",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "game:powder-sulfur"
+      },
+      "B": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:honeyportion"
+        },
+        "requiresLitres": 0.25
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:poultice-reed-honey-sulfur",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "WF",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "copperbowl-empty"
+      },
+      "F": {
+        "type": "item",
+        "code": "artofgrowing:flaxbundle-wet"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": {
+          "type": "item",
+          "code": "game:waterportion"
+        },
+        "requiresLitres": 1
+      }
+    },
+    "name": "flaxbundle-clear",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "artofgrowing:flaxbundle-clear"
+    }
+  }
+]

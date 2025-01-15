@@ -1,0 +1,45 @@
+{
+	"code": "doughform",
+	"class": "BlockDoughForm",
+	"entityClass": "DoughForm",
+	"shape": { "base": "game:block/basic/invisible" },
+	"creativeinventory": {
+		"general": [ "" ],
+		"decorative": [ "" ]
+	},
+	"blockmaterial": "Soil",
+	"replaceable": 100,
+	"resistance": 2,
+	"lightAbsorption": 0,
+	"textures": {
+		"doughworkitem-flax": { "base": "block/food/dough/flax" },
+		"doughworkitem-rice": { "base": "block/food/dough/rice" },
+		"doughworkitem-spelt": { "base": "block/food/dough/spelt" },
+		"doughworkitem-rye": { "base": "block/food/dough/rye" },
+		"doughworkitem-cassava": { "base": "block/food/dough/cassava" },
+		"doughworkitem-amaranth": { "base": "block/food/dough/amaranth" },
+		"doughworkitem-sunflower": { "base": "block/food/dough/sunflower" }
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"collisionbox": {
+		"x1": 0,
+		"y1": 0,
+		"z1": 0,
+		"x2": 1,
+		"y2": 0.125,
+		"z2": 1
+	},
+	"selectionbox": {
+		"x1": 0,
+		"y1": 0,
+		"z1": 0,
+		"x2": 1,
+		"y2": 0.125,
+		"z2": 1
+	}
+}

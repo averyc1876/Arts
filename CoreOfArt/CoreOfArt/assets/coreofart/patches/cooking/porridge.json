@@ -1,0 +1,24 @@
+[
+  {
+    "op": "add",
+    "path": "/ingredients/3/validStacks/9",
+    "value": {
+      "type": "item",
+      "code": "vegetable-*",
+      "shapeElement": "bowl/vegetable 1/*"
+    },
+    "file": "game:recipes/cooking/porridge.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/ingredients/4/validStacks/10",
+    "value": {
+      "type": "item",
+      "code": "vegetable-*",
+      "shapeElement": "bowl/vegetable 2/*"
+    },
+    "file": "game:recipes/cooking/porridge.json",
+    "side": "Server"
+  }
+]

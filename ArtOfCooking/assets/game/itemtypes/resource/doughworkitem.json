@@ -1,0 +1,16 @@
+{
+	"code": "doughworkitem",
+	"sdclass": "ItemWorkItem",
+	"maxstacksize": 1,
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+		}
+	],
+	"texture": { "base": "block/food/dough/{type}" },
+	"creativeinventory": {
+		"general": [ "" ],
+		"items": [ "" ]
+	}
+}

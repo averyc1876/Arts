@@ -1,0 +1,125 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfCooking</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSSurvivalMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSEssentials.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VSCreativeMod">
+      <HintPath>$(VINTAGE_STORY)/Mods/VSCreativeMod.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(VINTAGE_STORY)/Lib/Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(VINTAGE_STORY)/Lib/0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="VintagestoryLib">
+      <HintPath>$(VINTAGE_STORY)/VintagestoryLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>$(VINTAGE_STORY)/Lib/protobuf-net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="cairo-sharp">
+      <HintPath>$(VINTAGE_STORY)/Lib/cairo-sharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite">
+      <HintPath>$(VINTAGE_STORY)/Lib/Microsoft.Data.Sqlite.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+<ItemGroup>
+  <Content Include="assets\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <None Remove="assets\artofcooking\blocktypes\bread.json" />
+  <None Remove="assets\artofcooking\blocktypes\food\shawarma.json" />
+  <None Remove="assets\artofcooking\itemtypes\food\pickledvegetable.json" />
+  <None Remove="assets\artofcooking\lang\ru.json" />
+  <None Remove="assets\artofcooking\patches\dough.json" />
+  <None Remove="assets\artofcooking\patches\inShawarmaProperties.json" />
+  <None Remove="assets\artofcooking\patches\inShawarmaVegetable.json" />
+  <None Remove="assets\artofcooking\recipes\doughforming\lavash.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill0.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill1.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill2.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill3.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill4.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step1.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step2.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step3.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step4.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step5.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-step6.json" />
+  <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\carrot.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\cassava.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\onion.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\parsnip.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\potato.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\pumpkin.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\sauerkraut.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\cookedvegetable\turnip.json" />
+  <None Remove="assets\artofcooking\shapes\item\food\lavash.json" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-cabbage.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-carrot.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-onion.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-potato.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-pumpkin.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\baked-turnip.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-cabbage.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-carrot.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-onion.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-potato.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-pumpkin.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\boiled-turnip.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-cabbage.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-carrot.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-onion.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-potato.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-pumpkin.png" />
+  <None Remove="assets\artofcooking\textures\block\wood\barrel\fried-turnip.png" />
+  <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\baked\carrot.png" />
+  <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\baked\onion.png" />
+  <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\boiled\carrot.png" />
+  <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\boiled\onion.png" />
+  <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\fried\onion.png" />
+  <None Remove="assets\artofcooking\blocktypes\clay\mold\bowlmold.json" />
+  <None Remove="assets\game\itemtypes\resource\doughworkitem.json" />
+  <Content Include="modinfo.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+<ItemGroup>
+  <Folder Include="assets\game\shapes\item\" />
+</ItemGroup>
+
+<ItemGroup>
+  <Content Update="assets\game\shapes\block\food\meal\vegetable-stew-spoon.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
+</Project>

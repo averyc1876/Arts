@@ -1,0 +1,16 @@
+{
+  "game:It changes...": "It changes...",
+
+  "game:recipeingredient-item-vegetable-cookedcattailroot": "root",
+  "game:recipeingredient-item-vegetable-cookedcattailroot-insturmentalcase": "root",
+  "game:meal-ingredient-soup-primary-vegetable-cookedcattailroot": "Root",
+  "game:meal-ingredient-soup-secondary-vegetable-cookedcattailroot": "Root",
+  "game:meal-ingredient-stew-primary-vegetable-cookedcattailroot": "Root",
+  "game:meal-ingredient-stew-secondary-vegetable-cookedcattailroot": "Root",
+  "game:recipeingredient-item-vegetable-cookedpapyrusroot": "root",
+  "game:recipeingredient-item-vegetable-cookedpapyrusroot-insturmentalcase": "root",
+  "game:meal-ingredient-soup-primary-vegetable-cookedpapyrusroot": "Root",
+  "game:meal-ingredient-soup-secondary-vegetable-cookedpapyrusroot": "Root",
+  "game:meal-ingredient-stew-primary-vegetable-cookedpapyrusroot": "Root",
+  "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Root"
+}

@@ -1,0 +1,14 @@
+{
+  "type": "code",
+  "modid": "artofcooking",
+  "name": "Art of Cooking",
+  "authors": [
+    "Fedarmens"
+  ],
+  "description": "Copper kitchen appliances. Kneading dough and shawarma.",
+  "version": "0.1.0",
+  "dependencies": {
+    "game": "",
+    "coreofarts": "0.1.0"
+  }
+}

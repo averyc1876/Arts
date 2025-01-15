@@ -1,0 +1,29 @@
+[
+  {
+    "op": "replace",
+    "path": "/transitionableProps",
+    "value": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 3360 },
+        "transitionHours": { "avg": 48 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "vinegarportion"
+        },
+        "transitionRatio": 1
+      }
+    ],
+    "file": "game:itemtypes/liquid/cider.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/attributes/handbook",
+    "value": {
+      "ignoreCreativeInvStacks": true
+    },
+    "file": "game:itemtypes/liquid/vinegarportion.json",
+    "side": "Server"
+  }
+]

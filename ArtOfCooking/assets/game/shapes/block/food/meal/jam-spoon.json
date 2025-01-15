@@ -1,0 +1,67 @@
+{
+	"editor": {
+		"backDropShape": "block/wood/spoon-empty",
+		"allAngles": false,
+		"singleTexture": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textures": {
+		"fruit": "game:block/food/meal/group5-rye-turnip-blackcurrant-cheese-poultrystew",
+		"honey": "game:block/food/meal/group7-honey-fieldmushroom-pineapple"
+	},
+	"elements": [
+		{
+			"name": "bowl",
+			"from": [ 5.5, -1.2, 6.5 ],
+			"to": [ 8.5, -0.2, 9.5 ],
+			"rotationOrigin": [ -1.0, -1.2, 0.0 ],
+			"faces": {
+			},
+			"children": [
+				{
+					"name": "fruit",
+					"from": [ 0.2, 1.9, 1.0 ],
+					"to": [ 2.2, 1.9, 2.0 ],
+					"renderPass": 3,
+					"rotationOrigin": [ 0.7, 0.0, 1.5 ],
+					"faces": {
+						"up": {
+							"texture": "#fruit",
+							"uv": [ 1.0, 11.0, 3.0, 12.0 ]
+						}
+					}
+				},
+				{
+					"name": "honey",
+					"from": [ 0.2, 2.1, 1.0 ],
+					"to": [ 2.2, 2.1, 2.0 ],
+					"renderPass": 3,
+					"rotationOrigin": [ 0.7, -0.2, 1.5 ],
+					"faces": {
+						"north": {
+							"texture": "#honey",
+							"uv": [ 0.0, 0.0, 2.0, 0.5 ]
+						},
+						"east": {
+							"texture": "#honey",
+							"uv": [ 0.0, 0.0, 1.0, 0.5 ]
+						},
+						"south": {
+							"texture": "#honey",
+							"uv": [ 0.0, 0.0, 2.0, 0.5 ]
+						},
+						"west": {
+							"texture": "#honey",
+							"uv": [ 0.0, 0.0, 1.0, 0.5 ]
+						},
+						"up": {
+							"texture": "#honey",
+							"uv": [ 0.0, 0.0, 2.0, 1.0 ]
+						}
+					}
+				}
+			]
+		}
+	]
+}

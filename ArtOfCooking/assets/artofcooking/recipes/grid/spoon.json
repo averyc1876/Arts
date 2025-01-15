@@ -1,0 +1,21 @@
+{
+  "ingredientPattern": "WK",
+  "ingredients": {
+    "W": {
+      "type": "item",
+      "code": "game:plank-*",
+      "name": "wood"
+    },
+    "K": {
+      "type": "item",
+      "code": "game:knife-*",
+      "isTool": true
+    }
+  },
+  "width": 2,
+  "height": 1,
+  "output": {
+    "type": "block",
+    "code": "spoon-empty"
+  }
+}

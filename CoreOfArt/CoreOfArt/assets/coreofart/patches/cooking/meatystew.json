@@ -1,0 +1,24 @@
+[
+  {
+    "op": "add",
+    "path": "/ingredients/4/validStacks/14",
+    "value": {
+      "type": "item",
+      "code": "vegetable-*",
+      "shapeElement": "bowl/vegetable 1/*"
+    },
+    "file": "game:recipes/cooking/meatystew.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/ingredients/5/validStacks/14",
+    "value": {
+      "type": "item",
+      "code": "vegetable-*",
+      "shapeElement": "bowl/vegetable 2/*"
+    },
+    "file": "game:recipes/cooking/meatystew.json",
+    "side": "Server"
+  }
+]

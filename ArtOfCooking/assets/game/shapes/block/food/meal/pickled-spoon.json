@@ -1,0 +1,234 @@
+{
+	"editor": {
+		"backDropShape": "block/wood/spoon-empty",
+		"allAngles": false,
+		"singleTexture": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textures": {
+		"vegetable": "game:block/food/meal/group6-spelt-onion-redcurrant-egg-redmeatstew",
+		"fruit": "game:block/food/meal/group5-rye-turnip-blackcurrant-cheese-poultrystew",
+		"grain": "game:block/food/meal/group4-rice-parsnip-whitecurrant",
+		"topping": "game:block/food/meal/group7-honey-fieldmushroom-pineapple"
+	},
+	"elements": [
+		{
+			"name": "bowl",
+			"from": [ 5.5, -1.0, 6.5 ],
+			"to": [ 8.5, 0.0, 9.5 ],
+			"rotationOrigin": [ -1.0, -1.0, 0.0 ],
+			"faces": {
+			},
+			"children": [
+				{
+					"name": "vegetable 1",
+					"from": [ 0.2, 1.8, 0.7 ],
+					"to": [ 2.3, 2.3, 2.3 ],
+					"rotationOrigin": [ 0.7, 0.0, 1.2 ],
+					"faces": {
+						"north": {
+							"texture": "#vegetable",
+							"uv": [ 10.5, 3.0, 12.5, 3.5 ]
+						},
+						"east": {
+							"texture": "#vegetable",
+							"uv": [ 11.5, 1.0, 13.0, 1.5 ]
+						},
+						"south": {
+							"texture": "#vegetable",
+							"uv": [ 10.0, 2.0, 12.0, 2.5 ]
+						},
+						"west": {
+							"texture": "#vegetable",
+							"uv": [ 11.5, 7.0, 13.0, 7.5 ]
+						},
+						"up": {
+							"texture": "#vegetable",
+							"uv": [ 11.0, 1.0, 13.0, 2.5 ]
+						}
+					},
+					"children": [
+						{
+							"name": "voxel1",
+							"from": [ 0.5, 0.3, 0.5 ],
+							"to": [ 1.5, 0.8, 1.5 ],
+							"rotationOrigin": [ 0.5, 0.0, 0.5 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 9.0, 4.0, 10.0, 4.5 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 14.0, 1.0, 15.0, 1.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 13.5, 1.5, 14.5, 2.0 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 12.0, 4.5, 13.0, 5.0 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 12.5, 3.0, 13.5, 4.0 ]
+								}
+							}
+						},
+						{
+							"name": "voxel69",
+							"from": [ 0.1, 0.2, 0.1 ],
+							"to": [ 0.6, 0.7, 0.6 ],
+							"rotationOrigin": [ -0.9, -0.1, 1.1 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 11.0, 1.5, 11.5, 2.0 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 11.5, 5.0, 12.0, 5.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 13.5, 6.5, 14.0, 7.0 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 14.5, 1.0, 15.0, 1.5 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 14.0, 5.0, 14.5, 5.5 ]
+								}
+							}
+						},
+						{
+							"name": "voxel70",
+							"from": [ 1.5, 0.2, 0.1 ],
+							"to": [ 2.0, 0.7, 0.6 ],
+							"rotationOrigin": [ 1.0, -0.1, 1.1 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 13.0, 4.0, 13.5, 4.5 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 10.0, 1.0, 10.5, 1.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 11.0, 2.0, 11.5, 2.5 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 12.0, 3.0, 12.5, 3.5 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 12.0, 5.0, 12.5, 5.5 ]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "vegetable 2",
+					"from": [ -0.5, 2.8, -0.5 ],
+					"to": [ 3.5, 3.3, 3.5 ],
+					"faces": {
+					},
+					"children": [
+						{
+							"name": "voxel74",
+							"from": [ 1.5, -0.6, 1.5 ],
+							"to": [ 2.5, -0.1, 2.5 ],
+							"rotationOrigin": [ 0.5, 0.0, 1.5 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 9.0, 4.0, 10.0, 4.5 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 14.0, 1.0, 15.0, 1.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 13.5, 1.5, 14.5, 2.0 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 12.0, 4.5, 13.0, 5.0 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 12.5, 3.0, 13.5, 4.0 ]
+								}
+							}
+						},
+						{
+							"name": "voxel75",
+							"from": [ 0.6, -0.8, 1.9 ],
+							"to": [ 1.6, -0.3, 2.9 ],
+							"rotationOrigin": [ 0.2, -0.2, 0.9 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 13.5, 2.0, 14.5, 2.5 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 10.5, 4.0, 11.5, 4.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 11.0, 6.0, 12.0, 6.5 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 8.5, 3.5, 9.5, 4.0 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 14.5, 4.0, 15.5, 5.0 ]
+								}
+							}
+						},
+						{
+							"name": "voxel76",
+							"from": [ 0.9, -0.6, 1.4 ],
+							"to": [ 1.4, -0.1, 1.9 ],
+							"rotationOrigin": [ 0.8, 0.0, 1.9 ],
+							"faces": {
+								"north": {
+									"texture": "#vegetable",
+									"uv": [ 11.0, 1.5, 11.5, 2.0 ]
+								},
+								"east": {
+									"texture": "#vegetable",
+									"uv": [ 11.5, 5.0, 12.0, 5.5 ]
+								},
+								"south": {
+									"texture": "#vegetable",
+									"uv": [ 13.5, 6.5, 14.0, 7.0 ]
+								},
+								"west": {
+									"texture": "#vegetable",
+									"uv": [ 14.5, 1.0, 15.0, 1.5 ]
+								},
+								"up": {
+									"texture": "#vegetable",
+									"uv": [ 14.0, 5.0, 14.5, 5.5 ]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

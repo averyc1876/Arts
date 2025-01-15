@@ -1,0 +1,116 @@
+{
+	"code": "fakepie",
+	"behaviors": [
+		{ "name": "UnstableFalling" },
+		{ "name": "SneakPlacing" },
+		{ "name": "RightClickPickup" }
+	],
+	"maxstacksize": 32,
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+		},
+		{
+			"code": "state",
+			"states": [ "raw" ]
+		}
+	],
+	"shape": {
+		"base": "game:block/food/pie/full-fill0"
+
+	},
+	"texturesbytype": {
+		"*-raw": { "dough": { "base": "game:block/food/pie/{type}1" } }
+	},
+	"creativeinventory": {
+		"general": [ "" ],
+		"items": [ "" ]
+	},
+	"materialDensity": 200,
+	"sideOpaque": { "all": false },
+	"sideSolid": { "all": false },
+	"emitSideAo": { "all": false },
+	"collisionSelectionBox": {
+		"x1": 0.1875,
+		"y1": 0,
+		"z1": 0.1875,
+		"x2": 0.8125,
+		"y2": 0.1875,
+		"z2": 0.8125
+	},
+	"heldTpIdleAnimation": "holdbothhands",
+	"drops": [],
+	"guiTransform": {
+		"translation": {
+			"x": 1,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": -14,
+			"y": -60,
+			"z": 13
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 2.38
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 1
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 4.5
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.86,
+			"y": -0.14,
+			"z": -0.57
+		},
+		"rotation": {
+			"x": -49,
+			"y": 29,
+			"z": -112
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.13,
+			"z": 0.5
+		},
+		"scale": 0.7
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": -0.2,
+			"y": 0.2,
+			"z": 0.3
+		},
+		"rotation": {
+			"x": 10,
+			"y": -19,
+			"z": 3
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 1.76
+	}
+}

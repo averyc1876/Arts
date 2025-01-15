@@ -1,0 +1,29 @@
+{
+	"ingredient": {
+		"type": "item",
+		"code": "game:ingot-*",
+		"name": "metal",
+		"allowedVariants": [ "copper" ]
+	},
+	"pattern": [
+		[
+			"#####",
+			"#####",
+			"#####",
+			"#####",
+			"#####"
+		],
+		[
+			"#####",
+			"#___#",
+			"#___#",
+			"#___#",
+			"#####"
+		]
+	],
+	"name": "copperbowl",
+	"output": {
+		"type": "block",
+		"code": "copperbowl-empty"
+	}
+}

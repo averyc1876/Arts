@@ -1,0 +1,31 @@
+[
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "AOCItemDough",
+    "file": "game:itemtypes/food/dough.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Quadrants",
+          "collisionBox": {
+            "x1": 0,
+            "y1": 0,
+            "z1": 0,
+            "x2": 1,
+            "y2": 0.125,
+            "z2": 1
+          }
+        }
+      }
+    ],
+    "file": "game:itemtypes/food/dough.json",
+    "side": "Server"
+  }
+]

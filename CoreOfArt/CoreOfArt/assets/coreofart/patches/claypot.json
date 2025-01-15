@@ -1,0 +1,41 @@
+[
+  {
+    "op": "add",
+    "path": "/texturesByType/*/vegetable-reeds",
+    "value": {
+      "base": "block/food/meal/group18-reeds"
+    },
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedcattailroot",
+    "value": [
+      "vegetable",
+      "vegetable-reeds"
+    ],
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedpapyrusroot",
+    "value": [
+      "vegetable",
+      "vegetable-reeds"
+    ],
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/classByType",
+    "value": {
+      "claypot-burned": "COABlockCookingContainer",
+      "claypot-cooked": "BlockCookedContainer"
+    },
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  }
+]

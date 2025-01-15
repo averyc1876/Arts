@@ -1,0 +1,246 @@
+{
+	"code": "shawarma",
+	"class": "AOCBlockShawarma",
+	"behaviors": [
+		{ "name": "UnstableFalling" },
+		{ "name": "SneakPlacing" },
+		{ "name": "RightClickPickup" }
+	],
+	"entityClass": "AOCBEShawarma",
+	"maxstacksize": 32,
+	"variantgroups": [
+		{
+			"code": "state",
+			"states": [ "raw", "partbaked", "perfect", "charred" ]
+		}
+	],
+	"shape": { "base": "game:block/basic/invisible" },
+	"creativeinventory": {
+		"general": [ "" ],
+		"items": [ "" ]
+	},
+	"creativeinventoryStacksByType": {
+		"shawarma-raw": [
+			{
+				"tabs": [ "general", "decorative", "artofcooking" ],
+				"stacks": [
+					{
+						"type": "block",
+						"code": "artofcooking:shawarma-perfect",
+						"attributes": {
+							"ucontents": [
+								{
+									"type": "item",
+									"code": "artofcooking:lavash-spelt-perfect"
+								},
+								{
+									"type": "item",
+									"code": "game:fruit-redapple"
+								},
+								{
+									"type": "item",
+									"code": "game:fruit-redapple"
+								},
+								{
+									"type": "item",
+									"code": "game:fruit-redapple"
+								},
+								{
+									"type": "item",
+									"code": "game:fruit-redapple"
+								},
+								{
+									"type": "item",
+									"code": "artofcooking:lavash-spelt-perfect"
+								}
+							],
+							"wrapped": true,
+							"shawarmaParts": 0
+						}
+					}
+				]
+			}
+		]
+	},
+	"attributes": {
+		"bakingPropertiesByType": {
+			"*-raw": {
+				"LargeItem": true,
+				"temp": 160,
+				"levelFrom": 0.0,
+				"startScaleY": 0.9,
+				"endScaleY": 0.95,
+				"levelTo": 0.25,
+				"resultCode": "artofcooking:shawarma-partbaked"
+			},
+			"*-partbaked": {
+				"LargeItem": true,
+				"temp": 160,
+				"levelFrom": 0.25,
+				"levelTo": 0.5,
+				"startScaleY": 0.95,
+				"endScaleY": 1.10,
+				"resultCode": "artofcooking:shawarma-perfect",
+				"initialCode": "artofcooking:shawarma-raw"
+			},
+			"*-perfect": {
+				"LargeItem": true,
+				"temp": 160,
+				"levelFrom": 0.5,
+				"levelTo": 0.75,
+				"startScaleY": 1.10,
+				"endScaleY": 1.13,
+				"resultCode": "artofcooking:shawarma-charred",
+				"initialCode": "artofcooking:shawarma-partbaked"
+			},
+			"*-charred": {
+				"LargeItem": true,
+				"temp": 160,
+				"levelFrom": 0.75,
+				"levelTo": 1,
+				"startScaleY": 1.13,
+				"endScaleY": 1.11,
+				"initialCode": "artofcooking:shawarma-perfect"
+			}
+		},
+		"nutritionMulByType": {
+			"*": 1
+		}
+	},
+	"transitionablePropsByType": {
+		"*-raw": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 48 },
+				"transitionHours": { "avg": 36 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-partbaked": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 120 },
+				"transitionHours": { "avg": 36 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-perfect": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 192 },
+				"transitionHours": { "avg": 36 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 1
+			}
+		],
+		"*-charred": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 288 },
+				"transitionHours": { "avg": 36 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
+	"materialDensity": 200,
+	"sideOpaque": { "all": false },
+	"sideSolid": { "all": false },
+	"emitSideAo": { "all": false },
+	"collisionSelectionBox": {
+		"x1": 0.125,
+		"y1": 0,
+		"z1": 0.125,
+		"x2": 0.875,
+		"y2": 0.1875,
+		"z2": 0.875
+	},
+	"heldTpIdleAnimation": "holdbothhands",
+	"drops": [],
+	"guiTransform": {
+		"translation": {
+			"x": 1,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": -26,
+			"y": 121,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 4.38
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 1
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 4.5
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.81,
+			"y": -0.52,
+			"z": -0.56
+		},
+		"rotation": {
+			"x": -129,
+			"y": -8,
+			"z": -46
+		},
+		"origin": {
+			"x": 0.64,
+			"y": 0.14,
+			"z": 0.94
+		},
+		"scale": 1
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": -0.2,
+			"y": 0.2,
+			"z": 0.3
+		},
+		"rotation": {
+			"x": 10,
+			"y": -19,
+			"z": 3
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 1.76
+	}
+}
