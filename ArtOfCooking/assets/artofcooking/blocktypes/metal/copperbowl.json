@@ -1,8 +1,5 @@
 {
 	"code": "copperbowl",
-	"classByType": {
-		"*-empty": "BlockLiquidContainerTopOpened"
-	},
 	"behaviors": [
 		{
 			"name": "GroundStorable",
@@ -31,79 +28,22 @@
 		}
 	],
 	"attributesByType": {
-		"*-empty": {
-			"shelvable": true,
-			"handbook": {
-				"extraSectionsByType": {
-					"*": [
-						{
-							"title": "artofcooking:block-handbooktitle-copperbowl",
-							"text": "artofcooking:block-handbooktext-copperbowl"
-						}
-					]
-				}
-			},
-			"liquidContainerProps": {
-				"capacityLitres": 2,
-				"transferSizeLitres": 0.1,
-				"emptyShapeLoc": "artofcooking:shapes/block/metal/copperbowl-empty-ground",
-				"opaqueContentShapeLoc": "artofcooking:shapes/block/metal/copperbowl-contents",
-				"liquidContentShapeLoc": "artofcooking:shapes/block/metal/copperbowl-liquidcontents",
-				"liquidMaxYTranslate": 0.075
-			},
-			"mealContainer": true,
-			"mealBlockCode": "artofcooking:copperbowl-meal",
-			"servingCapacity": 2,
-			"bowlContents": null
+		"*": {
+			"shelvable": true
 		}
 	},
 	"shape": {
-		"base": "artofcooking:block/metal/copperbowl-empty-ground"
+		"base": "artofcooking:block/metal/metalbowl-empty-ground"
 	},
 	"heldTpIdleAnimation": "holdbothhands",
 	"doNotRenderAtLod2": true,
 	"blockmaterial": "Metal",
-	"creativeinventoryStacksByType": {
-		"*-empty": [
-			{
-				"tabs": [ "general", "decorative", "artofcooking" ],
-				"stacks": [
-					{
-						"type": "block",
-						"code": "artofcooking:copperbowl-empty",
-						"attributes": {
-							"ucontents": [
-								{
-									"type": "item",
-									"code": "game:waterportion",
-									"makefull": true
-								}
-							]
-						}
-					},
-					{
-						"type": "block",
-						"code": "artofcooking:copperbowl-empty",
-						"attributes": {
-							"ucontents": [
-								{
-									"type": "item",
-									"code": "game:honeyportion",
-									"makefull": true
-								}
-							]
-						}
-					},
-					{
-						"type": "block",
-						"code": "artofcooking:copperbowl-empty"
-					}
-				]
-			}
-		]
+	"creativeinventory": {
+		"general": [ "" ],
+		"decorative": [ "" ],
+		"artofcooking": [ "*" ]
 	},
 	"replaceable": 300,
-	"liquidSelectable": 1,
 	"resistance": 0.75,
 	"maxStackSize": 8,
 	"lightAbsorption": 0,

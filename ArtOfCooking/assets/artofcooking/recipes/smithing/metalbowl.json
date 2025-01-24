@@ -1,0 +1,29 @@
+{
+	"ingredient": {
+		"type": "item",
+		"code": "game:ingot-*",
+		"name": "metal",
+		"allowedVariants": [ "tinbronze", "bismuthbronze", "blackbronze" ]
+	},
+	"pattern": [
+		[
+			"#####",
+			"#####",
+			"#####",
+			"#####",
+			"#####"
+		],
+		[
+			"#####",
+			"#___#",
+			"#___#",
+			"#___#",
+			"#####"
+		]
+	],
+	"name": "metalbowl",
+	"output": {
+		"type": "block",
+		"code": "metalbowl-{metal}-empty"
+	}
+}

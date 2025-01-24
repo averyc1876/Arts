@@ -1,0 +1,24 @@
+{
+	"code": "metalpot",
+	"sealHours": 24,
+	"ingredients": [
+		{
+			"type": "item",
+			"code": "game:vinegarportion",
+			"name": "vinegar",
+			"litres": 20,
+			"consumeLitres": 2
+		},
+		{
+			"type": "block",
+			"code": "dirtymetalpot-*-empty",
+			"name": "metal",
+			"quantity": 1
+		}
+	],
+	"output": {
+		"type": "block",
+		"code": "metalpot-{metal}-empty",
+		"quantity": 1
+	}
+}

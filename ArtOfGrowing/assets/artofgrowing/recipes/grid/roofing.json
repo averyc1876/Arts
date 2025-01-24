@@ -1,0 +1,317 @@
+[
+  {
+    "ingredientPattern": "_H,H_",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch",
+        "name": "type",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofing-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H,H_",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "thatchhay-*-ud",
+        "name": "type"
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofing-thatch-east-free",
+      "quantity": 4
+    }
+  },
+
+  {
+    "ingredientPattern": "_H_,H_H",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch",
+        "name": "type",
+        "quantity": 2
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingridge-thatch-ns-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H_,H_H",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "thatchhay-*-ud",
+        "name": "type"
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingridge-thatch-ns-free",
+      "quantity": 4
+    }
+  },
+
+  {
+    "ingredientPattern": "_H_,HHH",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch",
+        "name": "type",
+        "quantity": 2
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingtip-thatch-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H_,HHH",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "thatchhay-*-ud",
+        "name": "type"
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingtip-thatch-free",
+      "quantity": 4
+    }
+  },
+
+  {
+    "ingredientPattern": "_H,H_,_H",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch",
+        "name": "type",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingcornerinner-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H,H_,_H",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "thatchhay-*-ud",
+        "name": "type"
+      }
+    },
+    "width": 2,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingcornerinner-thatch-east-free",
+      "quantity": 4
+    }
+  },
+
+  {
+    "ingredientPattern": "_H,HH",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch",
+        "name": "type",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingcornerouter-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H,HH",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "thatchhay-*-ud",
+        "name": "type"
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingcornerouter-thatch-east-free",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "___,___,_H_",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofing-thatch-east-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingbottom-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "_H_,___,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofing-thatch-east-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingtop-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "___,H__,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofing-thatch-east-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofinghalfleft-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "___,__H,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofing-thatch-east-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofinghalfright-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "___,_H_,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofingridge-thatch-ns-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingridgeend-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "___,H__,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofingridge-thatch-ns-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingridgehalfleft-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "___,__H,___",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "slantedroofingridge-thatch-ns-free"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "slantedroofingridgehalfright-thatch-east-free",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "HK",
+    "ingredients": {
+      "H": {
+        "type": "block",
+        "code": "*-thatch-*"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true,
+        "toolDurabilityCost": 1
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "recipeGroup": 2,
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "game:thatch",
+      "quantity": 2
+    }
+  }
+]

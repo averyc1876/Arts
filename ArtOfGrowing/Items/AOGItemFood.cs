@@ -60,6 +60,7 @@ namespace ArtOfGrowing.Items
         {
             List<JsonItemStack> stacks = new List<JsonItemStack>();
 
+            stacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "wild")));
             stacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "small")));
             stacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "medium")));
             stacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "decent")));
@@ -88,10 +89,13 @@ namespace ArtOfGrowing.Items
         }            
         public override TransitionState[] UpdateAndGetTransitionStates(IWorldAccessor world, ItemSlot inSlot)
         {
-            if (!inSlot.Itemstack.Attributes.HasAttribute("size"))
+            if (inSlot != null && !inSlot.Itemstack.Attributes.HasAttribute("size"))
             {
                 inSlot.Itemstack.Attributes.SetString("size", "wild");
             }     
+            string size = inSlot.Itemstack.Attributes.GetAsString("size");
+            ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:"+Name+"-"+size+"-"+Type)),inSlot.Itemstack.StackSize); 
+            inSlot.Itemstack = stack;
             return base.UpdateAndGetTransitionStates(world, inSlot);
         }     
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
@@ -127,7 +131,6 @@ namespace ArtOfGrowing.Items
         }
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
-            EnumHandHandling bhHandHandling = EnumHandHandling.NotHandled;
             if (blockSel != null) 
             { 
                 if (Name == "vegetable") 
@@ -163,10 +166,12 @@ namespace ArtOfGrowing.Items
                             }
 
                             if (planted) handHandling = EnumHandHandling.PreventDefault;
+                            if (planted) return;
                         }
                     }
                 }
-            }            
+            }
+            EnumHandHandling bhHandHandling = EnumHandHandling.NotHandled;            
             WalkBehaviors(
                 (CollectibleBehavior bh, ref EnumHandling hd) => bh.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref bhHandHandling, ref hd),
                 () => tryEatBegin(itemslot, byEntity, ref bhHandHandling)

@@ -1,0 +1,24 @@
+[
+  {
+    "op": "add",
+    "path": "/attributes/buildMats/grass/1",
+    "value": {
+      "type": "item",
+      "code": "thatch",
+      "quantity": 2,
+      "textureCodeReplace": {
+        "from": "bottom",
+        "to": "thatch"
+      }
+    },
+    "file": "game:blocktypes/wood/pitkiln.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/textures/thatch",
+    "value": { "base": "artofgrowing:block/thatch/normal-top" },
+    "file": "game:blocktypes/wood/pitkiln.json",
+    "side": "Server"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "op": "remove",
+    "path": "/0/ingredients/F/allowedVariants",
+    "file": "game:recipes/grid/dough.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/1/ingredients/F/allowedVariants",
+    "file": "game:recipes/grid/dough.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/2/ingredients/F/allowedVariants",
+    "file": "game:recipes/grid/dough.json",
+    "side": "Server"
+  }
+
+]

@@ -21,21 +21,17 @@
 		},
 		{ "name": "RightClickPickup" }
 	],
-	"class": "BlockMeal",
 	"attributes": {
-		"shelvable": true,
-		"eatenBlock": "artofcooking:copperbowl-empty",
-		"servingCapacity": 2,
-		"handleCookingContainerInteract": true
+		"shelvable": true
 	},
-	"entityClass": "Meal",
 	"heldTpIdleAnimation": "holdbothhands",
-	"shape": { "base": "artofcooking:block/metal/copperbowl-empty-ground" },
+	"shape": { "base": "artofcooking:block/metal/metalbowl-empty-ground" },
 	"doNotRenderAtLod2": true,
 	"blockmaterial": "Metal",
 	"creativeinventory": {
 		"general": [ "" ],
-		"decorative": [ "" ]
+		"decorative": [ "" ],
+		"artofcooking": [ "*" ]
 	},
 	"replaceable": 300,
 	"resistance": 0.75,

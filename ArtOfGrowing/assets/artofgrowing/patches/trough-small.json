@@ -1,0 +1,177 @@
+[
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-flax",
+      "content": {
+        "type": "item",
+        "code": "seeds-flax*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-flax"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-spelt",
+      "content": {
+        "type": "item",
+        "code": "seeds-spelt*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-spelt"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-rice",
+      "content": {
+        "type": "item",
+        "code": "seeds-rice*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-rice"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-rye",
+      "content": {
+        "type": "item",
+        "code": "seeds-rye*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-rye"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-sunflower",
+      "content": {
+        "type": "item",
+        "code": "seeds-sunflower*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-sunflower-seeds"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-amaranth",
+      "content": {
+        "type": "item",
+        "code": "seeds-amaranth*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-amaranth"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "seeds-pumpkin",
+      "content": {
+        "type": "item",
+        "code": "seeds-pumpkin*"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-pumpkin-seeds"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/contentConfig/-",
+    "value": {
+      "code": "grain-pumpkin",
+      "content": {
+        "type": "item",
+        "code": "grain-pumpkin"
+      },
+      "foodFor": [ "chicken-*" ],
+      "quantityPerFillLevel": 1,
+      "maxFillLevels": 8,
+      "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+      "textureCode": "contents-pumpkin"
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/textures/contents-pumpkin",
+    "value": {
+      "base": "block/food/grain/pumpkin",
+      "overlays": [ "block/wood/trough/small/shadow" ]
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/textures/contents-pumpkin-seeds",
+    "value": {
+      "base": "block/food/grain/pumpkin-seeds",
+      "overlays": [ "block/wood/trough/small/shadow" ]
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/textures/contents-sunflower-seeds",
+    "value": {
+      "base": "block/food/grain/sunflower-seeds",
+      "overlays": [ "block/wood/trough/small/shadow" ]
+    },
+    "file": "game:blocktypes/wood/trough-small.json",
+    "side": "Server"
+  }
+
+]

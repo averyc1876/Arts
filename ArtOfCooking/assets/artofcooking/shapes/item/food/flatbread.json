@@ -1,0 +1,83 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"dough": "game:block/food/pie/flax1"
+	},
+	"elements": [
+		{
+			"name": "dough 19",
+			"from": [ 5.5, 0.0, 5.5 ],
+			"to": [ 10.5, 0.5, 10.5 ],
+			"rotationOrigin": [ 8.0, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#dough", "uv": [ 0.0, 2.0, 5.0, 2.5 ], "windMode": [-1,-1,-1,-1] },
+				"east": { "texture": "#dough", "uv": [ 0.0, 11.0, 5.0, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.0, 5.0, 5.0, 5.5 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.0, 8.0, 5.0, 8.5 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 9.5, 1.5, 14.5, 6.5 ] },
+				"down": { "texture": "#dough", "uv": [ 8.0, 8.0, 13.0, 13.0 ] }
+			}
+		},
+		{
+			"name": "dough 20",
+			"from": [ 5.5, 0.0, 10.5 ],
+			"to": [ 10.5, 0.5, 11.0 ],
+			"rotationOrigin": [ 9.5, 0.0, 10.5 ],
+			"faces": {
+				"east": { "texture": "#dough", "uv": [ 0.0, 11.0, 0.5, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.0, 4.5, 5.0, 5.0 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.0, 8.0, 0.5, 8.5 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 0.0, 1.5, 5.0, 2.0 ] },
+				"down": { "texture": "#dough", "uv": [ 0.0, 10.5, 5.0, 11.0 ] }
+			}
+		},
+		{
+			"name": "dough 21",
+			"from": [ 2.5, 0.0, 5.5 ],
+			"to": [ 7.5, 0.5, 6.0 ],
+			"rotationOrigin": [ 6.5, 0.0, 5.5 ],
+			"rotationY": 180.0,
+			"faces": {
+				"east": { "texture": "#dough", "uv": [ 0.0, 11.0, 0.5, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.0, 7.5, 5.0, 8.0 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.0, 8.0, 0.5, 8.5 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 0.0, 4.5, 5.0, 5.0 ] },
+				"down": { "texture": "#dough", "uv": [ 0.0, 7.5, 5.0, 8.0 ] }
+			}
+		},
+		{
+			"name": "dough 22",
+			"from": [ 6.5, 0.0, 6.5 ],
+			"to": [ 11.5, 0.5, 7.0 ],
+			"rotationOrigin": [ 10.5, 0.0, 6.5 ],
+			"rotationY": 90.0,
+			"faces": {
+				"east": { "texture": "#dough", "uv": [ 0.0, 11.0, 0.5, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.0, 7.5, 5.0, 8.0 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.0, 8.0, 0.5, 8.5 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 0.0, 7.5, 5.0, 8.0 ] },
+				"down": { "texture": "#dough", "uv": [ 0.0, 4.5, 5.0, 5.0 ] }
+			}
+		},
+		{
+			"name": "dough 23",
+			"from": [ 1.5, 0.0, 9.5 ],
+			"to": [ 6.5, 0.5, 10.0 ],
+			"rotationOrigin": [ 5.5, 0.0, 9.5 ],
+			"rotationY": -90.0,
+			"faces": {
+				"east": { "texture": "#dough", "uv": [ 0.0, 11.0, 0.5, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.0, 4.5, 5.0, 5.0 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.0, 8.0, 0.5, 8.5 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 0.0, 10.5, 5.0, 11.0 ] },
+				"down": { "texture": "#dough", "uv": [ 0.0, 1.5, 5.0, 2.0 ] }
+			}
+		}
+	]}

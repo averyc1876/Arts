@@ -63,46 +63,6 @@
 		]
 	},
 	"attributes": {
-		"bakingPropertiesByType": {
-			"*-raw": {
-				"LargeItem": true,
-				"temp": 160,
-				"levelFrom": 0.0,
-				"startScaleY": 0.9,
-				"endScaleY": 0.95,
-				"levelTo": 0.25,
-				"resultCode": "artofcooking:shawarma-partbaked"
-			},
-			"*-partbaked": {
-				"LargeItem": true,
-				"temp": 160,
-				"levelFrom": 0.25,
-				"levelTo": 0.5,
-				"startScaleY": 0.95,
-				"endScaleY": 1.10,
-				"resultCode": "artofcooking:shawarma-perfect",
-				"initialCode": "artofcooking:shawarma-raw"
-			},
-			"*-perfect": {
-				"LargeItem": true,
-				"temp": 160,
-				"levelFrom": 0.5,
-				"levelTo": 0.75,
-				"startScaleY": 1.10,
-				"endScaleY": 1.13,
-				"resultCode": "artofcooking:shawarma-charred",
-				"initialCode": "artofcooking:shawarma-partbaked"
-			},
-			"*-charred": {
-				"LargeItem": true,
-				"temp": 160,
-				"levelFrom": 0.75,
-				"levelTo": 1,
-				"startScaleY": 1.13,
-				"endScaleY": 1.11,
-				"initialCode": "artofcooking:shawarma-perfect"
-			}
-		},
 		"nutritionMulByType": {
 			"*": 1
 		}

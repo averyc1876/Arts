@@ -11,8 +11,8 @@
             "placeRemoveSound": "game:sounds/block/plant",
             "stackingModel": "artofgrowing:block/haystorage",
             "stackingTextures": {
-              "normal-top": "block/plant/grassroofing/normal-top",
-              "straw1": "block/plant/grassroofing/straw1"
+              "normal-top": "artofgrowing:block/thatch/normal-top",
+              "straw1": "artofgrowing:block/thatch/straw1"
             },
             "modelItemsToStackSizeRatio": 1.125,
             "stackingCapacity": 128,
@@ -30,7 +30,7 @@
             "bulkTransferQuantity": 8,
             "dropUse": 8,
             "canDrop": "Block",
-            "dropBlock": "game:hay-normal-ud"
+            "dropBlock": "artofgrowing:thatchhay-normal-ud"
           }
         }
       ]
@@ -41,7 +41,7 @@
   {
     "op": "add",
     "path": "/class",
-    "value": "AOGDryGrass",
+    "value": "AOGItemDryGrass",
     "file": "game:itemtypes/resource/thatch.json",
     "side": "Server"
   },
@@ -50,7 +50,29 @@
     "path": "/attributes",
     "value": {
       "foodTags": [ "grass" ],
-      "placeSound": "block/plant"
+      "placeSound": "block/plant",
+      "handbook": {
+        "include": true,
+        "extraSections": [
+          {
+            "title": "artofgrowing:block-handbooktitle-thatchhay",
+            "text": "artofgrowing:block-handbooktext-thatchhay"
+          },
+          {
+            "title": "game:item-handbooktitle-drygrass",
+            "text": "game:item-handbooktext-drygrass"
+          }
+        ]
+      }
+    },
+    "file": "game:itemtypes/resource/thatch.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/textures",
+    "value": {
+      "bundle": { "base": "artofgrowing:item/resource/thatchbundle" }
     },
     "file": "game:itemtypes/resource/thatch.json",
     "side": "Server"

@@ -29,6 +29,16 @@
     "side": "Server"
   },
   {
+    "op": "add",
+    "path": "/attributesByType/claypot-cooked/textureMapping/grain-pumpkin",
+    "value": [
+      "grain",
+      "vegetable-reeds"
+    ],
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
     "op": "replace",
     "path": "/classByType",
     "value": {

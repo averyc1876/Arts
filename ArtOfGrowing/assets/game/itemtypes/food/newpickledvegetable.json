@@ -33,9 +33,9 @@
 		"*-turnip": { "base": "item/food/pickledvegetable/turnip" }
 	},
 	"creativeinventory": {
-		"general": [ "*" ],
-		"items": [ "*" ],
-		"artofgrowing": [ "*" ]
+		"general": [ "" ],
+		"items": [ "" ],
+		"artofgrowing": [ "" ]
 	},
 	"nutritionPropsByType": {
 		"*-cabbage": {

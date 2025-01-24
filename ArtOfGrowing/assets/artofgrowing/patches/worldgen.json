@@ -1,0 +1,32 @@
+[
+  {
+    "file": "game:worldgen/blockpatches/crop.json",
+    "op": "addmerge",
+    "path": "/4/blockCodes/-",
+    "value": "crop-carrot-11"
+  },
+  {
+    "file": "game:worldgen/blockpatches/crop.json",
+    "op": "addmerge",
+    "path": "/5/blockCodes/-",
+    "value": "crop-onion-11"
+  },
+  {
+    "file": "game:worldgen/blockpatches/crop.json",
+    "op": "addmerge",
+    "path": "/6/blockCodes/-",
+    "value": "crop-parsnip-11"
+  },
+  {
+    "file": "game:worldgen/blockpatches/crop.json",
+    "op": "addmerge",
+    "path": "/7/blockCodes/-",
+    "value": "crop-turnip-8"
+  },
+  {
+    "file": "game:worldgen/blockpatches/crop.json",
+    "op": "addmerge",
+    "path": "/13/blockCodes/-",
+    "value": "crop-sunflower-12"
+  }
+]

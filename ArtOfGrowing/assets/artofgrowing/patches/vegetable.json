@@ -36,10 +36,24 @@
     "value": [
       {
         "code": "type",
-        "states": [ "soybean", "pumpkin", "pineapple", "cassava", "peanut", "bellpepper" ]
+        "states": [ "soybean", "pineapple", "cassava", "peanut", "bellpepper" ]
       }
     ],
     "file": "game:itemtypes/resource/seeds.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/enabled",
+    "value": false,
+    "file": "game:recipes/grid/pumpkinseed.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/enabled",
+    "value": false,
+    "file": "game:recipes/grid/pumpkinslice.json",
     "side": "Server"
   }
 ]

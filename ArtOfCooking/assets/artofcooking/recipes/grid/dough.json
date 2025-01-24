@@ -1,0 +1,41 @@
+[
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "lavash-*-raw",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "game:dough-{type}",
+      "quantity": 2
+    }  
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "flatbread-*-raw",
+        "quantity": 2,
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "game:dough-{type}",
+      "quantity": 1
+    }
+  }
+]

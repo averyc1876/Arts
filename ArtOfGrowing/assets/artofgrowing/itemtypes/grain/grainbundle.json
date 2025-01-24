@@ -192,7 +192,15 @@
 					"type": "item",
 					"code": "game:thatch"
 				},
-				"transitionRatio": 1
+				"transitionRatioByType": {
+					"*-wild-*": 0.125,
+					"*-small-*": 0.25,
+					"*-medium-*": 0.5,
+					"*-decent-*": 1,
+					"*-large-*": 2,
+					"*-hefty-*": 4,
+					"*-gigantic-*": 8
+				}
 			}
 		]
 	},

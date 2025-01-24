@@ -1,0 +1,123 @@
+{
+	"code": "crop",
+	"class": "BlockCrop",
+	"frostable": true,
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "pumpkin" ]
+		},
+		{
+			"code": "size",
+			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
+		},
+		{
+			"code": "stage",
+			"states": [ "1", "2", "3", "4", "5", "6", "7", "8" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "" ],
+		"flora": [ "" ]
+	},
+	"renderpass": "OpaqueNoCull",
+	"shape": { "base": "game:block/plant/pumpkin/motherplant" },
+	"blockmaterial": "Plant",
+	"randomizeRotations": true,
+	"attributes": {
+		"butterflyFeedByType": {
+			"*-1": false,
+			"*-8": false,
+			"*": true
+		},
+		"beeFeedByType": {
+			"*-1": false,
+			"*-8": false,
+			"*": true
+		},
+		"sitHeight": 0.45,
+		"tickGrowthProbability": 0.05
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"sideao": { "all": false },
+	"drops": [],
+	"cropProps": {
+		"behaviors": [
+			{
+				"name": "AOGPumpkin",
+				"properties": {
+					"size": "{size}",
+					"vineGrowthStage": 3,
+					"vineGrowthQuantity": {
+						"dist": "invexp",
+						"avg": 2,
+						"var": 3
+					}
+				}
+			}
+		],
+		"requiredNutrient": "P",
+		"nutrientConsumptionByType": {
+			"*-wild-*": 10,
+			"*-small-*": 15,
+			"*-medium-*": 20,
+			"*-decent-*": 25,
+			"*-large-*": 30,
+			"*-hefty-*": 35,
+			"*-gigantic-*": 40
+		},
+		"growthStages": 8,
+		"totalGrowthMonthsByType": {
+			"*-wild-*": 0.9,
+			"*-small-*": 1.1,
+			"*-medium-*": 1.3,
+			"*-decent-*": 1.5,
+			"*-large-*": 1.7,
+			"*-hefty-*": 1.9,
+			"*-gigantic-*": 2.1
+		}
+	},
+	"texturesByType": {
+		"crop-pumpkin-*-1": {
+			"all": { "base": "game:block/plant/pumpkin/motherplant/stage1-northandsouth" }
+		},
+		"crop-pumpkin-*": {
+			"south": { "base": "game:block/plant/pumpkin/motherplant/stage{stage}-south" },
+			"north": { "base": "game:block/plant/pumpkin/motherplant/stage{stage}-north" }
+		}
+	},
+	"replaceable": 6001,
+	"lightAbsorption": 0,
+	"resistance": 1.5,
+	"collisionbox": null,
+	"selectionbox": {
+		"x1": 0.125,
+		"y1": 0,
+		"z1": 0.125,
+		"x2": 0.875,
+		"y2": 0.25,
+		"z2": 0.875
+	},
+	"guitransform": {
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"sounds": {
+		"place": "game:block/plant",
+		"break": "game:block/plant",
+		"hit": "game:block/plant"
+	},
+	"materialDensity": 200,
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 10
+	}
+}

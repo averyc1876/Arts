@@ -2,21 +2,39 @@
 	"code": "seeds",
 	"class": "AOGItemPlantableSeed",
 	"maxstacksize": 64,
-	"attributes": { "inContainerTexture": { "base": "block/food/grain/{type}" } },
+	"attributes": {
+		"inContainerTexture": { "base": "block/food/grain/{type}" },
+		"foodTags": [ "{type}" ]
+	},
 	"variantgroups": [
 		{
 			"code": "type",
-			"states": [ "flax", "spelt", "rice", "rye", "sunflower", "amaranth" ]
+			"states": [ "flax", "spelt", "rice", "rye", "sunflower", "amaranth", "pumpkin" ]
 		}
 	],
 	"shape": { "base": "item/resource/seeds/seedbag" },
 	"textures": {
-		"sauerkraut": { "base": "block/food/grain/{type}-grain" }
+		"sauerkraut": { "base": "block/food/grain/{type}-grain" },
+		"seed": { "base": "item/resource/seeds/{type}" }
 	},
 	"creativeinventory": {
-		"general": [ "*" ],
-		"items": [ "*" ],
-		"artofgrowing": [ "*" ]
+		"general": [ "" ],
+		"items": [ "" ],
+		"artofgrowing": [ "" ]
+	},
+	"nutritionPropsByType": {
+		"*-flax": {
+			"satiety": 10,
+			"foodcategory": "Grain"
+		},
+		"*": {
+			"satiety": 20,
+			"foodcategory": "Grain"
+		},
+		"*-rice": {
+			"satiety": 25,
+			"foodcategory": "Grain"
+		}
 	},
 	"transitionableProps": [
 		{

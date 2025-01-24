@@ -1,0 +1,174 @@
+{
+	"code": "dirtymetalpot",
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "Quadrants",
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.4375,
+					"z2": 1
+				}
+			}
+		},
+		{
+			"name": "Unplaceable",
+			"__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"
+		}
+	],
+	"classByType": {
+		"dirtymetalpot-*-empty": "COABlockCookingContainer",
+		"dirtymetalpot-*-cooked": "BlockCookedContainer"
+	},
+	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldTpUseAnimation": "twohandplaceblock",
+
+	"attributes": {
+		"handbook": {
+			"extraSectionsByType": {
+				"*": [
+					{
+						"title": "artofcooking:block-handbooktitle-metalpot",
+						"text": "artofcooking:block-handbooktext-dirtymetalpot"
+					}
+				]
+			}
+		}
+	},
+	"attributesByType": {
+		"*": {
+			"attachmentArea": {
+				"x1": 4,
+				"y1": 0,
+				"z1": 4,
+				"x2": 11,
+				"y2": 0,
+				"z2": 11
+			},
+			"cookingContainerSlots": 4,
+			"maxContainerSlotStackSize": 12,
+			"cookingSlotCapacityLitres": 12,
+			"servingCapacity": 12,
+			"maxServingSize": 12,
+			"storageType": 1,
+			"maxTemperature": 250,
+			"inFirePitProps": {
+				"transform": {
+					"translation": {
+						"x": 0,
+						"y": 0.125,
+						"z": 0
+					}
+				},
+				"useFirepitModel": "Wide"
+			},
+			"mealContainer": true,
+			"mealBlockCode": "artofcooking:dirtymetalpot-{metal}-cooked",
+			"dirtiedBlockCode": "artofcooking:dirtymetalpot-{metal}-cooked",
+			"emptiedBlockCode": "artofcooking:dirtymetalpot-{metal}-empty",
+			"isDirtyPot": true
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "metal",
+			"states": [ "tinbronze", "bismuthbronze", "blackbronze" ]
+		},
+		{
+			"code": "type",
+			"states": [ "empty", "cooked" ]
+		}
+	],
+	"entityclassByType": {
+		"*-cooked": "CookedContainer"
+	},
+	"shape": { "base": "block/metal/metalpot-opened-empty" },
+	"doNotRenderAtLod2": true,
+	"blockmaterial": "Metal",
+	"creativeinventory": {
+		"general": [ "dirtymetalpot-*-empty" ],
+		"decorative": [ "dirtymetalpot-*-empty" ],
+		"artofcooking": [ "dirtymetalpot-*-empty" ]
+	},
+	"replaceable": 400,
+	"resistance": 1.5,
+	"maxStackSize": 1,
+	"lightAbsorption": 0,
+	"texturesByType": {
+		"*": {
+			"transparent": { "base": "game:block/transparent" },
+			"copper": { "base": "game:block/metal/armor-generic/{metal}" },
+			"copper4": { "base": "game:block/metal/armor-generic/{metal}" },
+			"ceramic": { "base": "game:block/metal/armor-generic/{metal}" },
+			"lid-dirty2": { "base": "game:block/metal/armor-generic/{metal}" },
+
+			"liquid": { "base": "game:block/liquid/glue-cold" }
+		}
+	},
+	"sounds": {
+		"walk": "walk/stone"
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"collisionbox": {
+		"x1": 0.28,
+		"y1": 0,
+		"z1": 0.28,
+		"x2": 0.72,
+		"y2": 0.35,
+		"z2": 0.72
+	},
+	"selectionbox": {
+		"x1": 0.28,
+		"y1": 0,
+		"z1": 0.28,
+		"x2": 0.72,
+		"y2": 0.35,
+		"z2": 0.72
+	},
+	"guiTransform": {
+		"origin": {
+			"x": 0.5,
+			"y": 0.2,
+			"z": 0.5
+		},
+		"scale": 2
+	},
+	"groundTransform": {
+		"scale": 3
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 2
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.7,
+			"y": 0.06,
+			"z": -0.47
+		},
+		"rotation": {
+			"x": -52,
+			"y": 20,
+			"z": -110
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 0.76
+	}
+}

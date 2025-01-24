@@ -1,0 +1,555 @@
+[
+  {
+    "ingredientPattern": "_B_,B_B",
+    "ingredients": {
+      "B": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:clothes-head-straw-hat"
+    }
+  },
+  {
+    "ingredientPattern": "FKF,FGF,FFF",
+    "ingredients": {
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      },
+      "F": {
+        "type": "item",
+        "code": "game:firewood",
+        "quantity": 2
+      },
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 9
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "name": "improvised wood armor",
+    "output": {
+      "type": "item",
+      "code": "game:armor-body-improvised-wood"
+    }
+  },
+  {
+    "ingredientPattern": "GS,S_",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick"
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:firestarter"
+    }
+  },
+  {
+    "ingredientPattern": "PHP\tPPP",
+    "ingredients": {
+      "H": {
+        "type": "item",
+        "code": "game:thatch"
+      },
+      "P": {
+        "type": "item",
+        "code": "game:plank-*"
+      }
+    },
+    "width": 3,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "game:henbox-empty"
+    }
+  },
+  {
+    "ingredientPattern": "G_G\tCSC\tGLG",
+    "enabled": true,
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "S": {
+        "type": "block",
+        "code": "game:sand-*"
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 4
+      },
+      "L": {
+        "type": "block",
+        "code": "game:soil-*-none",
+        "name": "grade",
+        "allowedVariants": [ "low", "medium" ]
+      }
+    },
+    "name": "mudbrick",
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "game:mudbrick-light",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "G_G\tCLC\tG_G",
+    "enabled": true,
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 2
+      },
+      "L": {
+        "type": "block",
+        "code": "game:soil-*-none",
+        "name": "grade",
+        "allowedVariants": [ "low", "medium" ]
+      }
+    },
+    "name": "mudbrick",
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "game:mudbrick-dark",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "CLC\tG_G",
+    "enabled": true,
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      },
+      "L": {
+        "type": "block",
+        "code": "game:soil-low-none",
+        "quantity": 1
+      }
+    },
+    "name": "mudbrick",
+    "width": 3,
+    "height": 2,
+    "recipeGroup": 2,
+    "output": {
+      "type": "block",
+      "code": "game:mudbrickslab-dark-down-free",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "___\tSSS\tGGG",
+    "ingredients": {
+      "G": {
+        "type": "block",
+        "code": "game:soil-*",
+        "allowedVariants": [ "verylow-none", "low-none", "medium-none" ]
+      },
+      "S": {
+        "type": "item",
+        "code": "game:thatch"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "game:strawbedding",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "G\tS",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick"
+      }
+    },
+    "width": 1,
+    "height": 2,
+    "output": {
+      "type": "block",
+      "code": "game:torch-basic-extinct-up",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "GDG\tDGD\tGDG",
+    "enabled": true,
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 1
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      }
+    },
+    "name": "cob",
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "block",
+      "code": "game:cob-none",
+      "quantity": 10
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "andesite" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "name": "clay",
+        "allowedVariants": [ "fire", "blue" ],
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-ash",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "shale", "basalt", "slate" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-brown",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "claystone", "conglomerate" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-browngolden",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "chalk", "limestone" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "name": "clay",
+        "allowedVariants": [ "fire", "blue" ],
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-brownlight",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "phyllite", "chert" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-brownweathered",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "peridotite" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-green",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "bauxite" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-orange",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "granite" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "name": "clay",
+        "allowedVariants": [ "fire", "blue" ],
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-tan",
+      "quantity": 12
+    }
+  },
+  {
+    "ingredientPattern": "DG,WC",
+    "ingredients": {
+      "G": {
+        "type": "item",
+        "code": "game:thatch",
+        "quantity": 2
+      },
+      "D": {
+        "type": "block",
+        "code": "game:soil-*",
+        "quantity": 1
+      },
+      "W": {
+        "type": "block",
+        "code": "game:sand-*",
+        "name": "rock",
+        "allowedVariants": [ "sandstone" ],
+        "quantity": 1
+      },
+      "C": {
+        "type": "item",
+        "code": "game:clay-*",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "game:daubraw-yellow",
+      "quantity": 12
+    }
+  }
+]

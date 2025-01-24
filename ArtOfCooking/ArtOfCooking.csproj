@@ -105,7 +105,6 @@
   <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\boiled\carrot.png" />
   <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\boiled\onion.png" />
   <None Remove="assets\artofcooking\textures\item\food\cookedvegetable\fried\onion.png" />
-  <None Remove="assets\artofcooking\blocktypes\clay\mold\bowlmold.json" />
   <None Remove="assets\game\itemtypes\resource\doughworkitem.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -113,10 +112,14 @@
 </ItemGroup>
 
 <ItemGroup>
+  <Folder Include="assets\game\recipes\" />
   <Folder Include="assets\game\shapes\item\" />
 </ItemGroup>
 
 <ItemGroup>
+  <Content Update="assets\artofcooking\blocktypes\metal\metalpot.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
   <Content Update="assets\game\shapes\block\food\meal\vegetable-stew-spoon.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>

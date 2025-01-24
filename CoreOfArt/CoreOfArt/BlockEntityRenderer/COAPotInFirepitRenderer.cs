@@ -38,7 +38,7 @@ namespace CoreOfArts.BlockEntityRenderer
             }
             else
             {
-                string basePath = "artofcooking:shapes/block/metal/" + potBlock.FirstCodePart() + "-";
+                string basePath = "artofcooking:shapes/block/metal/metalpot-";
                 if (potBlock.Code.PathStartsWith("dirtyclaypot")) basePath = "shapes/block/clay/pot-dirty-";
                 if (potBlock.Code.PathStartsWith("claypot")) basePath = "shapes/block/clay/pot-";
                 

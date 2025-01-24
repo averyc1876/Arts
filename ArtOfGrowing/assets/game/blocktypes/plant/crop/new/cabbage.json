@@ -1,6 +1,7 @@
 {
 	"code": "crop",
 	"class": "BlockCrop",
+	"frostable": true,
 	"behaviors": [
 		{ "name": "Unstable" }
 	],

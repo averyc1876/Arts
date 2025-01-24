@@ -9,10 +9,11 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using Vintagestory.API.Common.Entities;
 
 namespace ArtOfGrowing.Items
 {
-    public class AOGItemPlantableSeed : Item
+    public class AOGItemPlantableSeed : ItemPlantableSeed
     {
         ICoreClientAPI capi;
         WorldInteraction[] interactions;
@@ -25,39 +26,14 @@ namespace ArtOfGrowing.Items
             base.OnLoaded(api);
             capi = api as ICoreClientAPI; 
             
-            AddAllTypesToCreativeInventory();       
-
-            interactions = ObjectCacheUtil.GetOrCreate(api, "seedInteractions", () =>
-            {
-                List<ItemStack> stacks = new List<ItemStack>();
-
-                foreach (Block block in api.World.Blocks)
-                {
-                    if (block.Code == null || block.EntityClass == null) continue;
-
-                    Type type = api.World.ClassRegistry.GetBlockEntity(block.EntityClass);
-                    if (type == typeof(BlockEntityFarmland))
-                    {
-                        stacks.Add(new ItemStack(block));
-                    }
-                }
-
-                return new WorldInteraction[]
-                {
-                    new WorldInteraction()
-                    {
-                        ActionLangCode = "heldhelp-plant",
-                        MouseButton = EnumMouseButton.Right,
-                        Itemstacks = stacks.ToArray()
-                    }
-                };
-            });
+            AddAllTypesToCreativeInventory();   
             
         }  
         public void AddAllTypesToCreativeInventory()
         {
             List<JsonItemStack> sizestacks = new List<JsonItemStack>();
-
+            
+            sizestacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "wild")));
             sizestacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "small")));
             sizestacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "medium")));
             sizestacks.Add(genJstack(string.Format("{{ size: \"{0}\" }}", "decent")));
@@ -114,7 +90,7 @@ namespace ArtOfGrowing.Items
 
             var size = itemstack.Attributes.GetString("size");
             var loc = new AssetLocationAndSource("artofgrowing:item/seedbag/" + size + ".json");   
-            if (Type == "flax" || Type == "spelt" || Type == "rice" || Type == "rye" || Type == "sunflower" || Type == "amaranth" ) loc = new AssetLocationAndSource("artofgrowing:item/food/pickledvegetable/" + size + "/cabbage.json");  
+            if (Type == "flax" || Type == "spelt" || Type == "rice" || Type == "rye" || Type == "sunflower" || Type == "amaranth" || Type == "pumpkin" ) loc = new AssetLocationAndSource("artofgrowing:item/food/pickledvegetable/" + size + "/cabbage.json");  
             var asset = capi.Assets.TryGet(loc.WithPathAppendixOnce(".json").WithPathPrefixOnce("shapes/"));
             if (asset != null) shape = asset.ToObject<Shape>();
             capi.Tesselator.TesselateShape(this, shape, out mesh, new Vec3f(this.Shape.rotateX, this.Shape.rotateY, this.Shape.rotateZ));
@@ -136,6 +112,7 @@ namespace ArtOfGrowing.Items
             if (be is BlockEntityFarmland)
             {
                 Block cropBlock = byEntity.World.GetBlock(CodeWithPath("crop-" + size + "-" + lastCodePart + "-1"));
+                if (lastCodePart == "pumpkin") cropBlock = byEntity.World.GetBlock(CodeWithPath("crop-" + lastCodePart + "-" + size + "-1"));
                 if (cropBlock == null) return;
 
                 IPlayer byPlayer = null;
@@ -144,7 +121,7 @@ namespace ArtOfGrowing.Items
                 bool planted = ((BlockEntityFarmland)be).TryPlant(cropBlock);
                 if (planted)
                 {
-                    byEntity.World.PlaySoundAt(new AssetLocation("sounds/block/plant"), pos.X, pos.Y, pos.Z, byPlayer);
+                    byEntity.World.PlaySoundAt(new AssetLocation("sounds/block/plant"), pos, 0.4375, byPlayer);
 
                     ((byEntity as EntityPlayer)?.Player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
 
@@ -160,41 +137,59 @@ namespace ArtOfGrowing.Items
         }
 
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
-        {
-            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
-            
+        {            
             string size = inSlot.Itemstack.Attributes.GetString("size");
             Block cropBlock = world.GetBlock(CodeWithPath("crop-" + size + "-" + inSlot.Itemstack.Collectible.LastCodePart() + "-1"));
+            if (inSlot.Itemstack.Collectible.LastCodePart() == "pumpkin") cropBlock = world.GetBlock(CodeWithPath("crop-" + inSlot.Itemstack.Collectible.LastCodePart() + "-" + size + "-1"));
             if (cropBlock == null || cropBlock.CropProps == null) return;
             
             if (inSlot.Itemstack.Attributes != null)
             {
                 dsc.AppendLine(Lang.Get("artofgrowing:size-food: {0}", Lang.Get("artofgrowing:food-" + size)));
             }
-            dsc.AppendLine(Lang.Get("soil-nutrition-requirement") + cropBlock.CropProps.RequiredNutrient);
-            dsc.AppendLine(Lang.Get("soil-nutrition-consumption") + cropBlock.CropProps.NutrientConsumption);
 
-            double totalDays = cropBlock.CropProps.TotalGrowthDays;
-            if (totalDays > 0)
-            {
-                var defaultTimeInMonths = totalDays / 12;
-                totalDays = defaultTimeInMonths * world.Calendar.DaysPerMonth;
-            } else
-            {
-                totalDays = cropBlock.CropProps.TotalGrowthMonths * world.Calendar.DaysPerMonth;
-            }
-
-            totalDays /= api.World.Config.GetDecimal("cropGrowthRateMul", 1);
-
-            dsc.AppendLine(Lang.Get("soil-growth-time") + " " + Lang.Get("count-days", Math.Round(totalDays, 1)));
-            dsc.AppendLine(Lang.Get("crop-coldresistance", Math.Round(cropBlock.CropProps.ColdDamageBelow, 1)));
-            dsc.AppendLine(Lang.Get("crop-heatresistance", Math.Round(cropBlock.CropProps.HeatDamageAbove, 1)));
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
         }
 
 
         public override WorldInteraction[] GetHeldInteractionHelp(ItemSlot inSlot)
         {
             return interactions.Append(base.GetHeldInteractionHelp(inSlot));
+        }
+        public override FoodNutritionProperties GetNutritionProperties(IWorldAccessor world, ItemStack itemstack, Entity forEntity)
+        {            
+            string size = itemstack.Attributes.GetString("size");
+            if (NutritionProps == null) return NutritionProps;
+            FoodNutritionProperties props = NutritionProps.Clone();
+            
+            CollectibleObject obj = itemstack.Collectible;
+            float koef = 1;
+            switch (size)
+                {
+                    case "wild":
+                        koef = 0.2f;
+                        break;
+                    case "small":
+                        koef = 0.4f;
+                        break;
+                    case "medium":
+                        koef = 0.6f;
+                        break;
+                    case "decent":
+                        koef = 0.8f;
+                        break;
+                    case "large":
+                        koef = 1;
+                        break;
+                    case "hefty":
+                        koef = 1.5f;
+                        break;
+                    case "gigantic":
+                        koef = 2;
+                        break;
+                }
+            props.Satiety = base.NutritionProps.Satiety * koef;
+            return props;
         }
     }
 }

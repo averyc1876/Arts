@@ -1,6 +1,10 @@
-﻿using ArtOfGrowing.Items;
+﻿using ArtOfGrowing.BlockBehavior;
+using ArtOfGrowing.BlockEntites;
+using ArtOfGrowing.Blocks;
+using ArtOfGrowing.Items;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.GameContent;
 
 namespace ArtOfGrowing
 {
@@ -16,9 +20,13 @@ namespace ArtOfGrowing
             api.RegisterItemClass("AOGFlaxSoft", typeof(AOGItemFlaxSoft));
             api.RegisterItemClass("AOGItemInteract", typeof(AOGItemInteract));
             api.RegisterItemClass("AOGItemRidge", typeof(AOGItemRidge));
-            api.RegisterItemClass("AOGDryGrass", typeof(AOGItemDryGrass));
             api.RegisterItemClass("AOGItemFood", typeof(AOGItemFood));
+            api.RegisterItemClass("AOGItemDryGrass", typeof(AOGItemDryGrass));
             api.RegisterItemClass("AOGItemPlantableSeed", typeof(AOGItemPlantableSeed));
+            api.RegisterBlockClass("AOGBlockPumpkin", typeof(AOGBlockPumpkin));
+            api.RegisterCropBehavior("AOGPumpkin", typeof(AOGPumpkinCropBehavior));
+            api.RegisterBlockEntityClass("AOGBlockEntityPumpkinVine", typeof(AOGBlockEntityPumpkinVine));
+            api.RegisterBlockBehaviorClass("AOGPlacing", typeof(AOGBehaviorPlacing));
             api.World.Logger.StoryEvent(Lang.Get("It grows..."));        
         }
     }

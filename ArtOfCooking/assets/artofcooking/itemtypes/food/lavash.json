@@ -57,6 +57,14 @@
 			},
 			"inShawarmaProperties": {
 				"texture": "game:block/food/pie/{type}1"
+			},
+			"handbook": {
+				"extraSections": [
+					{
+						"title": "artofcooking:item-handbooktitle-doughforming",
+						"text": "artofcooking:item-handbooktext-doughforming"
+					}
+				]
 			}
 		},
 		"*-partbaked": {
@@ -72,6 +80,14 @@
 			},
 			"inShawarmaProperties": {
 				"texture": "game:block/food/pie/{type}2"
+			},
+			"handbook": {
+				"extraSections": [
+					{
+						"title": "artofcooking:item-handbooktitle-shawarma",
+						"text": "artofcooking:item-handbooktext-shawarma"
+					}
+				]
 			},
 			"nutritionPropsWhenInMealByType": {
 				"*-flax-*": {
@@ -102,6 +118,14 @@
 			"inShawarmaProperties": {
 				"texture": "game:block/food/pie/{type}3"
 			},
+			"handbook": {
+				"extraSections": [
+					{
+						"title": "artofcooking:item-handbooktitle-shawarma",
+						"text": "artofcooking:item-handbooktext-shawarma"
+					}
+				]
+			},
 			"nutritionPropsWhenInMealByType": {
 				"*-flax-*": {
 					"satiety": 400,
@@ -129,6 +153,14 @@
 			},
 			"inShawarmaProperties": {
 				"texture": "game:block/food/pie/{type}4"
+			},
+			"handbook": {
+				"extraSections": [
+					{
+						"title": "artofcooking:item-handbooktitle-shawarma",
+						"text": "artofcooking:item-handbooktext-shawarma"
+					}
+				]
 			},
 			"nutritionPropsWhenInMealByType": {
 				"*-flax-*": {

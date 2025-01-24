@@ -1,0 +1,44 @@
+[
+  {
+    "op": "replace",
+    "path": "/0/ingredients/H/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/2/ingredients/H/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/4/ingredients/H/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/6/ingredients/H/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/8/ingredients/H/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/17/output/code",
+    "value": "drygrass",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  }
+]

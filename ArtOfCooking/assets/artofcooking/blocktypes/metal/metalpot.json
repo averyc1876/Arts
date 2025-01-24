@@ -1,0 +1,251 @@
+{
+	"code": "metalpot",
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "Quadrants",
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.4375,
+					"z2": 1
+				}
+			}
+		},
+		{
+			"name": "Unplaceable",
+			"__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"
+		}
+	],
+	"classByType": {
+		"metalpot-*-empty": "COABlockCookingContainer",
+		"metalpot-*-cooked": "BlockCookedContainer"
+	},
+	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldTpUseAnimation": "twohandplaceblock",
+
+	"attributes": {
+		"tempGlowMode": 1,
+		"attachableToEntity": {
+			"categoryCodeByType": {
+				"metalpot-*-empty": "utilities",
+				"metalpot-*-cooked": "utilities"
+			},
+			"attachedShapeBySlotCode": {
+				"frontrightside": { "base": "artofcooking:item/wearable/hooved/metalpotr-elk" },
+				"frontleftside": { "base": "artofcooking:item/wearable/hooved/metalpotl-elk" }
+			},
+			"attachmentArea": {
+				"x1": 4,
+				"y1": 0,
+				"z1": 4,
+				"x2": 11,
+				"y2": 0,
+				"z2": 11
+			}
+		}
+	},
+	"attributesByType": {
+		"metalpot-*-empty": {
+			"attachmentArea": {
+				"x1": 4,
+				"y1": 0,
+				"z1": 4,
+				"x2": 11,
+				"y2": 0,
+				"z2": 11
+			},
+			"handbook": {
+				"extraSectionsByType": {
+					"*": [
+						{
+							"title": "artofcooking:block-handbooktitle-metalpot",
+							"text": "artofcooking:block-handbooktext-metalpot"
+						}
+					]
+				}
+			},
+			"cookingContainerSlots": 4,
+			"maxContainerSlotStackSize": 12,
+			"cookingSlotCapacityLitres": 12,
+			"servingCapacity": 12,
+			"maxServingSize": 12,
+			"storageType": 1,
+			"maxTemperature": 250,
+			"inFirePitProps": {
+				"transform": {
+					"translation": {
+						"x": 0,
+						"y": 0.125,
+						"z": 0
+					}
+				},
+				"useFirepitModel": "Wide"
+			},
+			"mealContainer": true,
+			"mealBlockCode": "artofcooking:metalpot-{metal}-cooked",
+			"dirtiedBlockCode": "artofcooking:dirtymetalpot-{metal}-cooked"
+		},
+
+		"metalpot-*-cooked": {
+			"attachmentArea": {
+				"x1": 4,
+				"y1": 0,
+				"z1": 4,
+				"x2": 11,
+				"y2": 0,
+				"z2": 11
+			},
+			"mealContainer": true,
+			"mealBlockCode": "artofcooking:metalpot-{metal}-cooked",
+			"emptiedBlockCode": "artofcooking:metalpot-{metal}-empty",
+			"servingCapacity": 12,
+			"allowHeating": true,
+			"maxTemperature": 250,
+			"handleCookingContainerInteract": true,
+			"wearableAttachment": true,
+			"wearableCategoryCode": "frontrightside",
+			"attachShape": { "base": "artofcooking:item/wearable/hooved/metalpot" }
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "metal",
+			"states": [ "tinbronze", "bismuthbronze", "blackbronze" ]
+		},
+		{
+			"code": "type",
+			"states": [ "empty", "cooked" ]
+		}
+	],
+	"entityclassByType": {
+		"*-cooked": "CookedContainer"
+	},
+	"shape": { "base": "artofcooking:block/metal/metalpot-opened-empty" },
+	"doNotRenderAtLod2": true,
+	"blockmaterial": "Metal",
+	"creativeinventory": {
+		"general": [ "metalpot-*-empty" ],
+		"decorative": [ "metalpot-*-empty" ],
+		"artofcooking": [ "metalpot-*-empty" ]
+	},
+	"replaceable": 400,
+	"resistance": 1.5,
+	"maxStackSizeByType": {
+		"*-cooked": 1,
+		"*": 4
+	},
+	"lightAbsorption": 0,
+	"texturesByType": {
+		"*": {
+			"transparent": { "base": "game:block/transparent" },
+			"ceramic": { "base": "game:block/metal/sheet-plain/{metal}4" },
+			"lid": { "base": "game:block/metal/sheet/{metal}1" },
+			"copper": { "base": "game:block/metal/sheet/{metal}1" },
+			"copper4": { "base": "game:block/metal/sheet-plain/{metal}4" },
+			"group1": { "base": "game:block/food/meal/group1-flax-carrot-blueberry-cottagecheese-fish" },
+			"group2": { "base": "game:block/food/meal/group2-soup-flyagaric-cactifruit-redmeat" },
+			"group3": { "base": "game:block/food/meal/group3-millet-bolete-cranberry-poultry" },
+			"group4": { "base": "game:block/food/meal/group4-rice-parsnip-whitecurrant-bluecheese-fishstew" },
+			"group5": { "base": "game:block/food/meal/group5-rye-turnip-blackcurrant-cheddarcheese-poultrystew" },
+			"group6": { "base": "game:block/food/meal/group6-spelt-onion-redcurrant-egg-redmeatstew" },
+			"group7": { "base": "game:block/food/meal/group7-honey-fieldmushroom-pineapple-scrambledegg-bushmeat" },
+			"group8": { "base": "game:block/food/meal/group8-amaranth-pumpkin-bellpepper-bushmeatstew" },
+			"group9": { "base": "game:block/food/meal/group9-sunflower-soya" },
+			"group10": { "base": "game:block/food/meal/group10-cabbage" },
+			"group11": { "base": "game:block/food/meal/group11-cassava" },
+			"group12": { "base": "game:block/food/meal/group12-peanut" },
+			"group13": { "base": "game:block/food/meal/group13-aubergine" },
+			"group14": { "base": "game:block/food/meal/group14-tomato" },
+			"group15": { "base": "game:block/food/meal/group15-walnut" },
+			"group17": { "base": "game:block/food/meal/group17-olive" },
+			"honey": { "base": "game:block/liquid/honey" },
+
+			"fruit-redapple": { "base": "game:block/food/pie/fill-apple" },
+			"fruit-pinkapple": { "base": "game:block/food/pie/fill-apple" },
+			"fruit-yellowapple": { "base": "game:block/food/pie/fill-apple" },
+			"fruit-cherry": { "base": "game:block/food/pie/fill-cherry" },
+			"fruit-peach": { "base": "game:block/food/pie/fill-peach" },
+			"fruit-pear": { "base": "game:block/food/pie/fill-pear" },
+			"fruit-orange": { "base": "game:block/food/pie/fill-orange" },
+			"fruit-mango": { "base": "game:block/food/pie/fill-mango" },
+			"fruit-pomegranate": { "base": "game:block/food/pie/fill-pomegranate" },
+			"fruit-lychee": { "base": "game:block/food/pie/fill-lychee" },
+			"fruit-breadfruit": { "base": "game:block/food/pie/fill-breadfruit" },
+
+			"rot-solids": { "base": "game:item/resource/rot/rot-solids" },
+			"rot-spill": { "base": "game:item/resource/rot/rot-spill" },
+
+			"milkportion": { "base": "game:block/food/dairy/milk" },
+			"cottagecheeseportion": { "base": "game:block/food/dairy/cottagecheese" },
+			"glue-hot": { "base": "game:block/liquid/glue-hot" },
+			"glue-cold": { "base": "game:block/liquid/glue-cold" },
+			"vegetable-reeds": { "base": "game:block/food/meal/group18-reeds" }
+		}
+	},
+	"sounds": {
+		"walk": "game:walk/stone"
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"collisionbox": {
+		"x1": 0.28,
+		"y1": 0,
+		"z1": 0.28,
+		"x2": 0.72,
+		"y2": 0.35,
+		"z2": 0.72
+	},
+	"selectionbox": {
+		"x1": 0.28,
+		"y1": 0,
+		"z1": 0.28,
+		"x2": 0.72,
+		"y2": 0.35,
+		"z2": 0.72
+	},
+	"guiTransform": {
+		"origin": {
+			"x": 0.5,
+			"y": 0.2,
+			"z": 0.5
+		},
+		"scale": 2
+	},
+	"groundTransform": {
+		"scale": 3
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 2
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.7,
+			"y": 0.06,
+			"z": -0.47
+		},
+		"rotation": {
+			"x": -52,
+			"y": 20,
+			"z": -110
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 0.76
+	}
+}

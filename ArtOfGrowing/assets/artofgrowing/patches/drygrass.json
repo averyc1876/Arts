@@ -41,39 +41,73 @@
   {
     "op": "replace",
     "path": "/class",
-    "value": "AOGDryGrass",
+    "value": "AOGItemDryGrass",
     "file": "game:itemtypes/resource/drygrass.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/handbook",
+    "value": {
+      "extraSections": [
+        {
+          "title": "artofgrowing:block-handbooktitle-hay",
+          "text": "artofgrowing:block-handbooktext-hay"
+        }
+      ]
+    },
+    "file": "game:itemtypes/resource/drygrass.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/attributes/handbook/extraSections",
+    "value": [
+      {
+        "title": "artofgrowing:block-handbooktitle-hay",
+        "text": "artofgrowing:block-handbooktext-hay"
+      }
+    ],
+    "file": "game:blocktypes/plant/hay.json",
     "side": "Server"
   },
   {
     "op": "replace",
     "path": "/ingredientPattern",
-    "value": "GGR,GG_",
-    "file": "game:recipes/grid/haybale.json",
+    "value": "HK",
+    "file": "game:recipes/grid/drygrass.json",
     "side": "Server"
   },
   {
-    "op": "replace",
-    "path": "/ingredients",
+    "op": "add",
+    "path": "/ingredients/K",
     "value": {
-      "G": {
-        "type": "item",
-        "code": "drygrass",
-        "quantity": 2
-      },
-      "R": {
-        "type": "item",
-        "code": "rope",
-        "quantity": 1
-      }
+      "type": "item",
+      "code": "knife-*",
+      "isTool": true,
+      "toolDurabilityCost": 1
     },
-    "file": "game:recipes/grid/haybale.json",
+    "file": "game:recipes/grid/drygrass.json",
     "side": "Server"
   },
   {
     "op": "replace",
     "path": "/width",
-    "value": 3,
+    "value": 2,
+    "file": "game:recipes/grid/drygrass.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/shapeless",
+    "value": true,
+    "file": "game:recipes/grid/drygrass.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
+    "path": "/enabled",
+    "value": false,
     "file": "game:recipes/grid/haybale.json",
     "side": "Server"
   }

@@ -12,7 +12,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 14,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -22,7 +22,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -51,7 +51,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 12,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -61,7 +61,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -90,7 +90,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 10,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -100,7 +100,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 3,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -129,7 +129,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 8,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -139,7 +139,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -168,7 +168,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 6,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -178,7 +178,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 5,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -207,7 +207,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -217,7 +217,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 6,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -246,7 +246,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -256,7 +256,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 7,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -285,7 +285,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 12,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -295,7 +295,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -324,7 +324,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 8,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -334,7 +334,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -363,7 +363,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -373,7 +373,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 3,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -402,7 +402,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 8,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "wild"
@@ -412,7 +412,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "decent"
@@ -441,7 +441,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 6,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -451,7 +451,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -480,7 +480,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -490,7 +490,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -519,7 +519,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -529,7 +529,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 3,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -558,7 +558,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "small"
@@ -568,7 +568,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "decent"
@@ -597,7 +597,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "medium"
@@ -607,7 +607,7 @@
 				"type": "item",
 				"code": "game:seeds-*",
 				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth" ],
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
 				"name": "type",
 				"attributes": {
 					"size": "decent"

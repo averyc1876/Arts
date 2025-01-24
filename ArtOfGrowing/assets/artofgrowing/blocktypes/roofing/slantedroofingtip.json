@@ -1,0 +1,65 @@
+{
+	code: "slantedroofingtip",
+	variantgroups: [
+		{
+			"code": "material",
+			"states": [ "thatch" ]
+		},
+		{
+			"code": "cover",
+			"states": [ "free", "snow" ]
+		}
+	],
+	attributes: {
+		mapColorCode: "settlement",
+	},
+	shapeByType: { 
+		"*": { base: "game:block/roofing/tip/{material}-{cover}" }
+	},
+	texturesByType: {
+		"*-thatch-*": {
+			"bamboo-side": { "base": "artofgrowing:block/thatch/normal-side" },
+			"normal-side": { "base": "artofgrowing:block/thatch/normal-side" },
+			"normal-top": { "base": "artofgrowing:block/thatch/normal-top" },
+			"straw1": { "base": "artofgrowing:block/thatch/straw1" }
+		}
+	},
+	drawtype: "json",
+	faceCullMode: "NeverCull",
+	renderpass: "OpaqueNoCull",
+	sidesolid: { all: false, down: true },
+	sideopaque: { all: false },
+	blockmaterialByType: {
+		"*-thatch-*": "Plant"
+	},
+	creativeinventory: {
+		"general": [ "*-free" ],
+		"decorative": [ "*-free" ],
+		"artofgrowing": [ "*-free" ]
+	},
+	replaceable: 300,
+	resistance: 2,
+	lightAbsorption: 99,
+	emitSideAo: {
+		all: true
+	},
+	sideAoByType: { "*-sod-*": { all: false } },
+	collisionSelectionBoxesByType: {
+		"*": [ { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.5625, z2: 1 } ]
+	},
+	soundsByType: {
+		"*-thatch-*": {
+			place: "game:block/plant",
+			break: "game:block/plant",
+			hit: "game:block/plant",
+			walk: "game:walk/grass*"
+		}
+	},
+	guiTransformByType: {
+		"*-thatch-*": {
+			rotation: { x: -22.6, y: -40, z: 0 },
+			origin: { x: 0.29, y: 0.4, z: 0.44 },
+			scale: 0.85
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"2": "game:block/plant/pumpkin/fruit/stage1-3",
+		"0": "game:block/plant/pumpkin/fruit/stage3-side"
+	},
+	"elements": [
+		{
+			"name": "Cube1",
+			"from": [ 6.5, 0.0, 6.5 ],
+			"to": [ 9.5, 3.0, 9.5 ],
+			"rotationOrigin": [ 8.0, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#0", "uv": [ 3.0, 10.0, 6.0, 13.0 ] },
+				"east": { "texture": "#0", "uv": [ 3.0, 10.0, 6.0, 13.0 ], "rotation": 180 },
+				"south": { "texture": "#0", "uv": [ 3.0, 10.0, 6.0, 13.0 ] },
+				"west": { "texture": "#0", "uv": [ 3.0, 10.0, 6.0, 13.0 ], "rotation": 180 },
+				"up": { "texture": "#2", "uv": [ 9.0, 4.0, 12.0, 7.0 ] },
+				"down": { "texture": "#2", "uv": [ 9.0, 4.0, 12.0, 7.0 ] }
+			}
+		}
+	]}

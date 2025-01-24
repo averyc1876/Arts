@@ -8,6 +8,20 @@
   },
   {
     "op": "add",
+    "path": "/attributes/handbook",
+    "value": {
+      "extraSections": [
+        {
+          "title": "artofcooking:item-handbooktitle-doughforming",
+          "text": "artofcooking:item-handbooktext-doughforming"
+        }
+      ]
+    },
+    "file": "game:itemtypes/food/dough.json",
+    "side": "Server"
+  },
+  {
+    "op": "add",
     "path": "/behaviors",
     "value": [
       {

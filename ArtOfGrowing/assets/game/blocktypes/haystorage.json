@@ -32,5 +32,6 @@
 	},
 	"creativeinventory": { "general": [ "" ] },
 	"lightAbsorption": 0,
-	"drops": []
+	"drops": [],
+	"frostable": true
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtOfGrowing.Items;
+using System;
 using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -37,8 +38,6 @@ namespace ArtOfGrowing
         public int TransferQuantity = 1;
         public int BulkTransferQuantity = 4;
         public bool CtrlKey;
-        [Obsolete("Use CtrlKey instead. SprintKey maintained for compatibility with existing JSONs")]
-        public bool SprintKey;
         public bool UpSolid = false;
 
         public Cuboidf CollisionBox;
@@ -108,13 +107,12 @@ namespace ArtOfGrowing
             base.Initialize(properties);
 
             StorageProps = properties.AsObject<AOGGroundStorageProperties>(null, collObj.Code.Domain);
-            if (StorageProps.SprintKey) StorageProps.CtrlKey = true;
         }
 
 
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling, ref EnumHandling handling)
         {
-            Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling, ref handling);
+            Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
         }
 
 
@@ -125,7 +123,7 @@ namespace ArtOfGrowing
             {
                 new WorldInteraction
                 {
-                    HotKeyCodes = StorageProps.CtrlKey ? new string[] {"ctrl", "shift" } : new string[] {"shift"},
+                    HotKeyCodes = inSlot.Itemstack.Collectible is AOGItemDryGrass ? new string[] {"ctrl", "shift" } : new string[] {"shift"},
                     ActionLangCode = "heldhelp-place",
                     MouseButton = EnumMouseButton.Right
                 }
@@ -134,7 +132,7 @@ namespace ArtOfGrowing
 
 
 
-        public static void Interact(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling, ref EnumHandling handling)
+        public static void Interact(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
             IWorldAccessor world = byEntity?.World;
 

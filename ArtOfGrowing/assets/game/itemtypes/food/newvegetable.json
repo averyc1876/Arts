@@ -130,9 +130,9 @@
 		"*-cabbage": "holdbothhands"
 	},
 	"creativeinventory": {
-		"general": [ "*" ],
-		"items": [ "*" ],
-		"artofgrowing": [ "*" ]
+		"general": [ "" ],
+		"items": [ "" ],
+		"artofgrowing": [ "" ]
 	},
 	"nutritionPropsByType": {
 		"*-cabbage": {

@@ -1,0 +1,101 @@
+{
+	"code": "thatchhay",
+	"shape": { "base": "game:block/basic/cube" },
+	"drawtype": "cube",
+	"attributes": {
+		"foodTags": [ "grass" ],
+		"handbook": {
+			"extraSections": [
+				{
+					"title": "artofgrowing:block-handbooktitle-thatchhay",
+					"text": "artofgrowing:block-handbooktext-thatchhay"
+				}
+			]
+		}
+	},
+	"behaviors": [ { "name": "Pillar" } ],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "normal" ]
+		},
+		{
+			"code": "rotation",
+			"states": [ "ud", "ns", "we" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "*-ud" ],
+		"construction": [ "*" ],
+		"flora": [ "*-ud" ],
+		"decorative": [ "*-ud" ],
+		"artofgrowing": [ "*-ud" ]
+	},
+	"blockmaterial": "Plant",
+	"replaceable": 900,
+	"lightAbsorption": 99,
+	"texturesByType": {
+		"*-ud": {
+			"horizontals": { "base": "block/thatch/{type}-side" },
+			"verticals": { "base": "block/thatch/{type}-top" }
+		},
+		"*-ns": {
+			"all": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 90
+			},
+			"west": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 270
+			},
+			"up": { "base": "block/thatch/{type}-side" },
+			"down": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 90
+			},
+
+			"north": { "base": "block/thatch/{type}-top" },
+			"south": { "base": "block/thatch/{type}-top" }
+		},
+		"*-we": {
+			"all": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 270
+			},
+			"south": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 90
+			},
+			"up": {
+				"base": "block/thatch/{type}-side",
+				"rotation": 270
+			},
+
+			"west": { "base": "block/thatch/{type}-top" },
+			"east": { "base": "block/thatch/{type}-top" }
+		}
+	},
+	"resistance": 0.25,
+	"sideopaque": {
+		"all": true
+	},
+	"sounds": {
+		"place": "game:block/plant",
+		"break": "game:block/plant",
+		"hit": "game:block/plant"
+	},
+	"materialDensity": 200,
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 5
+	},
+	"drops": [
+		{
+			"type": "block",
+			"code": "thatchhay-{type}-ud"
+		}
+	],
+	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldRightReadyAnimation": "heldblockready",
+	"heldTpUseAnimation": "twohandplaceblock"
+}

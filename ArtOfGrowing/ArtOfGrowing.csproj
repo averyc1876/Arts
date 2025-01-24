@@ -173,30 +173,6 @@
   <None Remove="assets\game\itemtypes\food\newvegetable.json" />
   <None Remove="assets\game\itemtypes\resource\grainseeds.json" />
   <None Remove="assets\game\itemtypes\resource\newseeds.json" />
-  <None Remove="assets\game\textures\block\food\grain\amaranth-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\flax-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\rice-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\rye-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\spelt-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\sunflower-grain.png" />
-  <None Remove="assets\game\textures\block\food\grain\sunflower-pile.png" />
-  <None Remove="assets\game\textures\block\food\grain\sunflower.png" />
-  <None Remove="assets\game\textures\block\hay\thatch-side.png" />
-  <None Remove="assets\game\textures\block\hay\thatch-top.png" />
-  <None Remove="assets\game\textures\block\hay\thatch.png" />
-  <None Remove="assets\game\textures\block\plant\crop\cabbage\top1.png" />
-  <None Remove="assets\game\textures\block\plant\crop\cabbage\top2.png" />
-  <None Remove="assets\game\textures\block\plant\crop\cabbage\top3.png" />
-  <None Remove="assets\game\textures\block\plant\crop\cabbage\top4.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\e10.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\e11.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\e12.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\e9.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\s10.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\s11.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\s12.png" />
-  <None Remove="assets\game\textures\block\plant\crop\parsnip\s9.png" />
-  <None Remove="assets\game\textures\block\wood\barrel\raw-scallions.png" />
   <None Remove="assets\haystorage.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -207,6 +183,10 @@
   <Content Update="assets\artofgrowing\shapes\item\food\amaranthbundle.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
+</ItemGroup>
+
+<ItemGroup>
+  <Folder Include="assets\artofgrowing\shapes\block\thatch\" />
 </ItemGroup>
 
 </Project>

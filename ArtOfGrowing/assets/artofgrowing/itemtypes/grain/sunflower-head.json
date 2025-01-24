@@ -67,7 +67,15 @@
 					"type": "item",
 					"code": "game:rot"
 				},
-				"transitionRatio": 1
+				"transitionRatioByType": {
+					"*-wild-*": 0.0625,
+					"*-small-*": 0.125,
+					"*-medium-*": 0.25,
+					"*-decent-*": 0.5,
+					"*-large-*": 1,
+					"*-hefty-*": 2,
+					"*-gigantic-*": 4
+				}
 			}
 		]
 	},
