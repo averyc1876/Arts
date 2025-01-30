@@ -1,7 +1,7 @@
 [
   {
-    "op": "add",
-    "path": "/ingredients/0/validStacks/14",
+    "op": "addmerge",
+    "path": "/ingredients/0/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",
@@ -11,8 +11,8 @@
     "side": "Server"
   },
   {
-    "op": "add",
-    "path": "/ingredients/1/validStacks/14",
+    "op": "addmerge",
+    "path": "/ingredients/1/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",
@@ -22,8 +22,8 @@
     "side": "Server"
   },
   {
-    "op": "add",
-    "path": "/ingredients/2/validStacks/14",
+    "op": "addmerge",
+    "path": "/ingredients/2/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",
@@ -33,8 +33,8 @@
     "side": "Server"
   },
   {
-    "op": "add",
-    "path": "/ingredients/3/validStacks/14",
+    "op": "addmerge",
+    "path": "/ingredients/3/validStacks/-",
     "value": {
       "type": "item",
       "code": "vegetable-*",

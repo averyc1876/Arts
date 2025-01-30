@@ -1,0 +1,22 @@
+{
+	"code": "curdledmilkportion",
+	"sealHours": 72,
+	"ingredients": [
+		{
+			"type": "item",
+			"code": "game:milkportion",
+			"litres": 20
+		},
+		{
+			"type": "item",
+			"code": "pickledvegetable-*",
+			"name": "pickledvegetable",
+			"quantity": 1
+		}
+	],
+	"output": {
+		"type": "item",
+		"code": "game:curdledmilkportion",
+		"litres": 20
+	}
+}

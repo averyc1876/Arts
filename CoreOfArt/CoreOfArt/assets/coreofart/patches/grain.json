@@ -1,20 +1,20 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/shelvable",
     "value": true,
     "file": "game:itemtypes/food/grain.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/displaycaseable",
     "value": true,
     "file": "game:itemtypes/food/grain.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/textures",
     "value": {
       "grain": { "base": "block/food/grain/{type}" },
@@ -184,7 +184,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/groundStorageTransform/origin",
     "value": {
       "x": 0.5,
@@ -195,7 +195,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/onshelfTransform",
     "value": {
       "origin": {
@@ -209,7 +209,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/onDisplayTransform",
     "value": {
       "origin": {

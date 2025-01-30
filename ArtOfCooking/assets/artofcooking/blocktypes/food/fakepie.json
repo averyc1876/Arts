@@ -9,7 +9,7 @@
 	"variantgroups": [
 		{
 			"code": "type",
-			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "acorn" ]
 		},
 		{
 			"code": "state",
@@ -21,6 +21,7 @@
 
 	},
 	"texturesbytype": {
+		"*-acorn-raw": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}1" } },
 		"*-raw": { "dough": { "base": "game:block/food/pie/{type}1" } }
 	},
 	"creativeinventory": {

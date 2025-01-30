@@ -89,8 +89,7 @@
 		"*-6": [
 			{
 				"type": "item",
-				"code": "vegetable-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-carrot",				
 				"quantity": {
 					"avg": 3,
 					"var": 1
@@ -105,8 +104,7 @@
 		"*-7": [
 			{
 				"type": "item",
-				"code": "vegetable-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-carrot",				
 				"quantity": {
 					"avg": 11,
 					"var": 2
@@ -121,8 +119,7 @@
 		"*-8": [
 			{
 				"type": "item",
-				"code": "vegetable-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-carrot",				
 				"quantity": {
 					"avg": 9,
 					"var": 2
@@ -137,8 +134,7 @@
 		"*-9": [
 			{
 				"type": "item",
-				"code": "vegetable-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-carrot",				
 				"quantity": {
 					"avg": 7,
 					"var": 2
@@ -153,8 +149,7 @@
 		"*-10": [
 			{
 				"type": "item",
-				"code": "vegetable-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-carrot",				
 				"quantity": {
 					"avg": 5,
 					"var": 2
@@ -169,21 +164,19 @@
 		"*-11": [
 			{
 				"type": "item",
-				"code": "seeds-carrot",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:seeds-{size}-carrot",				
 				"quantity": { "avg": 1.2 }
 			},
 			{
 				"type": "item",
-				"code": "seeds-carrot",
-				"attributesByType": {
-					"*-wild-*": { "size": "small" },
-					"*-small-*": { "size": "medium" },
-					"*-medium-*": { "size": "decent" },
-					"*-decent-*": { "size": "large" },
-					"*-large-*": { "size": "hefty" },
-					"*-hefty-*": { "size": "gigantic" },
-					"*-gigantic-*": { "size": "gigantic" }
+				"codeByType": {
+					"*-wild-*": "artofgrowing:seeds-small-{type}",
+					"*-small-*": "artofgrowing:seeds-medium-{type}",
+					"*-medium-*": "artofgrowing:seeds-decent-{type}",
+					"*-decent-*": "artofgrowing:seeds-large-{type}",
+					"*-large-*": "artofgrowing:seeds-hefty-{type}",
+					"*-hefty-*": "artofgrowing:seeds-gigantic-{type}",
+					"*-gigantic-*": "artofgrowing:seeds-gigantic-{type}"
 				},
 				"quantity": { "avg": 0.3 }
 			},

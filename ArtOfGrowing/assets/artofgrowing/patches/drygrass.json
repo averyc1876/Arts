@@ -1,6 +1,6 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/behaviorsByType",
     "value": {
       "*": [
@@ -46,7 +46,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/handbook",
     "value": {
       "extraSections": [
@@ -60,7 +60,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/handbook/extraSections",
     "value": [
       {
@@ -79,7 +79,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/ingredients/K",
     "value": {
       "type": "item",
@@ -98,14 +98,14 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/shapeless",
     "value": true,
     "file": "game:recipes/grid/drygrass.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/enabled",
     "value": false,
     "file": "game:recipes/grid/haybale.json",

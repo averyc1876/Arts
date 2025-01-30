@@ -1,0 +1,22 @@
+[
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/0/states/-",
+    "value": "acorn",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "artofcooking:itemtypes/food/lavash.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/0/states/-",
+    "value": "acorn",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "artofcooking:itemtypes/food/flatbread.json",
+    "side": "Server"
+  }
+]

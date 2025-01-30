@@ -20,9 +20,6 @@ namespace ArtOfGrowing
     {
         static SimpleParticleProperties smokeParticles;
         
-        Block block;
-        RoomRegistry roomReg;
-
         static AOGBlockEntityGroundStorage()
         {
             smokeParticles = new SimpleParticleProperties(
@@ -47,6 +44,7 @@ namespace ArtOfGrowing
         public object inventoryLock = new object(); // Because OnTesselation runs in another thread
 
         protected InventoryGeneric inventory;
+        Vec3d tmpPos = new Vec3d();
 
         public AOGGroundStorageProperties StorageProps { get; protected set; }
         public bool forceStorageProps = false;
@@ -84,7 +82,7 @@ namespace ArtOfGrowing
         /// Cache the upload meshes for stacking layout so it can be reused by the AOGGroundStorageRenderer
         /// </summary>
         private Dictionary<string, MultiTextureMeshRef> UploadedMeshCache =>
-            ObjectCacheUtil.GetOrCreate(Api, "groundStorageUMC", () => new Dictionary<string, MultiTextureMeshRef>());
+            ObjectCacheUtil.GetOrCreate(Api, "AOGhaystorageUMC", () => new Dictionary<string, MultiTextureMeshRef>());
 
         private bool burning;
         private double burnStartTotalHours;
@@ -97,6 +95,8 @@ namespace ArtOfGrowing
         public bool IsBurning => burning;
 
         public bool IsHot => burning;
+        
+        AOGBlockGroundStorage blockStorage;
 
         public override int DisplayedItems {
             get
@@ -144,8 +144,22 @@ namespace ArtOfGrowing
                     return true;
                 }
             );
+
+            tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
+            float rainLevel = 0;
+            bool rainCheck =
+                Api.Side == EnumAppSide.Server
+                && Api.World.Rand.NextDouble() < 0.75
+                && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
+                && (rainLevel = blockStorage.wsys.GetPrecipitation(tmpPos)) > 0.04
+            ;
+
+            if (transType == EnumTransitionType.Dry && !water && rainCheck && Api.World.Rand.NextDouble() < rainLevel * 5)
+            {
+                return 0.0001f;
+            }
             
-            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water && canWater) return container.Room?.ExitCount == 0 ? 1 : 16;
+            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water && canWater) return 16;
             
             if (Api == null) return 0;            
             
@@ -161,10 +175,10 @@ namespace ArtOfGrowing
 
         public override string InventoryClassName
         {
-            get { return "haystorage"; }
+            get { return "AOGhaystorage"; }
         }
 
-        public override string AttributeTransformCode => "groundStorageTransform";
+        public override string AttributeTransformCode => "AOGhaystorageTransform";
 
         public float MeshAngle { get; set; }
         public BlockFacing AttachFace { get; set; }
@@ -229,9 +243,9 @@ namespace ArtOfGrowing
         {
             capi = api as ICoreClientAPI;
             base.Initialize(api);
+
+            blockStorage = Block as AOGBlockGroundStorage;
             
-            block = api.World.BlockAccessor.GetBlock(Pos);
-            roomReg = Api.ModLoader.GetModSystem<RoomRegistry>();
             inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
 
             var bh = GetBehavior<BEBehaviorBurning>();
@@ -679,12 +693,6 @@ namespace ArtOfGrowing
                             StackSize = GameMath.RoundRandom(Api.World.Rand, dropCount2 * koef)
                         };   
                         
-                        if (dropI.Item is AOGItemPlantableSeed) 
-                            {
-                            var size = inventory[0].Itemstack.Item.Variant["size"];
-                            dropI.Attributes.SetString("size", size); 
-                            }
-                        
                         inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
                         
                         Api.World.SpawnItemEntity(dropI, Pos.ToVec3d().Add(0.5, 0.5, 0.5));                                      
@@ -884,7 +892,7 @@ namespace ArtOfGrowing
                     if (temperature > 20)
                     {
                         var f = slot.Itemstack?.Attributes.GetFloat("hoursHeatReceived") ?? 0;
-                        dsc.AppendLine(Lang.Get("Temperature: {0:0.##}°C", temperature));
+                        dsc.AppendLine(Lang.Get("temperature-precise", temperature));
                         if (f > 0) dsc.AppendLine(Lang.Get("Fired for {0:0.##} hours", f));
                     }
                 }
@@ -1214,8 +1222,11 @@ namespace ArtOfGrowing
                 var key = getMeshCacheKey(stack);
                 var mesh = getMesh(stack);
                 
-
-                if (mesh != null) return mesh;
+                if (mesh != null)
+                {
+                    UploadedMeshCache.TryGetValue(key, out MeshRefs[index]);
+                    return mesh;
+                }
 
                 var loc = StorageProps.StackingModel.Clone().WithPathPrefixOnce("shapes/").WithPathAppendixOnce(".json");
                 nowTesselatingShape = Shape.TryGet(capi, loc);

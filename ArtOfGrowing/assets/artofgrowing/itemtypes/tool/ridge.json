@@ -1,8 +1,5 @@
 {
 	"code": "ridge",
-	"classByType": {
-		"*-wooden-*": "AOGItemRidge"
-	},
 	"storageFlags": 257,
 	"attributes": {
 		"handbook": {
@@ -96,14 +93,14 @@
 			"z": 0
 		},
 		"rotation": {
-			"x": 9,
-			"y": 137,
-			"z": -53
+			"x": -21,
+			"y": 122,
+			"z": -56
 		},
 		"origin": {
-			"x": 0.44,
+			"x": 0.66,
 			"y": 0,
-			"z": 0.38
+			"z": 0.46
 		},
 		"scale": 2.92
 	},
@@ -162,6 +159,6 @@
 		"scale": 0.76
 	},
 	"durabilitybytype": {
-		"*": 600
+		"*": 100
 	}
 }

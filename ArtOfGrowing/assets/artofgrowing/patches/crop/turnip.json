@@ -86,8 +86,8 @@
       "*-4": [
         {
           "type": "item",
-          "code": "vegetable-turnip",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
           "quantity": {
             "avg": 3,
             "var": 1
@@ -102,8 +102,8 @@
       "*-5": [
         {
           "type": "item",
-          "code": "vegetable-turnip",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
           "quantity": {
             "avg": 7,
             "var": 1
@@ -118,8 +118,8 @@
       "*-6": [
         {
           "type": "item",
-          "code": "vegetable-turnip",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
           "quantity": {
             "avg": 6,
             "var": 1
@@ -134,8 +134,8 @@
       "*-7": [
         {
           "type": "item",
-          "code": "vegetable-turnip",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
           "quantity": {
             "avg": 5,
             "var": 1
@@ -150,14 +150,12 @@
       "*-8": [
         {
           "type": "item",
-          "code": "seeds-turnip",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:seeds-wild-{type}",
           "quantity": { "avg": 1.2 }
         },
         {
           "type": "item",
-          "code": "seeds-turnip",
-          "attributes": { "size": "small" },
+          "code": "artofgrowing:seeds-small-{type}",
           "quantity": { "avg": 0.3 }
         },
         {

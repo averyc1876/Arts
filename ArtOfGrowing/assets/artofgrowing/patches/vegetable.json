@@ -43,14 +43,14 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/enabled",
     "value": false,
     "file": "game:recipes/grid/pumpkinseed.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/enabled",
     "value": false,
     "file": "game:recipes/grid/pumpkinslice.json",

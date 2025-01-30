@@ -13,16 +13,14 @@ namespace ArtOfGrowing
 {
     public class AOGBlockGroundStorage : Block, ICombustible, IIgnitable
     {
-        ItemStack[] groundStorablesQuadrants;
-        ItemStack[] groundStorablesHalves;
-
         public static bool IsUsingContainedBlock; // This value is only relevant (and correct) client side
-
+        
+        public WeatherSystemBase wsys;
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
 
-            ItemStack[][] stacks = ObjectCacheUtil.GetOrCreate(api, "groundStorablesQuadrands", () =>
+            ItemStack[][] stacks = ObjectCacheUtil.GetOrCreate(api, "AOGgroundStorablesQuadrands", () =>
             {
                 List<ItemStack> qstacks = new List<ItemStack>();
                 List<ItemStack> hstacks = new List<ItemStack>();
@@ -35,14 +33,13 @@ namespace ArtOfGrowing
                 return new ItemStack[][] { qstacks.ToArray(), hstacks.ToArray() };
             });
 
-            groundStorablesQuadrants = stacks[0];
-            groundStorablesHalves = stacks[1];
-
             if (api.Side == EnumAppSide.Client)
             {
                 ICoreClientAPI capi = api as ICoreClientAPI;
                 capi.Event.MouseUp += Event_MouseUp;
             }
+
+            wsys = api.ModLoader.GetModSystem<WeatherSystemBase>();
 
         }
 
@@ -451,7 +448,7 @@ namespace ArtOfGrowing
                     if(meshRef?.Disposed == false)
                         meshRef.Dispose();
                 }
-                ObjectCacheUtil.Delete(api, "groundStorageUMC");
+                ObjectCacheUtil.Delete(api, "AOGhaystorageUMC");
             }
         }
 

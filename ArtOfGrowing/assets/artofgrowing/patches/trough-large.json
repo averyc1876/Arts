@@ -1,269 +1,190 @@
 [
   {
-    "op": "replace",
-    "path": "/attributes/contentConfig/7/content/code",
-    "value": "vegetable-cabbage*",
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/attributes/contentConfig/8/content/code",
-    "value": "vegetable-carrot*",
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/attributes/contentConfig/10/content/code",
-    "value": "vegetable-onion*",
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/attributes/contentConfig/11/content/code",
-    "value": "vegetable-parsnip*",
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/attributes/contentConfig/15/content/code",
-    "value": "vegetable-turnip*",
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "thatch",
-      "content": {
-        "type": "item",
-        "code": "thatch"
+    "op": "addmerge",
+    "path": "/attributes/contentConfig",
+    "value": [
+      {
+        "code": "thatch",
+        "content": {
+          "type": "item",
+          "code": "thatch"
+        },
+        "quantityPerFillLevel": 8,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill4", "block/wood/trough/large/thatchfill4" ]
       },
-      "quantityPerFillLevel": 8,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill4", "block/wood/trough/large/thatchfill4" ]
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "thatchhay",
-      "content": {
-        "type": "block",
-        "code": "artofgrowing:thatchhay-normal-ud"
+      {
+        "code": "thatchhay",
+        "content": {
+          "type": "block",
+          "code": "artofgrowing:thatchhay-normal-ud"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill4", "block/wood/trough/large/thatchfill4" ]
       },
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill4", "block/wood/trough/large/thatchfill4" ]
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/1normal-side",
-    "value": { "base": "artofgrowing:block/thatch/normal-side" },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/1normal-top",
-    "value": { "base": "artofgrowing:block/thatch/normal-top" },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/1singlehay",
-    "value": { "base": "artofgrowing:block/thatch/singlehay" },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/1singlehay2",
-    "value": { "base": "artofgrowing:block/thatch/singlehay2" },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-flax",
-      "content": {
-        "type": "item",
-        "code": "seeds-flax*"
+      {
+        "code": "seeds-flax",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-flax"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-flax"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-flax"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-spelt",
-      "content": {
-        "type": "item",
-        "code": "seeds-spelt*"
+      {
+        "code": "seeds-spelt",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-spelt"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-spelt"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-spelt"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-rice",
-      "content": {
-        "type": "item",
-        "code": "seeds-rice*"
+      {
+        "code": "seeds-rice",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-rice"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-rice"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-rice"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-rye",
-      "content": {
-        "type": "item",
-        "code": "seeds-rye*"
+      {
+        "code": "seeds-rye",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-rye"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-rye"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-rye"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-sunflower",
-      "content": {
-        "type": "item",
-        "code": "seeds-sunflower*"
+      {
+        "code": "seeds-sunflower",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-sunflower"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-sunflower-seeds"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-sunflower-seeds"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-amaranth",
-      "content": {
-        "type": "item",
-        "code": "seeds-amaranth*"
+      {
+        "code": "seeds-amaranth",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-amaranth"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-amaranth"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-amaranth"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "seeds-pumpkin",
-      "content": {
-        "type": "item",
-        "code": "seeds-pumpkin*"
+      {
+        "code": "seeds-pumpkin",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-pumpkin"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-pumpkin-seeds"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-pumpkin-seeds"
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/attributes/contentConfig/-",
-    "value": {
-      "code": "grain-pumpkin",
-      "content": {
-        "type": "item",
-        "code": "grain-pumpkin"
+      {
+        "code": "grain-pumpkin",
+        "content": {
+          "type": "item",
+          "code": "grain-pumpkin"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-pumpkin"
       },
-
-      "quantityPerFillLevel": 2,
-      "maxFillLevels": 8,
-      "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
-      "textureCode": "contents-pumpkin"
-    },
+      {
+        "code": "AOGcabbage",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:vegetable-*-cabbage"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/cabbagefill1", "block/wood/trough/large/cabbagefill1", "block/wood/trough/large/cabbagefill2", "block/wood/trough/large/cabbagefill2", "block/wood/trough/large/cabbagefill3", "block/wood/trough/large/cabbagefill3", "block/wood/trough/large/cabbagefill4", "block/wood/trough/large/cabbagefill4" ]
+      },
+      {
+        "code": "AOGcarrot",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:vegetable-*-carrot"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/carrotfill1", "block/wood/trough/large/carrotfill1", "block/wood/trough/large/carrotfill2", "block/wood/trough/large/carrotfill2", "block/wood/trough/large/carrotfill3", "block/wood/trough/large/carrotfill3", "block/wood/trough/large/carrotfill4", "block/wood/trough/large/carrotfill4" ]
+      },
+      {
+        "code": "AOGonion",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:vegetable-*-onion"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/onionfill1", "block/wood/trough/large/onionfill1", "block/wood/trough/large/onionfill2", "block/wood/trough/large/onionfill2", "block/wood/trough/large/onionfill3", "block/wood/trough/large/onionfill3", "block/wood/trough/large/onionfill4", "block/wood/trough/large/onionfill4" ]
+      },
+      {
+        "code": "AOGparsnip",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:vegetable-*-parsnip"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/parsnipfill1", "block/wood/trough/large/parsnipfill1", "block/wood/trough/large/parsnipfill2", "block/wood/trough/large/parsnipfill2", "block/wood/trough/large/parsnipfill3", "block/wood/trough/large/parsnipfill3", "block/wood/trough/large/parsnipfill4", "block/wood/trough/large/parsnipfill4" ]
+      },
+      {
+        "code": "AOGturnip",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:vegetable-*-turnip"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/turnipfill1", "block/wood/trough/large/turnipfill1", "block/wood/trough/large/turnipfill2", "block/wood/trough/large/turnipfill2", "block/wood/trough/large/turnipfill3", "block/wood/trough/large/turnipfill3", "block/wood/trough/large/turnipfill4", "block/wood/trough/large/turnipfill4" ]
+      }
+    ],
     "file": "game:blocktypes/wood/trough-large.json",
     "side": "Server"
   },
   {
-    "op": "add",
-    "path": "/textures/contents-pumpkin",
+    "op": "addmerge",
+    "path": "/textures",
     "value": {
-      "base": "block/food/grain/pumpkin",
-      "overlays": [ "block/wood/trough/large/shadow" ]
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/contents-pumpkin-seeds",
-    "value": {
-      "base": "block/food/grain/pumpkin-seeds",
-      "overlays": [ "block/wood/trough/large/shadow" ]
-    },
-    "file": "game:blocktypes/wood/trough-large.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
-    "path": "/textures/contents-sunflower-seeds",
-    "value": {
-      "base": "block/food/grain/sunflower-seeds",
-      "overlays": [ "block/wood/trough/large/shadow" ]
+      "1normal-side": { "base": "artofgrowing:block/thatch/normal-side" },
+      "1normal-top": { "base": "artofgrowing:block/thatch/normal-top" },
+      "1singlehay": { "base": "artofgrowing:block/thatch/singlehay" },
+      "1singlehay2": { "base": "artofgrowing:block/thatch/singlehay2" },
+      "contents-pumpkin": {
+        "base": "block/food/grain/pumpkin",
+        "overlays": [ "block/wood/trough/large/shadow" ]
+      },
+      "contents-pumpkin-seeds": {
+        "base": "block/food/grain/pumpkin-seeds",
+        "overlays": [ "block/wood/trough/large/shadow" ]
+      },
+      "contents-sunflower-seeds": {
+        "base": "block/food/grain/sunflower-seeds",
+        "overlays": [ "block/wood/trough/large/shadow" ]
+      }
     },
     "file": "game:blocktypes/wood/trough-large.json",
     "side": "Server"

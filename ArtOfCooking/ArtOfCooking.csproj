@@ -59,7 +59,6 @@
   <None Remove="assets\artofcooking\lang\ru.json" />
   <None Remove="assets\artofcooking\patches\dough.json" />
   <None Remove="assets\artofcooking\patches\inShawarmaProperties.json" />
-  <None Remove="assets\artofcooking\patches\inShawarmaVegetable.json" />
   <None Remove="assets\artofcooking\recipes\doughforming\lavash.json" />
   <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill0.json" />
   <None Remove="assets\artofcooking\shapes\block\food\shawarma\shawarma-fill1.json" />

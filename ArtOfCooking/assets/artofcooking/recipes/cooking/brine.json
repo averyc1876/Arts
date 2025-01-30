@@ -21,8 +21,8 @@
 					"shapeElement": "bowl/water"
 				}
 			],
-			"minQuantity": 2,
-			"maxQuantity": 2,
+			"minQuantity": 3,
+			"maxQuantity": 3,
 			"portionSizeLitres": 1
 		},
 		{
@@ -35,13 +35,13 @@
 			],
 			"minQuantity": 1,
 			"maxQuantity": 1,
-			"portionSizeLitres": 0.1
+			"portionSizeLitres": 1
 		}
 	],
 	"cooksInto": {
 		"type": "Item",
 		"code": "game:brineportion",
-		"quantity": 200,
+		"quantity": 400,
 		"attributes": {
 			"notDirtied": true
 		}

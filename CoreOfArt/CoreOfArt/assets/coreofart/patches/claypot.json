@@ -1,6 +1,6 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/texturesByType/*/vegetable-reeds",
     "value": {
       "base": "block/food/meal/group18-reeds"
@@ -9,7 +9,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedcattailroot",
     "value": [
       "vegetable",
@@ -19,7 +19,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedpapyrusroot",
     "value": [
       "vegetable",
@@ -29,7 +29,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/grain-pumpkin",
     "value": [
       "grain",
@@ -40,11 +40,8 @@
   },
   {
     "op": "replace",
-    "path": "/classByType",
-    "value": {
-      "claypot-burned": "COABlockCookingContainer",
-      "claypot-cooked": "BlockCookedContainer"
-    },
+    "path": "/classByType/claypot-burned",
+    "value": "COABlockCookingContainer",
     "file": "game:blocktypes/clay/pot.json",
     "side": "Server"
   }

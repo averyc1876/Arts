@@ -4,7 +4,7 @@
     "ingredients": {
       "W": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       },
       "B": {
         "type": "item",
@@ -41,7 +41,7 @@
       },
       "B": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       }
     },
     "attributes": {
@@ -74,7 +74,7 @@
       },
       "B": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       }
     },
     "attributes": {
@@ -99,7 +99,7 @@
     "ingredients": {
       "W": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       },
       "F": {
         "type": "item",
@@ -138,7 +138,7 @@
       },
       "B": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       }
     },
     "attributes": {
@@ -172,7 +172,7 @@
       },
       "B": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       }
     },
     "attributes": {
@@ -206,7 +206,7 @@
       },
       "B": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       }
     },
     "attributes": {
@@ -231,7 +231,7 @@
     "ingredients": {
       "W": {
         "type": "block",
-        "code": "metalbowl-*-empty"
+        "code": "artofcooking:metalbowl-*-empty"
       },
       "F": {
         "type": "item",

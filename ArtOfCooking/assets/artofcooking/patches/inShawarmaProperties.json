@@ -1,6 +1,6 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaPropertiesByType",
     "value": {
       "*-cheddar-1slice": {
@@ -16,7 +16,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaPropertiesByType",
     "value": {
       "*-pinkapple": {
@@ -40,7 +40,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaProperties",
     "value": {
       "texture": "block/food/pie/fill-{type}",
@@ -50,7 +50,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaProperties",
     "value": {
       "texture": "block/food/pie/fill-{type}",
@@ -60,7 +60,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaPropertiesByType",
     "value": {
       "*-cooked": {
@@ -76,15 +76,31 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaPropertiesByType",
     "value": {
       "*-cooked": {
-        "texture": "block/food/pie/fill-mixedmeat",
+        "texture": "block/food/pie/fill-fish",
         "partType": "Filling"
       },
       "*-cured": {
-        "texture": "block/food/pie/fill-mixedmeat",
+        "texture": "block/food/pie/fill-fish",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/fish.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "block/food/pie/fill-redmeat",
+        "partType": "Filling"
+      },
+      "*-cured": {
+        "texture": "block/food/pie/fill-redmeat",
         "partType": "Filling"
       },
       "*-vintage": {
@@ -96,7 +112,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inShawarmaPropertiesByType",
     "value": {
       "*-cooked": {
@@ -109,6 +125,186 @@
       }
     },
     "file": "game:itemtypes/food/bushmeat.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cookedcattailroot": {
+        "texture": "block/food/pie/fill-cassava",
+        "partType": "Filling"
+      },
+      "*-cookedpapyrusroot": {
+        "texture": "block/food/pie/fill-cassava",
+        "partType": "Filling"
+      },
+      "*": {
+        "texture": "block/food/pie/fill-{type}",
+        "partType": "Filling"
+      }
+    },
+    "file": "game:itemtypes/food/vegetable.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "game:block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      },
+      "*-curedhealing": {
+        "texture": "game:block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "file": "butchering:itemtypes/food/primemeat.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*": {
+        "texture": "game:block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "file": "butchering:itemtypes/food/smoked.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cooked": {
+        "texture": "game:block/food/pie/fill-mixedmeat",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "file": "butchering:itemtypes/food/sausage.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-pittedcherry": {
+        "texture": "game:block/food/pie/fill-cherry",
+        "partType": "Filling"
+      },
+      "*-pittedbreadfruit": {
+        "texture": "game:block/food/pie/fill-breadfruit",
+        "partType": "Filling"
+      },
+      "*-pittedapricot": {
+        "texture": "wildcraftfruit:block/food/pie/fill-apricot",
+        "partType": "Filling"
+      },
+      "*-lillypillywhite": {
+        "texture": "wildcraftfruit:block/food/pie/fill-lillypillypink",
+        "partType": "Filling"
+      },
+      "*-lillypillyblue": {
+        "texture": "wildcraftfruit:block/food/pie/fill-lillypillypink",
+        "partType": "Filling"
+      },
+      "*-lemon": {
+        "texture": "wildcraftfruit:block/food/pie/fill-citron",
+        "partType": "Filling"
+      },
+      "*-cashewwhole": null,
+      "*-beachalmondwhole": null,
+      "*": {
+        "texture": "wildcraftfruit:block/food/pie/fill-{fruit}",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*": {
+        "texture": "wildcraftfruit:block/food/pie/fill-{type}",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/vegetable.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/inShawarmaPropertiesByType",
+    "value": {
+      "*-cucumber": {
+        "texture": "wildcraftfruit:block/food/pie/fill-pickledcucumber",
+        "partType": "Filling"
+      },
+
+      "*-caper": {
+        "texture": "wildcraftfruit:block/food/pie/fill-pickledcaper",
+        "partType": "Filling"
+      },
+
+      "*-caperberry": {
+        "texture": "wildcraftfruit:block/food/pie/fill-pickledcaperberry",
+        "partType": "Filling"
+      }
+    },
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/pickledvegetable.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes",
+    "value": {
+      "inShawarmaPropertiesByType": {
+        "@*-(juniper|chestnut|pinenut|hackberrypit|commonhackberry|sugarhackberry|deserthackberry|oldmansaltbush|pumpkinseed|hazelnut|apricotpit|beachalmond|sumac|cherrypit|pistachionut|chocolate|halva|marzipan|peanutground|acornleached|bluequandong|breadnut)": {
+          "texture": "block/food/pie/fill-{nut}",
+          "partType": "Filling"
+        },
+        "@*-(acornshelled|breadnutbaked|chestnutbaked|pistachioberry|acorn|fermentedcocoa|macadamia|bunyacone|dwarfpinecone|marita|pandan|pinenutbar|macadamiabar|saltbushbar|beachalmondbar|bunyabar|cashewbar|pumpkinbar|pistachiobar|acornbar|hazelbar|sunflowerbar|cherrybar|hackberrybar|apricotbar|almondbar|peanutbar)": null,
+        "@*-(apricotpitground|almondground)": {
+          "texture": "block/food/pie/fill-marzipan",
+          "partType": "Filling"
+        },
+        "*-pacoca": {
+          "texture": "block/food/pie/fill-peanutground",
+          "partType": "Filling"
+        },
+        "*": {
+          "texture": "block/food/pie/fill-{nut}",
+          "partType": "Filling"
+        }
+      }
+    },
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/nut.json",
     "side": "Server"
   }
 ]

@@ -78,6 +78,8 @@ namespace ArtOfCooking.BlockEntities
                 if (baseMaterial == null)
                 {
                     baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("dough-" + workItemStack.Collectible.LastCodePart())));
+                    if (baseMaterial == null) baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart())));
+                    if (baseMaterial == null) baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart())));
                 }
                 else
                 {
@@ -575,6 +577,8 @@ namespace ArtOfCooking.BlockEntities
             {
                 workItemStack.ResolveBlockOrItem(Api.World);
                 var item = Api.World.GetItem(new AssetLocation("dough-" + workItemStack.Collectible.LastCodePart()));
+                if (item == null) item = Api.World.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart()));
+                if (item == null) item = Api.World.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart()));
                 if (item == null)
                 {
                     Api.World.Logger.Notification("Dough form base mat is null! Dough form @ {0}/{1}/{2} corrupt. Will reset to spelt dough", Pos.X, Pos.Y, Pos.Z);
@@ -749,6 +753,8 @@ namespace ArtOfCooking.BlockEntities
             if (ingredient.Collectible is ItemWorkItem)
             {
                 ingredient = new ItemStack(world.GetItem(new AssetLocation("dough-" + ingredient.Collectible.LastCodePart())));
+                if (ingredient == null) ingredient = new ItemStack(world.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart())));
+                if (ingredient == null) ingredient = new ItemStack(world.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart())));
             }
 
             List<DoughFormingRecipe> recipes = Api.GetDoughformingRecipes()

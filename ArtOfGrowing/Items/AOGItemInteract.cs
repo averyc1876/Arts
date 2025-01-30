@@ -1,7 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
+using Vintagestory.GameContent;
 
 namespace ArtOfGrowing.Items
 {
@@ -15,7 +20,36 @@ namespace ArtOfGrowing.Items
             if (api.Side != EnumAppSide.Client) return;
             ICoreClientAPI capi = api as ICoreClientAPI;
 
-            interactions = ObjectCacheUtil.GetOrCreate(api, "flaxClearInteractions", () =>
+            if (Code.FirstCodePart() == "flaxbundle") interactions = ObjectCacheUtil.GetOrCreate(api, "flaxClearInteractions", () =>
+            {
+                List<ItemStack> stacks = new List<ItemStack>();
+                
+                foreach (Item items in api.World.Items)
+                {
+                    if (items.Code == null) continue;
+
+                    if (items.Code.FirstCodePart() == "creaser")
+                    {
+                        stacks.Add(new ItemStack(items));
+                    }
+                }
+                
+                return new WorldInteraction[]
+                {
+                    new WorldInteraction()
+                    {
+                        ActionLangCode = "artofgrowing:heldhelp-interact",
+                        MouseButton = EnumMouseButton.Right
+                    },
+                    new WorldInteraction()
+                    {
+                        ActionLangCode = "artofgrowing:heldhelp-interact",
+                        MouseButton = EnumMouseButton.Right,
+                        Itemstacks = stacks.ToArray()
+                    }
+                };
+            });
+            else interactions = ObjectCacheUtil.GetOrCreate(api, "sunflowerInteractions", () =>
             {
                 return new WorldInteraction[]
                 {
@@ -62,25 +96,33 @@ namespace ArtOfGrowing.Items
 
                     IWorldAccessor world = byEntity.World;
 
-                    slot.TakeOut(1);
-                    slot.MarkDirty();
-
                     IPlayer byPlayer = null;
                     if (byEntity is EntityPlayer) byPlayer = world.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
                     if (Name == "flaxbundle") 
                     {
-                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:flaxbundle-soft"))); 
+                        int quantity = 1;
+                        int tquantity = 1;
+                        if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") tquantity = 8;                        
+                        quantity = Math.Min(tquantity, slot.StackSize);
+                        slot.TakeOut(quantity);
+                        slot.MarkDirty();
+                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:flaxbundle-soft")),quantity); 
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
                             byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
                         } 
+                        if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") 
+                        {
+                            byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot, quantity);
+                        }
                     }   
                     if (Name == "grainbundle") 
                     {
-                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("game:seeds-sunflower"))); 
+                        slot.TakeOut(1);
+                        slot.MarkDirty();
                         string size = Variant["size"];
-                        stack.Attributes.SetString("size", size);
-                        stack.StackSize = 4;
+                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:seeds-" + size + "-sunflower"))); 
+                        stack.StackSize = GameMath.RoundRandom(api.World.Rand, 3.5f);
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
                             byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);

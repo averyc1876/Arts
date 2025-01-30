@@ -21,5 +21,7 @@ public class ArtOfCooking : ModSystem
         api.RegisterBlockClass("AOCBlockSpoon", typeof(AOCBlockSpoon));
         api.RegisterBlockClass("AOCBlockEmptySpoon", typeof(AOCBlockEmptySpoon));
         api.RegisterBlockEntityClass("AOCBlockEntitySpoon", typeof(AOCBlockEntitySpoon));
+        
+        api.RegisterItemClass("AOCItemEgg", typeof(AOCItemEgg));
     }
 }

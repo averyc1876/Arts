@@ -1,6 +1,6 @@
 {
 	"code": "vegetable",
-	"class": "AOGItemFood",
+	"class": "AOGItemRemap",
 	"maxstacksize": 64,
 	"behaviors": [
 		{

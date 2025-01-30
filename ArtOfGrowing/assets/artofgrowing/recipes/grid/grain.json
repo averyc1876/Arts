@@ -10,13 +10,10 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 16,
+				"code": "seeds-wild-*",
+				"quantity": 5,
 				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "wild"
-				}
+				"name": "type"
 			}
 		},
 		"width": 1,
@@ -39,129 +36,10 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 8,
+				"code": "seeds-small-*",
+				"quantity": 5,
 				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "small"
-				}
-			}
-		},
-		"width": 1,
-		"height": 2,
-		"name": "grain",
-		"output": {
-			"type": "item",
-			"code": "game:grain-{type}",
-			"quantity": 1
-		}
-	},
-	{
-		"ingredientPattern": "K,H",
-		"shapeless": true,
-		"ingredients": {
-			"K": {
-				"type": "item",
-				"code": "game:knife-*",
-				"isTool": true
-			},
-			"H": {
-				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 4,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "medium"
-				}
-			}
-		},
-		"width": 1,
-		"height": 2,
-		"name": "grain",
-		"output": {
-			"type": "item",
-			"code": "game:grain-{type}",
-			"quantity": 1
-		}
-	},
-	{
-		"ingredientPattern": "K,H",
-		"shapeless": true,
-		"ingredients": {
-			"K": {
-				"type": "item",
-				"code": "game:knife-*",
-				"isTool": true
-			},
-			"H": {
-				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 2,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "decent"
-				}
-			}
-		},
-		"width": 1,
-		"height": 2,
-		"name": "grain",
-		"output": {
-			"type": "item",
-			"code": "game:grain-{type}",
-			"quantity": 1
-		}
-	},
-	{
-		"ingredientPattern": "K,H",
-		"shapeless": true,
-		"ingredients": {
-			"K": {
-				"type": "item",
-				"code": "game:knife-*",
-				"isTool": true
-			},
-			"H": {
-				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "large"
-				}
-			}
-		},
-		"width": 1,
-		"height": 2,
-		"name": "grain",
-		"output": {
-			"type": "item",
-			"code": "game:grain-{type}",
-			"quantity": 1
-		}
-	},
-	{
-		"ingredientPattern": "K,H",
-		"shapeless": true,
-		"ingredients": {
-			"K": {
-				"type": "item",
-				"code": "game:knife-*",
-				"isTool": true
-			},
-			"H": {
-				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 1,
-				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "hefty"
-				}
+				"name": "type"
 			}
 		},
 		"width": 1,
@@ -184,13 +62,36 @@
 			},
 			"H": {
 				"type": "item",
-				"code": "game:seeds-*",
-				"quantity": 1,
+				"code": "seeds-medium-*",
+				"quantity": 5,
 				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
-				"name": "type",
-				"attributes": {
-					"size": "gigantic"
-				}
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "grain",
+		"output": {
+			"type": "item",
+			"code": "game:grain-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 5,
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
+				"name": "type"
 			}
 		},
 		"width": 1,
@@ -200,6 +101,84 @@
 			"type": "item",
 			"code": "game:grain-{type}",
 			"quantity": 4
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-large-*",
+				"quantity": 1,
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "grain",
+		"output": {
+			"type": "item",
+			"code": "game:grain-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-hefty-*",
+				"quantity": 2,
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "grain",
+		"output": {
+			"type": "item",
+			"code": "game:grain-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-gigantic-*",
+				"quantity": 1,
+				"allowedVariants": [ "flax", "rye", "rice", "spelt", "sunflower", "amaranth", "pumpkin" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "grain",
+		"output": {
+			"type": "item",
+			"code": "game:grain-{type}",
+			"quantity": 2
 		}
 	}
 ]

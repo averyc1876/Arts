@@ -1,0 +1,74 @@
+[
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "AOCItemDough",
+    "file": "wildcraftfruit:itemtypes/food/dough.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes/handbook",
+    "value": {
+      "extraSections": [
+        {
+          "title": "artofcooking:item-handbooktitle-doughforming",
+          "text": "artofcooking:item-handbooktext-doughforming"
+        }
+      ]
+    },
+    "file": "wildcraftfruit:itemtypes/food/dough.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Quadrants",
+          "collisionBox": {
+            "x1": 0,
+            "y1": 0,
+            "z1": 0,
+            "x2": 1,
+            "y2": 0.125,
+            "z2": 1
+          }
+        }
+      }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/dough.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "artofcooking:recipes/cooking/compoteportion-wildcraftfruit.json",
+    "op": "add",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/grid/dough-acorn.json",
+    "op": "add",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  }
+]

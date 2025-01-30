@@ -4,7 +4,7 @@
 		{
 			"name": "GroundStorable",
 			"properties": {
-				"layout": "Quadrants",
+				"layout": "SingleCenter",
 				"collisionBox": {
 					"x1": 0,
 					"y1": 0,

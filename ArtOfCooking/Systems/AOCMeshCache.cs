@@ -379,7 +379,8 @@ namespace ArtOfCooking.Systems
                 bool rotten = ContentsRotten(contentStacks);
                 if (rotten)
                 {
-                    Shape contentShape = Shape.TryGet(capi, "shapes/block/food/meal/rot.json");
+                    Shape contentShape = Shape.TryGet(capi, "shapes/block/food/meal/rot.json"); 
+                    if(containerBlock.FirstCodePart().Equals("spoon") == true) contentShape = Shape.TryGet(capi, "shapes/block/food/meal/rot-spoon.json"); 
 
                     MeshData contentMesh;
                     capi.Tesselator.TesselateShape("rotcontents", contentShape, out contentMesh, source);
@@ -401,8 +402,10 @@ namespace ArtOfCooking.Systems
                         source.ForStack = contentStacks[0];
 
                         CompositeShape cshape = contentStacks[0]?.ItemAttributes?["inBowlShape"].AsObject<CompositeShape>(new CompositeShape() { Base = new AssetLocation("shapes/block/food/meal/pickled.json") });
+                        if(containerBlock.FirstCodePart().Equals("spoon") == true) cshape = new CompositeShape() { Base = new AssetLocation("shapes/block/food/meal/pickled-spoon.json") };
 
                         Shape contentShape = Shape.TryGet(capi, cshape.Base.WithPathAppendixOnce(".json").WithPathPrefixOnce("shapes/"));
+
                         MeshData contentMesh;
                         capi.Tesselator.TesselateShape("picklednmealcontents", contentShape, out contentMesh, source);
 
@@ -425,8 +428,8 @@ namespace ArtOfCooking.Systems
             if (rotten)
             {
                 shapePath = new AssetLocation("shapes/block/food/meal/rot.json");
+                if(containerBlock.FirstCodePart().Equals("spoon") == true) shapePath = new AssetLocation("shapes/block/food/meal/rot-spoon.json");
             }
-
             Shape shape = Shape.TryGet(capi, shapePath);
             Dictionary<CookingRecipeIngredient, int> usedIngredQuantities = new Dictionary<CookingRecipeIngredient, int>();
 

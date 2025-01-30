@@ -34,6 +34,10 @@
 	"shape": { "base": "item/food/lavash" },
 
 	"texturesbytype": {
+		"*-acorn-raw": { "lavash": { "base": "wildcraftfruit:block/food/pie/{type}1" } },
+		"*-acorn-partbaked": { "lavash": { "base": "wildcraftfruit:block/food/pie/{type}2" } },
+		"*-acorn-perfect": { "lavash": { "base": "wildcraftfruit:block/food/pie/{type}3" } },
+		"*-acorn-charred": { "lavash": { "base": "wildcraftfruit:block/food/pie/{type}4" } },
 		"*-raw": { "lavash": { "base": "game:block/food/pie/{type}1" } },
 		"*-partbaked": { "lavash": { "base": "game:block/food/pie/{type}2" } },
 		"*-perfect": { "lavash": { "base": "game:block/food/pie/{type}3" } },
@@ -43,6 +47,34 @@
 		"general": [ "*" ],
 		"items": [ "*" ],
 		"artofcooking": [ "*" ]
+	},
+	"attributes": {
+		"inShawarmaPropertiesByType": {
+			"*-acorn-raw": {
+				"texture": "wildcraftfruit:block/food/pie/{type}1"
+			},
+			"*-acorn-partbaked": {
+				"texture": "wildcraftfruit:block/food/pie/{type}2"
+			},
+			"*-acorn-perfect": {
+				"texture": "wildcraftfruit:block/food/pie/{type}3"
+			},
+			"*-acorn-charred": {
+				"texture": "wildcraftfruit:block/food/pie/{type}4"
+			},
+			"*-raw": {
+				"texture": "game:block/food/pie/{type}1"
+			},
+			"*-partbaked": {
+				"texture": "game:block/food/pie/{type}2"
+			},
+			"*-perfect": {
+				"texture": "game:block/food/pie/{type}3"
+			},
+			"*-charred": {
+				"texture": "game:block/food/pie/{type}4"
+			}
+		}
 	},
 	"attributesByType": {
 		"*-raw": {
@@ -54,9 +86,6 @@
 				"startScaleY": 0.9,
 				"endScaleY": 0.95,
 				"resultCode": "artofcooking:lavash-{type}-partbaked"
-			},
-			"inShawarmaProperties": {
-				"texture": "game:block/food/pie/{type}1"
 			},
 			"handbook": {
 				"extraSections": [
@@ -78,9 +107,6 @@
 				"resultCode": "artofcooking:lavash-{type}-perfect",
 				"initialCode": "artofcooking:lavash-{type}-raw"
 			},
-			"inShawarmaProperties": {
-				"texture": "game:block/food/pie/{type}2"
-			},
 			"handbook": {
 				"extraSections": [
 					{
@@ -96,6 +122,10 @@
 				},
 				"*-rice-*": {
 					"satiety": 400,
+					"foodcategory": "Grain"
+				},
+				"*-acorn-*": {
+					"satiety": 425,
 					"foodcategory": "Grain"
 				},
 				"*": {
@@ -115,9 +145,6 @@
 				"resultCode": "artofcooking:lavash-{type}-charred",
 				"initialCode": "artofcooking:lavash-{type}-partbaked"
 			},
-			"inShawarmaProperties": {
-				"texture": "game:block/food/pie/{type}3"
-			},
 			"handbook": {
 				"extraSections": [
 					{
@@ -133,6 +160,10 @@
 				},
 				"*-rice-*": {
 					"satiety": 825,
+					"foodcategory": "Grain"
+				},
+				"*-acorn-*": {
+					"satiety": 875,
 					"foodcategory": "Grain"
 				},
 				"*": {
@@ -151,9 +182,6 @@
 				"endScaleY": 1.10,
 				"initialCode": "artofcooking:lavash-{type}-perfect"
 			},
-			"inShawarmaProperties": {
-				"texture": "game:block/food/pie/{type}4"
-			},
 			"handbook": {
 				"extraSections": [
 					{
@@ -169,6 +197,10 @@
 				},
 				"*-rice-*": {
 					"satiety": 550,
+					"foodcategory": "Grain"
+				},
+				"*-acorn-*": {
+					"satiety": 575,
 					"foodcategory": "Grain"
 				},
 				"*": {
@@ -237,6 +269,19 @@
 		},
 		"*-rice-charred": {
 			"saturation": 440,
+			"foodcategory": "Grain"
+		},
+
+		"*-acorn-partbaked": {
+			"saturation": 340,
+			"foodcategory": "Grain"
+		},
+		"*-acorn-perfect": {
+			"saturation": 700,
+			"foodcategory": "Grain"
+		},
+		"*-acorn-charred": {
+			"saturation": 460,
 			"foodcategory": "Grain"
 		},
 

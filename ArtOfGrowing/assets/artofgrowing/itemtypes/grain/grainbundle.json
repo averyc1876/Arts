@@ -59,7 +59,7 @@
 					"*-dry": "Items"
 				},
 				"dropItemByType": {
-					"*-dry": "game:seeds-{type}"
+					"*-dry": "seeds-{size}-{type}"
 				},
 				"dropItem2ByType": {
 					"*-flax-*-dry": "flaxbundle-dry",

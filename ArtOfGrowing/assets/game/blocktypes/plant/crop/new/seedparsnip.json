@@ -33,9 +33,9 @@
 	"blockmaterial": "Plant",
 	"texturesByType": {
 		"*": {
-			"bulb": { "base": "block/plant/crop/parsnip/bulb" },
-			"s": { "base": "block/plant/crop/parsnip/s{stage}" },
-			"e": { "base": "block/plant/crop/parsnip/e{stage}" }
+			"bulb": { "base": "game:block/plant/crop/parsnip/bulb" },
+			"s": { "base": "game:block/plant/crop/parsnip/s{stage}" },
+			"e": { "base": "game:block/plant/crop/parsnip/e{stage}" }
 		}
 	},
 	"attributes": {
@@ -66,43 +66,41 @@
 	"lightAbsorption": 0,
 	"resistance": 0.5,
 	"sounds": {
-		"place": "block/plant",
-		"break": "block/plant",
-		"hit": "block/plant"
+		"place": "game:block/plant",
+		"break": "game:block/plant",
+		"hit": "game:block/plant"
 	},
 	"rainPermeable": false,
 	"dropsByType": {
 		"*-12": [
 			{
 				"type": "item",
-				"code": "seeds-parsnip",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:seeds-{size}-parsnip",				
 				"quantity": { "avg": 1.1 }
 			},
 			{
 				"type": "item",
-				"code": "seeds-parsnip",
-				"attributesByType": {
-					"*-wild-*": { "size": "small" },
-					"*-small-*": { "size": "medium" },
-					"*-medium-*": { "size": "decent" },
-					"*-decent-*": { "size": "large" },
-					"*-large-*": { "size": "hefty" },
-					"*-hefty-*": { "size": "gigantic" },
-					"*-gigantic-*": { "size": "gigantic" }
+				"codeByType": {
+					"*-wild-*": "artofgrowing:seeds-small-{type}",
+					"*-small-*": "artofgrowing:seeds-medium-{type}",
+					"*-medium-*": "artofgrowing:seeds-decent-{type}",
+					"*-decent-*": "artofgrowing:seeds-large-{type}",
+					"*-large-*": "artofgrowing:seeds-hefty-{type}",
+					"*-hefty-*": "artofgrowing:seeds-gigantic-{type}",
+					"*-gigantic-*": "artofgrowing:seeds-gigantic-{type}"
 				},
 				"quantity": { "avg": 0.5 }
 			},
 			{
 				"type": "item",
-				"code": "drygrass",
+				"code": "game:drygrass",
 				"quantity": { "avg": 0.7 }
 			}
 		],
 		"*": [
 			{
 				"type": "item",
-				"code": "drygrass",
+				"code": "game:drygrass",
 				"quantity": { "avg": 0.7 }
 			}
 		]

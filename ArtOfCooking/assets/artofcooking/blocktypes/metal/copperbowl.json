@@ -41,7 +41,7 @@
 	"creativeinventory": {
 		"general": [ "" ],
 		"decorative": [ "" ],
-		"artofcooking": [ "*" ]
+		"artofcooking": [ "" ]
 	},
 	"replaceable": 300,
 	"resistance": 0.75,

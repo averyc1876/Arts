@@ -1,48 +1,48 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "game:itemtypes/food/grain.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "game:itemtypes/food/flour.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "game:itemtypes/food/dough.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "game:itemtypes/food/bread.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "artofcooking:itemtypes/food/lavash.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "artofcooking:itemtypes/food/flatbread.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",
     "file": "artofcooking:blocktypes/food/fakepie.json",

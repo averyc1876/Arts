@@ -87,7 +87,7 @@
 	"creativeinventory": {
 		"general": [ "*-fruit-*-4" ],
 		"flora": [ "*-fruit-*-4" ],
-		"artofgrowing": [ "*" ]
+		"artofgrowing": [ "*-fruit-*-4" ]
 	},
 	"shape": { "base": "artofgrowing:block/pumpkin/fruit/{size}/pumpkin-stage{stage}" },
 	"blockmaterial": "Plant",

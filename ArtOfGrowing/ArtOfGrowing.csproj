@@ -58,7 +58,6 @@
   <None Remove="Mods\**" />
   <None Remove="assets\artofgrowing\itemtypes\grain\flaxbundle.json" />
   <None Remove="assets\artofgrowing\itemtypes\grain\sunflower-head.json" />
-  <None Remove="assets\artofgrowing\itemtypes\tool\ridge.json" />
   <None Remove="assets\artofgrowing\patches\barrelrecipes.json" />
   <None Remove="assets\artofgrowing\patches\cabbage.json" />
   <None Remove="assets\artofgrowing\patches\crop\amaranth.json" />
@@ -82,7 +81,6 @@
   <None Remove="assets\artofgrowing\patches\vegetablestew.json" />
   <None Remove="assets\artofgrowing\recipes\grid\grain-three.json" />
   <None Remove="assets\artofgrowing\recipes\grid\grain-two.json" />
-  <None Remove="assets\artofgrowing\recipes\grid\ridge.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\decent\stage12.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\medium\stage12.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\small\stage12.json" />
@@ -162,10 +160,6 @@
   <None Remove="assets\game\blocktypes\plant\crop\new\parsnip.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\rice.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\rye.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\seedcarrot.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\seedonion.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\seedparsnip.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\seedturnip.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\spelt.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\sunflower.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\turnip.json" />

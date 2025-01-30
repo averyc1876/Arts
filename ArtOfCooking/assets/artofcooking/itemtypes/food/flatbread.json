@@ -33,6 +33,10 @@
 	"shape": { "base": "item/food/flatbread" },
 
 	"texturesbytype": {
+		"*-acorn-raw": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}1" } },
+		"*-acorn-partbaked": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}2" } },
+		"*-acorn-perfect": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}3" } },
+		"*-acorn-charred": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}4" } },
 		"*-raw": { "dough": { "base": "game:block/food/pie/{type}1" } },
 		"*-partbaked": { "dough": { "base": "game:block/food/pie/{type}2" } },
 		"*-perfect": { "dough": { "base": "game:block/food/pie/{type}3" } },
@@ -165,6 +169,19 @@
 		},
 		"*-rice-charred": {
 			"saturation": 110,
+			"foodcategory": "Grain"
+		},
+
+		"*-acorn-partbaked": {
+			"saturation": 85,
+			"foodcategory": "Grain"
+		},
+		"*-acorn-perfect": {
+			"saturation": 175,
+			"foodcategory": "Grain"
+		},
+		"*-acorn-charred": {
+			"saturation": 115,
 			"foodcategory": "Grain"
 		},
 

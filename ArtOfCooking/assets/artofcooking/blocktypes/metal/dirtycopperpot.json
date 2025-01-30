@@ -50,7 +50,7 @@
 	"creativeinventory": {
 		"general": [ "" ],
 		"decorative": [ "" ],
-		"artofcooking": [ "*" ]
+		"artofcooking": [ "" ]
 	},
 	"replaceable": 400,
 	"resistance": 1.5,

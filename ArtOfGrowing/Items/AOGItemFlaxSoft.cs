@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Util;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ArtOfGrowing.Items
 {
@@ -23,7 +25,7 @@ namespace ArtOfGrowing.Items
                 {
                     if (items.Code == null) continue;
 
-                    if (items is AOGItemRidge)
+                    if (items.Code.FirstCodePart() == "ridge")
                     {
                         stacks.Add(new ItemStack(items));
                     }
@@ -45,7 +47,7 @@ namespace ArtOfGrowing.Items
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {     
-            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible is AOGItemRidge & !byEntity.Controls.ShiftKey)
+            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "ridge" && !byEntity.Controls.ShiftKey)
             {
                 handling = EnumHandHandling.PreventDefault;
                 if (api.World.Side == EnumAppSide.Client)
@@ -61,7 +63,7 @@ namespace ArtOfGrowing.Items
 
         public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
-            if (byEntity.Controls.ShiftKey) return false;
+            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() != "ridge" || byEntity.Controls.ShiftKey) return false;
             if (byEntity.World is IClientWorldAccessor)
             {
                 byEntity.StartAnimation("squeezehoneycomb");
@@ -73,24 +75,27 @@ namespace ArtOfGrowing.Items
         {
             byEntity.StopAnimation("squeezehoneycomb");
 
-                if (secondsUsed < 1.9f) return;
+            if (secondsUsed < 1.9f) return;
+            IWorldAccessor world = byEntity.World;
+            int quantity = 1;
+            int tquantity = 1;
+            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Variant["material"] == "wooden") tquantity = 8;
+            quantity = Math.Min(tquantity, slot.StackSize);
+            slot.TakeOut(quantity);
+            slot.MarkDirty();
 
-                    IWorldAccessor world = byEntity.World;
+            IPlayer byPlayer = null;
+            
+            if (byEntity is EntityPlayer) byPlayer = world.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
+            ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("flaxfibers")),quantity);
+            if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
+            {
+                byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
+            }
 
-                    slot.TakeOut(1);
-                    slot.MarkDirty();
+            byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot, quantity);
 
-                    IPlayer byPlayer = null;
-                    if (byEntity is EntityPlayer) byPlayer = world.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
-                    ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("flaxfibers")));
-                    if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
-                    {
-                        byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
-                    }
-                    
-                    byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot);
-
-                    return;
+            return;
         }
 
         public override bool OnHeldInteractCancel(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, EnumItemUseCancelReason cancelReason)

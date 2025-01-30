@@ -120,8 +120,7 @@
 		"*-11": [
 			{
 				"type": "item",
-				"code": "vegetable-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-cabbage",				
 				"quantity": {
 					"avg": 0.85,
 					"var": 0.1
@@ -131,8 +130,7 @@
 		"*-12": [
 			{
 				"type": "item",
-				"code": "vegetable-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-cabbage",				
 				"quantity": {
 					"avg": 2,
 					"var": 0
@@ -142,8 +140,7 @@
 		"*-13": [
 			{
 				"type": "item",
-				"code": "vegetable-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-cabbage",				
 				"quantity": {
 					"avg": 1.7,
 					"var": 0.2
@@ -153,8 +150,7 @@
 		"*-14": [
 			{
 				"type": "item",
-				"code": "vegetable-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-cabbage",				
 				"quantity": {
 					"avg": 1.5,
 					"var": 0.2
@@ -164,8 +160,7 @@
 		"*-15": [
 			{
 				"type": "item",
-				"code": "vegetable-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:vegetable-{size}-cabbage",				
 				"quantity": {
 					"avg": 1.2,
 					"var": 0.2
@@ -175,21 +170,19 @@
 		"*-16": [
 			{
 				"type": "item",
-				"code": "seeds-cabbage",
-				"attributes": { "size": "{size}" },
+				"code": "artofgrowing:seeds-{size}-cabbage",				
 				"quantity": { "avg": 1.2 }
 			},
 			{
 				"type": "item",
-				"code": "seeds-cabbage",
-				"attributesByType": {
-					"*-wild-*": { "size": "small" },
-					"*-small-*": { "size": "medium" },
-					"*-medium-*": { "size": "decent" },
-					"*-decent-*": { "size": "large" },
-					"*-large-*": { "size": "hefty" },
-					"*-hefty-*": { "size": "gigantic" },
-					"*-gigantic-*": { "size": "gigantic" }
+				"codeByType": {
+					"*-wild-*": "artofgrowing:seeds-small-{type}",
+					"*-small-*": "artofgrowing:seeds-medium-{type}",
+					"*-medium-*": "artofgrowing:seeds-decent-{type}",
+					"*-decent-*": "artofgrowing:seeds-large-{type}",
+					"*-large-*": "artofgrowing:seeds-hefty-{type}",
+					"*-hefty-*": "artofgrowing:seeds-gigantic-{type}",
+					"*-gigantic-*": "artofgrowing:seeds-gigantic-{type}"
 				},
 				"quantity": { "avg": 0.3 }
 			},

@@ -1,0 +1,68 @@
+[
+  {
+    "ingredientPattern": "WK,S_",
+    "ingredients": {
+      "W": {
+        "type": "item",
+        "code": "game:plank-*",
+        "name": "wood"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "ridge-wooden-{wood}"
+    }
+  },
+  {
+    "ingredientPattern": "SR",
+    "ingredients": {
+      "R": {
+        "type": "item",
+        "code": "game:rope"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick",
+        "quantity": 3
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "ridge-rough"
+    }
+  },
+  {
+    "ingredientPattern": "SR",
+    "ingredients": {
+      "R": {
+        "type": "item",
+        "code": "game:rope"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:plank-*",
+        "name": "wood",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "creaser-{wood}"
+    }
+  }
+]

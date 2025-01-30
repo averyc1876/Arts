@@ -88,8 +88,7 @@
       "*-6": [
         {
           "type": "item",
-          "code": "vegetable-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-carrot",          
           "quantity": {
             "avg": 3,
             "var": 1
@@ -104,8 +103,7 @@
       "*-7": [
         {
           "type": "item",
-          "code": "vegetable-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-carrot",          
           "quantity": {
             "avg": 11,
             "var": 2
@@ -120,8 +118,7 @@
       "*-8": [
         {
           "type": "item",
-          "code": "vegetable-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-carrot",          
           "quantity": {
             "avg": 9,
             "var": 2
@@ -136,8 +133,7 @@
       "*-9": [
         {
           "type": "item",
-          "code": "vegetable-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-carrot",          
           "quantity": {
             "avg": 7,
             "var": 2
@@ -152,8 +148,7 @@
       "*-10": [
         {
           "type": "item",
-          "code": "vegetable-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-carrot",          
           "quantity": {
             "avg": 5,
             "var": 2
@@ -168,14 +163,12 @@
       "*-11": [
         {
           "type": "item",
-          "code": "seeds-carrot",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:seeds-wild-{type}",
           "quantity": { "avg": 1.2 }
         },
         {
           "type": "item",
-          "code": "seeds-carrot",
-          "attributes": { "size": "small" },
+          "code": "artofgrowing:seeds-small-{type}",
           "quantity": { "avg": 0.3 }
         },
         {

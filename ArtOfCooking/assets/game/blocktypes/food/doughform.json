@@ -19,7 +19,8 @@
 		"doughworkitem-cassava": { "base": "block/food/dough/cassava" },
 		"doughworkitem-amaranth": { "base": "block/food/dough/amaranth" },
 		"doughworkitem-sunflower": { "base": "block/food/dough/sunflower" },
-		"doughworkitem-pumpkin": { "base": "block/food/dough/pumpkin" }
+		"doughworkitem-pumpkin": { "base": "block/food/dough/pumpkin" },
+		"doughworkitem-acorn": { "base": "block/food/dough/acorn" }
 	},
 	"sidesolid": {
 		"all": false

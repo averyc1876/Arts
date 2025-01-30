@@ -1,11 +1,27 @@
 {
 	"code": "vegetable",
-	"maxstacksize": 64,
+	"classByType": {
+		"*-cabbage": "Item",
+		"*": "AOGItemSeedling"
+	},
+	"maxstacksizeByType": {
+		"*-wild-*": 512,
+		"*-small-*": 256,
+		"*-medium-*": 128,
+		"*-decent-*": 64,
+		"*-large-*": 32,
+		"*-hefty-*": 16,
+		"*-gigantic-*": 8
+	},
 	"behaviors": [
 		{
 			"name": "GroundStorable",
 			"properties": {
-				"layout": "Quadrants",
+				"layoutByType": {
+					"*-gigantic-cabbage": "SingleCenter",
+					"*-hefty-cabbage": "SingleCenter",
+					"*": "Quadrants"
+				},
 				"collisionBox": {
 					"x1": 0,
 					"y1": 0,
@@ -19,35 +35,51 @@
 	],
 	"attributesByType": {
 		"*-cabbage": {
-			"inContainerTexture": { "base": "block/wood/barrel/raw-{type}" },
+			"inContainerTexture": { "base": "game:block/wood/barrel/raw-{type}" },
 			"inBarrelShape": "coreofart:/block/wood/barrel/{type}fill1",
 			"nutritionPropsWhenInMeal": {
-				"satiety": 450,
+				"satietyByType": {
+					"*-wild-*": 90,
+					"*-small-*": 180,
+					"*-medium-*": 270,
+					"*-decent-*": 360,
+					"*-large-*": 450,
+					"*-hefty-*": 675,
+					"*-gigantic-*": 900
+				},
 				"foodcategory": "Vegetable"
 			},
 			"inPieProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
 			"inShawarmaProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			}
 		},
 		"*-onion": {
 			"foodTags": [ "{type}" ],
-			"inContainerTexture": { "base": "block/wood/barrel/raw-{type}" },
+			"inContainerTexture": { "base": "game:block/wood/barrel/raw-{type}" },
 			"inBarrelShape": "coreofart:/block/wood/barrel/{type}fill1",
 			"nutritionPropsWhenInMeal": {
-				"satiety": 150,
+				"satietyByType": {
+					"*-wild-*": 30,
+					"*-small-*": 60,
+					"*-medium-*": 90,
+					"*-decent-*": 120,
+					"*-large-*": 150,
+					"*-hefty-*": 225,
+					"*-gigantic-*": 300
+				},
 				"foodcategory": "Vegetable"
 			},
 			"inPieProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
 			"inShawarmaProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
 			"groundStorageTransform": {
@@ -75,18 +107,26 @@
 		},
 		"*": {
 			"foodTags": [ "{type}" ],
-			"inContainerTexture": { "base": "block/wood/barrel/raw-{type}" },
+			"inContainerTexture": { "base": "game:block/wood/barrel/raw-{type}" },
 			"inBarrelShape": "coreofart:/block/wood/barrel/{type}fill1",
 			"nutritionPropsWhenInMeal": {
-				"satiety": 150,
+				"satietyByType": {
+					"*-wild-*": 30,
+					"*-small-*": 60,
+					"*-medium-*": 90,
+					"*-decent-*": 120,
+					"*-large-*": 150,
+					"*-hefty-*": 225,
+					"*-gigantic-*": 300
+				},
 				"foodcategory": "Vegetable"
 			},
 			"inPieProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
 			"inShawarmaProperties": {
-				"texture": "block/food/pie/fill-{type}",
+				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
 			"groundStorageTransform": {
@@ -126,6 +166,26 @@
 	"shapebytype": {
 		"*": { "base": "item/food/vegetable/{size}/{type}" }
 	},
+	"texturesByType": {
+		"*-cabbage": {
+			"cabbage": { "base": "game:block/plant/crop/{type}/cabbage" },
+			"bottom12": { "base": "game:block/plant/crop/{type}/bottom12" },
+			"top": { "base": "game:block/plant/crop/{type}/top" }
+		},
+		"*-turnip": {
+			"item": { "base": "game:block/plant/crop/{type}/bulb" },
+			"s4": { "base": "game:block/plant/crop/{type}/s1" },
+			"e3": { "base": "game:block/plant/crop/{type}/e1" }
+		},
+		"*": {
+			"bulb": { "base": "game:block/plant/crop/{type}/bulb" },
+			"bulb2": { "base": "game:block/plant/crop/{type}/bulb" },
+			"s3": { "base": "game:block/plant/crop/{type}/s2" },
+			"e3": { "base": "game:block/plant/crop/{type}/e2" },
+			"s5": { "base": "game:block/plant/crop/{type}/s2" },
+			"e5": { "base": "game:block/plant/crop/{type}/e2" }
+		}
+	},
 	"heldTpIdleAnimationByType": {
 		"*-cabbage": "holdbothhandslarge"
 	},
@@ -139,11 +199,27 @@
 	},
 	"nutritionPropsByType": {
 		"*-cabbage": {
-			"satiety": 300,
+			"satietyByType": {
+				"*-wild-*": 60,
+				"*-small-*": 120,
+				"*-medium-*": 180,
+				"*-decent-*": 240,
+				"*-large-*": 300,
+				"*-hefty-*": 450,
+				"*-gigantic-*": 600
+			},
 			"foodcategory": "Vegetable"
 		},
 		"*": {
-			"satiety": 100,
+			"satietyByType": {
+				"*-wild-*": 20,
+				"*-small-*": 40,
+				"*-medium-*": 60,
+				"*-decent-*": 80,
+				"*-large-*": 100,
+				"*-hefty-*": 150,
+				"*-gigantic-*": 200
+			},
 			"foodcategory": "Vegetable"
 		}
 	},
@@ -155,9 +231,17 @@
 				"transitionHours": { "avg": 120 },
 				"transitionedStack": {
 					"type": "item",
-					"code": "rot"
+					"code": "game:rot"
 				},
-				"transitionRatio": 0.5
+				"transitionRatioByType": {
+					"*-wild-*": 0.1,
+					"*-small-*": 0.2,
+					"*-medium-*": 0.3,
+					"*-decent-*": 0.4,
+					"*-large-*": 0.5,
+					"*-hefty-*": 0.75,
+					"*-gigantic-*": 1
+				}
 			}
 		],
 		"*": [
@@ -167,9 +251,17 @@
 				"transitionHours": { "avg": 96 },
 				"transitionedStack": {
 					"type": "item",
-					"code": "rot"
+					"code": "game:rot"
 				},
-				"transitionRatio": 0.5
+				"transitionRatioByType": {
+					"*-wild-*": 0.1,
+					"*-small-*": 0.2,
+					"*-medium-*": 0.3,
+					"*-decent-*": 0.4,
+					"*-large-*": 0.5,
+					"*-hefty-*": 0.75,
+					"*-gigantic-*": 1
+				}
 			}
 		]
 	},

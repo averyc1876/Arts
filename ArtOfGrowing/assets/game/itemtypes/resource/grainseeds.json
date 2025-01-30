@@ -1,6 +1,6 @@
 {
 	"code": "seeds",
-	"class": "AOGItemPlantableSeed",
+	"class": "AOGItemRemap",
 	"maxstacksize": 64,
 	"attributes": {
 		"inContainerTexture": { "base": "block/food/grain/{type}" },

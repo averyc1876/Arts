@@ -122,8 +122,8 @@
       "*-6": [
         {
           "type": "item",
-          "code": "vegetable-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-onion",
+          
           "quantity": {
             "avg": 3,
             "var": 1
@@ -141,8 +141,8 @@
       "*-7": [
         {
           "type": "item",
-          "code": "vegetable-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-onion",
+          
           "quantity": {
             "avg": 12,
             "var": 2
@@ -160,8 +160,8 @@
       "*-8": [
         {
           "type": "item",
-          "code": "vegetable-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-onion",
+          
           "quantity": {
             "avg": 10,
             "var": 2
@@ -176,8 +176,8 @@
       "*-9": [
         {
           "type": "item",
-          "code": "vegetable-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-onion",
+          
           "quantity": {
             "avg": 8,
             "var": 2
@@ -192,8 +192,8 @@
       "*-10": [
         {
           "type": "item",
-          "code": "vegetable-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-onion",
+          
           "quantity": {
             "avg": 6,
             "var": 2
@@ -208,14 +208,12 @@
       "*-11": [
         {
           "type": "item",
-          "code": "seeds-onion",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:seeds-wild-{type}",
           "quantity": { "avg": 1.2 }
         },
         {
           "type": "item",
-          "code": "seeds-onion",
-          "attributes": { "size": "small" },
+          "code": "artofgrowing:seeds-small-{type}",
           "quantity": { "avg": 0.3 }
         },
         {

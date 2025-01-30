@@ -97,8 +97,8 @@
       "*-11": [
         {
           "type": "item",
-          "code": "vegetable-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-cabbage",
+          
           "quantity": {
             "avg": 0.85,
             "var": 0.1
@@ -108,8 +108,8 @@
       "*-12": [
         {
           "type": "item",
-          "code": "vegetable-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-cabbage",
+          
           "quantity": {
             "avg": 2,
             "var": 0
@@ -119,8 +119,8 @@
       "*-13": [
         {
           "type": "item",
-          "code": "vegetable-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-cabbage",
+          
           "quantity": {
             "avg": 1.7,
             "var": 0.2
@@ -130,8 +130,8 @@
       "*-14": [
         {
           "type": "item",
-          "code": "vegetable-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-cabbage",
+          
           "quantity": {
             "avg": 1.5,
             "var": 0.2
@@ -141,8 +141,8 @@
       "*-15": [
         {
           "type": "item",
-          "code": "vegetable-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:vegetable-wild-cabbage",
+          
           "quantity": {
             "avg": 1.2,
             "var": 0.2
@@ -152,14 +152,12 @@
       "*-16": [
         {
           "type": "item",
-          "code": "seeds-cabbage",
-          "attributes": { "size": "wild" },
+          "code": "artofgrowing:seeds-wild-{type}",
           "quantity": { "avg": 1.2 }
         },
         {
           "type": "item",
-          "code": "seeds-cabbage",
-          "attributes": { "size": "small" },
+          "code": "artofgrowing:seeds-small-{type}",
           "quantity": { "avg": 0.3 }
         },
         {

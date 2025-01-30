@@ -1,6 +1,6 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/buildMats/grass/1",
     "value": {
       "type": "item",
@@ -15,7 +15,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/textures/thatch",
     "value": { "base": "artofgrowing:block/thatch/normal-top" },
     "file": "game:blocktypes/wood/pitkiln.json",

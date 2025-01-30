@@ -1,6 +1,6 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/behaviorsByType",
     "value": {
       "*": [
@@ -39,14 +39,14 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/class",
     "value": "AOGItemDryGrass",
     "file": "game:itemtypes/resource/thatch.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes",
     "value": {
       "foodTags": [ "grass" ],
@@ -69,7 +69,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/textures",
     "value": {
       "bundle": { "base": "artofgrowing:item/resource/thatchbundle" }

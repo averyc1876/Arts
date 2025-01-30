@@ -1,27 +1,27 @@
 [
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/{type}fill1",
     "file": "game:itemtypes/food/pickledvegetable.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/legumefill1",
     "file": "game:itemtypes/food/legume.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/cassavafill1",
     "file": "game:itemtypes/food/rawcassava.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes",
     "value": {
       "inBarrelShape": "coreofart:/block/wood/barrel/{type}fill1",
@@ -31,42 +31,42 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/cookedpapyrusrootfill1",
     "file": "game:itemtypes/resource/papyrusroot.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/cookedcattailrootfill1",
     "file": "game:itemtypes/resource/catttailroot.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inBarrelShape",
     "value": "coreofart:/block/wood/barrel/cookedcattailrootfill1",
     "file": "game:itemtypes/resource/tuleroot.json",
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inContainerTexture",
     "value": { "base": "block/wood/barrel/raw-cassava" },
     "file": "game:itemtypes/resource/papyrusroot.json",
     "side": "Server"
   },
   {
-    "file": "game:itemtypes/resource/catttailroot.json",
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inContainerTexture",
-    "side": "Server",
-    "value": { "base": "block/wood/barrel/raw-cassava" }
+    "value": { "base": "block/wood/barrel/raw-cassava" },
+    "file": "game:itemtypes/resource/catttailroot.json",
+    "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/inContainerTexture",
     "value": { "base": "block/wood/barrel/raw-cassava" },
     "file": "game:itemtypes/resource/tuleroot.json",

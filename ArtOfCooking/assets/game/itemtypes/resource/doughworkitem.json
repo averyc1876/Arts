@@ -5,7 +5,7 @@
 	"variantgroups": [
 		{
 			"code": "type",
-			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin" ]
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin", "acorn" ]
 		}
 	],
 	"texture": { "base": "block/food/dough/{type}" },

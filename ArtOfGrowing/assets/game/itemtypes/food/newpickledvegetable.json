@@ -1,6 +1,6 @@
 {
 	"code": "pickledvegetable",
-	"class": "AOGItemFood",
+	"class": "AOGItemRemap",
 	"maxstacksize": 64,
 	"attributes": {
 		"inContainerTexture": { "base": "block/wood/barrel/pickled-{type}" },

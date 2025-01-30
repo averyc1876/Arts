@@ -1,0 +1,15 @@
+[
+  {
+    "op": "addmerge",
+    "path": "/class",
+    "value": "AOCItemEgg",
+    "file": "game:itemtypes/food/egg.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/behaviors",
+    "file": "game:itemtypes/food/egg.json",
+    "side": "Server"
+  }
+]

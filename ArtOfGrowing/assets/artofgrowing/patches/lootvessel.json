@@ -1,0 +1,16 @@
+[
+  {
+    "op": "replace",
+    "path": "/attributes/lootListByType/*-seed/0/codes",
+    "value": [ "artofgrowing:seeds-wild-carrot", "artofgrowing:seeds-wild-onion", "artofgrowing:seeds-wild-spelt", "artofgrowing:seeds-wild-turnip", "artofgrowing:seeds-wild-rice", "artofgrowing:seeds-wild-rye", "seeds-soybean", "artofgrowing:seeds-wild-pumpkin", "artofgrowing:seeds-wild-cabbage" ],
+    "file": "game:blocktypes/clay/lootvessel.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/attributes/lootListByType/*-farming/5/codes",
+    "value": [ "artofgrowing:seeds-wild-cabbage" ],
+    "file": "game:blocktypes/clay/lootvessel.json",
+    "side": "Server"
+  }
+]

@@ -7,7 +7,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/attributes/handbook",
     "value": {
       "extraSections": [
@@ -21,7 +21,7 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/behaviors",
     "value": [
       {

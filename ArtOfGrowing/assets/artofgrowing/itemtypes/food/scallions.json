@@ -3,9 +3,8 @@
 	"maxstacksize": 64,
 	"attributes": {
 		"inContainerTexture": { "base": "game:block/wood/barrel/raw-{type}" },
-		"crockable": true,
 		"inShawarmaProperties": {
-			"texture": "game:block/food/pie/fill-cabbage",
+			"texture": "game:block/wood/barrel/raw-{type}",
 			"partType": "Filling"
 		}
 	},

@@ -1,0 +1,230 @@
+{
+	"code": "haywallpaper",
+	"behaviors": [
+		{
+			"name": "Decor",
+			"properties": {
+				"sides": [ "north", "east", "south", "west", "up", "down" ],
+				"sidedVariants": true,
+				"thickness": 0.0625,
+				"removable": true
+			}
+		}
+	],
+	"attributes": {
+		"attachas3d": true,
+		"clothingRepairStrength": 0.5,
+		"handbook": {
+			"groupBy": [ "haywallpaper-*" ]
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "pattern",
+			"states": [ "thatch", "drygrass" ]
+		},
+		{
+			"code": "side",
+			"states": [ "north", "east", "south", "west", "up", "down" ]
+		}
+	],
+	"shapebytype": {
+		"*-down": { "base": "block/haywallpaper" },
+		"*-up": {
+			"base": "block/haywallpaper",
+			"rotateX": 180
+		},
+		"*-north": {
+			"base": "block/haywallpaper",
+			"rotateX": 90
+		},
+		"*-east": {
+			"base": "block/haywallpaper",
+			"rotateX": 90,
+			"rotateY": 180,
+			"rotateZ": 270
+		},
+		"*-west": {
+			"base": "block/haywallpaper",
+			"rotateX": 90,
+			"rotateY": 0,
+			"rotateZ": 270
+		},
+		"*-south": {
+			"base": "block/haywallpaper",
+			"rotateX": 270
+		}
+	},
+	"sidesolidByType": {
+		"*-down": {
+			"all": false,
+			"down": true
+		},
+		"*-up": {
+			"all": false,
+			"up": true
+		},
+		"*-north": {
+			"all": false,
+			"north": true
+		},
+		"*-east": {
+			"all": false,
+			"east": true
+		},
+		"*-west": {
+			"all": false,
+			"west": true
+		},
+		"*-south": {
+			"all": false,
+			"south": true
+		}
+	},
+	"sideopaqueByType": {
+		"*-down": {
+			"all": false,
+			"down": true
+		},
+		"*-up": {
+			"all": false,
+			"up": true
+		},
+		"*-north": {
+			"all": false,
+			"north": true
+		},
+		"*-east": {
+			"all": false,
+			"east": true
+		},
+		"*-west": {
+			"all": false,
+			"west": true
+		},
+		"*-south": {
+			"all": false,
+			"south": true
+		}
+	},
+	"blockmaterial": "Plant",
+	"creativeinventory": {
+		"general": [ "" ],
+		"decorative": [ "" ],
+		"artofgrowing": [ "" ]
+	},
+	"replaceable": 700,
+	"resistance": 1,
+	"lightAbsorption": 1,
+	"faceCullMode": "NeverCull",
+	"renderpass": "OpaqueNoCull",
+	"emitSideAo": {
+		"all": false
+	},
+	"texturesByType": {
+		"*-thatch-*": {
+			"normal-top": { "base": "artofgrowing:block/thatch/normal-top" },
+			"straw1": { "base": "artofgrowing:block/thatch/straw1" }
+		},
+		"*-drygrass-*": {
+			"normal-top": { "base": "game:block/plant/grassroofing/normal-top" },
+			"straw1": { "base": "game:block/plant/grassroofing/straw1" }
+		}
+	},
+	"vertexFlags": {
+		"zOffset": 1
+	},
+	"selectionbox": {
+		"x1": 0,
+		"y1": 0,
+		"z1": 0,
+		"x2": 1,
+		"y2": 0.0625,
+		"z2": 1,
+		"rotateXByType": {
+			"*-up": 180,
+			"*-north": 90,
+			"*-east": 90,
+			"*-west": 90,
+			"*-south": 270
+		},
+		"rotateYByType": {
+			"*-east": 180,
+			"*-west": 0
+		},
+		"rotateZByType": {
+			"*-east": 270,
+			"*-west": 270
+		}
+	},
+	"collisionbox": {
+		"x1": 0,
+		"y1": 0,
+		"z1": 0,
+		"x2": 1,
+		"y2": 0.0625,
+		"z2": 1,
+		"rotateXByType": {
+			"*-up": 180,
+			"*-north": 90,
+			"*-east": 90,
+			"*-west": 90,
+			"*-south": 270
+		},
+		"rotateYByType": {
+			"*-east": 180,
+			"*-west": 0
+		},
+		"rotateZByType": {
+			"*-east": 270,
+			"*-west": 270
+		}
+	},
+	"combustibleProps": {
+		"burnTemperature": 400,
+		"burnDuration": 15
+	},
+	"sounds": {
+		"place": "game:block/cloth",
+		"break": "game:block/cloth",
+		"hit": "game:block/cloth",
+		"walk": "game:walk/cloth"
+	},
+	"materialDensity": 200,
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 3,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.0625,
+			"z": 0.5
+		}
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": -0.3,
+			"y": -0.25,
+			"z": 0.4
+		},
+		"rotation": {
+			"x": 6,
+			"y": -59,
+			"z": 80
+		}
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.6,
+			"y": -2,
+			"z": -2
+		},
+		"rotation": {
+			"x": -54,
+			"y": -86,
+			"z": -36
+		}
+	}
+}
