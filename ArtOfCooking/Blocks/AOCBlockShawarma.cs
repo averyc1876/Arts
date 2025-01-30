@@ -49,7 +49,7 @@ namespace ArtOfCooking.Blocks
                             lavashStacks.Add(new ItemStack(obj, 1));
                         }
 
-                        var shawarmaProps = obj.Attributes?["inShawarmaProperties"]?.AsObject<inShawarmaProperties>(null, obj.Code.Domain);
+                        var shawarmaProps = obj.Attributes?["inCookedMealProperties"]?.AsObject<inCookedMealProperties>(null, obj.Code.Domain);
                         if (shawarmaProps != null && !(obj is AOCItemLavash) && !(obj is AOCItemDough) && !(obj is ItemDough))
                         {
                             fillStacks.Add(new ItemStack(obj, 1));

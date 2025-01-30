@@ -62,7 +62,7 @@
   "itemdesc-ridge-rough": "Can process 1 bundle of flax straw at a time.",
   "itemdesc-ridge-wooden-*": "Can process 8 bundles of flax straw at a time.",
   "itemdesc-creaser-*": "Can process 8 bundles of flax straw at a time.",
-  "artofgrowing:item-handbooktext-ridge": "It is used for combing linen straw. Holding the brush in your left hand and the crumpled flax straw in your right, hold <icon>rightmousebutton<\/icon>.",
+  "artofgrowing:item-handbooktext-ridge": "It is used for crumpled linen straw. Holding the brush in your left hand and the crumpled flax straw in your right, hold <icon>rightmousebutton<\/icon>.",
   "artofgrowing:item-handbooktext-creaser": "It is used for faster crumpling of pure linen straw. Holding the creaser in your left hand and the pure linen straw in your right, press <icon>rightmousebutton<\/icon>.",
 
   "game:block-crop-turnip-5": "Mature wild turnips",

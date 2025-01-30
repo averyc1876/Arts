@@ -49,7 +49,7 @@
 		"artofcooking": [ "*" ]
 	},
 	"attributes": {
-		"inShawarmaPropertiesByType": {
+		"inCookedMealPropertiesByType": {
 			"*-acorn-raw": {
 				"texture": "wildcraftfruit:block/food/pie/{type}1"
 			},

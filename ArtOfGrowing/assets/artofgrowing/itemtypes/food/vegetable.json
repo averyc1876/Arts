@@ -53,7 +53,7 @@
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			}
@@ -78,7 +78,7 @@
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
@@ -125,7 +125,7 @@
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "game:block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},

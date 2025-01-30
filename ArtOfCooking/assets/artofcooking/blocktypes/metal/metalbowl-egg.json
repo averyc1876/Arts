@@ -44,9 +44,9 @@
 	"doNotRenderAtLod2": true,
 	"blockmaterial": "Metal",
 	"creativeinventory": {
-		"general": [ "*-8" ],
-		"decorative": [ "*-8" ],
-		"artofcooking": [ "*" ]
+		"general": [ "" ],
+		"decorative": [ "" ],
+		"artofcooking": [ "" ]
 	},
 	"replaceable": 300,
 	"resistance": 0.75,

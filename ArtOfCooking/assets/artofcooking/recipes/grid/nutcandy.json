@@ -809,24 +809,24 @@
     "ingredientPattern": "KH,WB",
     "shapeless": true, "enabled": false,
     "ingredients": {
-      "K": {
-        "type": "block",
-        "code": "artofcooking:metalbowl-*-empty"
+      "B": {
+        "type": "item",
+        "code": "game:salt"
       },
       "H": {
         "type": "item",
         "code": "wildcraftfruit:nut-hackberrypit",
         "quantity": 4
       },
+      "K": {
+        "type": "block",
+        "code": "artofcooking:metalbowl-*-empty"
+      },
       "W": {
         "type": "item",
         "code": "game:grain-*",
         "name": "type",
         "quantity": 2
-      },
-      "B": {
-        "type": "item",
-        "code": "game:salt"
       }
     },
     "attributes": {

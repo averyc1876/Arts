@@ -40,9 +40,9 @@
 	"doNotRenderAtLod2": true,
 	"blockmaterial": "Ceramic",
 	"creativeinventory": {
-		"general": [ "*-4" ],
-		"decorative": [ "*-4" ],
-		"artofcooking": [ "*" ]
+		"general": [ "" ],
+		"decorative": [ "" ],
+		"artofcooking": [ "" ]
 	},
 	"replaceable": 300,
 	"resistance": 0.75,

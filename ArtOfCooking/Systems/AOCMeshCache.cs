@@ -160,7 +160,7 @@ namespace ArtOfCooking.Systems
 
             int shawarmaParts = shawarmaStack.Attributes.GetAsInt("shawarmaParts");
 
-            var stackprops = contentStacks.Select(stack => stack?.ItemAttributes?["inShawarmaProperties"]?.AsObject<inShawarmaProperties>(null, stack.Collectible.Code.Domain)).ToArray();
+            var stackprops = contentStacks.Select(stack => stack?.ItemAttributes?["inCookedMealProperties"]?.AsObject<inCookedMealProperties>(null, stack.Collectible.Code.Domain)).ToArray();
 
             if (stackprops.Length == 0) return null;
 

@@ -30,7 +30,7 @@
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			}
@@ -47,7 +47,7 @@
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
@@ -86,7 +86,7 @@
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},
-			"inShawarmaProperties": {
+			"inCookedMealProperties": {
 				"texture": "block/food/pie/fill-{type}",
 				"partType": "Filling"
 			},

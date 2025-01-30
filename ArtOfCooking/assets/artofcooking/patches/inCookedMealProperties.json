@@ -1,7 +1,7 @@
 [
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cheddar-1slice": {
         "texture": "block/food/pie/fill-cheddar",
@@ -17,7 +17,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-pinkapple": {
         "texture": "block/food/pie/fill-apple",
@@ -41,7 +41,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaProperties",
+    "path": "/attributes/inCookedMealProperties",
     "value": {
       "texture": "block/food/pie/fill-{type}",
       "partType": "Filling"
@@ -51,7 +51,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaProperties",
+    "path": "/attributes/inCookedMealProperties",
     "value": {
       "texture": "block/food/pie/fill-{type}",
       "partType": "Filling"
@@ -61,7 +61,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "block/food/pie/fill-poultry",
@@ -77,7 +77,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "block/food/pie/fill-fish",
@@ -93,7 +93,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "block/food/pie/fill-redmeat",
@@ -113,7 +113,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "block/food/pie/fill-bushmeat",
@@ -129,7 +129,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cookedcattailroot": {
         "texture": "block/food/pie/fill-cassava",
@@ -149,7 +149,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "game:block/food/pie/fill-mixedmeat",
@@ -168,7 +168,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*": {
         "texture": "game:block/food/pie/fill-mixedmeat",
@@ -183,7 +183,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cooked": {
         "texture": "game:block/food/pie/fill-mixedmeat",
@@ -198,7 +198,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-pittedcherry": {
         "texture": "game:block/food/pie/fill-cherry",
@@ -239,7 +239,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*": {
         "texture": "wildcraftfruit:block/food/pie/fill-{type}",
@@ -254,7 +254,7 @@
   },
   {
     "op": "addmerge",
-    "path": "/attributes/inShawarmaPropertiesByType",
+    "path": "/attributes/inCookedMealPropertiesByType",
     "value": {
       "*-cucumber": {
         "texture": "wildcraftfruit:block/food/pie/fill-pickledcucumber",
@@ -281,7 +281,7 @@
     "op": "addmerge",
     "path": "/attributes",
     "value": {
-      "inShawarmaPropertiesByType": {
+      "inCookedMealPropertiesByType": {
         "@*-(juniper|chestnut|pinenut|hackberrypit|commonhackberry|sugarhackberry|deserthackberry|oldmansaltbush|pumpkinseed|hazelnut|apricotpit|beachalmond|sumac|cherrypit|pistachionut|chocolate|halva|marzipan|peanutground|acornleached|bluequandong|breadnut)": {
           "texture": "block/food/pie/fill-{nut}",
           "partType": "Filling"

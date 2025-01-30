@@ -53,7 +53,7 @@
   },
   {
     "file": "artofcooking:recipes/cooking/compoteportion-wildcraftfruit.json",
-    "op": "add",
+    "op": "replace",
     "path": "/enabled",
     "value": true,
     "dependsOn": [
@@ -63,7 +63,7 @@
   },
   {
     "file": "artofcooking:recipes/grid/dough-acorn.json",
-    "op": "add",
+    "op": "replace",
     "path": "/enabled",
     "value": true,
     "dependsOn": [

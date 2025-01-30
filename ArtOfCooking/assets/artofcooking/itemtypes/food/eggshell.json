@@ -26,9 +26,9 @@
 	"shape": { "base": "item/food/eggshell" },
 	"texture": { "base": "game:block/wood/henbox/egg" },
 	"creativeinventory": {
-		"general": [ "*" ],
-		"items": [ "*" ],
-		"artofcooking": [ "*" ]
+		"general": [ "" ],
+		"items": [ "" ],
+		"artofcooking": [ "" ]
 	},
 	"materialDensity": 200,
 	"guiTransform": {

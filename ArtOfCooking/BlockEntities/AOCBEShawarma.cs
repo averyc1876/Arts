@@ -14,7 +14,7 @@ namespace ArtOfCooking.BlockEntities
     {
         Crust, Filling, Topping
     }
-    public class inShawarmaProperties
+    public class inCookedMealProperties
     {
         public EnumShawarmaPartType PartType;
         public AssetLocation Texture;
@@ -270,7 +270,7 @@ namespace ArtOfCooking.BlockEntities
 
         private bool TryAddIngredientFrom(ItemSlot slot, IPlayer byPlayer = null)
         {
-            var shawarmaProps = slot.Itemstack.ItemAttributes?["inShawarmaProperties"]?.AsObject<inShawarmaProperties>(null, slot.Itemstack.Collectible.Code.Domain);
+            var shawarmaProps = slot.Itemstack.ItemAttributes?["inCookedMealProperties"]?.AsObject<inCookedMealProperties>(null, slot.Itemstack.Collectible.Code.Domain);
             if (shawarmaProps == null)
             {
                 if (byPlayer != null && capi != null) capi.TriggerIngameError(this, "notshawarmaable", Lang.Get("This item can not be added to shawarmas"));
@@ -306,7 +306,7 @@ namespace ArtOfCooking.BlockEntities
             }
 
             var foodCats = cStacks.Select(stack => stack?.Collectible.NutritionProps?.FoodCategory ?? stack?.ItemAttributes?["nutritionPropsWhenInMeal"]?.AsObject<FoodNutritionProperties>()?.FoodCategory ?? EnumFoodCategory.Vegetable).ToArray();
-            var stackprops = cStacks.Select(stack => stack?.ItemAttributes["inShawarmaProperties"]?.AsObject<inShawarmaProperties>(null, stack.Collectible.Code.Domain)).ToArray();
+            var stackprops = cStacks.Select(stack => stack?.ItemAttributes["inCookedMealProperties"]?.AsObject<inCookedMealProperties>(null, stack.Collectible.Code.Domain)).ToArray();
 
             ItemStack cstack = slot.Itemstack;
             EnumFoodCategory foodCat = slot.Itemstack?.Collectible.NutritionProps?.FoodCategory ?? slot.Itemstack?.ItemAttributes?["nutritionPropsWhenInMeal"]?.AsObject<FoodNutritionProperties>()?.FoodCategory ?? EnumFoodCategory.Vegetable;
