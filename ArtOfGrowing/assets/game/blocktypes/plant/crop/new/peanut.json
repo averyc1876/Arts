@@ -1,0 +1,168 @@
+{
+	"code": "crop",
+	"class": "BlockCrop",
+	"behaviors": [ { "name": "Unstable" } ],
+	"variantgroups": [
+		{
+			"code": "size",
+			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
+		},
+		{
+			"code": "type",
+			"states": [ "peanut" ]
+		},
+		{
+			"code": "stage",
+			"states": [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "" ],
+		"plants": [ "" ]
+	},
+	"renderpass": "OpaqueNoCull",
+	"shape": { "base": "block/plant/crop/densevegetable" },
+	"blockmaterial": "Plant",
+	"randomizeRotations": true,
+	"texturesByType": {
+		"*-gigantic-*": {
+			"all": { "base": "block/plant/crop/{type}/normal{stage}" }
+		},
+		"*": {
+			"all": { "base": "artofgrowing:block/plant/crop/{type}/{size}/normal{stage}" }
+		}
+	},
+	"attributes": {
+		"foodTagsByType": {
+			"*-1": [ "nibbleCrop" ],
+			"*-2": [ "nibbleCrop" ],
+			"*-3": [ "nibbleCrop" ]
+		},
+		"butterflyFeedByType": {
+			"*-1": false,
+			"*-2": false,
+			"*-9": false,
+			"*": true
+		},
+		"beeFeedByType": {
+			"*-1": false,
+			"*-2": false,
+			"*-9": false,
+			"*": true
+		},
+		"sitHeight": 0.35,
+		"tickGrowthProbability": 0.05,
+		"handbook": {
+			"include": true
+		}
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"replaceable": 3000,
+	"lightAbsorption": 0,
+	"resistance": 0.5,
+	"sounds": {
+		"place": "block/plant",
+		"break": "block/plant",
+		"hit": "block/plant"
+	},
+	"rainPermeable": false,
+	"dropsByType": {
+		"*-8": [
+			{
+				"type": "item",
+				"code": "artofgrowing:grainbundle-peanut-{size}",
+				"quantity": {
+					"avg": 2,
+					"var": 0.5
+				}
+			},
+			{
+				"type": "item",
+				"codeByType": {
+					"*-wild-*": "artofgrowing:grainbundle-peanut-small",
+					"*-small-*": "artofgrowing:grainbundle-peanut-medium",
+					"*-medium-*": "artofgrowing:grainbundle-peanut-decent",
+					"*-decent-*": "artofgrowing:grainbundle-peanut-large",
+					"*-large-*": "artofgrowing:grainbundle-peanut-hefty",
+					"*-hefty-*": "artofgrowing:grainbundle-peanut-gigantic",
+					"*-gigantic-*": "artofgrowing:grainbundle-peanut-gigantic"
+				},
+				"quantity": { "avg": 0.3 }
+			}
+		],
+		"*-9": [
+			{
+				"type": "item",
+				"code": "artofgrowing:grainbundle-peanut-{size}",
+				"quantity": {
+					"avg": 3,
+					"var": 2
+				}
+			},
+			{
+				"type": "item",
+				"codeByType": {
+					"*-wild-*": "artofgrowing:grainbundle-peanut-small",
+					"*-small-*": "artofgrowing:grainbundle-peanut-medium",
+					"*-medium-*": "artofgrowing:grainbundle-peanut-decent",
+					"*-decent-*": "artofgrowing:grainbundle-peanut-large",
+					"*-large-*": "artofgrowing:grainbundle-peanut-hefty",
+					"*-hefty-*": "artofgrowing:grainbundle-peanut-gigantic",
+					"*-gigantic-*": "artofgrowing:grainbundle-peanut-gigantic"
+				},
+				"quantity": { "avg": 0.3 }
+			}
+		],
+		"*": [
+			{
+				"type": "item",
+				"code": "drygrass",
+				"quantity": { "avg": 0.7 }
+			}
+		]
+	},
+	"cropProps": {
+		"requiredNutrient": "P",
+		"nutrientConsumptionByType": {
+			"*-wild-*": 25,
+			"*-small-*": 30,
+			"*-medium-*": 35,
+			"*-decent-*": 40,
+			"*-large-*": 45,
+			"*-hefty-*": 50,
+			"*-gigantic-*": 55
+		},
+		"growthStages": 9,
+		"totalGrowthMonthsByType": {
+			"*-wild-*": 1.7,
+			"*-small-*": 1.9,
+			"*-medium-*": 2.1,
+			"*-decent-*": 2.3,
+			"*-large-*": 2.5,
+			"*-hefty-*": 2.7,
+			"*-gigantic-*": 2.9
+		},
+		"coldDamageBelow": 10,
+		"heatDamageAbove": 42
+	},
+	"collisionbox": null,
+	"selectionbox": {
+		"x1": 0.0625,
+		"y1": 0,
+		"z1": 0.0625,
+		"x2": 0.9375,
+		"y2": 0.25,
+		"z2": 0.9375
+	},
+	"materialDensity": 200,
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 10
+	},
+	"frostable": true
+}

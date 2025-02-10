@@ -73,17 +73,6 @@
   },
   {
     "op": "replace",
-    "path": "/creativeinventory",
-    "value": {
-      "general": [ "" ],
-      "plants": [ "" ],
-      "artofgrowingplants": [ "*" ]
-    },
-    "file": "game:blocktypes/plant/crop/parsnip.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-7": [

@@ -100,6 +100,11 @@ namespace ArtOfGrowing.Items
 				return;
 			}
 
+			if (!byEntity.Controls.ShiftKey)
+			{
+				return;
+			}
+
             IWorldAccessor world = byEntity.World;
             Block firepitBlock = world.GetBlock(new AssetLocation("artofgrowing:firepit-construct1"));
             if (firepitBlock == null)

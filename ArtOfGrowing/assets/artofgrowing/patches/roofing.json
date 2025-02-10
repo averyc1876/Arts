@@ -40,5 +40,234 @@
     "value": "drygrass",
     "file": "game:recipes/grid/roofing.json",
     "side": "Server"
+  },
+
+  {
+    "op": "replace",
+    "path": "/1/ingredients/H/code",
+    "value": "hay-normal-ud",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/3/ingredients/H/code",
+    "value": "hay-normal-ud",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/5/ingredients/H/code",
+    "value": "hay-normal-ud",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/7/ingredients/H/code",
+    "value": "hay-normal-ud",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/9/ingredients/H/code",
+    "value": "hay-normal-ud",
+    "file": "game:recipes/grid/roofing.json",
+    "side": "Server"
+  },
+
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofing.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingbottom.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingcorner-inner.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingcorner-outer.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofinghalfleft.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofinghalfright.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingridge.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingridgeend.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingridgehalfleft.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingridgehalfright.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingtip.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/combustiblePropsByType",
+    "value": {
+      "@.*-(agedthatch|thatch)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 5
+      },
+      "@.*-(acacia|aged|baldcypress|birch|ebony|kapok|larch|maple|oak|pine|purpleheart|redwood|walnut|bamboo)-.*": {
+        "burnTemperature": 600,
+        "burnDuration": 20
+      }
+    },
+    "file": "game:blocktypes/roofing/slantedroofingtop.json",
+    "side": "Server"
   }
 ]

@@ -1,0 +1,233 @@
+[
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-wild-*",
+				"quantity": 3,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-small-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-wild-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-small-*",
+				"quantity": 2,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-wild-*",
+				"quantity": 2,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-medium-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-wild-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-small-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-medium-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-small-*",
+				"quantity": 3,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 2
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "vegetable-medium-*",
+				"quantity": 2,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "vegetable-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "vegetable",
+		"output": {
+			"type": "item",
+			"code": "game:vegetable-{type}",
+			"quantity": 2
+		}
+	}
+]

@@ -1,0 +1,317 @@
+[
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 1,
+				"consumeLitres": 1
+			},
+			{
+				"type": "item",
+				"code": "vegetable-wild-*",
+				"name": "vegetable",
+				"quantity": 2
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-wild-{vegetable}",
+			"stackSize": 2
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 1,
+				"consumeLitres": 1
+			},
+			{
+				"type": "item",
+				"code": "seeds-wild-soybean",
+				"quantity": 2
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-wild-soybean",
+			"stackSize": 2
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 2,
+				"consumeLitres": 2
+			},
+			{
+				"type": "item",
+				"code": "vegetable-small-*",
+				"name": "vegetable",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-small-{vegetable}",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 2,
+				"consumeLitres": 2
+			},
+			{
+				"type": "item",
+				"code": "seeds-small-soybean",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-small-soybean",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 1,
+				"consumeLitres": 1
+			},
+			{
+				"type": "item",
+				"code": "vegetable-medium-*",
+				"name": "vegetable",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-medium-{vegetable}",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 1,
+				"consumeLitres": 1
+			},
+			{
+				"type": "item",
+				"code": "seeds-medium-soybean",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-medium-soybean",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 4,
+				"consumeLitres": 4
+			},
+			{
+				"type": "item",
+				"code": "vegetable-decent-*",
+				"name": "vegetable",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-decent-{vegetable}",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 4,
+				"consumeLitres": 4
+			},
+			{
+				"type": "item",
+				"code": "seeds-decent-soybean",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-decent-soybean",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 2,
+				"consumeLitres": 2
+			},
+			{
+				"type": "item",
+				"code": "vegetable-large-*",
+				"name": "vegetable",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-large-{vegetable}",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 2,
+				"consumeLitres": 2
+			},
+			{
+				"type": "item",
+				"code": "seeds-large-soybean",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-large-soybean",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 8,
+				"consumeLitres": 8
+			},
+			{
+				"type": "item",
+				"code": "vegetable-hefty-*",
+				"name": "vegetable",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-hefty-{vegetable}",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 8,
+				"consumeLitres": 8
+			},
+			{
+				"type": "item",
+				"code": "seeds-hefty-soybean",
+				"quantity": 3
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-hefty-soybean",
+			"stackSize": 3
+		}
+	},
+	{
+		"code": "pickledvegetable",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 4,
+				"consumeLitres": 4
+			},
+			{
+				"type": "item",
+				"code": "vegetable-gigantic-*",
+				"name": "vegetable",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledvegetable-gigantic-{vegetable}",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "pickledlegume",
+		"sealHours": 336,
+		"ingredients": [
+			{
+				"type": "item",
+				"code": "game:brineportion",
+				"litres": 4,
+				"consumeLitres": 4
+			},
+			{
+				"type": "item",
+				"code": "seeds-gigantic-soybean",
+				"quantity": 1
+			}
+		],
+		"output": {
+			"type": "item",
+			"code": "pickledlegume-gigantic-soybean",
+			"stackSize": 1
+		}
+	}
+]

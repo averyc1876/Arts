@@ -70,17 +70,6 @@
   },
   {
     "op": "replace",
-    "path": "/creativeinventory",
-    "value": {
-      "general": [ "" ],
-      "plants": [ "" ],
-      "artofgrowingplants": [ "*" ]
-    },
-    "file": "game:blocktypes/plant/crop/turnip.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-4": [

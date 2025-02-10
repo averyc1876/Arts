@@ -1,0 +1,293 @@
+{
+	"code": "haylayer",
+	"class": "AOGBlockHayLayer",
+	"entityClassByType": {
+		"*-grass-free": "AOGTransient",
+		"*-drygrass-*": "Transient",
+		"*-straw-*": "Transient"
+	},
+	"behaviors": [
+		{ "name": "UnstableFalling" }
+	],
+	"variantgroups": [
+		{
+			"code": "overlay",
+			"states": [ "free", "eaten" ]
+		},
+		{
+			"code": "tallgrass",
+			"states": [ "veryshort", "short", "mediumshort", "medium", "tall", "verytall" ]
+		},
+		{
+			"code": "type",
+			"states": [ "grass", "drygrass", "straw", "agedgrass" ]
+		},
+		{
+			"code": "cover",
+			"states": [ "free", "snow" ]
+		}
+	],
+	"attributes": {
+		"transientPropsByType": {
+			"haylayer-*-grass-free": {
+				"convertFrom": "haylayer-{overlay}-{tallgrass}-grass-free",
+				"convertTo": "haylayer-{overlay}-{tallgrass}-drygrass-free",
+				"inGameHours": "24",
+				"resetBelowTemperature": -1,
+				"stopBelowTemperature": 8
+			},
+			"haylayer-*-drygrass-*": {
+				"convertFrom": "haylayer-{overlay}-{tallgrass}-drygrass-{cover}",
+				"convertTo": "haylayer-{overlay}-{tallgrass}-agedgrass-{cover}",
+				"inGameHours": "500"
+			},
+			"haylayer-*-straw-*": {
+				"convertFrom": "haylayer-{overlay}-{tallgrass}-straw-{cover}",
+				"convertTo": "haylayer-{overlay}-{tallgrass}-agedgrass-{cover}",
+				"inGameHours": "500"
+			}
+		},
+		"drawnHeightByType": {
+			"*": 7
+		},
+		"allowStepWhenStuck": true,
+		"overrideRandomDrawOffset": 2
+	},
+	"vertexFlags": {
+		"zOffsetByType": {
+			"*-free": 0,
+			"*-snow": 3
+		}
+	},
+	"replaceable": 6500,
+	"renderpass": "OpaqueNoCull",
+	"creativeinventory": {
+		"general": [ "" ]
+	},
+	"doNotRenderAtLod2": true,
+	"randomDrawOffset": true,
+	"randomizeRotations": true,
+	"drawtypeByType": {
+		"*-free": "JSON",
+		"*-snow": "JSONAndSnowLayer"
+	},
+	"blockmaterialByType": {
+		"*-free": "Plant",
+		"*": "Snow"
+	},
+	"faceCullModeByType": {
+		"*-free": "Default",
+		"*": "MergeSnowLayer"
+	},
+	"climateColorMapByType": {
+		"*-grass-free": "climatePlantTint"
+	},
+	"seasonColorMapByType": {
+		"*-grass-free": "seasonalGrass"
+	},
+	"frostable": true,
+	"combustiblePropsByType": {
+		"*-free": {
+			"burnTemperature": 600,
+			"burnDuration": 5
+		}
+	},
+	"shapeByType": {
+		"*": {
+			"base": "block/haylayer/{overlay}-{tallgrass}"
+		}
+	},
+	"resistance": 0.5,
+	"texturesByType": {
+		"*-grass-*": {
+			"normal-top": { "base": "artofgrowing:block/plant/grass/normal-top" },
+			"straw1": { "base": "artofgrowing:block/plant/grass/straw1" },
+			"north": { "base": "game:block/plant/tallgrass/{cover}/eaten-north" },
+			"south": { "base": "game:block/plant/tallgrass/{cover}/eaten-south" }
+		},
+		"*-drygrass-*": {
+			"normal-top": { "base": "game:block/plant/grassroofing/normal-top" },
+			"straw1": { "base": "game:block/plant/grassroofing/straw1" },
+			"north": { "base": "artofgrowing:block/plant/grass/eaten-north" },
+			"south": { "base": "artofgrowing:block/plant/grass/eaten-south" }
+		},
+		"*-agedgrass-*": {
+			"normal-top": { "base": "game:block/hay/aged-top" },
+			"straw1": { "base": "artofgrowing:block/plant/aged/straw1" },
+			"north": { "base": "artofgrowing:block/plant/aged/eaten-north" },
+			"south": { "base": "artofgrowing:block/plant/aged/eaten-south" }
+		},
+		"*-straw-*": {
+			"normal-top": { "base": "artofgrowing:block/thatch/normal-top" },
+			"straw1": { "base": "artofgrowing:block/thatch/straw1" },
+			"north": { "base": "game:block/plant/tallgrass/{cover}/eaten-north" },
+			"south": { "base": "game:block/plant/tallgrass/{cover}/eaten-south" }
+		}
+	},
+	"rainPermeableByType": {
+		"*-free": true,
+		"*": false
+	},
+	"dropsByType": {
+		"*-drygrass-*": [
+			{
+				"type": "item",
+				"code": "game:drygrass",
+				"quantityByType": {
+					"*-veryshort-*": {
+						"avg": 1
+					},
+					"*-short-*": {
+						"avg": 2
+					},
+					"*-mediumshort-*": {
+						"avg": 3
+					},
+					"*-medium-*": {
+						"avg": 4
+					},
+					"*-tall-*": {
+						"avg": 5
+					},
+					"*-verytall-*": {
+						"avg": 6
+					}
+				}
+			}
+		],
+		"*-straw-*": [
+			{
+				"type": "item",
+				"code": "game:thatch",
+				"quantityByType": {
+					"*-veryshort-*": {
+						"avg": 1
+					},
+					"*-short-*": {
+						"avg": 2
+					},
+					"*-mediumshort-*": {
+						"avg": 3
+					},
+					"*-medium-*": {
+						"avg": 4
+					},
+					"*-tall-*": {
+						"avg": 5
+					},
+					"*-verytall-*": {
+						"avg": 6
+					}
+				}
+			}
+		],
+		"*-grass-*": [
+			{
+				"type": "item",
+				"code": "grass",
+				"quantityByType": {
+					"*-veryshort-*": {
+						"avg": 1
+					},
+					"*-short-*": {
+						"avg": 2
+					},
+					"*-mediumshort-*": {
+						"avg": 3
+					},
+					"*-medium-*": {
+						"avg": 4
+					},
+					"*-tall-*": {
+						"avg": 5
+					},
+					"*-verytall-*": {
+						"avg": 6
+					}
+				}
+			}
+		],
+		"*-agedgrass-*": [
+			{
+				"type": "item",
+				"code": "agedgrass",
+				"quantityByType": {
+					"*-veryshort-*": {
+						"avg": 1
+					},
+					"*-short-*": {
+						"avg": 2
+					},
+					"*-mediumshort-*": {
+						"avg": 3
+					},
+					"*-medium-*": {
+						"avg": 4
+					},
+					"*-tall-*": {
+						"avg": 5
+					},
+					"*-verytall-*": {
+						"avg": 6
+					}
+				}
+			}
+		]
+	},
+	"sideopaqueByType": {
+		"*-free": { "all": false },
+		"*": {
+			"all": false,
+			"down": true
+		}
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"sounds": {
+		"place": "game:block/plant",
+		"breakByType": {
+			"*": "block/plant"
+		},
+		"hitByType": {
+			"*": "block/plant"
+		},
+		"walkByType": {
+			"*-snow": "walk/snow",
+			"*": "block/plant"
+		}
+	},
+	"lightAbsorption": 0,
+	"selectionboxbytype": {
+		"*snow": {
+			"x1": 0,
+			"y1": 0,
+			"z1": 0,
+			"x2": 1,
+			"y2": 0.375,
+			"z2": 1
+		},
+		"*": {
+			"x1": 0,
+			"y1": 0,
+			"z1": 0,
+			"x2": 1,
+			"y2": 0.25,
+			"z2": 1
+		}
+	},
+	"collisionbox": null,
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": -8,
+			"z": 0
+		},
+		"rotation": {
+			"x": -22.59375,
+			"y": 82,
+			"z": 0
+		},
+		"scale": 1.64
+	}
+}

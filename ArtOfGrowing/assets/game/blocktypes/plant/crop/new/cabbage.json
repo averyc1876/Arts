@@ -21,10 +21,10 @@
 	],
 	"creativeinventory": {
 		"general": [ "" ],
-		"plants": [ "" ],
-		"artofgrowingplants": [ "*" ]
+		"plants": [ "" ]
 	},
 	"renderpass": "OpaqueNoCull",
+	"randomizeRotations": true,
 	"shapeByType": {
 		"*-wild-*-2": { "base": "block/plant/crop/cabbage/stage1" },
 		"*-small-*-2": { "base": "block/plant/crop/cabbage/stage1" },
@@ -120,7 +120,7 @@
 		"*-11": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-cabbage",				
+				"code": "artofgrowing:vegetable-{size}-cabbage",
 				"quantity": {
 					"avg": 0.85,
 					"var": 0.1
@@ -130,7 +130,7 @@
 		"*-12": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-cabbage",				
+				"code": "artofgrowing:vegetable-{size}-cabbage",
 				"quantity": {
 					"avg": 2,
 					"var": 0
@@ -140,7 +140,7 @@
 		"*-13": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-cabbage",				
+				"code": "artofgrowing:vegetable-{size}-cabbage",
 				"quantity": {
 					"avg": 1.7,
 					"var": 0.2
@@ -150,7 +150,7 @@
 		"*-14": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-cabbage",				
+				"code": "artofgrowing:vegetable-{size}-cabbage",
 				"quantity": {
 					"avg": 1.5,
 					"var": 0.2
@@ -160,7 +160,7 @@
 		"*-15": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-cabbage",				
+				"code": "artofgrowing:vegetable-{size}-cabbage",
 				"quantity": {
 					"avg": 1.2,
 					"var": 0.2
@@ -170,7 +170,7 @@
 		"*-16": [
 			{
 				"type": "item",
-				"code": "artofgrowing:seeds-{size}-cabbage",				
+				"code": "artofgrowing:seeds-{size}-cabbage",
 				"quantity": { "avg": 1.2 }
 			},
 			{

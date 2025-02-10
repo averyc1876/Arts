@@ -12,22 +12,22 @@
 					"straw1": "block/plant/hay/{state}/straw-{type}"
 				},
 				"modelItemsToStackSizeRatioByType": {
-					"*-wild-*": 0.140625,
-					"*-small-*": 0.28125,
-					"*-medium-*": 0.5625,
-					"*-decent-*": 1.125,
+					"*-wild-*": 0.5625,
+					"*-small-*": 0.75,
+					"*-medium-*": 1.125,
+					"*-decent-*": 1.5,
 					"*-large-*": 2.25,
-					"*-hefty-*": 4.5,
-					"*-gigantic-*": 9
+					"*-hefty-*": 3,
+					"*-gigantic-*": 4.5
 				},
 				"stackingCapacityByType": {
-					"*-wild-*": 1024,
-					"*-small-*": 512,
-					"*-medium-*": 256,
-					"*-decent-*": 128,
+					"*-wild-*": 256,
+					"*-small-*": 192,
+					"*-medium-*": 128,
+					"*-decent-*": 96,
 					"*-large-*": 64,
-					"*-hefty-*": 32,
-					"*-gigantic-*": 16
+					"*-hefty-*": 48,
+					"*-gigantic-*": 32
 				},
 				"maxStackingHeight": 1,
 				"collisionBox": {
@@ -39,13 +39,13 @@
 					"z2": 1
 				},
 				"cbScaleYByLayerByType": {
-					"*-wild-*": 0.015625,
-					"*-small-*": 0.03125,
-					"*-medium-*": 0.0625,
-					"*-decent-*": 0.125,
+					"*-wild-*": 0.0625,
+					"*-small-*": 0.083333,
+					"*-medium-*": 0.125,
+					"*-decent-*": 0.166667,
 					"*-large-*": 0.25,
-					"*-hefty-*": 0.5,
-					"*-gigantic-*": 1
+					"*-hefty-*": 0.333333,
+					"*-gigantic-*": 0.5
 				},
 				"transferQuantity": 1,
 				"bulkTransferQuantity": 8,
@@ -140,13 +140,13 @@
 		}
 	},
 	"maxstacksizeByType": {
-		"*-wild-*": 512,
-		"*-small-*": 256,
-		"*-medium-*": 128,
-		"*-decent-*": 64,
+		"*-wild-*": 128,
+		"*-small-*": 96,
+		"*-medium-*": 64,
+		"*-decent-*": 48,
 		"*-large-*": 32,
-		"*-hefty-*": 16,
-		"*-gigantic-*": 8
+		"*-hefty-*": 24,
+		"*-gigantic-*": 16
 	},
 	"materialDensity": 258,
 	"transitionablePropsByType": {
@@ -190,7 +190,7 @@
 				"transitionHours": { "avg": 448 },
 				"transitionedStack": {
 					"type": "item",
-					"code": "game:thatch"
+					"code": "artofgrowing:agedgrass"
 				},
 				"transitionRatioByType": {
 					"*-wild-*": 0.125,

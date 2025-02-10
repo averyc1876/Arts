@@ -1,4 +1,5 @@
 ﻿using ArtOfGrowing.Items;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace ArtOfGrowing
     public class AOGBlockEntityGroundStorage : BlockEntityDisplay, IBlockEntityContainer, IRotatable, IHeatSource, ITemperatureSensitive
     {
         static SimpleParticleProperties smokeParticles;
+
+        protected static Random rand = new Random();
         
         static AOGBlockEntityGroundStorage()
         {
@@ -95,6 +98,7 @@ namespace ArtOfGrowing
         public bool IsBurning => burning;
 
         public bool IsHot => burning;
+
         
         AOGBlockGroundStorage blockStorage;
 
@@ -133,8 +137,8 @@ namespace ArtOfGrowing
         }
         protected virtual float Inventory_OnAcquireTransitionSpeed(EnumTransitionType transType, ItemStack stack, float baseMul)
         {
-            bool water = false;
             bool canWater = StorageProps.CanWater;
+            bool water = false;
             Api.World.BlockAccessor.SearchFluidBlocks(
                 new BlockPos(Pos.X, Pos.Y, Pos.Z),
                 new BlockPos(Pos.X, Pos.Y, Pos.Z),
@@ -144,27 +148,10 @@ namespace ArtOfGrowing
                     return true;
                 }
             );
-
-            tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
-            float rainLevel = 0;
-            bool rainCheck =
-                Api.Side == EnumAppSide.Server
-                && Api.World.Rand.NextDouble() < 0.75
-                && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
-                && (rainLevel = blockStorage.wsys.GetPrecipitation(tmpPos)) > 0.04
-            ;
-
-            if (transType == EnumTransitionType.Dry && !water && rainCheck && Api.World.Rand.NextDouble() < rainLevel * 5)
-            {
-                return 0.0001f;
-            }
-            
-            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water && canWater) return 16;
-            
-            if (Api == null) return 0;            
-            
-            if (water && !canWater) return 1;
-            if (!water && canWater) return 1;
+            if (stack.Item.FirstCodePart() == "grass" && !water) return 4;
+            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water) return 16;
+            if (transType == EnumTransitionType.Dry && water || transType == EnumTransitionType.Melt && !water) return 0;
+            if (Api == null) return 0; 
             return 0.5f;
         }
 
@@ -237,6 +224,58 @@ namespace ArtOfGrowing
             StorageProps = storageProps;
             forceStorageProps = true;
         }
+        private void Update(float dt)
+        { 
+            ItemSlot invSlot = inventory[0];
+            if (invSlot.Empty) return;
+            
+            bool water = false;
+            bool rain = false;
+            Api.World.BlockAccessor.SearchFluidBlocks(
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                (block, pos) =>
+                {
+                    if (block.LiquidCode == "water") water = true;
+                    return true;
+                }
+            );
+
+            tmpPos.Set(Pos.X + 0.5, Pos.Y + 0.5, Pos.Z + 0.5);
+            float rainLevel = 0;
+            bool rainCheck =
+                Api.Side == EnumAppSide.Server
+                && Api.World.Rand.NextDouble() < 0.75
+                && Api.World.BlockAccessor.GetRainMapHeightAt(Pos.X, Pos.Z) <= Pos.Y
+                && (rainLevel = blockStorage.wsys.GetPrecipitation(tmpPos)) > 0.04
+            ;
+            if (rainCheck) rain = true; 
+            else rain = false;
+            
+            if (water || rain) 
+            { 
+                TransitionState[] transitionStates = invSlot.Itemstack?.Collectible.UpdateAndGetTransitionStates(Api.World, invSlot); 
+                if (transitionStates != null)
+                {
+                    for (int i = 0; i < transitionStates.Length; i++)
+                    { 
+                        TransitionState state = transitionStates[i];
+                        
+                        TransitionableProperties prop = state.Props;
+                        float transitionLevel = state.TransitionLevel;
+                        if (transitionLevel == 0) continue;
+                        switch (prop.Type)
+                        {
+                            case EnumTransitionType.Dry:
+                                invSlot.Itemstack?.Collectible.SetTransitionState(invSlot.Itemstack, EnumTransitionType.Dry, 0);
+                                MarkDirty();
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
 
 
         public override void Initialize(ICoreAPI api)
@@ -247,6 +286,11 @@ namespace ArtOfGrowing
             blockStorage = Block as AOGBlockGroundStorage;
             
             inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
+            
+            if (api is ICoreServerAPI)
+            {
+                RegisterGameTickListener(Update, 3000);
+            }
 
             var bh = GetBehavior<BEBehaviorBurning>();
             // TODO properly fix this (GenDeposit [halite] /Genstructures issue) , Th3Dilli
@@ -860,17 +904,6 @@ namespace ArtOfGrowing
         {
             if (inventory.Empty) return;
             string[] contentSummary = getContentSummary();
-            
-            bool water = false;
-            Api.World.BlockAccessor.SearchFluidBlocks(
-                new BlockPos(Pos.X, Pos.Y, Pos.Z),
-                new BlockPos(Pos.X, Pos.Y, Pos.Z),
-                (block, pos) =>
-                {
-                    if (block.LiquidCode == "water") water = true;
-                    return true;
-                }
-            );
 
             ItemStack stack = inventory.FirstNonEmptySlot.Itemstack;
             // Only add supplemental info for non-BlockEntities (otherwise it will be wrong or will get into a recursive loop, because right now this BEGroundStorage is the BlockEntity)
@@ -898,8 +931,8 @@ namespace ArtOfGrowing
                 }
             }
             dsc.Append(PerishableInfoCompact(Api, inventory.FirstNonEmptySlot));
-            if (!water) dsc.Append(DryInfoCompact(Api, inventory.FirstNonEmptySlot));
-            if (water) dsc.Append(MeltInfoCompact(Api, inventory.FirstNonEmptySlot));
+            dsc.Append(DryInfoCompact(Api, inventory.FirstNonEmptySlot));
+            dsc.Append(MeltInfoCompact(Api, inventory.FirstNonEmptySlot));
         }
         public static string PerishableInfoCompact(ICoreAPI Api, ItemSlot contentSlot, bool withStackName = true)
         {
@@ -997,20 +1030,7 @@ namespace ArtOfGrowing
                             }
                             else
                             {
-                                double hoursPerday = Api.World.Calendar.HoursPerDay;
-
-                                if (freshHoursLeft / hoursPerday >= Api.World.Calendar.DaysPerYear)
-                                {
-                                    dsc.Append(Lang.Get("Will dry in {0} years", Math.Round(freshHoursLeft / hoursPerday / Api.World.Calendar.DaysPerYear, 1)));
-                                }
-                                else if (freshHoursLeft > hoursPerday)
-                                {
-                                    dsc.Append(Lang.Get("Will dry in {0} days", Math.Round(freshHoursLeft / hoursPerday, 1)));
-                                }
-                                else
-                                {
-                                    dsc.Append(Lang.Get("Will dry in {0} hours", Math.Round(freshHoursLeft, 1)));
-                                }
+                                dsc.Append(Lang.Get("Does not dry"));
                             }
                             break;
                     }

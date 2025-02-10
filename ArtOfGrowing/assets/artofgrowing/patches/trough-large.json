@@ -24,6 +24,16 @@
         "shapesPerFillLevel": [ "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill1", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill2", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill3", "block/wood/trough/large/thatchfill4", "block/wood/trough/large/thatchfill4" ]
       },
       {
+        "code": "grass",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:grass"
+        },
+        "quantityPerFillLevel": 4,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grassfill1", "block/wood/trough/large/grassfill1", "block/wood/trough/large/grassfill2", "block/wood/trough/large/grassfill2", "block/wood/trough/large/grassfill3", "block/wood/trough/large/grassfill3", "block/wood/trough/large/grassfill4", "block/wood/trough/large/grassfill4" ]
+      },
+      {
         "code": "seeds-flax",
         "content": {
           "type": "item",
@@ -160,6 +170,50 @@
         "quantityPerFillLevel": 2,
         "maxFillLevels": 8,
         "shapesPerFillLevel": [ "block/wood/trough/large/turnipfill1", "block/wood/trough/large/turnipfill1", "block/wood/trough/large/turnipfill2", "block/wood/trough/large/turnipfill2", "block/wood/trough/large/turnipfill3", "block/wood/trough/large/turnipfill3", "block/wood/trough/large/turnipfill4", "block/wood/trough/large/turnipfill4" ]
+      },
+      {
+        "code": "grainbundle-peanut",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-peanut-*"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/legumefill1", "block/wood/trough/large/legumefill1", "block/wood/trough/large/legumefill2", "block/wood/trough/large/legumefill2", "block/wood/trough/large/legumefill3", "block/wood/trough/large/legumefill3", "block/wood/trough/large/legumefill4", "block/wood/trough/large/legumefill4" ],
+        "textureCode": "contents-peanut"
+      },
+      {
+        "code": "grainbundle-soybean",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-soybean-*"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/legumefill1", "block/wood/trough/large/legumefill1", "block/wood/trough/large/legumefill2", "block/wood/trough/large/legumefill2", "block/wood/trough/large/legumefill3", "block/wood/trough/large/legumefill3", "block/wood/trough/large/legumefill4", "block/wood/trough/large/legumefill4" ],
+        "textureCode": "contents-soybean"
+      },
+      {
+        "code": "seeds-peanut",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-peanut"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-peanut-seeds"
+      },
+      {
+        "code": "seeds-soybean",
+        "content": {
+          "type": "item",
+          "code": "artofgrowing:seeds-*-soybean"
+        },
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill1", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill2", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill3", "block/wood/trough/large/grainfill4", "block/wood/trough/large/grainfill4" ],
+        "textureCode": "contents-soybean-seeds"
       }
     ],
     "file": "game:blocktypes/wood/trough-large.json",
@@ -173,6 +227,10 @@
       "1normal-top": { "base": "artofgrowing:block/thatch/normal-top" },
       "1singlehay": { "base": "artofgrowing:block/thatch/singlehay" },
       "1singlehay2": { "base": "artofgrowing:block/thatch/singlehay2" },
+      "grass-normal-side": { "base": "artofgrowing:block/plant/grass/normal-side" },
+      "grass-normal-top": { "base": "artofgrowing:block/plant/grass/normal-top-grass" },
+      "grass-singlehay": { "base": "artofgrowing:block/plant/grass/singlehay" },
+      "grass-singlehay2": { "base": "artofgrowing:block/plant/grass/singlehay2" },
       "contents-pumpkin": {
         "base": "block/food/grain/pumpkin",
         "overlays": [ "block/wood/trough/large/shadow" ]
@@ -183,6 +241,14 @@
       },
       "contents-sunflower-seeds": {
         "base": "block/food/grain/sunflower-seeds",
+        "overlays": [ "block/wood/trough/large/shadow" ]
+      },
+      "contents-peanut-seeds": {
+        "base": "block/wood/barrel/peanut",
+        "overlays": [ "block/wood/trough/large/shadow" ]
+      },
+      "contents-soybean-seeds": {
+        "base": "block/wood/barrel/soybean",
         "overlays": [ "block/wood/trough/large/shadow" ]
       }
     },

@@ -19,8 +19,7 @@
 	],
 	"creativeinventory": {
 		"general": [ "" ],
-		"plants": [ "" ],
-		"artofgrowingplants": [ "*" ]
+		"plants": [ "" ]
 	},
 	"renderpass": "OpaqueNoCull",
 	"shapeByType": {
@@ -89,7 +88,7 @@
 		"*-6": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-carrot",				
+				"code": "artofgrowing:vegetable-{size}-carrot",
 				"quantity": {
 					"avg": 3,
 					"var": 1
@@ -104,7 +103,7 @@
 		"*-7": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-carrot",				
+				"code": "artofgrowing:vegetable-{size}-carrot",
 				"quantity": {
 					"avg": 11,
 					"var": 2
@@ -119,7 +118,7 @@
 		"*-8": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-carrot",				
+				"code": "artofgrowing:vegetable-{size}-carrot",
 				"quantity": {
 					"avg": 9,
 					"var": 2
@@ -134,7 +133,7 @@
 		"*-9": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-carrot",				
+				"code": "artofgrowing:vegetable-{size}-carrot",
 				"quantity": {
 					"avg": 7,
 					"var": 2
@@ -149,7 +148,7 @@
 		"*-10": [
 			{
 				"type": "item",
-				"code": "artofgrowing:vegetable-{size}-carrot",				
+				"code": "artofgrowing:vegetable-{size}-carrot",
 				"quantity": {
 					"avg": 5,
 					"var": 2
@@ -164,7 +163,7 @@
 		"*-11": [
 			{
 				"type": "item",
-				"code": "artofgrowing:seeds-{size}-carrot",				
+				"code": "artofgrowing:seeds-{size}-carrot",
 				"quantity": { "avg": 1.2 }
 			},
 			{

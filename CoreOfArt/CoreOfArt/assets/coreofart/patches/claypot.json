@@ -43,6 +43,12 @@
     "path": "/classByType/claypot-burned",
     "value": "COABlockCookingContainer",
     "file": "game:blocktypes/clay/pot.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "artsxskills",
+        "invert": true
+      }
+    ]
   }
 ]

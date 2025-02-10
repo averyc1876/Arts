@@ -23,7 +23,8 @@
 	"renderpass": "OpaqueNoCull",
 	"sidesolid": { "all": false },
 	"sideopaque": { "all": false },
-	"faceCullMode": "NeverCull",
+	"faceCullMode": "Default",
+	"doNotRenderAtLod2": true,
 	"blockmaterial": "Plant",
 	"materialDensity": 200,
 	"combustibleProps": {

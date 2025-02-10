@@ -1,7 +1,11 @@
 {
-	code: "slantedroofingridge",
-	behaviors: [{name: "NWOrientable"}],
-	variantgroups: [
+	"code": "slantedroofingridge",
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 5
+	},
+	"behaviors": [ { "name": "NWOrientable" } ],
+	"variantgroups": [
 		{
 			"code": "material",
 			"states": [ "thatch" ]
@@ -15,15 +19,21 @@
 			"states": [ "free", "snow" ]
 		}
 	],
-	attributes: {
-		humanoidTraversalCost: 100,
-		mapColorCode: "settlement",
+	"attributes": {
+		"humanoidTraversalCost": 100,
+		"mapColorCode": "settlement"
 	},
-	shapeByType: { 
-		"*-ns-*": { base: "game:block/roofing/ridge/{material}-{cover}", rotateY: 0 },
-		"*-we-*": { base: "game:block/roofing/ridge/{material}-{cover}", rotateY: 90 }
+	"shapeByType": {
+		"*-ns-*": {
+			"base": "game:block/roofing/ridge/{material}-{cover}",
+			"rotateY": 0
+		},
+		"*-we-*": {
+			"base": "game:block/roofing/ridge/{material}-{cover}",
+			"rotateY": 90
+		}
 	},
-	texturesByType: {
+	"texturesByType": {
 		"*-thatch-*": {
 			"bamboo-side": { "base": "artofgrowing:block/thatch/normal-side" },
 			"normal-side": { "base": "artofgrowing:block/thatch/normal-side" },
@@ -31,41 +41,68 @@
 			"straw1": { "base": "artofgrowing:block/thatch/straw1" }
 		}
 	},
-	drawtype: "json",
-	faceCullMode: "NeverCull",
-	renderpass: "OpaqueNoCull",
-	sidesolid: { all: false, down: true },
-	sideopaque: { all: false },
-	blockmaterialByType: {
+	"drawtype": "json",
+	"faceCullMode": "NeverCull",
+	"renderpass": "OpaqueNoCull",
+	"sidesolid": {
+		"all": false,
+		"down": true
+	},
+	"sideopaque": { "all": false },
+	"blockmaterialByType": {
 		"*-thatch-*": "Plant"
 	},
-	creativeinventory: {
+	"creativeinventory": {
 		"general": [ "*-ns-free" ],
 		"decorative": [ "*-ns-free" ],
 		"artofgrowing": [ "*-ns-free" ]
 	},
-	replaceable: 300,
-	resistance: 2,
-	lightAbsorption: 99,
-	emitSideAo: {
-		all: true
+	"replaceable": 300,
+	"resistance": 2,
+	"lightAbsorption": 99,
+	"emitSideAo": {
+		"all": true
 	},
-	sideAoByType: { "*-sod-*": { all: false } },
-	collisionSelectionBoxes: [
-		{ x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.375, z2: 1, rotateYByType: { "*-we-*": 90 } },
-		{ x1: 0.25, y1: 0.375, z1: 0, x2: 0.75, y2: 0.5625, z2: 1, rotateYByType: { "*-we-*": 90 } },
+	"sideAoByType": { "*-sod-*": { "all": false } },
+	"collisionSelectionBoxes": [
+		{
+			"x1": 0,
+			"y1": 0,
+			"z1": 0,
+			"x2": 1,
+			"y2": 0.375,
+			"z2": 1,
+			"rotateYByType": { "*-we-*": 90 }
+		},
+		{
+			"x1": 0.25,
+			"y1": 0.375,
+			"z1": 0,
+			"x2": 0.75,
+			"y2": 0.5625,
+			"z2": 1,
+			"rotateYByType": { "*-we-*": 90 }
+		}
 	],
-	soundsByType: {
+	"soundsByType": {
 		"*-thatch-*": {
-			place: "game:block/plant",
-			break: "game:block/plant",
-			hit: "game:block/plant",
-			walk: "game:walk/grass*"
+			"place": "game:block/plant",
+			"break": "game:block/plant",
+			"hit": "game:block/plant",
+			"walk": "game:walk/grass*"
 		}
 	},
-	guiTransform: {
-		rotation: { x: -22.6, y: -50, z: 0 },
-		origin: { x: 0.5, y: 0.3, z: 0.5 },
-		scale: 0.8
+	"guiTransform": {
+		"rotation": {
+			"x": -22.6,
+			"y": -50,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.3,
+			"z": 0.5
+		},
+		"scale": 0.8
 	}
 }

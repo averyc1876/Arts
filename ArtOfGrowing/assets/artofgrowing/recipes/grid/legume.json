@@ -1,0 +1,184 @@
+[
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 5,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 5,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 2
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-medium-*",
+				"quantity": 5,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 5,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 4
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-large-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-hefty-*",
+				"quantity": 2,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "K,H",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-gigantic-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 2
+		}
+	}
+]

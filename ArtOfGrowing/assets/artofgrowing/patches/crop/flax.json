@@ -6,18 +6,13 @@
       "crop": { "base": "artofgrowing:block/plant/crop/flax/wild/normal{stage}" }
     },
     "file": "game:blocktypes/plant/crop/flax.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/creativeinventory",
-    "value": {
-      "general": [ "" ],
-      "plants": [ "" ],
-      "artofgrowingplants": [ "*" ]
-    },
-    "file": "game:blocktypes/plant/crop/flax.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "conquest",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",
@@ -53,6 +48,13 @@
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
     "value": 1.2,
+    "file": "game:blocktypes/plant/crop/flax.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "AOGBlockCrop",
     "file": "game:blocktypes/plant/crop/flax.json",
     "side": "Server"
   }

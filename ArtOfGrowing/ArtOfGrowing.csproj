@@ -6,6 +6,10 @@
     <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
@@ -58,7 +62,6 @@
   <None Remove="Mods\**" />
   <None Remove="assets\artofgrowing\itemtypes\grain\flaxbundle.json" />
   <None Remove="assets\artofgrowing\itemtypes\grain\sunflower-head.json" />
-  <None Remove="assets\artofgrowing\patches\barrelrecipes.json" />
   <None Remove="assets\artofgrowing\patches\cabbage.json" />
   <None Remove="assets\artofgrowing\patches\crop\amaranth.json" />
   <None Remove="assets\artofgrowing\patches\crop\cabbage.json" />
@@ -95,13 +98,6 @@
   <None Remove="assets\artofgrowing\shapes\item\food\clear\small\parsnip.json" />
   <None Remove="assets\artofgrowing\shapes\item\food\clear\wild\parsnip.json" />
   <None Remove="assets\artofgrowing\shapes\item\food\vegetable\amaranthbundle.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\decent\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\gigantic\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\hefty\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\large\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\medium\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\small\parsnip.json" />
-  <None Remove="assets\artofgrowing\shapes\item\food\vegetable\wild\parsnip.json" />
   <None Remove="assets\artofgrowing\shapes\item\seedbag\decent.json" />
   <None Remove="assets\artofgrowing\shapes\item\seedbag\gigantic.json" />
   <None Remove="assets\artofgrowing\shapes\item\seedbag\hefty.json" />
@@ -148,10 +144,6 @@
   <None Remove="assets\artofgrowing\textures\block\plant\hay\straw-spelt.png" />
   <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\normal-top-amaranth.png" />
   <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\straw-amaranth.png" />
-  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-bottom12.png" />
-  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-middle9.png" />
-  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage-top.png" />
-  <None Remove="assets\artofgrowing\textures\item\food\vegetable\cooked\cabbage.png" />
   <None Remove="assets\artofgrowing\textures\item\food\vegetable\scallions.png" />
   <None Remove="assets\game\blocktypes\plant\crop\new\amaranth.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\cabbage.json" />
@@ -163,10 +155,6 @@
   <None Remove="assets\game\blocktypes\plant\crop\new\spelt.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\sunflower.json" />
   <None Remove="assets\game\blocktypes\plant\crop\new\turnip.json" />
-  <None Remove="assets\game\itemtypes\food\newpickledvegetable.json" />
-  <None Remove="assets\game\itemtypes\food\newvegetable.json" />
-  <None Remove="assets\game\itemtypes\resource\grainseeds.json" />
-  <None Remove="assets\game\itemtypes\resource\newseeds.json" />
   <None Remove="assets\haystorage.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -180,7 +168,7 @@
 </ItemGroup>
 
 <ItemGroup>
-  <Folder Include="assets\artofgrowing\shapes\block\thatch\" />
+  <Folder Include="assets\game\itemtypes\" />
 </ItemGroup>
 
 </Project>

@@ -2,17 +2,61 @@
 	"code": "seeds",
 	"class": "AOGItemPlantableSeed",
 	"maxstacksizeByType": {
-		"*-wild-*": 512,
-		"*-small-*": 256,
-		"*-medium-*": 128,
-		"*-decent-*": 64,
+		"*-wild-*": 128,
+		"*-small-*": 96,
+		"*-medium-*": 64,
+		"*-decent-*": 48,
 		"*-large-*": 32,
-		"*-hefty-*": 16,
-		"*-gigantic-*": 8
+		"*-hefty-*": 24,
+		"*-gigantic-*": 16
 	},
 	"attributes": {
 		"inContainerTexture": { "base": "game:block/food/grain/{type}" },
 		"foodTags": [ "{type}" ]
+	},
+	"attributesByType": {
+		"*-soybean": {
+			"nutritionPropsWhenInMeal": {
+				"satietyByType": {
+					"*-wild-*": 48,
+					"*-small-*": 96,
+					"*-medium-*": 144,
+					"*-decent-*": 192,
+					"*-large-*": 240,
+					"*-hefty-*": 360,
+					"*-gigantic-*": 480
+				},
+				"foodcategory": "Protein"
+			},
+			"inPieProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling",
+				"allowMixing": false
+			}
+		},
+		"*-peanut": {
+			"nutritionPropsWhenInMeal": {
+				"satietyByType": {
+					"*-wild-*": 32,
+					"*-small-*": 64,
+					"*-medium-*": 96,
+					"*-decent-*": 128,
+					"*-large-*": 160,
+					"*-hefty-*": 240,
+					"*-gigantic-*": 320
+				},
+				"foodcategory": "Protein"
+			},
+			"inPieProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling",
+				"allowMixing": false
+			},
+			"inCookedMealProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling"
+			}
+		}
 	},
 	"variantgroups": [
 		{
@@ -21,7 +65,7 @@
 		},
 		{
 			"code": "type",
-			"states": [ "flax", "spelt", "rice", "rye", "sunflower", "amaranth", "pumpkin" ]
+			"states": [ "flax", "spelt", "rice", "rye", "sunflower", "amaranth", "pumpkin", "soybean", "peanut" ]
 		}
 	],
 	"shape": { "base": "item/food/pickledvegetable/{size}/cabbage" },
@@ -59,7 +103,19 @@
 			},
 			"foodcategory": "Grain"
 		},
-		"*": {
+		"*-peanut": {
+			"satietyByType": {
+				"*-wild-*": 32,
+				"*-small-*": 64,
+				"*-medium-*": 96,
+				"*-decent-*": 128,
+				"*-large-*": 160,
+				"*-hefty-*": 240,
+				"*-gigantic-*": 320
+			},
+			"foodcategory": "Protein"
+		},
+		"@*-(spelt|rye|sunflower|amaranth|pumpkin)": {
 			"satietyByType": {
 				"*-wild-*": 8,
 				"*-small-*": 16,

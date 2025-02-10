@@ -1,0 +1,233 @@
+[
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 3,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 2,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 2,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-medium-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-medium-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 3,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 2
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "seeds-medium-*",
+				"quantity": 2,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 1,
+				"allowedVariants": [ "soybean", "peanut" ],
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "legume",
+		"output": {
+			"type": "item",
+			"code": "game:legume-{type}",
+			"quantity": 2
+		}
+	}
+]

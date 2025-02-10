@@ -1,34 +1,45 @@
 [
   {
     "op": "addmerge",
-    "path": "/ingredients/1/validStacks/-",
-    "value": {
-      "type": "item",
-      "code": "artofgrowing:*vegetable-*",
-      "shapeElement": "bowl/vegetable 1/*"
-    },
+    "path": "/ingredients/1/validStacks",
+    "value": [
+      {
+        "type": "item",
+        "code": "artofgrowing:*vegetable-*",
+        "shapeElement": "bowl/vegetable 1/*"
+      }
+    ],
     "file": "game:recipes/cooking/soup.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/ingredients/2/validStacks/-",
-    "value": {
-      "type": "item",
-      "code": "artofgrowing:*vegetable-*",
-      "shapeElement": "bowl/vegetable 2/*"
-    },
+    "path": "/ingredients/2/validStacks",
+    "value": [
+      {
+        "type": "item",
+        "code": "artofgrowing:*vegetable-*",
+        "shapeElement": "bowl/vegetable 2/*"
+      }
+    ],
     "file": "game:recipes/cooking/soup.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/ingredients/3/validStacks/-",
-    "value": {
-      "type": "item",
-      "code": "artofgrowing:*vegetable-*",
-      "shapeElement": "bowl/vegetable 3/*"
-    },
+    "path": "/ingredients/3/validStacks",
+    "value": [
+      {
+        "type": "item",
+        "code": "artofgrowing:*vegetable-*",
+        "shapeElement": "bowl/vegetable 3/*"
+      },
+      {
+        "type": "item",
+        "code": "artofgrowing:pickledlegume-*",
+        "shapeElement": "bowl/vegetable 3/*"
+      }
+    ],
     "file": "game:recipes/cooking/soup.json",
     "side": "Server"
   }

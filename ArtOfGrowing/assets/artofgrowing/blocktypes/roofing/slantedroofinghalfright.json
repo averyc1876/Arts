@@ -1,8 +1,23 @@
 {
-	code: "slantedroofinghalfright",
-	class: "BlockSlantedRoofingHalf",
-	behaviors: [{name: "HorizontalOrientable", properties: {  dropBlockFace: "east", drop: { type: "block", code: "slantedroofinghalfright-{material}-east-free" }  }}],
-	variantgroups: [
+	"code": "slantedroofinghalfright",
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 5
+	},
+	"class": "BlockSlantedRoofingHalf",
+	"behaviors": [
+		{
+			"name": "HorizontalOrientable",
+			"properties": {
+				"dropBlockFace": "east",
+				"drop": {
+					"type": "block",
+					"code": "slantedroofinghalfright-{material}-east-free"
+				}
+			}
+		}
+	],
+	"variantgroups": [
 		{
 			"code": "material",
 			"states": [ "thatch" ]
@@ -13,20 +28,32 @@
 			"states": [ "free", "snow" ]
 		}
 	],
-	attributes: {
-		humanoidTraversalCost: 100,
-		mapColorCode: "settlement",
+	"attributes": {
+		"humanoidTraversalCost": 100,
+		"mapColorCode": "settlement"
 	},
-	heldTpIdleAnimation: "holdbothhandslarge",
-	heldRightReadyAnimation: "heldblockready",
-	heldTpUseAnimation: "twohandplaceblock",
-	shapeByType: {
-		"*-north-*": { base: "game:block/roofing/main-half/right/{material}-{cover}", rotateY: 90 },
-		"*-west-*": { base: "game:block/roofing/main-half/right/{material}-{cover}", rotateY: 180 },
-		"*-south-*": { base: "game:block/roofing/main-half/right/{material}-{cover}", rotateY: 270 },
-		"*-east-*": { base: "game:block/roofing/main-half/right/{material}-{cover}", rotateY: 0 }
+	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldRightReadyAnimation": "heldblockready",
+	"heldTpUseAnimation": "twohandplaceblock",
+	"shapeByType": {
+		"*-north-*": {
+			"base": "game:block/roofing/main-half/right/{material}-{cover}",
+			"rotateY": 90
+		},
+		"*-west-*": {
+			"base": "game:block/roofing/main-half/right/{material}-{cover}",
+			"rotateY": 180
+		},
+		"*-south-*": {
+			"base": "game:block/roofing/main-half/right/{material}-{cover}",
+			"rotateY": 270
+		},
+		"*-east-*": {
+			"base": "game:block/roofing/main-half/right/{material}-{cover}",
+			"rotateY": 0
+		}
 	},
-	texturesByType: {
+	"texturesByType": {
 		"*-thatch-*": {
 			"bamboo-side": { "base": "artofgrowing:block/thatch/normal-side" },
 			"normal-side": { "base": "artofgrowing:block/thatch/normal-side" },
@@ -34,60 +61,190 @@
 			"straw1": { "base": "artofgrowing:block/thatch/straw1" }
 		}
 	},
-	drawtype: "json",
-	faceCullMode: "NeverCull",
-	renderpass: "OpaqueNoCull",
-	sidesolidByType: {
-		"*-north-*": {"north": true, "south": false, "east": false, "west": false, "up": false, "down": true },
-		"*-south-*": {"north": false, "south": true, "east": false, "west": false, "up": false, "down": true },
-		"*-east-*": {"north": false, "south": false, "east": true, "west": false, "up": false, "down": true },
-		"*-west-*": {"north": false, "south": false, "east": false, "west": true, "up": false, "down": true }
+	"drawtype": "json",
+	"faceCullMode": "NeverCull",
+	"renderpass": "OpaqueNoCull",
+	"sidesolidByType": {
+		"*-north-*": {
+			"north": true,
+			"south": false,
+			"east": false,
+			"west": false,
+			"up": false,
+			"down": true
+		},
+		"*-south-*": {
+			"north": false,
+			"south": true,
+			"east": false,
+			"west": false,
+			"up": false,
+			"down": true
+		},
+		"*-east-*": {
+			"north": false,
+			"south": false,
+			"east": true,
+			"west": false,
+			"up": false,
+			"down": true
+		},
+		"*-west-*": {
+			"north": false,
+			"south": false,
+			"east": false,
+			"west": true,
+			"up": false,
+			"down": true
+		}
 	},
-	sideopaque: { all: false },
-	blockmaterialByType: {
+	"sideopaque": { "all": false },
+	"blockmaterialByType": {
 		"*-thatch-*": "Plant"
 	},
-	creativeinventory: {
+	"creativeinventory": {
 		"general": [ "*-east-free" ],
 		"decorative": [ "*-east-free" ],
 		"artofgrowing": [ "*-east-free" ]
 	},
-	replaceable: 300,
-	resistance: 2,
-	lightAbsorption: 99,
-	emitSideAo: {
-		all: true
+	"replaceable": 300,
+	"resistance": 2,
+	"lightAbsorption": 99,
+	"emitSideAo": {
+		"all": true
 	},
-	sideAoByType: { "*-sod-*": { all: false } },
-	collisionSelectionBoxesByType: {
-		"*-north-*": [ { x1: 0, y1: 0, z1: 0.5, x2: 1, y2: 0.5625, z2: 1, rotateY: 90 }, { x1: 0.625, y1: 0.5625, z1: 0.5, x2: 1, y2: 1, z2: 1, rotateY: 90 } ],
-		"*-west-*": [ { x1: 0, y1: 0, z1: 0.5, x2: 1, y2: 0.5625, z2: 1, rotateY: 180 }, { x1: 0.625, y1: 0.5625, z1: 0.5, x2: 1, y2: 1, z2: 1, rotateY: 180 } ],
-		"*-south-*": [ { x1: 0, y1: 0, z1: 0.5, x2: 1, y2: 0.5625, z2: 1, rotateY: 270 }, { x1: 0.625, y1: 0.5625, z1: 0.5, x2: 1, y2: 1, z2: 1, rotateY: 270 } ],
-		"*-east-*": [ { x1: 0, y1: 0, z1: 0.5, x2: 1, y2: 0.5625, z2: 1 }, { x1: 0.625, y1: 0.5625, z1: 0.5, x2: 1, y2: 1, z2: 1 } ]
+	"sideAoByType": { "*-sod-*": { "all": false } },
+	"collisionSelectionBoxesByType": {
+		"*-north-*": [
+			{
+				"x1": 0,
+				"y1": 0,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 0.5625,
+				"z2": 1,
+				"rotateY": 90
+			},
+			{
+				"x1": 0.625,
+				"y1": 0.5625,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 1,
+				"z2": 1,
+				"rotateY": 90
+			}
+		],
+		"*-west-*": [
+			{
+				"x1": 0,
+				"y1": 0,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 0.5625,
+				"z2": 1,
+				"rotateY": 180
+			},
+			{
+				"x1": 0.625,
+				"y1": 0.5625,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 1,
+				"z2": 1,
+				"rotateY": 180
+			}
+		],
+		"*-south-*": [
+			{
+				"x1": 0,
+				"y1": 0,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 0.5625,
+				"z2": 1,
+				"rotateY": 270
+			},
+			{
+				"x1": 0.625,
+				"y1": 0.5625,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 1,
+				"z2": 1,
+				"rotateY": 270
+			}
+		],
+		"*-east-*": [
+			{
+				"x1": 0,
+				"y1": 0,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 0.5625,
+				"z2": 1
+			},
+			{
+				"x1": 0.625,
+				"y1": 0.5625,
+				"z1": 0.5,
+				"x2": 1,
+				"y2": 1,
+				"z2": 1
+			}
+		]
 	},
-	soundsByType: {
+	"soundsByType": {
 		"*-thatch-*": {
-			place: "game:block/plant",
-			break: "game:block/plant",
-			hit: "game:block/plant",
+			"place": "game:block/plant",
+			"break": "game:block/plant",
+			"hit": "game:block/plant"
 		}
 	},
-	guiTransformByType: {
+	"guiTransformByType": {
 		"*-thatch-*": {
-			rotation: { x: -22.6, y: -112, z: 0 },
-			origin: { x: 0.5299, y: 0.45, z: 0.96 },
-			scale: 0.96
+			"rotation": {
+				"x": -22.6,
+				"y": -112,
+				"z": 0
+			},
+			"origin": {
+				"x": 0.5299,
+				"y": 0.45,
+				"z": 0.96
+			},
+			"scale": 0.96
 		}
 	},
-	tpHandTransform: {
-		translation: { x: -1.6, y: -1.1, z: -0.7 },
-		rotation: { x: -87, y: -161, z: 131 },
-		scale: 0.43
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.6,
+			"y": -1.1,
+			"z": -0.7
+		},
+		"rotation": {
+			"x": -87,
+			"y": -161,
+			"z": 131
+		},
+		"scale": 0.43
 	},
-	groundTransform: {
-		translation: { x: 0, y: 0, z: 0 },
-		rotation: { x: 0, y: -45, z: 0 },
-		origin: { x: 0.5, y: 0, z: 0.5 },
-		scale: 2.2
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": -45,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 2.2
 	}
 }

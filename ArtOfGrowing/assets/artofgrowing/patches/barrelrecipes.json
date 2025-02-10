@@ -1,9 +1,0 @@
-[
-  {
-    "op": "replace",
-    "path": "/ingredients/1/allowedVariants",
-    "value": [ "pumpkin", "bellpepper", "olive" ],
-    "file": "game:recipes/barrel/pickledvegetable.json",
-    "side": "Server"
-  }
-]

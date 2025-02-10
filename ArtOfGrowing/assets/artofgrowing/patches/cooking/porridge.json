@@ -1,23 +1,27 @@
 [
   {
     "op": "addmerge",
-    "path": "/ingredients/3/validStacks/-",
-    "value": {
-      "type": "item",
-      "code": "artofgrowing:*vegetable-*",
-      "shapeElement": "bowl/vegetable 1/*"
-    },
+    "path": "/ingredients/3/validStacks",
+    "value": [
+      {
+        "type": "item",
+        "code": "artofgrowing:*vegetable-*",
+        "shapeElement": "bowl/vegetable 1/*"
+      }
+    ],
     "file": "game:recipes/cooking/porridge.json",
     "side": "Server"
   },
   {
     "op": "addmerge",
-    "path": "/ingredients/4/validStacks/-",
-    "value": {
-      "type": "item",
-      "code": "artofgrowing:*vegetable-*",
-      "shapeElement": "bowl/vegetable 2/*"
-    },
+    "path": "/ingredients/4/validStacks",
+    "value": [
+      {
+        "type": "item",
+        "code": "artofgrowing:*vegetable-*",
+        "shapeElement": "bowl/vegetable 2/*"
+      }
+    ],
     "file": "game:recipes/cooking/porridge.json",
     "side": "Server"
   }

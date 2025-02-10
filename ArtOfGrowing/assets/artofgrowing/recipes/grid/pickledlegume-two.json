@@ -1,0 +1,233 @@
+[
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-wild-*",
+				"quantity": 3,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-small-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-wild-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-small-*",
+				"quantity": 2,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-wild-*",
+				"quantity": 2,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-medium-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-wild-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-small-*",
+				"quantity": 1,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-medium-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-small-*",
+				"quantity": 3,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 2
+		}
+	},
+	{
+		"ingredientPattern": "K_,HM",
+		"shapeless": true,
+		"ingredients": {
+			"K": {
+				"type": "item",
+				"code": "game:knife-*",
+				"isTool": true
+			},
+			"H": {
+				"type": "item",
+				"code": "pickledpickledlegume-medium-*",
+				"quantity": 2,
+				
+				"name": "type"
+			},
+			"M": {
+				"type": "item",
+				"code": "pickledpickledlegume-decent-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 2,
+		"height": 2,
+		"name": "pickledlegume",
+		"output": {
+			"type": "item",
+			"code": "game:pickledlegume-{type}",
+			"quantity": 2
+		}
+	}
+]

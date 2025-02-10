@@ -431,6 +431,12 @@ namespace ArtOfCooking.Systems
                 if(containerBlock.FirstCodePart().Equals("spoon") == true) shapePath = new AssetLocation("shapes/block/food/meal/rot-spoon.json");
             }
             Shape shape = Shape.TryGet(capi, shapePath);
+            if (shape == null)
+            {
+                shapePath = new AssetLocation("shapes/block/food/meal/pickled.json");
+                if(containerBlock.FirstCodePart().Equals("spoon") == true) shapePath = new AssetLocation("shapes/block/food/meal/pickled-spoon.json");
+                shape = Shape.TryGet(capi, shapePath);
+            }
             Dictionary<CookingRecipeIngredient, int> usedIngredQuantities = new Dictionary<CookingRecipeIngredient, int>();
 
             if (rotten)

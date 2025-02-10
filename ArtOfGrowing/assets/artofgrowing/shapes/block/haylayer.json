@@ -1,0 +1,119 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"normal-top": "game:block/hay/normal-top",
+		"straw1": "game:block/plant/grassroofing/straw1"
+	},
+	"elements": [
+		{
+			"name": "Layer1",
+			"from": [ 2.0, 0.0, 2.0 ],
+			"to": [ 14.0, 1.0, 14.0 ],
+			"rotationOrigin": [ 8.0, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+				"east": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+				"south": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+				"west": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 1.0 ] },
+				"up": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 12.0 ] },
+				"down": { "texture": "#normal-top", "uv": [ 0.0, 0.0, 12.0, 12.0 ], "windMode": [-1,-1,-1,-1] }
+			},
+			"children": [
+				{
+					"name": "Cube2",
+					"from": [ -5.0, 1.0, 0.0 ],
+					"to": [ 0.0, 1.0, 12.0 ],
+					"rotationOrigin": [ 0.0, 1.0, 0.0 ],
+					"rotationZ": 13.0,
+					"faces": {
+						"up": { "texture": "#straw1", "uv": [ 4.0, 3.0, 16.0, 8.0 ], "rotation": 90 }
+					}
+				},
+				{
+					"name": "Cube4",
+					"from": [ 0.0, 1.0, 12.0 ],
+					"to": [ 12.0, 1.0, 17.0 ],
+					"rotationOrigin": [ 0.0, 1.0, 12.0 ],
+					"rotationX": 13.0,
+					"faces": {
+						"up": { "texture": "#straw1", "uv": [ 0.0, 11.0, 12.0, 16.0 ] }
+					}
+				},
+				{
+					"name": "Cube6",
+					"from": [ 12.0, 1.0, 0.0 ],
+					"to": [ 17.0, 1.0, 12.0 ],
+					"rotationOrigin": [ 12.0, 1.0, 0.0 ],
+					"rotationZ": -13.0,
+					"faces": {
+						"up": { "texture": "#straw1", "uv": [ 0.0, 3.0, 12.0, 8.0 ], "rotation": 270 }
+					}
+				},
+				{
+					"name": "Cube8",
+					"from": [ 0.0, 1.0, -5.0 ],
+					"to": [ 12.0, 1.0, 0.0 ],
+					"rotationOrigin": [ 0.0, 1.0, 0.0 ],
+					"rotationX": -13.0,
+					"faces": {
+						"up": { "texture": "#straw1", "uv": [ 4.0, 11.0, 16.0, 16.0 ], "rotation": 180 }
+					}
+				}
+			]
+		},
+		{
+			"name": "Cube3",
+			"from": [ -2.0, 1.0, 9.0 ],
+			"to": [ 3.0, 1.0, 15.0 ],
+			"rotationOrigin": [ 4.0, 1.0, 12.0 ],
+			"rotationX": 2.0E-4,
+			"rotationY": 45.0003,
+			"rotationZ": 12.9998,
+			"faces": {
+				"up": { "texture": "#straw1", "uv": [ 6.0, 3.0, 12.0, 8.0 ], "rotation": 90 }
+			}
+		},
+		{
+			"name": "Cube5",
+			"from": [ 6.0, 1.0, 9.0 ],
+			"to": [ 11.0, 1.0, 15.0 ],
+			"rotationOrigin": [ 12.0, 1.0, 12.0 ],
+			"rotationX": 180.0,
+			"rotationY": 45.0,
+			"rotationZ": -167.0,
+			"faces": {
+				"up": { "texture": "#straw1", "uv": [ 1.0, 11.0, 7.0, 16.0 ], "rotation": 90 }
+			}
+		},
+		{
+			"name": "Cube7",
+			"from": [ 6.0, 1.0, 1.0 ],
+			"to": [ 11.0, 1.0, 7.0 ],
+			"rotationOrigin": [ 12.0, 1.0, 4.0 ],
+			"rotationX": 179.9998,
+			"rotationY": -45.0003,
+			"rotationZ": -167.0002,
+			"faces": {
+				"up": { "texture": "#straw1", "uv": [ 9.5, 11.0, 15.5, 16.0 ], "rotation": 90 }
+			}
+		},
+		{
+			"name": "Cube9",
+			"from": [ -2.0, 1.0, 1.0 ],
+			"to": [ 3.0, 1.0, 7.0 ],
+			"rotationOrigin": [ 4.0, 1.0, 4.0 ],
+			"rotationX": 0.0,
+			"rotationY": -45.0,
+			"rotationZ": 13.0,
+			"faces": {
+				"up": { "texture": "#straw1", "uv": [ 10.0, 3.0, 16.0, 8.0 ], "rotation": 90 }
+			}
+		}
+	]}

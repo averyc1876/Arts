@@ -105,5 +105,25 @@
       "type": "item",
       "code": "creaser-{wood}"
     }
+  },
+  {
+    "ingredientPattern": "S,R",
+    "ingredients": {
+      "R": {
+        "type": "item",
+        "code": "game:stick"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick",
+        "quantity": 5
+      }
+    },
+    "width": 1,
+    "height": 2,
+    "output": {
+      "type": "item",
+      "code": "hayfork-wooden"
+    }
   }
 ]

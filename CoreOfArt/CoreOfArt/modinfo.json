@@ -5,8 +5,8 @@
   "authors": [
     "Fedarmens"
   ],
-  "description": "The main mod-library for other mods from Fedarmens.",
-  "version": "0.2.2",
+  "description": "The main mod-library for other mods of the Arts series.",
+  "version": "0.2.3",
   "dependencies": {
     "game": ""
   }

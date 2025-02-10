@@ -1,6 +1,6 @@
 {
 	"code": "crop",
-	"class": "BlockCrop",
+	"class": "AOGBlockCrop",
 	"frostable": true,
 	"behaviors": [ { "name": "Unstable" } ],
 	"variantgroups": [
@@ -19,8 +19,7 @@
 	],
 	"creativeinventory": {
 		"general": [ "" ],
-		"plants": [ "" ],
-		"artofgrowingplants": [ "*" ]
+		"plants": [ "" ]
 	},
 	"renderpass": "OpaqueNoCull",
 	"shape": { "base": "block/plant/crop/default*" },

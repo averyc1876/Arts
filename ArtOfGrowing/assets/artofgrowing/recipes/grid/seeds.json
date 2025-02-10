@@ -1,0 +1,149 @@
+[
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-wild-*",
+				"quantity": 5,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-small-*",
+				"quantity": 5,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 2
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-medium-*",
+				"quantity": 5,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-decent-*",
+				"quantity": 5,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 4
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-large-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 1
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-hefty-*",
+				"quantity": 2,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 3
+		}
+	},
+	{
+		"ingredientPattern": "H",
+		"shapeless": true,
+		"ingredients": {
+			"H": {
+				"type": "item",
+				"code": "seeds-gigantic-*",
+				"quantity": 1,
+				
+				"name": "type"
+			}
+		},
+		"width": 1,
+		"height": 1,
+		"name": "seeds",
+		"output": {
+			"type": "item",
+			"code": "game:seeds-{type}",
+			"quantity": 2
+		}
+	}
+]

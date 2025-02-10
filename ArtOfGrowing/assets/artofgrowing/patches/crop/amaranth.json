@@ -11,17 +11,6 @@
   },
   {
     "op": "replace",
-    "path": "/creativeinventory",
-    "value": {
-      "general": [ "" ],
-      "plants": [ "" ],
-      "artofgrowingplants": [ "*" ]
-    },
-    "file": "game:blocktypes/plant/crop/amaranth.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-9": [
@@ -54,6 +43,13 @@
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
     "value": 1.2,
+    "file": "game:blocktypes/plant/crop/amaranth.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "AOGBlockCrop",
     "file": "game:blocktypes/plant/crop/amaranth.json",
     "side": "Server"
   }

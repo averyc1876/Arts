@@ -46,8 +46,8 @@ namespace ArtOfGrowing.Items
 
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
-        {     
-            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "ridge" && !byEntity.Controls.ShiftKey)
+        {    
+            if (!byEntity.LeftHandItemSlot.Empty && byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "ridge" && !byEntity.Controls.ShiftKey)
             {
                 handling = EnumHandHandling.PreventDefault;
                 if (api.World.Side == EnumAppSide.Client)
@@ -63,7 +63,7 @@ namespace ArtOfGrowing.Items
 
         public override bool OnHeldInteractStep(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
-            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() != "ridge" || byEntity.Controls.ShiftKey) return false;
+            if (byEntity.LeftHandItemSlot.Empty || byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() != "ridge" || byEntity.Controls.ShiftKey) return false;
             if (byEntity.World is IClientWorldAccessor)
             {
                 byEntity.StartAnimation("squeezehoneycomb");
@@ -74,12 +74,13 @@ namespace ArtOfGrowing.Items
         public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
             byEntity.StopAnimation("squeezehoneycomb");
-
+            if (byEntity.LeftHandItemSlot == null || byEntity.LeftHandItemSlot.Empty) return;
             if (secondsUsed < 1.9f) return;
             IWorldAccessor world = byEntity.World;
             int quantity = 1;
             int tquantity = 1;
-            if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Variant["material"] == "wooden") tquantity = 8;
+            if (byEntity.Controls.FloorSitting) tquantity = tquantity * 2;    
+            if (!byEntity.LeftHandItemSlot.Empty && byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Variant["material"] == "wooden") tquantity = Math.Min(tquantity * 4, byEntity.LeftHandItemSlot.Itemstack.Collectible.Durability);         
             quantity = Math.Min(tquantity, slot.StackSize);
             slot.TakeOut(quantity);
             slot.MarkDirty();
@@ -92,9 +93,10 @@ namespace ArtOfGrowing.Items
             {
                 byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
             }
-
-            byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot, quantity);
-
+            if (!byEntity.LeftHandItemSlot.Empty) 
+            {
+                byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot, quantity);
+            }
             return;
         }
 

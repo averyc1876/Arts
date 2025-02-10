@@ -1,0 +1,24 @@
+{
+	"ingredient": {
+		"type": "item",
+		"code": "game:ingot-*",
+		"name": "metal",
+		"allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "silver", "gold", "iron", "meteoriciron", "steel" ]
+	},
+	"pattern": [
+		[
+			"__######",
+			"_##_____",
+			"########",
+			"###_____",
+			"########",
+			"_##_____",
+			"__######"
+		]
+	],
+	"name": "Hayfork",
+	"output": {
+		"type": "item",
+		"code": "hayforkhead-{metal}"
+	}
+}

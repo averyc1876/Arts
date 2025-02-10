@@ -23,8 +23,7 @@
 	],
 	"creativeinventory": {
 		"general": [ "" ],
-		"plants": [ "" ],
-		"artofgrowingplants": [ "*" ]
+		"plants": [ "" ]
 	},
 	"renderpass": "OpaqueNoCull",
 	"shapeByType": {

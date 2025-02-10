@@ -48,13 +48,13 @@
 	},
 	"shape": { "base": "item/food/sunflower/{size}/sunflower" },
 	"maxstacksizeByType": {
-		"*-wild": 512,
-		"*-small": 256,
-		"*-medium": 128,
-		"*-decent": 64,
+		"*-wild": 128,
+		"*-small": 96,
+		"*-medium": 64,
+		"*-decent": 48,
 		"*-large": 32,
-		"*-hefty": 16,
-		"*-gigantic": 8
+		"*-hefty": 24,
+		"*-gigantic": 16
 	},
 	"materialDensity": 258,
 	"transitionablePropsByType": {

@@ -1,0 +1,202 @@
+{
+	"code": "strawlayer",
+	"class": "AOGBlockHayLayer",
+	"entityClassByType": {
+		"*-wet-free": "AOGTransient",
+		"*-dry-*": "Transient"
+	},
+	"behaviors": [
+		{ "name": "UnstableFalling" }
+	],
+	"variantgroups": [
+		{
+			"code": "type",
+			"states": [ "spelt", "rice", "flax", "rye", "amaranth" ]
+		},
+		{
+			"code": "size",
+			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
+		},
+		{
+			"code": "state",
+			"states": [ "wet", "dry" ]
+		},
+		{
+			"code": "cover",
+			"states": [ "free", "snow" ]
+		}
+	],
+	"attributes": {
+		"transientPropsByType": {
+			"strawlayer-*-wet-free": {
+				"convertFrom": "strawlayer-{type}-{size}-wet-free",
+				"convertTo": "strawlayer-{type}-{size}-dry-free",
+				"inGameHours": "24",
+				"resetBelowTemperature": -1,
+				"stopBelowTemperature": 8
+			},
+			"strawlayer-*-dry-*": {
+				"convertFrom": "strawlayer-*-straw-{cover}",
+				"convertTo": "haylayer-free-veryshort-straw-{cover}",
+				"inGameHours": "240"
+			}
+		},
+		"overrideRandomDrawOffset": 2
+	},
+	"vertexFlags": {
+		"zOffsetByType": {
+			"*-free": 0,
+			"*-snow": 3
+		}
+	},
+	"replaceable": 6500,
+	"renderpass": "OpaqueNoCull",
+	"creativeinventory": {
+		"general": [ "" ]
+	},
+	"doNotRenderAtLod2": true,
+	"randomDrawOffset": true,
+	"randomizeRotations": true,
+	"drawtypeByType": {
+		"*-free": "JSON",
+		"*-snow": "JSONAndSnowLayer"
+	},
+	"blockmaterialByType": {
+		"*-free": "Plant",
+		"*": "Snow"
+	},
+	"faceCullModeByType": {
+		"*-free": "Default",
+		"*": "MergeSnowLayer"
+	},
+	"frostable": true,
+	"combustiblePropsByType": {
+		"*-free": {
+			"burnTemperature": 600,
+			"burnDuration": 5
+		}
+	},
+	"shapeByType": {
+		"*-wild-*": {
+			"base": "block/haylayer/free-eaten"
+		},
+		"*-small-*": {
+			"base": "block/haylayer/free-veryshort"
+		},
+		"*-medium-*": {
+			"base": "block/haylayer/free-short"
+		},
+		"*-decent-*": {
+			"base": "block/haylayer/free-mediumshort"
+		},
+		"*-large-*": {
+			"base": "block/haylayer/free-medium"
+		},
+		"*-hefty-*": {
+			"base": "block/haylayer/free-tall"
+		},
+		"*-gigantic-*": {
+			"base": "block/haylayer/free-verytall"
+		}
+	},
+	"resistance": 0.5,
+	"texturesByType": {
+		"*": {
+			"normal-top": { "base": "block/plant/hay/{state}/normal-top-{type}" },
+			"straw1": { "base": "block/plant/hay/{state}/straw-{type}" }
+		}
+	},
+	"rainPermeableByType": {
+		"*-free": true,
+		"*": false
+	},
+	"dropsByType": {
+		"*": [
+			{
+				"type": "item",
+				"code": "grainbundle-{type}-{size}-{state}",
+				"quantityByType": {
+					"*-spelt-*": {
+						"avg": 12,
+						"var": 2
+					},
+					"*-rice-*": {
+						"avg": 13,
+						"var": 2
+					},
+					"*-flax-*": {
+						"avg": 8,
+						"var": 1
+					},
+					"*-rye-*": {
+						"avg": 11,
+						"var": 2
+					},
+					"*-amaranth-*": {
+						"avg": 6,
+						"var": 1
+					}
+				}
+			},
+			{
+				"type": "item",
+				"codeByType": {
+					"*-wild-*": "grainbundle-{type}-small-{state}",
+					"*-small-*": "grainbundle-{type}-medium-{state}",
+					"*-medium-*": "grainbundle-{type}-decent-{state}",
+					"*-decent-*": "grainbundle-{type}-large-{state}",
+					"*-large-*": "grainbundle-{type}-hefty-{state}",
+					"*-hefty-*": "grainbundle-{type}-gigantic-{state}",
+					"*-gigantic-*": "grainbundle-{type}-gigantic-{state}"
+				},
+				"quantity": { "avg": 0.3 }
+			}
+		]
+	},
+	"sideopaqueByType": {
+		"*-free": { "all": false },
+		"*": {
+			"all": false,
+			"down": true
+		}
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"sounds": {
+		"place": "game:block/plant",
+		"breakByType": {
+			"*": "block/plant"
+		},
+		"hitByType": {
+			"*": "block/plant"
+		},
+		"walkByType": {
+			"*-snow": "walk/snow",
+			"*": "block/plant"
+		}
+	},
+	"lightAbsorption": 0,
+	"selectionBox": {
+		"x1": 0,
+		"y1": 0,
+		"z1": 0,
+		"x2": 1,
+		"y2": 0.25,
+		"z2": 1
+	},
+	"collisionbox": null,
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": -8,
+			"z": 0
+		},
+		"rotation": {
+			"x": -22.59375,
+			"y": 82,
+			"z": 0
+		},
+		"scale": 1.64
+	}
+}

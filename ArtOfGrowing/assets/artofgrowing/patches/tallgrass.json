@@ -1,0 +1,72 @@
+[
+  {
+    "file": "game:blocktypes/plant/tallgrass.json",
+    "op": "replace",
+    "path": "/dropsByType",
+    "value": {
+      "*": []
+    }
+  },
+  {
+    "file": "game:blocktypes/plant/tallgrass.json",
+    "op": "replace",
+    "path": "/entityClassByType",
+    "value": {
+      "tallgrass-eaten-*": "Transient",
+      "tallgrass-veryshort-*": "Transient",
+      "tallgrass-short-*": "Transient",
+      "tallgrass-mediumshort-*": "Transient",
+      "tallgrass-medium-*": "Transient",
+      "tallgrass-tall-*": "Transient"
+    }
+  },
+  {
+    "op": "replace",
+    "file": "game:blocktypes/plant/tallgrass.json",
+    "path": "/attributes/transientPropsByType",
+    "value": {
+      "tallgrass-eaten-free": {
+        "convertFrom": "tallgrass-eaten-free",
+        "convertTo": "tallgrass-veryshort-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      },
+      "tallgrass-veryshort-free": {
+        "convertFrom": "tallgrass-veryshort-free",
+        "convertTo": "tallgrass-short-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      },
+      "tallgrass-short-free": {
+        "convertFrom": "tallgrass-short-free",
+        "convertTo": "tallgrass-mediumshort-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      },
+      "tallgrass-mediumshort-free": {
+        "convertFrom": "tallgrass-mediumshort-free",
+        "convertTo": "tallgrass-medium-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      },
+      "tallgrass-medium-free": {
+        "convertFrom": "tallgrass-medium-free",
+        "convertTo": "tallgrass-tall-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      },
+      "tallgrass-tall-free": {
+        "convertFrom": "tallgrass-tall-free",
+        "convertTo": "tallgrass-verytall-free",
+        "inGameHours": "50",
+        "resetBelowTemperature": -1,
+        "stopBelowTemperature": 8
+      }
+    }
+  }
+]

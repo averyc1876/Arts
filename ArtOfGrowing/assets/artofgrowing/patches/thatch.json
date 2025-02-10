@@ -76,5 +76,23 @@
     },
     "file": "game:itemtypes/resource/thatch.json",
     "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/transitionableProps",
+    "value": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 4320 },
+        "transitionHours": { "avg": 448 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "artofgrowing:agedgrass"
+        },
+        "transitionRatio": 1
+      }
+    ],
+    "file": "game:itemtypes/resource/thatch.json",
+    "side": "Server"
   }
 ]

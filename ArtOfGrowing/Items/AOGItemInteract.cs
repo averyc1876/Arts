@@ -49,7 +49,7 @@ namespace ArtOfGrowing.Items
                     }
                 };
             });
-            else interactions = ObjectCacheUtil.GetOrCreate(api, "sunflowerInteractions", () =>
+            else interactions = ObjectCacheUtil.GetOrCreate(api, "grainHeadsInteractions", () =>
             {
                 return new WorldInteraction[]
                 {
@@ -102,7 +102,8 @@ namespace ArtOfGrowing.Items
                     {
                         int quantity = 1;
                         int tquantity = 1;
-                        if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") tquantity = 8;                        
+                        if (byEntity.Controls.FloorSitting) tquantity = tquantity * 2;    
+                        if (!byEntity.LeftHandItemSlot.Empty && byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") tquantity = Math.Min(tquantity * 4, byEntity.LeftHandItemSlot.Itemstack.Collectible.Durability);        
                         quantity = Math.Min(tquantity, slot.StackSize);
                         slot.TakeOut(quantity);
                         slot.MarkDirty();
@@ -111,24 +112,29 @@ namespace ArtOfGrowing.Items
                         {
                             byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
                         } 
-                        if (byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") 
+                        if (!byEntity.LeftHandItemSlot.Empty && byEntity.LeftHandItemSlot?.Itemstack?.Collectible.Code.FirstCodePart() == "creaser") 
                         {
                             byEntity.LeftHandItemSlot.Itemstack.Collectible.DamageItem(byEntity.World, byEntity, byEntity.LeftHandItemSlot, quantity);
                         }
                     }   
                     if (Name == "grainbundle") 
                     {
-                        slot.TakeOut(1);
+                        int quantity = 1;
+                        int tquantity = 1;
+                        if (byEntity.Controls.FloorSitting) tquantity = tquantity * 2;
+                        if (byEntity.LeftHandItemSlot.Empty) tquantity = tquantity * 4;
+                        quantity = Math.Min(tquantity, slot.StackSize);
+                        slot.TakeOut(quantity);
                         slot.MarkDirty();
                         string size = Variant["size"];
-                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:seeds-" + size + "-sunflower"))); 
-                        stack.StackSize = GameMath.RoundRandom(api.World.Rand, 3.5f);
+                        string type = Variant["type"];
+                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:seeds-" + size + "-" + type)),GameMath.RoundRandom(api.World.Rand, 3.5f)); 
+                        stack.StackSize = stack.StackSize * quantity;
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
                             byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);
                         } 
-                    }                  
-
+                    } 
                     return;
         }
 

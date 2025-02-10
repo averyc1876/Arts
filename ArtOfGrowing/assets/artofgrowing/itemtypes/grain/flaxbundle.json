@@ -42,36 +42,6 @@
 			"states": [ "dry", "wet", "clear", "soft" ]
 		}
 	],
-	"attributes": {
-		"handbook": {
-			"extraSectionsByType": {
-				"*-dry": [
-					{
-						"title": "artofgrowing:item-handbooktitle-interact",
-						"text": "artofgrowing:item-handbooktext-flaxbundledry"
-					}
-				],
-				"*-wet": [
-					{
-						"title": "artofgrowing:item-handbooktitle-interact",
-						"text": "artofgrowing:item-handbooktext-flaxbundlewet"
-					}
-				],
-				"*-clear": [
-					{
-						"title": "artofgrowing:item-handbooktitle-interact",
-						"text": "artofgrowing:item-handbooktext-flaxbundleclear"
-					}
-				],
-				"*-soft": [
-					{
-						"title": "artofgrowing:item-handbooktitle-interact",
-						"text": "artofgrowing:item-handbooktext-flaxbundlesoft"
-					}
-				]
-			}
-		}
-	},
 	"creativeinventory": {
 		"general": [ "*" ],
 		"items": [ "*" ],
@@ -113,26 +83,14 @@
 				"transitionRatio": 1
 			}
 		],
-		"*-wet": [
+		"*": [
 			{
 				"type": "Perish",
-				"freshHours": { "avg": 168 },
-				"transitionHours": { "avg": 6 },
+				"freshHours": { "avg": 4320 },
+				"transitionHours": { "avg": 448 },
 				"transitionedStack": {
 					"type": "item",
-					"code": "game:thatch"
-				},
-				"transitionRatio": 1
-			}
-		],
-		"*-clear": [
-			{
-				"type": "Perish",
-				"freshHours": { "avg": 168 },
-				"transitionHours": { "avg": 6 },
-				"transitionedStack": {
-					"type": "item",
-					"code": "game:thatch"
+					"code": "artofgrowing:agedgrass"
 				},
 				"transitionRatio": 1
 			}

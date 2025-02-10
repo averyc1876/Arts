@@ -1,0 +1,45 @@
+[
+  {
+    "op": "replace",
+    "path": "/classByType/claypot-burned",
+    "value": "ArtsXSlillsBlockCookingContainer",
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/classByType/metalpot-*-empty",
+    "value": "ArtsXSlillsBlockCookingContainer",
+    "file": "artofcooking:blocktypes/metal/metalpot.json",
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "artofcooking"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "ArtsXSkillsItemPlantableSeed",
+    "file": "artofgrowing:itemtypes/food/grains.json",
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "artofgrowing"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/class",
+    "value": "ArtsXSkillsItemPlantableSeed",
+    "file": "artofgrowing:itemtypes/food/seeds.json",
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "artofgrowing"
+      }
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 {
 	"code": "crop",
-	"class": "BlockCrop",
+	"class": "AOGBlockCrop",
 	"frostable": true,
 	"behaviors": [ { "name": "Unstable" } ],
 	"variantgroups": [
@@ -19,8 +19,7 @@
 	],
 	"creativeinventory": {
 		"general": [ "" ],
-		"plants": [ "" ],
-		"artofgrowingplants": [ "*" ]
+		"plants": [ "" ]
 	},
 	"renderpass": "OpaqueNoCull",
 	"shapeByType": {
@@ -30,6 +29,8 @@
 		"*-6": { "base": "block/plant/crop/tallcrossdense" },
 		"*": { "base": "block/plant/crop/crossdense" }
 	},
+	"randomizeRotations": true,
+	"randomDrawOffset": true,
 	"blockmaterial": "Plant",
 	"texturesByType": {
 		"*-gigantic-*": {
@@ -72,7 +73,8 @@
 		"tickGrowthProbability": 0.05,
 		"handbook": {
 			"groupBy": [ "crop-*" ]
-		}
+		},
+		"overrideRandomDrawOffset": 14
 	},
 	"sideopaque": {
 		"all": false
