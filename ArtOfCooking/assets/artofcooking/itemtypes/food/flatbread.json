@@ -33,14 +33,54 @@
 	"shape": { "base": "item/food/flatbread" },
 
 	"texturesbytype": {
-		"*-acorn-raw": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}1" } },
-		"*-acorn-partbaked": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}2" } },
-		"*-acorn-perfect": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}3" } },
-		"*-acorn-charred": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}4" } },
-		"*-raw": { "dough": { "base": "game:block/food/pie/{type}1" } },
-		"*-partbaked": { "dough": { "base": "game:block/food/pie/{type}2" } },
-		"*-perfect": { "dough": { "base": "game:block/food/pie/{type}3" } },
-		"*-charred": { "dough": { "base": "game:block/food/pie/{type}4" } }
+		"*-acorn-raw": {
+			"dough": {
+				"base": "wildcraftfruit:block/food/pie/{type}1",
+				"overlays": [ "block/food/egg/egg-overlays" ]
+			}
+		},
+		"*-acorn-partbaked": {
+			"dough": {
+				"base": "wildcraftfruit:block/food/pie/{type}2",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		},
+		"*-acorn-perfect": {
+			"dough": {
+				"base": "wildcraftfruit:block/food/pie/{type}3",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		},
+		"*-acorn-charred": {
+			"dough": {
+				"base": "wildcraftfruit:block/food/pie/{type}4",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		},
+		"*-raw": {
+			"dough": {
+				"base": "game:block/food/pie/{type}1",
+				"overlays": [ "block/food/egg/egg-overlays" ]
+			}
+		},
+		"*-partbaked": {
+			"dough": {
+				"base": "game:block/food/pie/{type}2",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		},
+		"*-perfect": {
+			"dough": {
+				"base": "game:block/food/pie/{type}3",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		},
+		"*-charred": {
+			"dough": {
+				"base": "game:block/food/pie/{type}4",
+				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+			}
+		}
 	},
 	"creativeinventory": {
 		"general": [ "*" ],
@@ -147,54 +187,54 @@
 	},
 	"nutritionPropsByType": {
 		"*-flax-partbaked": {
-			"saturation": 45,
+			"saturation": 85,
 			"foodcategory": "Grain"
 		},
 		"*-flax-perfect": {
-			"saturation": 80,
+			"saturation": 130,
 			"foodcategory": "Grain"
 		},
 		"*-flax-charred": {
-			"saturation": 50,
+			"saturation": 100,
 			"foodcategory": "Grain"
 		},
 
 		"*-rice-partbaked": {
-			"saturation": 80,
+			"saturation": 130,
 			"foodcategory": "Grain"
 		},
 		"*-rice-perfect": {
-			"saturation": 165,
+			"saturation": 215,
 			"foodcategory": "Grain"
 		},
 		"*-rice-charred": {
-			"saturation": 110,
+			"saturation": 160,
 			"foodcategory": "Grain"
 		},
 
 		"*-acorn-partbaked": {
-			"saturation": 85,
+			"saturation": 135,
 			"foodcategory": "Grain"
 		},
 		"*-acorn-perfect": {
-			"saturation": 175,
+			"saturation": 225,
 			"foodcategory": "Grain"
 		},
 		"*-acorn-charred": {
-			"saturation": 115,
+			"saturation": 165,
 			"foodcategory": "Grain"
 		},
 
 		"*-partbaked": {
-			"saturation": 75,
+			"saturation": 125,
 			"foodcategory": "Grain"
 		},
 		"*-perfect": {
-			"saturation": 150,
+			"saturation": 200,
 			"foodcategory": "Grain"
 		},
 		"*-charred": {
-			"saturation": 105,
+			"saturation": 155,
 			"foodcategory": "Grain"
 		}
 	},

@@ -12,15 +12,87 @@
 	"resistance": 2,
 	"lightAbsorption": 0,
 	"textures": {
-		"doughworkitem-flax": { "base": "block/food/dough/flax" },
-		"doughworkitem-rice": { "base": "block/food/dough/rice" },
-		"doughworkitem-spelt": { "base": "block/food/dough/spelt" },
-		"doughworkitem-rye": { "base": "block/food/dough/rye" },
-		"doughworkitem-cassava": { "base": "block/food/dough/cassava" },
-		"doughworkitem-amaranth": { "base": "block/food/dough/amaranth" },
-		"doughworkitem-sunflower": { "base": "block/food/dough/sunflower" },
-		"doughworkitem-pumpkin": { "base": "block/food/dough/pumpkin" },
-		"doughworkitem-acorn": { "base": "block/food/dough/acorn" }
+		"doughworkitem-unleavened-flax": { "base": "block/food/dough/flax" },
+		"doughworkitem-unleavened-rice": { "base": "block/food/dough/rice" },
+		"doughworkitem-unleavened-spelt": { "base": "block/food/dough/spelt" },
+		"doughworkitem-unleavened-rye": { "base": "block/food/dough/rye" },
+		"doughworkitem-unleavened-cassava": { "base": "block/food/dough/cassava" },
+		"doughworkitem-unleavened-amaranth": { "base": "block/food/dough/amaranth" },
+		"doughworkitem-unleavened-sunflower": { "base": "block/food/dough/sunflower" },
+		"doughworkitem-unleavened-pumpkin": { "base": "block/food/dough/pumpkin" },
+		"doughworkitem-unleavened-acorn": { "base": "block/food/dough/acorn" },
+		"doughworkitem-pastry-flax": {
+			"base": "block/food/dough/flax",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-rice": {
+			"base": "block/food/dough/rice",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-spelt": {
+			"base": "block/food/dough/spelt",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-rye": {
+			"base": "block/food/dough/rye",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-cassava": {
+			"base": "block/food/dough/cassava",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-amaranth": {
+			"base": "block/food/dough/amaranth",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-sunflower": {
+			"base": "block/food/dough/sunflower",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-pumpkin": {
+			"base": "block/food/dough/pumpkin",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-pastry-acorn": {
+			"base": "block/food/dough/acorn",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"doughworkitem-blooddough-flax": {
+			"base": "block/food/dough/flax",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-rice": {
+			"base": "block/food/dough/rice",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-spelt": {
+			"base": "block/food/dough/spelt",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-rye": {
+			"base": "block/food/dough/rye",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-cassava": {
+			"base": "block/food/dough/cassava",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-amaranth": {
+			"base": "block/food/dough/amaranth",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-sunflower": {
+			"base": "block/food/dough/sunflower",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-pumpkin": {
+			"base": "block/food/dough/pumpkin",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		},
+		"doughworkitem-blooddough-acorn": {
+			"base": "block/food/dough/acorn",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		}
 	},
 	"sidesolid": {
 		"all": false

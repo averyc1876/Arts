@@ -1,0 +1,161 @@
+{
+	"code": "doughknead",
+	"class": "AOCBlockDoughKnead",
+	"entityClassByType": {
+		"*": "Transient"
+	},
+	"variantgroups": [
+		{
+			"code": "variety",
+			"states": [ "unleavened", "pastry", "flour", "wetflour", "eggwetflour", "rot", "bloodflour", "blooddough" ]
+		},
+		{
+			"code": "type",
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin", "acorn" ]
+		}
+	],
+	"skipVariants": [ "doughknead-bloodflour-acorn", "doughknead-blooddough-acorn" ],
+	"shapebytype": {
+		"*-unleavened-*": { "base": "item/food/doughpiece" },
+		"*-pastry-*": { "base": "item/food/doughpiece" },
+		"*-blooddough-*": { "base": "item/food/doughpiece" },
+		"*-rot-*": { "base": "game:item/rot" },
+		"*": { "base": "game:item/food/flour" }
+	},
+	"texturesbytype": {
+		"*-flour-acorn": { "flour": { "base": "wildcraftfruit:items/grain/{type}-flour" } },
+		"*-unleavened-acorn": { "dough": { "base": "wildcraftfruit:items/grain/{type}bread" } },
+		"*-pastry-acorn": {
+			"dough": {
+				"base": "wildcraftfruit:items/grain/{type}bread",
+				"overlays": [ "block/food/egg/egg-overlays" ]
+			}
+		},
+		"*-flour-*": { "flour": { "base": "game:item/food/grain/{type}-flour" } },
+		"*-wetflour-*": { "flour": { "base": "item/food/dough/{type}-flour" } },
+		"*-unleavened-*": { "dough": { "base": "game:item/food/grain/{type}bread" } },
+		"*-blooddough-*": {
+			"dough": {
+				"base": "game:item/food/grain/{type}bread",
+				"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+			}
+		},
+		"*-pastry-*": {
+			"dough": {
+				"base": "game:item/food/grain/{type}bread",
+				"overlays": [ "block/food/egg/egg-overlays" ]
+			}
+		},
+		"*-eggwetflour-*": {
+			"flour": {
+				"base": "item/food/dough/{type}-flour",
+				"overlays": [ "block/food/egg/egg-flour-overlays" ]
+			}
+		},
+		"*-bloodflour-*": {
+			"flour": {
+				"base": "item/food/dough/{type}-flour",
+				"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+			}
+		}
+	},
+	"creativeinventory": {
+		"general": [ "" ]
+	},
+	"attributes": {
+		"transientPropsByType": {
+			"doughknead-*": {
+				"convertFrom": "doughknead-*",
+				"convertTo": "doughknead-rot-{type}",
+				"inGameHours": "24"
+			}
+		}
+	},
+	"materialDensity": 200,
+	"sideOpaque": { "all": false },
+	"sideSolid": { "all": false },
+	"emitSideAo": { "all": false },
+	"collisionbox": null,
+	"selectionbox": {
+		"x1": 0.1875,
+		"y1": 0,
+		"z1": 0.1875,
+		"x2": 0.8125,
+		"y2": 0.1875,
+		"z2": 0.8125
+	},
+	"heldTpIdleAnimation": "holdbothhands",
+	"drops": [],
+	"guiTransform": {
+		"translation": {
+			"x": 1,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": -14,
+			"y": -60,
+			"z": 13
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 2.38
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 1
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 4.5
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.86,
+			"y": -0.14,
+			"z": -0.57
+		},
+		"rotation": {
+			"x": -49,
+			"y": 29,
+			"z": -112
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.13,
+			"z": 0.5
+		},
+		"scale": 0.7
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": -0.2,
+			"y": 0.2,
+			"z": 0.3
+		},
+		"rotation": {
+			"x": 10,
+			"y": -19,
+			"z": 3
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 1.76
+	}
+}

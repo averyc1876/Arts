@@ -1,7 +1,12 @@
 {
 	"code": "vegetable",
+	"storageFlags": 33,
 	"maxstacksize": 64,
 	"attributes": {
+		"nutritionPropsWhenInMeal": {
+			"satiety": 75,
+			"foodcategory": "Vegetable"
+		},
 		"inContainerTexture": { "base": "game:block/wood/barrel/raw-{type}" },
 		"inPieProperties": {
 			"texture": "game:block/wood/barrel/raw-{type}",

@@ -1,0 +1,23 @@
+{
+	"ingredient": {
+		"type": "item",
+		"code": "doughpiece-pastry-*",
+		"name": "type"
+	},
+	"pattern": [
+		[
+			"######",
+			"######",
+			"######",
+			"######",
+			"######",
+			"######"
+		]
+	],
+	"name": "Flatbread",
+	"output": {
+		"type": "item",
+		"code": "flatbread-{type}-raw",
+		"stacksize": 1
+	}
+}

@@ -14,7 +14,7 @@
 	"textures": {
 		"seed": "game:item/resource/seeds/amaranth",
 		"normal": "game:block/cloth/basic/normal",
-		"reedrope": "game:block/cloth/reedrope",
+		"reedrope": "game:block/cloth/reedrope"
 	},
 	"elements": [
 		{

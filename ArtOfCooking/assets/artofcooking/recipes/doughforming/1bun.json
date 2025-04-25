@@ -1,0 +1,30 @@
+{
+	"ingredient": {
+		"type": "item",
+		"code": "doughpiece-pastry-*",
+		"name": "type"
+	},
+	"pattern": [
+		[
+			"###",
+			"###",
+			"###"
+		],
+		[
+			"###",
+			"###",
+			"###"
+		],
+		[
+			"###",
+			"###",
+			"###"
+		]
+	],
+	"name": "Bun",
+	"output": {
+		"type": "item",
+		"code": "bun-{type}-raw",
+		"stacksize": 1
+	}
+}

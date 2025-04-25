@@ -45,7 +45,21 @@
         "avg": 5,
         "var": 5
       },
-      "chance": 0.03
+      "chance": 0.005
+    }
+  },
+  {
+    "file": "game:worldgen/blockpatches/grass.json",
+    "op": "addmerge",
+    "path": "/-",
+    "value": {
+      "comment": "Small patches of drygrass",
+      "blockCodes": [ "artofgrowing:talldrygrass-veryshort-free", "artofgrowing:talldrygrass-short-free", "artofgrowing:talldrygrass-mediumshort-free", "artofgrowing:talldrygrass-medium-free", "artofgrowing:talldrygrass-tall-free", "artofgrowing:talldrygrass-verytall-free" ],
+      "quantity": {
+        "avg": 10,
+        "var": 10
+      },
+      "chance": 0.5
     }
   }
 ]

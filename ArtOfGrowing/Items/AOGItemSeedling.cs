@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -59,7 +60,8 @@ namespace ArtOfGrowing.Items
                     BlockEntity be = byEntity.World.BlockAccessor.GetBlockEntity(pos);
                     if (be is BlockEntityFarmland)
                     {
-                        Block cropBlock = byEntity.World.GetBlock(new AssetLocation("game:crop-seed-" + Size + "-" + lastCodePart + "-1"));
+                        Block cropBlock = byEntity.World.GetBlock(new AssetLocation("game:crop-seed-" + lastCodePart + "-1"));
+                        if (Size != null) cropBlock = byEntity.World.GetBlock(new AssetLocation("game:crop-seed-" + Size + "-" + lastCodePart + "-1"));
                         if (cropBlock != null)
                         { 
 

@@ -1,0 +1,145 @@
+{
+	"enabled": false,
+	"code": "doughpiece",
+	"class": "AOCItemDough",
+	"maxstacksize": 128,
+	"attributes": {
+		"handbook": {
+			"extraSections": [
+				{
+					"title": "artofcooking:item-handbooktitle-doughforming",
+					"text": "artofcooking:item-handbooktext-doughforming"
+				}
+			]
+		},
+		"displaycaseable": true,
+		"shelvable": true,
+		"inPieProperties": {
+			"texture": "game:block/food/pie/{type}{bakeLevel}",
+			"partType": "Crust"
+		},
+		"nutritionPropsWhenInMealByType": {
+			"*-flax": {
+				"satiety": 200,
+				"foodcategory": "Grain"
+			},
+			"*-rice": {
+				"satiety": 360,
+				"foodcategory": "Grain"
+			},
+			"*": {
+				"satiety": 300,
+				"foodcategory": "Grain"
+			}
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "variety",
+			"states": [ "blooddough" ]
+		},
+		{
+			"code": "type",
+			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+		}
+	],
+	"shape": { "base": "item/food/doughpiece" },
+	"texturesByType": {
+		"*-blooddough-*": {
+			"dough": {
+				"base": "game:item/food/grain/{type}bread",
+				"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+			}
+		}
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"artofcooking": [ "*" ]
+	},
+	"materialDensity": 200,
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": -30,
+			"y": -1,
+			"z": 180
+		},
+		"origin": {
+			"x": 0.54,
+			"y": 0.07,
+			"z": 0.5
+		},
+		"scale": 2.8
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 1
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 2
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0.22,
+			"z": 0.2
+		},
+		"rotation": {
+			"x": 97,
+			"y": 1,
+			"z": -17
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.1,
+			"z": 0.5
+		},
+		"scale": 1.5
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.69,
+			"y": -0.16,
+			"z": -0.53
+		},
+		"rotation": {
+			"x": 88,
+			"y": -85,
+			"z": 2
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.13,
+			"z": 0.5
+		},
+		"scale": 0.8
+	},
+	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 48 },
+			"transitionHours": { "avg": 24 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatio": 1
+		}
+	]
+}

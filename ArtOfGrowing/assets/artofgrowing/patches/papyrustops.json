@@ -1,0 +1,55 @@
+[
+  {
+    "op": "replace",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "AOGHayStorable",
+        "properties": {
+          "layout": "Stacking",
+          "placeRemoveSound": "game:sounds/block/plant",
+          "stackingModel": "artofgrowing:block/haystorage",
+          "stackingTextures": {
+            "normal-top": "artofgrowing:block/plant/cattails/normal-top",
+            "straw1": "artofgrowing:block/plant/papyrus/straw1"
+          },
+          "modelItemsToStackSizeRatio": 1.25,
+          "stackingCapacity": 128,
+          "maxStackingHeight": 1,
+          "collisionBox": {
+            "x1": 0,
+            "y1": 0,
+            "z1": 0,
+            "x2": 1,
+            "y2": 0.0625,
+            "z2": 1
+          },
+          "cbScaleYByLayer": 0.125,
+          "burnHoursPerItem": 0.1,
+          "transferQuantity": 1,
+          "bulkTransferQuantity": 8
+        }
+      }
+    ],
+    "file": "game:itemtypes/resource/papyrustops.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/attributes",
+    "value": {
+      "placeSound": "block/plant",
+      "handbook": {
+        "include": true,
+        "extraSections": [
+          {
+            "title": "artofgrowing:block-handbooktitle-thatchhay",
+            "text": "artofgrowing:block-handbooktext-thatchhay"
+          }
+        ]
+      }
+    },
+    "file": "game:itemtypes/resource/papyrustops.json",
+    "side": "Server"
+  }
+]

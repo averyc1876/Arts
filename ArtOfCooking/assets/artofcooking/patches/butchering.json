@@ -1,0 +1,156 @@
+[
+  {
+    "op": "remove",
+    "path": "/class",
+    "file": "butchering:itemtypes/food/blooddough.json",
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Quadrants",
+          "collisionBox": {
+            "x1": 0,
+            "y1": 0,
+            "z1": 0,
+            "x2": 1,
+            "y2": 0.125,
+            "z2": 1
+          }
+        }
+      }
+    ],
+    "file": "butchering:itemtypes/food/blooddough.json",
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "Server"
+  },
+  {
+    "file": "butchering:recipes/grid/blooddough.json",
+    "op": "addmerge",
+    "path": "/0/enabled",
+    "value": false,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "butchering:recipes/grid/blooddough.json",
+    "op": "addmerge",
+    "path": "/1/enabled",
+    "value": false,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "butchering:recipes/grid/blooddough.json",
+    "op": "addmerge",
+    "path": "/2/enabled",
+    "value": false,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:itemtypes/food/doughpiece-blooddough.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/1bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/2bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/3bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/4bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/5bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/6bloodbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/pie-blooddough.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/grid/dough.json",
+    "op": "replace",
+    "path": "/0/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "butchering" }
+    ],
+    "side": "server"
+  }
+]

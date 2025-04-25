@@ -14,7 +14,7 @@
               "normal-top": "block/plant/grassroofing/normal-top",
               "straw1": "block/plant/grassroofing/straw1"
             },
-            "modelItemsToStackSizeRatio": 1.125,
+            "modelItemsToStackSizeRatio": 1.25,
             "stackingCapacity": 128,
             "maxStackingHeight": 1,
             "collisionBox": {
@@ -26,6 +26,7 @@
               "z2": 1
             },
             "cbScaleYByLayer": 0.125,
+            "burnHoursPerItem": 0.1,
             "transferQuantity": 1,
             "bulkTransferQuantity": 8,
             "dropUse": 8,
@@ -39,7 +40,7 @@
     "side": "Server"
   },
   {
-    "op": "replace",
+    "op": "addmerge",
     "path": "/class",
     "value": "AOGItemDryGrass",
     "file": "game:itemtypes/resource/drygrass.json",
@@ -109,6 +110,23 @@
     "path": "/enabled",
     "value": false,
     "file": "game:recipes/grid/haybale.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/2/ingredientPattern",
+    "value": "_B_,BRB",
+    "file": "game:recipes/grid/clothes/hat.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/2/ingredients/R",
+    "value": {
+      "type": "item",
+      "code": "game:rope"
+    },
+    "file": "game:recipes/grid/clothes/hat.json",
     "side": "Server"
   },
   {

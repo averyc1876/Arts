@@ -1,45 +1,26 @@
 [
   {
     "op": "replace",
-    "path": "/textures",
-    "value": {
-      "all": { "base": "artofgrowing:block/plant/crop/soybean/wild/normal{stage}" }
-    },
-    "file": "game:blocktypes/plant/crop/soybean.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-11": [
         {
           "type": "item",
-          "code": "artofgrowing:grainbundle-soybean-wild",
+          "code": "artofgrowing:grainbundle-soybean",
           "quantity": {
-            "avg": 2,
+            "avg": 3,
             "var": 1
           }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:grainbundle-soybean-small",
-          "quantity": { "avg": 0.3 }
         }
       ],
       "*-10": [
         {
           "type": "item",
-          "code": "artofgrowing:grainbundle-soybean-wild",
+          "code": "artofgrowing:grainbundle-soybean",
           "quantity": {
-            "avg": 1,
+            "avg": 2,
             "var": 0.5
           }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:grainbundle-soybean-small",
-          "quantity": { "avg": 0.3 }
         }
       ],
       "*": [
@@ -51,13 +32,12 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/soybean.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/cropProps/totalGrowthMonths",
-    "value": 0.45,
-    "file": "game:blocktypes/plant/crop/soybean.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]

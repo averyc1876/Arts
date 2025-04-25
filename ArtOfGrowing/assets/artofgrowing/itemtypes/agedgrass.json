@@ -1,5 +1,6 @@
 {
 	"code": "agedgrass",
+	"storageFlags": 33,
 	"shape": { "base": "game:item/resource/haybundle" },
 	"attributes": {
 		"placeSound": "game:block/plant"
@@ -24,7 +25,7 @@
 						"normal-top": "game:block/hay/aged-top",
 						"straw1": "artofgrowing:block/plant/aged/straw1"
 					},
-					"modelItemsToStackSizeRatio": 1.125,
+					"modelItemsToStackSizeRatio": 1.25,
 					"stackingCapacity": 128,
 					"maxStackingHeight": 1,
 					"collisionBox": {
@@ -36,6 +37,7 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.125,
+					"burnHoursPerItem": 0.1,
 					"transferQuantity": 1,
 					"bulkTransferQuantity": 8,
 					"dropUse": 8,

@@ -1,5 +1,12 @@
 [
   {
+    "op": "replace",
+    "path": "/variantgroups/0/states",
+    "value": [ "carrot", "onion", "turnip", "parsnip", "soybean", "cabbage", "pineapple", "cassava", "peanut", "bellpepper" ],
+    "file": "game:itemtypes/resource/seeds.json",
+    "side": "Server"
+  },
+  {
     "op": "addmerge",
     "path": "/variantgroups/0/states/-",
     "value": "pumpkin",

@@ -1,0 +1,147 @@
+{
+	"code": "pickledlegume",
+	"storageFlags": 33,
+	"maxstacksizeByType": {
+		"*-wild-*": 128,
+		"*-small-*": 96,
+		"*-medium-*": 64,
+		"*-decent-*": 48,
+		"*-large-*": 32,
+		"*-hefty-*": 24,
+		"*-gigantic-*": 16
+	},
+	"attributes": {
+		"inContainerTexture": { "base": "game:block/wood/barrel/pickled-{type}" },
+		"crockable": true,
+		"inPieProperties": {
+			"texture": "game:block/food/pie/fill-{type}",
+			"partType": "Filling"
+		},
+		"inCookedMealProperties": {
+			"texture": "game:block/food/pie/fill-{type}",
+			"partType": "Filling"
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "size",
+			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
+		},
+		{
+			"code": "type",
+			"states": [ "soybean" ]
+		}
+	],
+	"shape": { "base": "item/food/pickledvegetable/{size}/cabbage" },
+	"textures": {
+		"sauerkraut": { "base": "game:block/food/grain/pickled-{type}-grain" },
+		"seed": { "base": "game:item/resource/seeds/pickled-{type}" }
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"artofgrowing": [ "*" ]
+	},
+	"nutritionPropsByType": {
+		"*": {
+			"satietyByType": {
+				"*-wild-*": 30,
+				"*-small-*": 60,
+				"*-medium-*": 90,
+				"*-decent-*": 120,
+				"*-large-*": 150,
+				"*-hefty-*": 225,
+				"*-gigantic-*": 300
+			},
+			"foodcategory": "Protein"
+		}
+	},
+	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 4320 },
+			"transitionHours": { "avg": 432 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatioByType": {
+				"*-wild-*": 0.1,
+				"*-small-*": 0.2,
+				"*-medium-*": 0.3,
+				"*-decent-*": 0.4,
+				"*-large-*": 0.5,
+				"*-hefty-*": 0.75,
+				"*-gigantic-*": 1
+			}
+		}
+	],
+	"materialDensity": 450,
+	"guiTransform": {
+		"translation": {
+			"x": 2.5,
+			"y": 1,
+			"z": 0
+		},
+		"rotation": {
+			"x": 137,
+			"y": 131,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.05,
+			"z": 0.5
+		},
+		"scale": 1.69
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 51,
+			"y": 90,
+			"z": -30
+		},
+		"scale": 1.9
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.25,
+			"y": -1,
+			"z": -1
+		},
+		"rotation": {
+			"x": 125,
+			"y": -2,
+			"z": -72
+		},
+		"origin": {
+			"x": -0.05,
+			"y": 0.4,
+			"z": 0.8
+		},
+		"scale": 0.45
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 3.5
+	}
+}

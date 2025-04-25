@@ -1,30 +1,16 @@
 [
   {
     "op": "replace",
-    "path": "/textures",
-    "value": {
-      "crop": { "base": "artofgrowing:block/plant/crop/spelt/wild/normal{stage}" }
-    },
-    "file": "game:blocktypes/plant/crop/spelt.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-9": [
         {
           "type": "item",
-          "code": "artofgrowing:grainbundle-spelt-wild-wet",
+          "code": "artofgrowing:grainbundle-spelt-wet",
           "quantity": {
-            "avg": 12,
+            "avg": 13,
             "var": 2
           }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:grainbundle-spelt-small-wet",
-          "quantity": { "avg": 0.3 }
         }
       ],
       "*": [
@@ -36,14 +22,13 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/spelt.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/cropProps/totalGrowthMonths",
-    "value": 1.2,
-    "file": "game:blocktypes/plant/crop/spelt.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",

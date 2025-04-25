@@ -119,17 +119,23 @@ namespace ArtOfGrowing.Items
                     }   
                     if (Name == "grainbundle") 
                     {
-                        int quantity = 1;
-                        int tquantity = 1;
-                        if (byEntity.Controls.FloorSitting) tquantity = tquantity * 2;
-                        if (byEntity.LeftHandItemSlot.Empty) tquantity = tquantity * 4;
-                        quantity = Math.Min(tquantity, slot.StackSize);
-                        slot.TakeOut(quantity);
-                        slot.MarkDirty();
                         string size = Variant["size"];
                         string type = Variant["type"];
-                        ItemStack stack = new ItemStack(world.GetItem(new AssetLocation("artofgrowing:seeds-" + size + "-" + type)),GameMath.RoundRandom(api.World.Rand, 3.5f)); 
-                        stack.StackSize = stack.StackSize * quantity;
+
+                        int tquantity = 1;
+                        if (byEntity.Controls.FloorSitting) tquantity *= 2;
+                        if (byEntity.LeftHandItemSlot.Empty) tquantity *= 2;
+                        
+                        int quantity = Math.Min(tquantity, slot.StackSize);
+                        slot.TakeOut(quantity);
+                        slot.MarkDirty();
+
+                        var asset = world.GetItem(new AssetLocation("seeds-" + type));
+                        if (type == "soybean" || type == "peanut") asset = world.GetItem(new AssetLocation("legume-" + type));
+                        if (size != null) asset = world.GetItem(new AssetLocation("artofgrowing:seeds-" + size + "-" + type));            
+                        if (asset == null) return;
+
+                        ItemStack stack = new ItemStack(asset,GameMath.RoundRandom(api.World.Rand, 3.5f) * quantity);
                         if (byPlayer?.InventoryManager.TryGiveItemstack(stack) == false)
                         {
                             byEntity.World.SpawnItemEntity(stack, byEntity.SidedPos.XYZ);

@@ -1,28 +1,25 @@
-﻿using ArtOfGrowing.Items;
+﻿using ArtOfGrowing.BlockEntites;
+using ArtOfGrowing.Blocks;
+using ArtOfGrowing.Items;
 using System;
 using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
+using Vintagestory.GameContent;
 
 namespace ArtOfGrowing
 {
-    public enum AOGEnumGroundStorageLayout
-    {
-        Stacking
-    }
     public enum AOGEnumDropType
     {
         Items,
         Block,
         None
     }
-
-
     public class AOGGroundStorageProperties
     {
-        public AOGEnumGroundStorageLayout Layout = AOGEnumGroundStorageLayout.Stacking;
+        public EnumGroundStorageLayout Layout = EnumGroundStorageLayout.Stacking;
         public int WallOffY = 1;
         public AssetLocation PlaceRemoveSound = new AssetLocation("sounds/player/build");
         public bool RandomizeSoundPitch;

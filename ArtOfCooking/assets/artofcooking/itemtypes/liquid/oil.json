@@ -3,11 +3,11 @@
 	"variantGroups": [
 		{
 			"code": "type",
-			"states": [ "olive" ]
+			"states": [ "olive", "flaxseed", "peanut", "soybean", "sunflower", "walnut" ]
 		},
 		{
 			"code": "state",
-			"states": [ "1", "2", "3", "4" ]
+			"states": [ "unrefined", "refined" ]
 		}
 	],
 	"class": "ItemLiquidPortion",
@@ -16,25 +16,31 @@
 		"handbook": {
 			"ignoreCreativeInvStacks": true
 		},
+		"distillationPropsbytype": {
+			"oil-{type}-unrefined": {
+				"distilledStack": {
+					"type": "item",
+					"code": "oil-{type}-refined"
+				},
+				"ratio": 0.75
+			}
+		},
 		"waterTightContainerProps": {
 			"nutritionPropsPerLitre": {
 				"satiety": 200,
-				"foodcategory": "Fruit"
+				"foodcategory": "NoNutrition"
 			},
 			"containable": true,
 			"itemsPerLitre": 100,
 			"texture": {
-				"base": "artofcooking:block/liquid/oil{state}",
+				"base": "artofcooking:block/liquid/{type}-oil",
 				"alphaByType": {
-					"*-1": 255,
-					"*-2": 255,
-					"*-3": 255,
-					"*-4": 255
+					"*-unrefined": 255,
+					"*-refined": 100
 				}
 			},
 			"isOpaqueByType": {
-				"*-1": true,
-				"*-2": true,
+				"*-unrefined": true,
 				"*": false
 			},
 			"allowSpill": true,
@@ -50,28 +56,11 @@
 	"shape": { "base": "game:item/liquid" },
 	"texture": {
 		"base": "artofcooking:block/liquid/{type}-oil",
-		"alpha": 255
-	},
-	"creativeinventoryStacks": [
-		{
-			"tabs": [ "general", "liquids", "artofcooking" ],
-			"stacks": [
-				{
-					"type": "block",
-					"code": "game:woodbucket",
-					"attributes": {
-						"ucontents": [
-							{
-								"type": "item",
-								"code": "artofcooking:oil-{type}-{state}",
-								"makefull": true
-							}
-						]
-					}
-				}
-			]
+		"alphaByType": {
+			"*-unrefined": 255,
+			"*-refined": 100
 		}
-	],
+	},
 	"maxstacksize": 5000,
 	"materialDensity": 200,
 	"guiTransform": {
@@ -111,16 +100,30 @@
 			"z": -1.4
 		}
 	},
-	"transitionableProps": [
-		{
-			"type": "Perish",
-			"freshHours": { "avg": 168 },
-			"transitionHours": { "avg": 48 },
-			"transitionedStack": {
-				"type": "item",
-				"code": "game:rot"
-			},
-			"transitionRatio": 0.005
-		}
-	]
+	"transitionablePropsByType": {
+		"*-unrefined": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 864 },
+				"transitionHours": { "avg": 48 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 0.005
+			}
+		],
+		"*-refined": [
+			{
+				"type": "Perish",
+				"freshHours": { "avg": 2592 },
+				"transitionHours": { "avg": 480 },
+				"transitionedStack": {
+					"type": "item",
+					"code": "game:rot"
+				},
+				"transitionRatio": 0.005
+			}
+		]
+	}
 }

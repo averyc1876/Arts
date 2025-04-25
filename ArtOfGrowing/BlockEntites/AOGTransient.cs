@@ -113,6 +113,8 @@ namespace ArtOfGrowing.BlockEntites
                     {
                         transitionHoursLeft = props.InGameHours;
                     }
+                    if (block.FirstCodePart() == "tallgrass") 
+                        tryTransition("artofgrowing:talldrygrass-" + block.Variant["tallgrass"] + "-free");
 
                     continue;
                 }

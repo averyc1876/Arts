@@ -1,0 +1,114 @@
+{
+	"code": "crop",
+	"class": "BlockCrop",
+	"frostable": true,
+	"behaviors": [ { "name": "Unstable" } ],
+	"variantgroups": [
+		{
+			"code": "seed",
+			"states": [ "seed" ]
+		},
+		{
+			"code": "type",
+			"states": [ "parsnip" ]
+		},
+		{
+			"code": "stage",
+			"states": [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "" ],
+		"plants": [ "" ]
+	},
+	"renderpass": "OpaqueNoCull",
+	"shapeByType": {
+		"*": { "base": "artofgrowing:block/crop/seedcrop" }
+	},
+	"blockmaterial": "Plant",
+	"texturesByType": {
+		"*": {
+			"bulb": { "base": "game:block/plant/crop/parsnip/bulb" },
+			"s": { "base": "game:block/plant/crop/parsnip/s{stage}" },
+			"e": { "base": "game:block/plant/crop/parsnip/e{stage}" }
+		}
+	},
+	"attributes": {
+		"foodTags": [ "nibbleCrop" ],
+		"butterflyFeedByType": {
+			"*-10": true,
+			"*-11": true,
+			"*": false
+		},
+		"beeFeedByType": {
+			"*-10": true,
+			"*-11": true,
+			"*": false
+		},
+		"sitHeight": 0.35,
+		"tickGrowthProbability": 0.05,
+		"handbook": {
+			"groupBy": [ "crop-*" ]
+		}
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	},
+	"replaceable": 3000,
+	"lightAbsorption": 0,
+	"resistance": 0.5,
+	"sounds": {
+		"place": "game:block/plant",
+		"break": "game:block/plant",
+		"hit": "game:block/plant"
+	},
+	"rainPermeable": false,
+	"dropsByType": {
+		"*-12": [
+			{
+				"type": "item",
+				"code": "seeds-parsnip",				
+				"quantity": { "avg": 2.1 }
+			},
+			{
+				"type": "item",
+				"code": "game:drygrass",
+				"quantity": { "avg": 0.7 }
+			}
+		],
+		"*": [
+			{
+				"type": "item",
+				"code": "game:drygrass",
+				"quantity": { "avg": 0.7 }
+			}
+		]
+	},
+	"cropProps": {
+		"requiredNutrient": "P",
+		"nutrientConsumption": 20,
+		"growthStages": 12,
+		"totalGrowthMonths": 3.0,
+		"coldDamageBelow": -10,
+		"damageGrowthStuntMul": 0.75,
+		"coldDamageRipeMul": 0.5,
+		"heatDamageAbove": 32
+	},
+	"collisionbox": null,
+	"selectionbox": {
+		"x1": 0.0625,
+		"y1": 0,
+		"z1": 0.0625,
+		"x2": 0.9375,
+		"y2": 0.25,
+		"z2": 0.9375
+	},
+	"materialDensity": 200,
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 10
+	}
+}

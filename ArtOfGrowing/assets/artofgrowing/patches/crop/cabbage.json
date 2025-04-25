@@ -16,27 +16,27 @@
     "side": "Server"
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/shapeByType",
     "value": {
-      "*-1": { "base": "block/plant/crop/cabbage/stage1" },
-      "*-2": { "base": "block/plant/crop/cabbage/stage1" },
-      "*-3": { "base": "block/plant/crop/cabbage/stage1" },
-      "*-4": { "base": "block/plant/crop/cabbage/stage1" },
-      "*-5": { "base": "block/plant/crop/cabbage/stage2" },
-      "*-6": { "base": "block/plant/crop/cabbage/stage3" },
-      "*-7": { "base": "block/plant/crop/cabbage/stage4" },
-      "*-8": { "base": "block/plant/crop/cabbage/stage5" },
-      "*-9": { "base": "block/plant/crop/cabbage/stage6" },
-      "*-10": { "base": "block/plant/crop/cabbage/stage7" },
-      "*-11": { "base": "block/plant/crop/cabbage/stage8" },
-      "*": { "base": "block/plant/crop/cabbage/stage9" }
+      "*-12": { "base": "block/plant/crop/cabbage/stage12" },
+      "*-13": { "base": "block/plant/crop/cabbage/stage12" },
+      "*-14": { "base": "block/plant/crop/cabbage/stage12" },
+      "*-15": { "base": "block/plant/crop/cabbage/stage12" },
+      "*-16": { "base": "block/plant/crop/cabbage/stage12" },
+      "*": { "base": "block/plant/crop/cabbage/stage{stage}" }
     },
     "file": "game:blocktypes/plant/crop/cabbage.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
-    "op": "add",
+    "op": "addmerge",
     "path": "/texturesByType",
     "value": {
       "*-13": {
@@ -86,8 +86,8 @@
       "*-11": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-cabbage",
-          
+          "code": "vegetable-cabbage",
+
           "quantity": {
             "avg": 0.85,
             "var": 0.1
@@ -97,8 +97,8 @@
       "*-12": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-cabbage",
-          
+          "code": "vegetable-cabbage",
+
           "quantity": {
             "avg": 2,
             "var": 0
@@ -108,8 +108,8 @@
       "*-13": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-cabbage",
-          
+          "code": "vegetable-cabbage",
+
           "quantity": {
             "avg": 1.7,
             "var": 0.2
@@ -119,8 +119,8 @@
       "*-14": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-cabbage",
-          
+          "code": "vegetable-cabbage",
+
           "quantity": {
             "avg": 1.5,
             "var": 0.2
@@ -130,8 +130,8 @@
       "*-15": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-cabbage",
-          
+          "code": "vegetable-cabbage",
+
           "quantity": {
             "avg": 1.2,
             "var": 0.2
@@ -141,13 +141,8 @@
       "*-16": [
         {
           "type": "item",
-          "code": "artofgrowing:seeds-wild-{type}",
-          "quantity": { "avg": 1.2 }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:seeds-small-{type}",
-          "quantity": { "avg": 0.3 }
+          "code": "seeds-{type}",
+          "quantity": { "avg": 3.2 }
         },
         {
           "type": "item",
@@ -169,7 +164,13 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/cabbage.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",
@@ -181,8 +182,14 @@
   {
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
-    "value": 1.2,
+    "value": 2.0,
     "file": "game:blocktypes/plant/crop/cabbage.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]

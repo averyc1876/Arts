@@ -3,6 +3,7 @@
 	"classByType": {
 		"*-empty": "BlockLiquidContainerTopOpened"
 	},
+	"storageFlags": 257,
 	"behaviors": [
 		{
 			"name": "GroundStorable",

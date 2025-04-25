@@ -1,5 +1,6 @@
 {
 	"code": "grainbundle",
+	"storageFlags": 33,
 	"behaviors": [
 		{
 			"name": "AOGHayStorable",
@@ -11,24 +12,8 @@
 					"normal-top": "block/plant/hay/{state}/normal-top-{type}",
 					"straw1": "block/plant/hay/{state}/straw-{type}"
 				},
-				"modelItemsToStackSizeRatioByType": {
-					"*-wild-*": 0.5625,
-					"*-small-*": 0.75,
-					"*-medium-*": 1.125,
-					"*-decent-*": 1.5,
-					"*-large-*": 2.25,
-					"*-hefty-*": 3,
-					"*-gigantic-*": 4.5
-				},
-				"stackingCapacityByType": {
-					"*-wild-*": 256,
-					"*-small-*": 192,
-					"*-medium-*": 128,
-					"*-decent-*": 96,
-					"*-large-*": 64,
-					"*-hefty-*": 48,
-					"*-gigantic-*": 32
-				},
+				"modelItemsToStackSizeRatio": 1.25,
+				"stackingCapacity": 128,
 				"maxStackingHeight": 1,
 				"collisionBox": {
 					"x1": 0,
@@ -38,15 +23,8 @@
 					"y2": 0.0625,
 					"z2": 1
 				},
-				"cbScaleYByLayerByType": {
-					"*-wild-*": 0.0625,
-					"*-small-*": 0.083333,
-					"*-medium-*": 0.125,
-					"*-decent-*": 0.166667,
-					"*-large-*": 0.25,
-					"*-hefty-*": 0.333333,
-					"*-gigantic-*": 0.5
-				},
+				"cbScaleYByLayer": 0.125,
+				"burnHoursPerItem": 0.1,
 				"transferQuantity": 1,
 				"bulkTransferQuantity": 8,
 				"dropUseByType": {
@@ -59,10 +37,10 @@
 					"*-dry": "Items"
 				},
 				"dropItemByType": {
-					"*-dry": "seeds-{size}-{type}"
+					"*-dry": "game:seeds-{type}"
 				},
 				"dropItem2ByType": {
-					"*-flax-*-dry": "flaxbundle-dry",
+					"*-flax-dry": "flaxbundle-dry",
 					"*-dry": "game:thatch"
 				},
 				"dropCountByType": {
@@ -79,10 +57,6 @@
 		{
 			"code": "type",
 			"states": [ "spelt", "rice", "flax", "rye", "amaranth" ]
-		},
-		{
-			"code": "size",
-			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
 		},
 		{
 			"code": "state",
@@ -118,35 +92,20 @@
 	},
 	"texturesByType": {
 		"*-dry": {
-			"normal9": { "base": "block/plant/crop/{type}/dry/{size}" }
-		},
-		"*-amaranth-gigantic-*": {
-			"normal9": { "base": "game:block/plant/crop/amaranth/w9" }
-		},
-		"*-rice-gigantic-*": {
-			"normal9": { "base": "game:block/plant/crop/rice/normal10" }
-		},
-		"*-gigantic-*": {
-			"normal9": { "base": "game:block/plant/crop/{type}/normal9" }
+			"normal9": { "base": "block/plant/crop/{type}/dry/gigantic" }
 		},
 		"*-amaranth-*": {
-			"normal9": { "base": "block/plant/crop/amaranth/{size}/w9" }
+			"normal9": { "base": "game:block/plant/crop/amaranth/w9" }
 		},
 		"*-rice-*": {
-			"normal9": { "base": "block/plant/crop/rice/{size}/normal10" }
+			"normal9": { "base": "game:block/plant/crop/rice/normal10" }
 		},
 		"*": {
-			"normal9": { "base": "block/plant/crop/{type}/{size}/normal9" }
+			"normal9": { "base": "game:block/plant/crop/{type}/normal9" }
 		}
 	},
 	"maxstacksizeByType": {
-		"*-wild-*": 128,
-		"*-small-*": 96,
-		"*-medium-*": 64,
-		"*-decent-*": 48,
-		"*-large-*": 32,
-		"*-hefty-*": 24,
-		"*-gigantic-*": 16
+		"*": 64
 	},
 	"materialDensity": 258,
 	"transitionablePropsByType": {
@@ -160,7 +119,7 @@
 				},
 				"transitionedStack": {
 					"type": "item",
-					"code": "grainbundle-{type}-{size}-dry"
+					"code": "grainbundle-{type}-dry"
 				},
 				"transitionRatio": 1
 			},
@@ -172,15 +131,7 @@
 					"type": "item",
 					"code": "game:thatch"
 				},
-				"transitionRatioByType": {
-					"*-wild-*": 0.125,
-					"*-small-*": 0.25,
-					"*-medium-*": 0.5,
-					"*-decent-*": 1,
-					"*-large-*": 2,
-					"*-hefty-*": 4,
-					"*-gigantic-*": 8
-				}
+				"transitionRatio": 1
 			}
 		],
 		"*": [
@@ -192,17 +143,13 @@
 					"type": "item",
 					"code": "artofgrowing:agedgrass"
 				},
-				"transitionRatioByType": {
-					"*-wild-*": 0.125,
-					"*-small-*": 0.25,
-					"*-medium-*": 0.5,
-					"*-decent-*": 1,
-					"*-large-*": 2,
-					"*-hefty-*": 4,
-					"*-gigantic-*": 8
-				}
+				"transitionRatio": 1
 			}
 		]
+	},
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 4
 	},
 	"guiTransform": {
 		"translation": {

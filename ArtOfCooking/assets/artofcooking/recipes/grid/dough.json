@@ -1,5 +1,45 @@
 [
   {
+    "enabled": false,
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "butchering:blooddough-*",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-blooddough-{type}",
+      "quantity": 8
+    }
+  },
+  {
+    "enabled": false,
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "wildcraftfruit:dough-*",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-unleavened-{type}",
+      "quantity": 8
+    }
+  },
+  {
     "ingredientPattern": "L",
     "ingredients": {
       "L": {
@@ -14,9 +54,9 @@
     "shapeless": true,
     "output": {
       "type": "item",
-      "code": "game:dough-{type}",
-      "quantity": 2
-    }  
+      "code": "doughpiece-unleavened-{type}",
+      "quantity": 15
+    }
   },
   {
     "ingredientPattern": "L",
@@ -24,7 +64,6 @@
       "L": {
         "type": "item",
         "code": "flatbread-*-raw",
-        "quantity": 2,
         "name": "type"
       }
     },
@@ -34,8 +73,46 @@
     "shapeless": true,
     "output": {
       "type": "item",
-      "code": "game:dough-{type}",
-      "quantity": 1
+      "code": "doughpiece-pastry-{type}",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "game:dough-*",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-unleavened-{type}",
+      "quantity": 8
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "bun-*-raw",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-pastry-{type}",
+      "quantity": 3
     }
   }
 ]

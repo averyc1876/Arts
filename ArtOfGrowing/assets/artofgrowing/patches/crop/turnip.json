@@ -15,32 +15,32 @@
     "value": {
       "*-1": { "base": "block/plant/crop/turnip/stage1to2" },
       "*-2": { "base": "block/plant/crop/turnip/stage1to2" },
-      "*-3": { "base": "artofgrowing:block/crop/turnip/wild/stage3" },
-      "*-4": { "base": "artofgrowing:block/crop/turnip/wild/stage4" },
-      "*": { "base": "artofgrowing:block/crop/turnip/wild/stage5" }
+      "*-3": { "base": "block/plant/crop/turnip/stage3" },
+      "*-4": { "base": "block/plant/crop/turnip/stage4" },
+      "*": { "base": "block/plant/crop/turnip/stage5" }
     },
     "file": "game:blocktypes/plant/crop/turnip.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
-    "op": "remove",
-    "path": "/textures",
-    "file": "game:blocktypes/plant/crop/turnip.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
+    "op": "addmerge",
     "path": "/texturesByType",
     "value": {
       "*-8": {
-        "bulb": { "base": "game:item/resource/rot/rot-solids" },
-        "s": { "base": "game:block/plant/crop/turnip/s{stage}" },
-        "e": { "base": "game:block/plant/crop/turnip/e{stage}" }
+        "bulb": { "base": "item/resource/rot/rot-solids" },
+        "s5": { "base": "block/plant/crop/turnip/s{stage}" },
+        "e5": { "base": "block/plant/crop/turnip/e{stage}" }
       },
       "*": {
-        "bulb": { "base": "game:block/plant/crop/turnip/bulb" },
-        "s": { "base": "game:block/plant/crop/turnip/s{stage}" },
-        "e": { "base": "game:block/plant/crop/turnip/e{stage}" }
+        "bulb": { "base": "block/plant/crop/turnip/bulb" },
+        "s5": { "base": "block/plant/crop/turnip/s{stage}" },
+        "e5": { "base": "block/plant/crop/turnip/e{stage}" }
       }
     },
     "file": "game:blocktypes/plant/crop/turnip.json",
@@ -75,8 +75,8 @@
       "*-4": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-turnip",
-          
+          "code": "vegetable-turnip",
+
           "quantity": {
             "avg": 3,
             "var": 1
@@ -91,8 +91,8 @@
       "*-5": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-turnip",
-          
+          "code": "vegetable-turnip",
+
           "quantity": {
             "avg": 7,
             "var": 1
@@ -107,8 +107,8 @@
       "*-6": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-turnip",
-          
+          "code": "vegetable-turnip",
+
           "quantity": {
             "avg": 6,
             "var": 1
@@ -123,8 +123,8 @@
       "*-7": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-turnip",
-          
+          "code": "vegetable-turnip",
+
           "quantity": {
             "avg": 5,
             "var": 1
@@ -139,13 +139,8 @@
       "*-8": [
         {
           "type": "item",
-          "code": "artofgrowing:seeds-wild-{type}",
-          "quantity": { "avg": 1.2 }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:seeds-small-{type}",
-          "quantity": { "avg": 0.3 }
+          "code": "seeds-{type}",
+          "quantity": { "avg": 3.2 }
         },
         {
           "type": "item",
@@ -167,7 +162,13 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/turnip.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",
@@ -179,8 +180,14 @@
   {
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
-    "value": 0.8,
+    "value": 1.6,
     "file": "game:blocktypes/plant/crop/turnip.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]

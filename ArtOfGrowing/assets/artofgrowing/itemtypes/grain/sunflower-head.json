@@ -1,6 +1,7 @@
 {
 	"code": "grainbundle",
 	"class": "AOGItemInteract",
+	"storageFlags": 33,
 	"behaviors": [
 		{
 			"name": "GroundStorable",
@@ -21,10 +22,6 @@
 		{
 			"code": "type",
 			"states": [ "sunflower" ]
-		},
-		{
-			"code": "size",
-			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
 		}
 	],
 	"attributes": {
@@ -46,15 +43,9 @@
 		"items": [ "*" ],
 		"artofgrowing": [ "*" ]
 	},
-	"shape": { "base": "item/food/sunflower/{size}/sunflower" },
+	"shape": { "base": "item/food/sunflower/large/sunflower" },
 	"maxstacksizeByType": {
-		"*-wild": 128,
-		"*-small": 96,
-		"*-medium": 64,
-		"*-decent": 48,
-		"*-large": 32,
-		"*-hefty": 24,
-		"*-gigantic": 16
+		"*": 64
 	},
 	"materialDensity": 258,
 	"transitionablePropsByType": {
@@ -67,15 +58,7 @@
 					"type": "item",
 					"code": "game:rot"
 				},
-				"transitionRatioByType": {
-					"*-wild-*": 0.0625,
-					"*-small-*": 0.125,
-					"*-medium-*": 0.25,
-					"*-decent-*": 0.5,
-					"*-large-*": 1,
-					"*-hefty-*": 2,
-					"*-gigantic-*": 4
-				}
+				"transitionRatio": 1
 			}
 		]
 	},

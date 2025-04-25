@@ -1,0 +1,123 @@
+[
+  {
+    "op": "replace",
+    "path": "/shapeByType",
+    "value": {
+      "*-1": { "base": "block/plant/crop/turnip/stage1to2" },
+      "*-2": { "base": "block/plant/crop/turnip/stage1to2" },
+      "*-3": { "base": "artofgrowing:block/crop/turnip/wild/stage3" },
+      "*-4": { "base": "artofgrowing:block/crop/turnip/wild/stage4" },
+      "*": { "base": "artofgrowing:block/crop/turnip/wild/stage5" }
+    },
+    "file": "game:blocktypes/plant/crop/turnip.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/dropsByType",
+    "value": {
+      "*-4": [
+        {
+          "type": "item",
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
+          "quantity": {
+            "avg": 3,
+            "var": 1
+          }
+        },
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ],
+      "*-5": [
+        {
+          "type": "item",
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
+          "quantity": {
+            "avg": 7,
+            "var": 1
+          }
+        },
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ],
+      "*-6": [
+        {
+          "type": "item",
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
+          "quantity": {
+            "avg": 6,
+            "var": 1
+          }
+        },
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ],
+      "*-7": [
+        {
+          "type": "item",
+          "code": "artofgrowing:vegetable-wild-turnip",
+          
+          "quantity": {
+            "avg": 5,
+            "var": 1
+          }
+        },
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ],
+      "*-8": [
+        {
+          "type": "item",
+          "code": "artofgrowing:seeds-wild-{type}",
+          "quantity": { "avg": 3.2 }
+        },
+        {
+          "type": "item",
+          "code": "artofgrowing:seeds-small-{type}",
+          "quantity": { "avg": 0.3 }
+        },
+        {
+          "type": "item",
+          "code": "rot",
+          "quantity": { "avg": 1 }
+        },
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ],
+      "*": [
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ]
+    },
+    "file": "game:blocktypes/plant/crop/turnip.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/cropProps/totalGrowthMonths",
+    "value": 0.8,
+    "file": "game:blocktypes/plant/crop/turnip.json",
+    "side": "Server"
+  }
+]

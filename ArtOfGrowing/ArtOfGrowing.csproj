@@ -60,20 +60,11 @@
   <Compile Remove="Mods\**" />
   <EmbeddedResource Remove="Mods\**" />
   <None Remove="Mods\**" />
+  <Compile Remove="BlockEntites\AOGBEGroundStorage1.cs" />
+  <Compile Remove="Blocks\AOGBlockGroundStorage1.cs" />
   <None Remove="assets\artofgrowing\itemtypes\grain\flaxbundle.json" />
   <None Remove="assets\artofgrowing\itemtypes\grain\sunflower-head.json" />
   <None Remove="assets\artofgrowing\patches\cabbage.json" />
-  <None Remove="assets\artofgrowing\patches\crop\amaranth.json" />
-  <None Remove="assets\artofgrowing\patches\crop\cabbage.json" />
-  <None Remove="assets\artofgrowing\patches\crop\carrot.json" />
-  <None Remove="assets\artofgrowing\patches\crop\flax.json" />
-  <None Remove="assets\artofgrowing\patches\crop\onion.json" />
-  <None Remove="assets\artofgrowing\patches\crop\parsnip.json" />
-  <None Remove="assets\artofgrowing\patches\crop\rice.json" />
-  <None Remove="assets\artofgrowing\patches\crop\rye.json" />
-  <None Remove="assets\artofgrowing\patches\crop\spelt.json" />
-  <None Remove="assets\artofgrowing\patches\crop\sunflower.json" />
-  <None Remove="assets\artofgrowing\patches\crop\turnip.json" />
   <None Remove="assets\artofgrowing\patches\drygrass.json" />
   <None Remove="assets\artofgrowing\patches\meatystew.json" />
   <None Remove="assets\artofgrowing\patches\porridge.json" />
@@ -82,8 +73,6 @@
   <None Remove="assets\artofgrowing\patches\thatch.json" />
   <None Remove="assets\artofgrowing\patches\trough-large.json" />
   <None Remove="assets\artofgrowing\patches\vegetablestew.json" />
-  <None Remove="assets\artofgrowing\recipes\grid\grain-three.json" />
-  <None Remove="assets\artofgrowing\recipes\grid\grain-two.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\decent\stage12.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\medium\stage12.json" />
   <None Remove="assets\artofgrowing\shapes\block\crop\cabbage\small\stage12.json" />
@@ -145,16 +134,6 @@
   <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\normal-top-amaranth.png" />
   <None Remove="assets\artofgrowing\textures\block\plant\hay\wet\straw-amaranth.png" />
   <None Remove="assets\artofgrowing\textures\item\food\vegetable\scallions.png" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\amaranth.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\cabbage.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\flax.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\onion.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\parsnip.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\rice.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\rye.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\spelt.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\sunflower.json" />
-  <None Remove="assets\game\blocktypes\plant\crop\new\turnip.json" />
   <None Remove="assets\haystorage.json" />
   <Content Include="modinfo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -162,13 +141,17 @@
 </ItemGroup>
 
 <ItemGroup>
+  <Content Update="assets\artofgrowing\itemtypes\tool\flail-sturdy.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
   <Content Update="assets\artofgrowing\shapes\item\food\amaranthbundle.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofgrowing\shapes\item\seedbag.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
 </ItemGroup>
 
-<ItemGroup>
-  <Folder Include="assets\game\itemtypes\" />
-</ItemGroup>
+<ProjectExtensions><VisualStudio><UserProperties assets_4artofgrowing_4lang_4ru_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

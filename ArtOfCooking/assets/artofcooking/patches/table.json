@@ -1,0 +1,9 @@
+[
+  {
+    "op": "addmerge",
+    "path": "/behaviors",
+    "value": [ { "name": "AOCTable" } ],
+    "file": "game:blocktypes/wood/table.json",
+    "side": "Server"
+  }
+]

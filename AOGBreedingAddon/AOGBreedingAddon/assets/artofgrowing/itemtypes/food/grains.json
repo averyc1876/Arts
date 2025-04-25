@@ -1,0 +1,232 @@
+{
+	"code": "seeds",
+	"class": "AOGItemPlantableSeed",
+	"storageFlags": 33,
+	"maxstacksizeByType": {
+		"*-wild-*": 128,
+		"*-small-*": 96,
+		"*-medium-*": 64,
+		"*-decent-*": 48,
+		"*-large-*": 32,
+		"*-hefty-*": 24,
+		"*-gigantic-*": 16
+	},
+	"attributes": {
+		"inContainerTexture": { "base": "game:block/food/grain/{type}" },
+		"foodTags": [ "{type}" ]
+	},
+	"attributesByType": {
+		"*-soybean": {
+			"nutritionPropsWhenInMeal": {
+				"satietyByType": {
+					"*-wild-*": 48,
+					"*-small-*": 96,
+					"*-medium-*": 144,
+					"*-decent-*": 192,
+					"*-large-*": 240,
+					"*-hefty-*": 360,
+					"*-gigantic-*": 480
+				},
+				"foodcategory": "Protein"
+			},
+			"inPieProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling",
+				"allowMixing": false
+			}
+		},
+		"*-peanut": {
+			"nutritionPropsWhenInMeal": {
+				"satietyByType": {
+					"*-wild-*": 32,
+					"*-small-*": 64,
+					"*-medium-*": 96,
+					"*-decent-*": 128,
+					"*-large-*": 160,
+					"*-hefty-*": 240,
+					"*-gigantic-*": 320
+				},
+				"foodcategory": "Protein"
+			},
+			"inPieProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling",
+				"allowMixing": false
+			},
+			"inCookedMealProperties": {
+				"texture": "game:block/food/pie/fill-{type}",
+				"partType": "Filling"
+			}
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "size",
+			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
+		},
+		{
+			"code": "type",
+			"states": [ "flax", "spelt", "rice", "rye", "sunflower", "amaranth", "pumpkin", "soybean", "peanut" ]
+		}
+	],
+	"shape": { "base": "item/grainbag/{size}" },
+	"texturesByType": {
+		"*-sunflower": {
+			"seed": { "base": "game:item/resource/seeds/{type}" },
+			"quartz": { "base": "game:block/food/grain/{type}-seeds-pile" }
+		},
+		"*-pumpkin": {
+			"seed": { "base": "game:item/resource/seeds/{type}" },
+			"quartz": { "base": "game:block/food/grain/{type}-seeds-pile" }
+		},
+		"*": {
+			"seed": { "base": "game:item/resource/seeds/{type}" },
+			"quartz": { "base": "game:block/food/grain/{type}-pile" }
+		}
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"artofgrowing": [ "*" ]
+	},
+	"nutritionPropsByType": {
+		"*-flax": {
+			"satietyByType": {
+				"*-wild-*": 4,
+				"*-small-*": 8,
+				"*-medium-*": 12,
+				"*-decent-*": 16,
+				"*-large-*": 20,
+				"*-hefty-*": 30,
+				"*-gigantic-*": 40
+			},
+			"foodcategory": "Grain"
+		},
+		"*-rice": {
+			"satietyByType": {
+				"*-wild-*": 10,
+				"*-small-*": 20,
+				"*-medium-*": 30,
+				"*-decent-*": 40,
+				"*-large-*": 50,
+				"*-hefty-*": 75,
+				"*-gigantic-*": 100
+			},
+			"foodcategory": "Grain"
+		},
+		"*-peanut": {
+			"satietyByType": {
+				"*-wild-*": 32,
+				"*-small-*": 64,
+				"*-medium-*": 96,
+				"*-decent-*": 128,
+				"*-large-*": 160,
+				"*-hefty-*": 240,
+				"*-gigantic-*": 320
+			},
+			"foodcategory": "Protein"
+		},
+		"@*-(spelt|rye|sunflower|amaranth|pumpkin)": {
+			"satietyByType": {
+				"*-wild-*": 8,
+				"*-small-*": 16,
+				"*-medium-*": 24,
+				"*-decent-*": 32,
+				"*-large-*": 40,
+				"*-hefty-*": 60,
+				"*-gigantic-*": 80
+			},
+			"foodcategory": "Grain"
+		}
+	},
+	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 4320 },
+			"transitionHours": { "avg": 448 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatioByType": {
+				"*-wild-*": 0.1,
+				"*-small-*": 0.2,
+				"*-medium-*": 0.3,
+				"*-decent-*": 0.4,
+				"*-large-*": 0.5,
+				"*-hefty-*": 0.75,
+				"*-gigantic-*": 1
+			}
+		}
+	],
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 180,
+			"y": 90,
+			"z": 13
+		}
+	},
+	"materialDensity": 450,
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 159,
+			"y": 148,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.53,
+			"y": 0.37,
+			"z": 0.5
+		},
+		"scale": 1.99
+	},
+	"fpHandTransform": {
+		"rotation": {
+			"x": 54,
+			"y": 99,
+			"z": -30
+		},
+		"scale": 1.34
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.67,
+			"y": -1.25,
+			"z": -0.8
+		},
+		"rotation": {
+			"x": 70,
+			"y": 11,
+			"z": -65
+		},
+		"scale": 0.41
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0.2,
+			"z": 0
+		},
+		"rotation": {
+			"x": -4,
+			"y": 8,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0.5,
+			"z": 0.5299
+		},
+		"scale": 1.92
+	}
+}

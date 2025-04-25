@@ -1,0 +1,81 @@
+[
+  {
+    "op": "remove",
+    "path": "/class",
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/behaviors",
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/randomizeRotations",
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/classByType",
+    "value": {
+      "*-4": "AOGBlockPumpkin",
+      "*": "Block"
+    },
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/behaviorsByType",
+    "value": {
+      "*-4": [
+        { "name": "RightClickPickup" },
+        { "name": "UnstableFalling" }
+      ],
+      "*": [
+        {
+          "name": "GroundStorable",
+          "properties": {
+            "layoutByType": {
+              "*-3": "SingleCenter",
+              "*": "Quadrants"
+            },
+            "collisionBox": {
+              "x1": 0,
+              "y1": 0,
+              "z1": 0,
+              "x2": 1,
+              "y2": 0.4375,
+              "z2": 1
+            }
+          }
+        },
+        { "name": "Unplaceable" },
+        { "name": "RightClickPickup" },
+        { "name": "UnstableFalling" }
+      ]
+    },
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/randomizeRotationsByType",
+    "value": {
+      "*-4": false,
+      "*": true
+    },
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/shape",
+    "value": { "base": "artofgrowing:block/pumpkin/fruit/large/pumpkin-stage{stage}" },
+    "file": "game:blocktypes/plant/pumpkin/fruit.json",
+    "side": "Server"
+  }
+]

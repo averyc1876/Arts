@@ -6,6 +6,10 @@
     <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfCooking</OutputPath>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>False</Optimize>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
@@ -111,7 +115,6 @@
 </ItemGroup>
 
 <ItemGroup>
-  <Folder Include="assets\game\recipes\" />
   <Folder Include="assets\game\shapes\item\" />
 </ItemGroup>
 
@@ -119,9 +122,32 @@
   <Content Update="assets\artofcooking\blocktypes\metal\metalpot.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\1bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\2bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\3bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\4bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\5bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
+  <Content Update="assets\artofcooking\recipes\doughforming\6bloodbread.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
   <Content Update="assets\game\shapes\block\food\meal\vegetable-stew-spoon.json">
     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
   </Content>
+  <Content Update="assets\artofcooking\blocktypes\kitchensurface.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </Content>
 </ItemGroup>
+
+<ProjectExtensions><VisualStudio><UserProperties assets_4artofcooking_4lang_4ru_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

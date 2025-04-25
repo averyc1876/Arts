@@ -1,7 +1,12 @@
-﻿using ArtOfCooking.BlockEntities;
+﻿using ArtOfCooking.BlockBehaviors;
+using ArtOfCooking.BlockEntities;
 using ArtOfCooking.Blocks;
+using ArtOfCooking.CollectibleBehaviors;
 using ArtOfCooking.Items;
+using ArtOfCooking.Systems;
+using Vintagestory;
 using Vintagestory.API.Common;
+using Vintagestory.GameContent;
 
 namespace ArtOfCooking;
 public class ArtOfCooking : ModSystem
@@ -22,6 +27,23 @@ public class ArtOfCooking : ModSystem
         api.RegisterBlockClass("AOCBlockEmptySpoon", typeof(AOCBlockEmptySpoon));
         api.RegisterBlockEntityClass("AOCBlockEntitySpoon", typeof(AOCBlockEntitySpoon));
         
-        api.RegisterItemClass("AOCItemEgg", typeof(AOCItemEgg));
+        api.RegisterCollectibleBehaviorClass("AOCEgg", typeof(AOCCollectibleBehaviorEgg));
+        api.RegisterBlockBehaviorClass("AOCTable", typeof(AOCBlockBehaviorTable));
+        
+        api.RegisterItemClass("AOCItemFlour", typeof(AOCItemFlour));
+        api.RegisterBlockClass("AOCBlockDoughKnead", typeof(AOCBlockDoughKnead));
+        
+        api.RegisterItemClass("AOCItemFood", typeof(AOCItemFood));
+    }
+    public override void AssetsFinalize(ICoreAPI api)
+    {
+        base.AssetsFinalize(api);
+        api.GetCookingRecipes().ForEach(recipe =>
+        {
+            if (!CookingRecipe.NamingRegistry.ContainsKey(recipe.Code))
+            {
+                CookingRecipe.NamingRegistry[recipe.Code] = new AOCRecipeNames();
+            }
+        });
     }
 }

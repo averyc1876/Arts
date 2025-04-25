@@ -1,0 +1,150 @@
+[
+  {
+    "op": "remove",
+    "path": "/texture",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/guiTransformByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/fpHandTransformByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/groundTransformByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/tpHandTransformByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/heldRightReadyAnimationByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/heldTpIdleAnimationByType",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/class",
+    "value": "ItemPlantableSeed",
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/shape",
+    "value": { "base": "artofgrowing:item/seedbag" },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/textures",
+    "value": {
+      "seed": { "base": "item/resource/seeds/{type}" },
+      "quartz": { "base": "block/food/grain/{type}-pile" }
+    },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/guiTransform",
+    "value": {
+      "translation": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 159,
+        "y": -152,
+        "z": 0
+      },
+      "origin": {
+        "x": 0.53,
+        "y": 0.37,
+        "z": 0.5
+      },
+      "scale": 1.99
+    },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/fpHandTransform",
+    "value": {
+      "rotation": {
+        "x": 54,
+        "y": 99,
+        "z": -30
+      },
+      "scale": 1.34
+    },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/tpHandTransform",
+    "value": {
+      "translation": {
+        "x": -1.67,
+        "y": -1.25,
+        "z": -0.8
+      },
+      "rotation": {
+        "x": 70,
+        "y": 11,
+        "z": -65
+      },
+      "scale": 0.41
+    },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/groundTransform",
+    "value": {
+      "translation": {
+        "x": 0,
+        "y": 0.2,
+        "z": 0
+      },
+      "rotation": {
+        "x": -4,
+        "y": 8,
+        "z": 0
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5,
+        "z": 0.5299
+      },
+      "scale": 1.92
+    },
+    "file": "game:itemtypes/food/legume.json",
+    "side": "Server"
+  }
+
+]

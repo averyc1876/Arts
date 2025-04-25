@@ -1,0 +1,43 @@
+{
+	"ingredientPattern": "KLF,HSM,S__",
+	"ingredients": {
+		"L": {
+			"type": "item",
+			"code": "game:leather-sturdy-plain",
+			"name": "leather"
+		},
+		"M": {
+			"type": "item",
+			"code": "game:metalnailsandstrips-*",
+			"name": "metal",
+			"quantity": 2
+		},
+		"S": {
+			"type": "item",
+			"code": "game:stick"
+		},
+		"F": {
+			"type": "item",
+			"code": "game:firewood"
+		},
+		"K": {
+			"type": "item",
+			"code": "game:knife-*",
+			"isTool": true,
+			"toolDurabilityCost": 1
+		},
+		"H": {
+			"type": "item",
+			"code": "game:hammer-*",
+			"isTool": true,
+			"toolDurabilityCost": 1
+		}
+	},
+	"width": 3,
+	"height": 3,
+	"output": {
+		"type": "item",
+		"code": "flail-sturdy",
+		"quantity": 1
+	}
+}

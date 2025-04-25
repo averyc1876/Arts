@@ -1,7 +1,7 @@
 {
 	"ingredient": {
 		"type": "item",
-		"code": "game:dough-*",
+		"code": "doughpiece-unleavened-*",
 		"name": "type"
 	},
 	"pattern": [
@@ -20,7 +20,7 @@
 			"__########__"
 		]
 	],
-	"name": "Pie",
+	"name": "Lavash",
 	"output": {
 		"type": "item",
 		"code": "lavash-{type}-raw"

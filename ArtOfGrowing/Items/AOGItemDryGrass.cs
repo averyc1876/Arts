@@ -1,7 +1,9 @@
-﻿using System.Numerics;
+﻿using ArtOfGrowing.BlockEntites;
+using ArtOfGrowing.Blocks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
 namespace ArtOfGrowing.Items
@@ -10,100 +12,81 @@ namespace ArtOfGrowing.Items
     {
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
-			if (blockSel == null || (byEntity?.World) == null)
-			{
-				return;
-			}
-
-			EntityPlayer asPlayer = byEntity as EntityPlayer;
-			IPlayer byPlayer = byEntity.World.PlayerByUid((asPlayer)?.PlayerUID);
-			BlockPos onPos = blockSel.DidOffset ? blockSel.Position : blockSel.Position.AddCopy(blockSel.Face);
-			BlockPos position = blockSel.Position;			
-
-            if (!byEntity.World.Claims.TryAccess(byPlayer, onPos, EnumBlockAccessFlags.BuildOrBreak))
+            if (byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
             {
+                Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
                 return;
             }
             
-            if (byEntity.Controls.Sneak && byEntity.Controls.Sprint && !(api.World.BlockAccessor.GetBlock(position) is AOGBlockGroundStorage))
+			if (itemslot.Itemstack.Item.Code.FirstCodePart() == "thatch")
 			{
-				if (!byEntity.World.Claims.TryAccess(byPlayer, blockSel.Position, EnumBlockAccessFlags.BuildOrBreak))
-				{
-					return;
-				}
-				BlockEntity blockEntity = byEntity.World.BlockAccessor.GetBlockEntity(onPos);
-				if (blockEntity is BlockEntityLabeledChest || blockEntity is BlockEntitySignPost || blockEntity is BlockEntitySign || blockEntity is BlockEntityBloomery || blockEntity is BlockEntityFirepit || blockEntity is BlockEntityForge)
-				{
-					return;
-				}
-				if (blockEntity is IBlockEntityItemPile pile && pile.OnPlayerInteract(byPlayer))
-				{
-					handHandling = EnumHandHandling.PreventDefaultAction;
-                    if (((byPlayer != null) ? (byEntity as EntityPlayer).Player : null) is IClientPlayer clientPlayer) clientPlayer.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                    return;
-				}
-				else
-				{
-					blockEntity = byEntity.World.BlockAccessor.GetBlockEntity(onPos.AddCopy(blockSel.Face));
-					if (blockEntity is IBlockEntityItemPile apile && apile.OnPlayerInteract(byPlayer))
-					{
-						handHandling = EnumHandHandling.PreventDefaultAction;
-                        if (((byEntity is EntityPlayer entityPlayer2) ? entityPlayer2.Player : null) is not IClientPlayer clientPlayer2)
-                        {
-                            return;
-                        }
-                        clientPlayer2.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-						return;
-					}
-					else
-					{
-						AOGBlockGroundStorage blockPile = byEntity.World.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
-						if (blockPile == null)
-						{
-							return;
-						}
-						BlockPos blockPos1 = position.Copy();
-						if (byEntity.World.BlockAccessor.GetBlock(blockPos1).Replaceable < 6000)
-						{
-							blockPos1.Add(blockSel.Face, 1);
-						}
-						bool flag = blockPile.CreateStorage(byEntity.World, blockSel, byPlayer);
-						Cuboidf[] collisionBoxes = byEntity.World.BlockAccessor.GetBlock(blockPos1).GetCollisionBoxes(byEntity.World.BlockAccessor, blockPos1);
-						if (collisionBoxes != null && collisionBoxes.Length != 0 && CollisionTester.AabbIntersect(collisionBoxes[0], (double)blockPos1.X, (double)blockPos1.Y, (double)blockPos1.Z, byPlayer.Entity.CollisionBox, byPlayer.Entity.SidedPos.XYZ))
-						{
-							byPlayer.Entity.SidedPos.Y += (double)collisionBoxes[0].Y2 - (byPlayer.Entity.SidedPos.Y - (double)((int)byPlayer.Entity.SidedPos.Y));
-						}
-						if (!flag)
-						{
-							base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
-							return;
-						}
-						handHandling = EnumHandHandling.PreventDefaultAction;
-                        if (((byEntity is EntityPlayer entityPlayer3) ? entityPlayer3.Player : null) is not IClientPlayer clientPlayer3)
-                        {
-                            return;
-                        }
-                        clientPlayer3.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-						return;
-					}
-				}
+				OnHeldInteractStartThatch(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+				return;
 			}
+            
+            base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+        }
+        
+        public static void Interact(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
+        {
+            IWorldAccessor world = byEntity?.World;
 
-            if (byEntity.Controls.Sneak && api.World.BlockAccessor.GetBlock(position) is AOGBlockGroundStorage)
+            if (blockSel == null || world == null || !byEntity.Controls.ShiftKey) return;
+
+
+            IPlayer byPlayer = null;
+            if (byEntity is EntityPlayer) byPlayer = world.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
+            if (byPlayer == null) return;
+
+            if (!world.Claims.TryAccess(byPlayer, blockSel.Position, EnumBlockAccessFlags.BuildOrBreak))
+            {
+                itemslot.MarkDirty();
+                world.BlockAccessor.MarkBlockDirty(blockSel.Position.UpCopy());
+                return;
+            }
+
+            AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+            if (blockgs == null) return;
+
+            BlockEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position);
+            BlockEntity beAbove = world.BlockAccessor.GetBlockEntity(blockSel.Position.UpCopy());
+            if (be is AOGBlockEntityGroundStorage || beAbove is AOGBlockEntityGroundStorage)
+            {
+                if (((be as AOGBlockEntityGroundStorage) ?? (beAbove as AOGBlockEntityGroundStorage)).OnPlayerInteractStart(byPlayer, blockSel))
+                {
+                    handHandling = EnumHandHandling.PreventDefault;
+                }
+                return;
+            }
+
+            // Must be aiming at the up face
+            if (blockSel.Face != BlockFacing.UP) return;
+            Block onBlock = world.BlockAccessor.GetBlock(blockSel.Position);
+
+            // Must have a support below
+            if (!onBlock.CanAttachBlockAt(world.BlockAccessor, blockgs, blockSel.Position, BlockFacing.UP))
             {
                 return;
             }
 
-			if (itemslot.Itemstack.Item.Code.FirstCodePart() != "thatch")
-			{
-				base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
-				return;
-			}
+            // Must have empty space above
+            BlockPos pos = blockSel.Position.AddCopy(blockSel.Face);
+            if (world.BlockAccessor.GetBlock(pos).Replaceable < 6000) return;
 
-			if (!byEntity.Controls.ShiftKey)
-			{
-				return;
-			}
+
+            if (blockgs.CreateStorage(byEntity.World, blockSel, byPlayer))
+            {
+                handHandling = EnumHandHandling.PreventDefault;
+            }
+        }
+        
+        public virtual void OnHeldInteractStartThatch(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
+        {
+            if (blockSel == null || byEntity?.World == null || !byEntity.Controls.ShiftKey)
+            {
+                base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+                return;
+            }
 
             IWorldAccessor world = byEntity.World;
             Block firepitBlock = world.GetBlock(new AssetLocation("artofgrowing:firepit-construct1"));
@@ -113,6 +96,10 @@ namespace ArtOfGrowing.Items
                 return;
             }
 
+
+            BlockPos onPos = blockSel.DidOffset ? blockSel.Position : blockSel.Position.AddCopy(blockSel.Face);
+
+            IPlayer byPlayer = byEntity.World.PlayerByUid((byEntity as EntityPlayer)?.PlayerUID);
             if (!byEntity.World.Claims.TryAccess(byPlayer, onPos, EnumBlockAccessFlags.BuildOrBreak))
             {
                 return;
@@ -162,8 +149,6 @@ namespace ArtOfGrowing.Items
                 itemslot.Itemstack.StackSize--;
                 handHandling = EnumHandHandling.PreventDefaultAction;
             }
-
-			base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
         }
     }
 }

@@ -1,7 +1,7 @@
 {
 	"ingredient": {
 		"type": "item",
-		"code": "game:dough-*",
+		"code": "doughpiece-unleavened-*",
 		"name": "type"
 	},
 	"pattern": [

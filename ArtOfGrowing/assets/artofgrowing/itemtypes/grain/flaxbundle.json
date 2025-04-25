@@ -4,6 +4,7 @@
 		"*-clear": "AOGItemInteract",
 		"*-soft": "AOGFlaxSoft"
 	},
+	"storageFlags": 33,
 	"behaviors": [
 		{
 			"name": "AOGHayStorable",
@@ -16,7 +17,7 @@
 					"normal-top": "block/plant/hay/flax/normal-top-flax-{type}",
 					"straw1": "block/plant/hay/flax/straw-flax-{type}"
 				},
-				"modelItemsToStackSizeRatio": 1.125,
+				"modelItemsToStackSizeRatio": 1.25,
 				"stackingCapacity": 128,
 				"maxStackingHeight": 1,
 				"collisionBox": {
@@ -28,6 +29,7 @@
 					"z2": 1
 				},
 				"cbScaleYByLayer": 0.125,
+				"burnHoursPerItem": 0.1,
 				"transferQuantity": 1,
 				"bulkTransferQuantity": 8,
 				"canWaterByType": {
@@ -95,6 +97,10 @@
 				"transitionRatio": 1
 			}
 		]
+	},
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 4
 	},
 	"guiTransform": {
 		"translation": {

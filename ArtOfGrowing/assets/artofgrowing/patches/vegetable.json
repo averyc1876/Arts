@@ -12,5 +12,17 @@
     "value": false,
     "file": "game:recipes/grid/pumpkinslice.json",
     "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/classByType",
+    "value": {
+      "*-carrot": "AOGItemSeedling",
+      "*-onion": "AOGItemSeedling",
+      "*-turnip": "AOGItemSeedling",
+      "*-parsnip": "AOGItemSeedling"
+    },
+    "file": "game:itemtypes/food/vegetable.json",
+    "side": "Server"
   }
 ]

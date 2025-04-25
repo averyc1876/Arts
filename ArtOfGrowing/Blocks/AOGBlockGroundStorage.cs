@@ -1,21 +1,33 @@
-﻿using System;
+﻿using ArtOfGrowing.BlockEntites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Client;
+using Vintagestory.API.Client.Tesselation;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
-namespace ArtOfGrowing
+namespace ArtOfGrowing.Blocks
 
 {
-    public class AOGBlockGroundStorage : Block, ICombustible, IIgnitable
+    public class AOGBlockGroundStorage : Block, ICombustible, IIgnitable, IDrawYAdjustable
     {
-        public static bool IsUsingContainedBlock; // This value is only relevant (and correct) client side
-        
+        public float AdjustYPosition(BlockPos pos, Block[] chunkExtBlocks, int extIndex3d)
+        {
+            Block nblock = chunkExtBlocks[extIndex3d + TileSideEnum.MoveIndex[TileSideEnum.Down]];
+            return nblock is BlockFarmland ? -0.0625f : 0f;
+        }
+
         public WeatherSystemBase wsys;
+
+        ItemStack[] groundStorablesQuadrants;
+        ItemStack[] groundStorablesHalves;
+
+        public static bool IsUsingContainedBlock; // This value is only relevant (and correct) client side
+
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
@@ -28,19 +40,29 @@ namespace ArtOfGrowing
                 foreach (CollectibleObject obj in api.World.Collectibles)
                 {
                     var storableBh = obj.GetBehavior<AOGCollectibleBehaviorGroundStorable>();
+                    if (storableBh?.StorageProps.Layout == EnumGroundStorageLayout.Quadrants)
+                    {
+                        qstacks.Add(new ItemStack(obj));
+                    }
+                    if (storableBh?.StorageProps.Layout == EnumGroundStorageLayout.Halves)
+                    {
+                        hstacks.Add(new ItemStack(obj));
+                    }
                 }
 
                 return new ItemStack[][] { qstacks.ToArray(), hstacks.ToArray() };
             });
+
+            groundStorablesQuadrants = stacks[0];
+            groundStorablesHalves = stacks[1];
 
             if (api.Side == EnumAppSide.Client)
             {
                 ICoreClientAPI capi = api as ICoreClientAPI;
                 capi.Event.MouseUp += Event_MouseUp;
             }
-
+            
             wsys = api.ModLoader.GetModSystem<WeatherSystemBase>();
-
         }
 
         private void Event_MouseUp(MouseEvent e)
@@ -102,8 +124,8 @@ namespace ArtOfGrowing
             }
 
             BlockEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position);
-            if (be is AOGBlockEntityGroundStorage beg) 
-            { 
+            if (be is AOGBlockEntityGroundStorage beg)
+            {
                 return beg.OnPlayerInteractStart(byPlayer, blockSel);
             }
 
@@ -202,6 +224,43 @@ namespace ArtOfGrowing
             float roundRad = ((int)Math.Round(angleHor / deg90)) * deg90;
             BlockFacing attachFace = null;
 
+            if (storageProps.Layout == EnumGroundStorageLayout.WallHalves)
+            {
+                attachFace = SuggestedHVOrientation(player, blockSel)[0];
+
+                var npos = pos.AddCopy(attachFace).Up(storageProps.WallOffY - 1);
+                var block = world.BlockAccessor.GetBlock(npos);
+                if (!block.CanAttachBlockAt(world.BlockAccessor, this, npos, attachFace.Opposite))
+                {
+                    attachFace = null;
+                    foreach (var face in BlockFacing.HORIZONTALS)
+                    {
+                        npos = pos.AddCopy(face).Up(storageProps.WallOffY - 1);
+                        block = world.BlockAccessor.GetBlock(npos);
+                        if (block.CanAttachBlockAt(world.BlockAccessor, this, npos, face.Opposite))
+                        {
+                            attachFace = face;
+                            break;
+                        }
+                    }
+                }
+
+                if (attachFace == null)
+                {
+                    if (storageProps.WallOffY > 1)
+                    {
+                        (api as ICoreClientAPI)?.TriggerIngameError(this, "requireswall", Lang.Get("placefailure-requirestallwall", storageProps.WallOffY));
+                    }
+                    else
+                    {
+                        (api as ICoreClientAPI)?.TriggerIngameError(this, "requireswall", Lang.Get("placefailure-requireswall"));
+                    }
+                    return false;
+                }
+
+                roundRad = (float)Math.Atan2(attachFace.Normali.X, attachFace.Normali.Z);
+            }
+
             world.BlockAccessor.SetBlock(BlockId, pos);
 
             BlockEntity be = world.BlockAccessor.GetBlockEntity(pos);
@@ -225,13 +284,46 @@ namespace ArtOfGrowing
 
             (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
 
+
+            return true;
+        }
+        
+        public bool CreateStorageFromMowing(IWorldAccessor world, BlockPos pos, ItemStack itemstack)
+        {
+            var storageProps = itemstack.Collectible.GetBehavior<AOGCollectibleBehaviorGroundStorable>()?.StorageProps;
             
+            world.BlockAccessor.SetBlock(0, pos);
+            world.BlockAccessor.SetBlock(BlockId, pos);
+
+            BlockEntity be = world.BlockAccessor.GetBlockEntity(pos);
+            if (be is AOGBlockEntityGroundStorage beg)
+            {
+                beg.clientsideFirstPlacement = (world.Side == EnumAppSide.Client);
+                beg.Inventory[0].Itemstack = itemstack;
+                beg.MarkDirty();
+                beg.MarkDirty(true);
+                beg.Inventory[0].MarkDirty();
+            }
             return true;
         }
 
         public override void OnNeighbourBlockChange(IWorldAccessor world, BlockPos pos, BlockPos neibpos)
         {
             AOGBlockEntityGroundStorage beg = world.BlockAccessor.GetBlockEntity(pos) as AOGBlockEntityGroundStorage;
+            bool isWallHalves = beg?.StorageProps != null && beg.StorageProps.Layout == EnumGroundStorageLayout.WallHalves;
+
+            if (isWallHalves)
+            {
+                var facing = beg.AttachFace;
+                var bpos = pos.AddCopy(facing.Normali.X, beg.StorageProps.WallOffY - 1, facing.Normali.Z);
+                var block = world.BlockAccessor.GetBlock(bpos);
+
+                if (!block.CanAttachBlockAt(world.BlockAccessor, this, bpos, facing))
+                {
+                    world.BlockAccessor.BreakBlock(pos, null);
+                }
+            } else
+            {
 
                 var begs = api.World.BlockAccessor.GetBlockEntity(pos) as AOGBlockEntityGroundStorage;
                 if (begs?.IsBurning == true)
@@ -251,7 +343,8 @@ namespace ArtOfGrowing
                     }
                 }
                 // Don't run falling behavior for wall halves
-                base.OnNeighbourBlockChange(world, pos, neibpos);            
+                base.OnNeighbourBlockChange(world, pos, neibpos);
+            }
         }
 
 
@@ -320,38 +413,81 @@ namespace ArtOfGrowing
                 int bulkquantity = beg.StorageProps.BulkTransferQuantity;
                 int quantity = beg.StorageProps.TransferQuantity;
                 int bulkUse = 1;
-                string stackUse = "stick";
-                switch (beg.StorageProps.CanDrop)
-                {
-                    case AOGEnumDropType.Items:
-                        stackUse = "stick";
-                    break;
-                    case AOGEnumDropType.Block:                        
-                        stackUse = "rope";
-                    bulkUse = beg.StorageProps.DropBulk;
-                    break;
-                }  
+                
+                List<ItemStack> stackUse = new List<ItemStack>();
 
-                if (beg.StorageProps.Layout == AOGEnumGroundStorageLayout.Stacking && !beg.Inventory.Empty)
+                foreach (Item item in api.World.Items)
                 {
+                    if (item.Code == null) continue;
+                    
+                    switch (beg.StorageProps.CanDrop)
+                    {
+                        case AOGEnumDropType.Items:
+                            if (item.FirstCodePart() == "stick" || item.FirstCodePart() == "flail")
+                            {
+                                stackUse.Add(new ItemStack(item));
+                            }
+                        break;
+                        case AOGEnumDropType.Block:      
+                            if (item.FirstCodePart() == "rope")
+                            {
+                                stackUse.Add(new ItemStack(item));
+                            }                  
+                            bulkUse = beg.StorageProps.DropBulk;
+                        break;
+                }  
+                }
+
+                if (beg.StorageProps.Layout == EnumGroundStorageLayout.Stacking && !beg.Inventory.Empty)
+                {
+                    var canIgniteStacks = BlockBehaviorCanIgnite.CanIgniteStacks(api, true).ToArray();
+
                     var collObj = beg.Inventory[0].Itemstack.Collectible;
 
-                    if (beg.StorageProps.CanDrop == AOGEnumDropType.None) 
                     return new WorldInteraction[]
-                    {
+                    {                
                         new WorldInteraction()
                         {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-addone",
+                            ActionLangCode = "artofgrowing:blockhelp-haystorage-interactone",
+                            MouseButton = EnumMouseButton.Right,
+                            Itemstacks = stackUse.ToArray(),
+                            GetMatchingStacks = (wi, bs, es) => {
+                                if (beg.StorageProps.CanDrop != AOGEnumDropType.None)
+                                {
+                                    return wi.Itemstacks;
+                                }
+                                return null;
+                            }
+                        },
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "blockhelp-firepit-ignite",
                             MouseButton = EnumMouseButton.Right,
                             HotKeyCode = "shift",
-                            Itemstacks = new ItemStack[] { new ItemStack(collObj, quantity) }
+                            Itemstacks = canIgniteStacks,
+                            GetMatchingStacks = (wi, bs, es) => {
+                                var begs = api.World.BlockAccessor.GetBlockEntity(bs.Position) as AOGBlockEntityGroundStorage;
+                                if (begs?.IsBurning == false && begs?.CanIgnite == true)
+                                {
+                                    return wi.Itemstacks;
+                                }
+                                return null;
+                            }
                         },
                         new WorldInteraction()
                         {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-removeone",
+                            ActionLangCode = "blockhelp-groundstorage-addone",
+                            MouseButton = EnumMouseButton.Right,
+                            HotKeyCode = "shift",
+                            Itemstacks = new ItemStack[] { new ItemStack(collObj, 1) }
+                        },
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "blockhelp-groundstorage-removeone",
                             MouseButton = EnumMouseButton.Right,
                             HotKeyCode = null
-                        },
+                        },        
+                        
                         new WorldInteraction()
                         {
                             ActionLangCode = "artofgrowing:blockhelp-haystorage-addbulk",
@@ -365,58 +501,46 @@ namespace ArtOfGrowing
                             HotKeyCode = "ctrl",
                             MouseButton = EnumMouseButton.Right
                         }
+
                     }.Append(base.GetPlacedBlockInteractionHelp(world, selection, forPlayer));
-                    
-                    else return new WorldInteraction[]
+                }
+
+                if (beg.StorageProps.Layout == EnumGroundStorageLayout.SingleCenter)
+                {
+                    return new WorldInteraction[]
                     {
                         new WorldInteraction()
                         {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-addone",
-                            MouseButton = EnumMouseButton.Right,
-                            HotKeyCode = "shift",
-                            Itemstacks = new ItemStack[] { new ItemStack(collObj, quantity) }
-                        },
-                        new WorldInteraction()
-                        {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-removeone",
-                            MouseButton = EnumMouseButton.Right,
-                            HotKeyCode = null
-                        },
-                        new WorldInteraction()
-                        {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-interactone",
-                            MouseButton = EnumMouseButton.Right,
-                            Itemstacks = new ItemStack[]
-                            {
-                                new ItemStack(world.GetItem(new AssetLocation(stackUse)), 1)
-                            }
-                        },
-                        new WorldInteraction()
-                        {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-addbulk",
-                            MouseButton = EnumMouseButton.Right,
-                            HotKeyCodes = new string[] {"ctrl", "shift" },
-                            Itemstacks = new ItemStack[] { new ItemStack(collObj, bulkquantity) }
-                        },
-                        new WorldInteraction()
-                        {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-removebulk",
-                            HotKeyCode = "ctrl",
+                            ActionLangCode = "blockhelp-behavior-rightclickpickup",
                             MouseButton = EnumMouseButton.Right
                         },
-                        new WorldInteraction()
-                        {
-                            ActionLangCode = "artofgrowing:blockhelp-haystorage-interactbulk",
-                            MouseButton = EnumMouseButton.Right,
-                            HotKeyCode = "ctrl",
-                            Itemstacks = new ItemStack[]
-                            {
-                                new ItemStack(world.GetItem(new AssetLocation(stackUse)), bulkUse)
-                            }
-                        }    
+
                     }.Append(base.GetPlacedBlockInteractionHelp(world, selection, forPlayer));
                 }
+
+                if (beg.StorageProps.Layout == EnumGroundStorageLayout.Halves || beg.StorageProps.Layout == EnumGroundStorageLayout.Quadrants)
+                {
+                    return new WorldInteraction[]
+                    {
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "blockhelp-groundstorage-add",
+                            MouseButton = EnumMouseButton.Right,
+                            HotKeyCode = "shift",
+                            Itemstacks = beg.StorageProps.Layout == EnumGroundStorageLayout.Halves ? groundStorablesHalves : groundStorablesQuadrants
+                        },
+                        new WorldInteraction()
+                        {
+                            ActionLangCode = "blockhelp-groundstorage-remove",
+                            MouseButton = EnumMouseButton.Right,
+                            HotKeyCode = null
+                        }
+
+                    }.Append(base.GetPlacedBlockInteractionHelp(world, selection, forPlayer));
+                }
+
             }
+
             return base.GetPlacedBlockInteractionHelp(world, selection, forPlayer);
         }
 
@@ -440,7 +564,7 @@ namespace ArtOfGrowing
         public override void OnUnloaded(ICoreAPI api)
         {
             base.OnUnloaded(api);
-            var groundStorageMeshRefs = ObjectCacheUtil.TryGet<Dictionary<string, MultiTextureMeshRef>>(api, "groundStorageUMC");
+            var groundStorageMeshRefs = ObjectCacheUtil.TryGet<Dictionary<string, MultiTextureMeshRef>>(api, "AOGgroundStorageUMC");
             if (groundStorageMeshRefs != null)
             {
                 foreach (var meshRef in groundStorageMeshRefs.Values)
@@ -448,7 +572,7 @@ namespace ArtOfGrowing
                     if(meshRef?.Disposed == false)
                         meshRef.Dispose();
                 }
-                ObjectCacheUtil.Delete(api, "AOGhaystorageUMC");
+                ObjectCacheUtil.Delete(api, "AOGgroundStorageUMC");
             }
         }
 

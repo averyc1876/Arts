@@ -77,9 +77,7 @@ namespace ArtOfCooking.BlockEntities
                 workItemStack.ResolveBlockOrItem(api.World);
                 if (baseMaterial == null)
                 {
-                    baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("dough-" + workItemStack.Collectible.LastCodePart())));
-                    if (baseMaterial == null) baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart())));
-                    if (baseMaterial == null) baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart())));
+                    baseMaterial = new ItemStack(api.World.GetItem(new AssetLocation("artofcooking:doughpiece-" + workItemStack.Collectible.Variant["variety"] + "-" + workItemStack.Collectible.LastCodePart())));
                 }
                 else
                 {
@@ -121,12 +119,12 @@ namespace ArtOfCooking.BlockEntities
                 }
 
                 CreateInitialWorkItem();
-                workItemStack = new ItemStack(Api.World.GetItem(new AssetLocation("doughworkitem-" + slot.Itemstack.Collectible.LastCodePart())));
+                workItemStack = new ItemStack(Api.World.GetItem(new AssetLocation("doughworkitem-" + slot.Itemstack.Collectible.Variant["variety"] + "-" + slot.Itemstack.Collectible.LastCodePart())));
                 baseMaterial = slot.Itemstack.Clone();
                 baseMaterial.StackSize = 1;
             }
 
-            AvailableVoxels += 36;
+            AvailableVoxels += 0;
 
             slot.TakeOut(1);
             slot.MarkDirty();
@@ -188,6 +186,7 @@ namespace ArtOfCooking.BlockEntities
             ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
             if (slot.Itemstack == null || !CanWorkCurrent) return;
             if (slot.Itemstack.Collectible.LastCodePart() != workItemStack.Collectible.LastCodePart()) return;
+            if (slot.Itemstack.Collectible.Variant["variety"] != workItemStack.Collectible.Variant["variety"]) return;
             int toolMode = slot.Itemstack.Collectible.GetToolMode(slot, byPlayer, new BlockSelection() { Position = Pos });
             bool didmodify = false;
             Api.World.FrameProfiler.Mark("doughform-modified1");
@@ -272,10 +271,11 @@ namespace ArtOfCooking.BlockEntities
                 {
                     if (outstack?.Collectible.FirstCodePart() == "lavash")
                     {
+                        string lavashType = outstack.Collectible.Variant["type"];
                         AOCBlockShawarma blockform = Api.World.GetBlock(new AssetLocation("artofcooking:shawarma-raw")) as AOCBlockShawarma;
                         Api.World.BlockAccessor.SetBlock(blockform.BlockId, Pos);
                         AOCBEShawarma bepie = Api.World.BlockAccessor.GetBlockEntity(Pos) as AOCBEShawarma;
-                        bepie.OnFormed(byPlayer);
+                        bepie.OnFormed(byPlayer, lavashType);
                         return;
                     }
                     ItemStack dropStack = outstack.Clone();
@@ -535,9 +535,9 @@ namespace ArtOfCooking.BlockEntities
         {
             Voxels = new bool[16, 16, 16];
 
-            for (int x = 5; x < 11; x++)
+            for (int x = 6; x < 9; x++)
             {
-                for (int z = 5; z < 11; z++)
+                for (int z = 6; z < 9; z++)
                 {
                     Voxels[x, 0, z] = true;
                 }
@@ -576,13 +576,11 @@ namespace ArtOfCooking.BlockEntities
             if (Api != null && workItemStack != null)
             {
                 workItemStack.ResolveBlockOrItem(Api.World);
-                var item = Api.World.GetItem(new AssetLocation("dough-" + workItemStack.Collectible.LastCodePart()));
-                if (item == null) item = Api.World.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart()));
-                if (item == null) item = Api.World.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart()));
+                var item = Api.World.GetItem(new AssetLocation("artofcooking:doughpiece-" + workItemStack.Collectible.Variant["variety"] + "-" + workItemStack.Collectible.LastCodePart()));
                 if (item == null)
                 {
                     Api.World.Logger.Notification("Dough form base mat is null! Dough form @ {0}/{1}/{2} corrupt. Will reset to spelt dough", Pos.X, Pos.Y, Pos.Z);
-                    item = Api.World.GetItem(new AssetLocation("dough-spelt"));
+                    item = Api.World.GetItem(new AssetLocation("artofcooking:doughpiece-unleavened-spelt"));
                 }
                 baseMaterial = new ItemStack(item);
             }
@@ -752,9 +750,7 @@ namespace ArtOfCooking.BlockEntities
 
             if (ingredient.Collectible is ItemWorkItem)
             {
-                ingredient = new ItemStack(world.GetItem(new AssetLocation("dough-" + ingredient.Collectible.LastCodePart())));
-                if (ingredient == null) ingredient = new ItemStack(world.GetItem(new AssetLocation("wildcraftfruit:dough-" + workItemStack.Collectible.LastCodePart())));
-                if (ingredient == null) ingredient = new ItemStack(world.GetItem(new AssetLocation("butchering:dough-" + workItemStack.Collectible.LastCodePart())));
+                ingredient = new ItemStack(world.GetItem(new AssetLocation("artofcooking:doughpiece-" + ingredient.Collectible.Variant["variety"] + "-" + ingredient.Collectible.LastCodePart())));
             }
 
             List<DoughFormingRecipe> recipes = Api.GetDoughformingRecipes()

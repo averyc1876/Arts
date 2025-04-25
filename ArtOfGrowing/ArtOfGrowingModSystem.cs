@@ -30,12 +30,13 @@ namespace ArtOfGrowing
             api.RegisterCollectibleBehaviorClass("AOGHayStorable", typeof(AOGCollectibleBehaviorGroundStorable));
 
             api.RegisterItemClass("AOGFlaxSoft", typeof(AOGItemFlaxSoft));
+            api.RegisterItemClass("AOGItemDryGrass", typeof(AOGItemDryGrass));
             api.RegisterItemClass("AOGItemInteract", typeof(AOGItemInteract));
             api.RegisterItemClass("AOGItemRemap", typeof(AOGItemRemap));
-            api.RegisterItemClass("AOGItemDryGrass", typeof(AOGItemDryGrass));
             api.RegisterItemClass("AOGItemPlantableSeed", typeof(AOGItemPlantableSeed));
             api.RegisterItemClass("AOGItemSeedling", typeof(AOGItemSeedling));
             api.RegisterItemClass("AOGHayfork", typeof(AOGItemHayfork));
+            api.RegisterItemClass("AOGItemFlail", typeof(AOGItemFlail));
 
             api.RegisterCropBehavior("AOGPumpkin", typeof(AOGPumpkinCropBehavior));
 

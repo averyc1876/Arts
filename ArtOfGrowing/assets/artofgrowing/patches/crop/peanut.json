@@ -1,45 +1,26 @@
 [
   {
     "op": "replace",
-    "path": "/textures",
-    "value": {
-      "all": { "base": "artofgrowing:block/plant/crop/peanut/wild/normal{stage}" }
-    },
-    "file": "game:blocktypes/plant/crop/peanut.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
     "path": "/dropsByType",
     "value": {
       "*-9": [
         {
           "type": "item",
-          "code": "artofgrowing:grainbundle-peanut-wild",
+          "code": "artofgrowing:grainbundle-peanut",
           "quantity": {
-            "avg": 3,
+            "avg": 4,
             "var": 2
           }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:grainbundle-peanut-small",
-          "quantity": { "avg": 0.3 }
         }
       ],
       "*-8": [
         {
           "type": "item",
-          "code": "artofgrowing:grainbundle-peanut-wild",
+          "code": "artofgrowing:grainbundle-peanut",
           "quantity": {
-            "avg": 2,
+            "avg": 3,
             "var": 0.5
           }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:grainbundle-peanut-small",
-          "quantity": { "avg": 0.3 }
         }
       ],
       "*": [
@@ -51,13 +32,12 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/peanut.json",
-    "side": "Server"
-  },
-  {
-    "op": "replace",
-    "path": "/cropProps/totalGrowthMonths",
-    "value": 1.7,
-    "file": "game:blocktypes/plant/crop/peanut.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]

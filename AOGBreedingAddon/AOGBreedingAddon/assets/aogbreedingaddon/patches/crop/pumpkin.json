@@ -1,0 +1,30 @@
+[
+  {
+    "op": "replace",
+    "path": "/cropProps/behaviors/0/name",
+    "value": "AOGPumpkin",
+    "file": "game:blocktypes/plant/pumpkin/motherplant.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/cropProps/behaviors/0/properties/size",
+    "value": "wild",
+    "file": "game:blocktypes/plant/pumpkin/motherplant.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/cropProps/nutrientConsumption",
+    "value": 10,
+    "file": "game:blocktypes/plant/pumpkin/motherplant.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/cropProps/totalGrowthMonths",
+    "value": 0.9,
+    "file": "game:blocktypes/plant/pumpkin/motherplant.json",
+    "side": "Server"
+  }
+]

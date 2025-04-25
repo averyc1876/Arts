@@ -1,0 +1,155 @@
+{
+	"code": "flail-sturdy",
+	"class": "AOGItemFlail",
+	"behaviors": [
+		{
+			"name": "GroundStorable",
+			"properties": {
+				"layout": "WallHalves",
+				"wallOffY": 2,
+				"ctrlKey": true,
+				"selectionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 1,
+					"y2": 0.1,
+					"z2": 1
+				},
+				"collisionBox": {
+					"x1": 0,
+					"y1": 0,
+					"z1": 0,
+					"x2": 0,
+					"y2": 0,
+					"z2": 0
+				}
+			}
+		}
+	],
+	"attributes": {
+		"groundStorageTransformByType": {
+			"*": {
+				"translation": {
+					"x": 0,
+					"y": 0.15,
+					"z": -0.135
+				},
+				"rotation": {
+					"x": 13,
+					"y": 88,
+					"z": -87
+				},
+				"scale": 0.88
+			}
+		},
+		"handbook": {
+			"groupBy": [ "flail" ]
+		},
+		"rackable": true,
+		"toolrackTransform": {
+			"rotation": {
+				"y": 1,
+				"z": -1
+			},
+			"translation": {
+				"x": -0.47,
+				"y": 0.6
+			},
+			"scale": 1.25
+		}
+	},
+	"damagedby": [ "blockbreaking", "attacking" ],
+	"shape": {
+		"base": "item/tool/flail",
+		"alternates": [
+			{ "base": "item/tool/flail-charge1" },
+			{ "base": "item/tool/flail-charge2" },
+			{ "base": "item/tool/flail-charge3" }
+		]
+	},
+	"texturesByType": {
+		"*": {
+			"plain": { "base": "game:block/leather/chromium" }
+		}
+	},
+	"heldTpIdleAnimation": "shovelidle",
+	"heldRightReadyAnimation": "shovelready",
+	"heldTpHitAnimation": "cleaverhit",
+	"attackpowerbytype": {
+		"*": 1.25
+	},
+	"durabilitybytype": {
+		"*": 500
+	},
+	"creativeinventory": {
+		"general": [ "*" ],
+		"items": [ "*" ],
+		"tools": [ "*" ],
+		"artofgrowing": [ "*" ]
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0.046875,
+			"y": -0.2,
+			"z": 0
+		},
+		"rotation": {
+			"x": -15,
+			"y": 15,
+			"z": 100
+		},
+		"scale": 2
+	},
+	"guiTransformByType": {
+		"*": {
+			"translation": {
+				"x": 7,
+				"y": 0,
+				"z": 1
+			},
+			"rotation": {
+				"x": -112,
+				"y": -147,
+				"z": 139
+			},
+			"origin": {
+				"x": 0.3,
+				"y": 0.7,
+				"z": 0.7
+			},
+			"scale": 1.18
+		}
+	},
+	"groundTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 3.6
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.69,
+			"y": -0.29,
+			"z": -0.6
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": -10
+		},
+		"scale": 0.8
+	}
+}

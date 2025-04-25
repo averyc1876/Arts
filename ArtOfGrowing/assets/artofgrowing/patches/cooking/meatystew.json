@@ -15,12 +15,12 @@
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-soybean",
+        "code": "artofgrowing:seeds-*soybean",
         "shapeElement": "bowl/vegetable 1/*"
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-peanut",
+        "code": "artofgrowing:seeds-*peanut",
         "shapeElement": "bowl/vegetable 1/*"
       }
     ],
@@ -43,12 +43,12 @@
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-soybean",
+        "code": "artofgrowing:seeds-*soybean",
         "shapeElement": "bowl/vegetable 2/*"
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-peanut",
+        "code": "artofgrowing:seeds-*peanut",
         "shapeElement": "bowl/vegetable 2/*"
       }
     ],

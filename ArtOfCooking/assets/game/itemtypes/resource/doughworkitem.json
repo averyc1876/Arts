@@ -4,11 +4,25 @@
 	"maxstacksize": 1,
 	"variantgroups": [
 		{
+			"code": "variety",
+			"states": [ "unleavened", "pastry", "blooddough" ]
+		},
+		{
 			"code": "type",
 			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower", "pumpkin", "acorn" ]
 		}
 	],
-	"texture": { "base": "block/food/dough/{type}" },
+	"textureByType": {
+		"*-unleavened-*": { "base": "block/food/dough/{type}" },
+		"*-pastry-*": {
+			"base": "block/food/dough/{type}",
+			"overlays": [ "artofcooking:block/food/egg/egg-overlays" ]
+		},
+		"*-blooddough-*": {
+			"base": "block/food/dough/{type}",
+			"overlays": [ "butchering:item/food/blooddough/bloodbreadoverlay" ]
+		}
+	},
 	"creativeinventory": {
 		"general": [ "" ],
 		"items": [ "" ]

@@ -2,9 +2,9 @@
   "profiles": {
     "Client": {
       "commandName": "Executable",
-      "executablePath": "E:\\Games\\Vintagestory\\Vintagestory.exe",
+      "executablePath": "$(VINTAGE_STORY)/Vintagestory.exe",
       "commandLineArgs": "--tracelog",
-      "workingDirectory": "E:\\Games\\Vintagestory"
+      "workingDirectory": "$(VINTAGE_STORY)"
     },
     "Server": {
       "commandName": "Executable",

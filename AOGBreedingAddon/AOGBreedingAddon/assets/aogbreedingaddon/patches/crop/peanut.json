@@ -1,0 +1,63 @@
+[
+  {
+    "op": "replace",
+    "path": "/textures",
+    "value": {
+      "all": { "base": "artofgrowing:block/plant/crop/peanut/wild/normal{stage}" }
+    },
+    "file": "game:blocktypes/plant/crop/peanut.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/dropsByType",
+    "value": {
+      "*-9": [
+        {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-peanut-wild",
+          "quantity": {
+            "avg": 3,
+            "var": 2
+          }
+        },
+        {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-peanut-small",
+          "quantity": { "avg": 0.3 }
+        }
+      ],
+      "*-8": [
+        {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-peanut-wild",
+          "quantity": {
+            "avg": 2,
+            "var": 0.5
+          }
+        },
+        {
+          "type": "item",
+          "code": "artofgrowing:grainbundle-peanut-small",
+          "quantity": { "avg": 0.3 }
+        }
+      ],
+      "*": [
+        {
+          "type": "item",
+          "code": "drygrass",
+          "quantity": { "avg": 0.7 }
+        }
+      ]
+    },
+    "file": "game:blocktypes/plant/crop/peanut.json",
+    "side": "Server"
+  },
+  {
+    "op": "replace",
+    "path": "/cropProps/totalGrowthMonths",
+    "value": 1.7,
+    "file": "game:blocktypes/plant/crop/peanut.json",
+    "side": "Server"
+  }
+]

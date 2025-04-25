@@ -60,8 +60,6 @@
   <None Remove="assets\coreofart\patches\cooking\scrambledeggs.json" />
   <None Remove="assets\coreofart\patches\cooking\soup.json" />
   <None Remove="assets\coreofart\patches\cooking\vegetablestew.json" />
-  <None Remove="assets\coreofart\patches\flour.json" />
-  <None Remove="assets\coreofart\patches\grain.json" />
   <None Remove="assets\coreofart\patches\inBarrelShape.json" />
   <None Remove="assets\coreofart\shapes\block\wood\barrel\cabbagefill1.json" />
   <None Remove="assets\coreofart\shapes\block\wood\barrel\carrotfill1.json" />

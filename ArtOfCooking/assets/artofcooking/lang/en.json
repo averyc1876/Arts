@@ -4,7 +4,7 @@
   "artofcooking:block-fakepie-*": "Empty pie crust",
   "artofcooking:blockhelp-shawarma-addfilling": "Add filling",
   "artofcooking:blockhelp-shawarma-wrapping": "Wrap the shawarma",
-  "artofgrowing:heldhelp-makeshawarma": "Make shawarma",
+  "artofgrowing:heldhelp-makeshawarma": "Place it on the table to make shawarma",
   "artofcooking:shawarma-rotten": "Rotten shawarma",
   "artofcooking:shawarma": "Empty shawarma",
   "artofcooking:{0} shawarma": "{0} shawarma",
@@ -39,7 +39,7 @@
 
   "game:meal-ingredient-porridge-primary-grain-cassava": "Cassava",
 
-  "game:heldhelp-placetodoughform": "Place on the table to begin kneading the dough.",
+  "artofcooking:heldhelp-placetodoughform": "Place it on the table to start molding the dough.",
   "game:blockhelp-doughform-adddough": "Add the dough",
   "game:blockhelp-doughform-removedough": "Remove the dough",
   "game:block-doughform": "Dough",
@@ -125,7 +125,7 @@
   "game:itemdesc-vinegarportion": "The result of alcohol fermentation.",
 
   "artofcooking:incontainer-item-compoteportion": "Compote",
-  "artofcooking:item-compoteportion": "Compote",
+  "artofcooking:item-compoteportion": "Compote portion",
   "artofcooking:itemdesc-compoteportion": "Sweet fruit drink.",
   "artofcooking:item-handbooktitle-compoteportion": "Cooking",
   "artofcooking:item-handbooktext-compoteportion": "Boil fruits or berries in plenty of water.",
@@ -160,7 +160,7 @@
   "item-flatbread-sunflower-charred": "Sunflower flatbread (charred)",
 
   "artofcooking:item-handbooktitle-doughforming": "Cooking",
-  "artofcooking:item-handbooktext-doughforming": "To create dough products, place the dough on the table and select the desired recipe to form the desired product, similar to clay modeling.",
+  "artofcooking:item-handbooktext-doughforming": "To create dough products, place the dough on the table and select the desired recipe to form the desired product, similar to clay modeling. You can also put the dough on the table by pressing Shift and <icon>rightmousebutton<\/icon> and roll it out with a rolling pin into lavash or flatbreads.",
   "artofcooking:item-handbooktitle-shawarma": "Cooking",
   "artofcooking:item-handbooktext-shawarma": "To create a shawarma, place the prepared lavash on the table and add any 4 fillings (only ready-to-eat products are accepted). Then wrap the lavash and get the shawarma ready to eat.",
 

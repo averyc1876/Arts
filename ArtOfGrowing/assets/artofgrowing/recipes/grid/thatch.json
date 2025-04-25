@@ -1,11 +1,15 @@
 [
   {
-    "ingredientPattern": "_B_,B_B",
+    "ingredientPattern": "_B_,BRB",
     "ingredients": {
       "B": {
         "type": "item",
         "code": "game:thatch",
         "quantity": 2
+      },
+      "R": {
+        "type": "item",
+        "code": "game:rope"
       }
     },
     "width": 3,

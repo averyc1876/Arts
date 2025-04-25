@@ -1,0 +1,49 @@
+[
+  {
+    "ingredientPattern": "S__,KW_,__S",
+    "ingredients": {
+      "W": {
+        "type": "item",
+        "code": "game:plank-*",
+        "quantity": 2,
+        "name": "wood"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      },
+      "S": {
+        "type": "item",
+        "code": "game:stick"
+      }
+    },
+    "width": 3,
+    "height": 3,
+    "output": {
+      "type": "item",
+      "code": "rollingpin-{wood}"
+    }
+  },
+  {
+    "ingredientPattern": "WK",
+    "ingredients": {
+      "W": {
+        "type": "item",
+        "code": "game:plank-*",
+        "name": "wood"
+      },
+      "K": {
+        "type": "item",
+        "code": "game:knife-*",
+        "isTool": true
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "block",
+      "code": "spoon-empty"
+    }
+  }
+]

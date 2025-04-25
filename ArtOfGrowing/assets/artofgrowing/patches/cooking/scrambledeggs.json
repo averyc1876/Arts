@@ -15,7 +15,7 @@
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-soybean",
+        "code": "artofgrowing:seeds-*soybean",
         "shapeElement": "bowl/vegetable 1/*"
       }
     ],
@@ -38,7 +38,7 @@
       },
       {
         "type": "item",
-        "code": "artofgrowing:seeds-*-soybean",
+        "code": "artofgrowing:seeds-*soybean",
         "shapeElement": "bowl/vegetable 2/*"
       }
     ],

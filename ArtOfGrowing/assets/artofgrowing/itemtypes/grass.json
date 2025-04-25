@@ -1,5 +1,6 @@
 {
 	"code": "grass",
+	"storageFlags": 33,
 	"shape": { "base": "game:item/resource/haybundle" },
 	"attributes": {
 		"foodTags": [ "grass" ],
@@ -25,7 +26,7 @@
 						"normal-top": "artofgrowing:block/plant/grass/normal-top-grass",
 						"straw1": "artofgrowing:block/plant/grass/straw1-grass"
 					},
-					"modelItemsToStackSizeRatio": 1.125,
+					"modelItemsToStackSizeRatio": 1.25,
 					"stackingCapacity": 128,
 					"maxStackingHeight": 1,
 					"collisionBox": {
@@ -37,6 +38,7 @@
 						"z2": 1
 					},
 					"cbScaleYByLayer": 0.125,
+					"burnHoursPerItem": 0.2,
 					"transferQuantity": 1,
 					"bulkTransferQuantity": 8
 				}
@@ -63,7 +65,7 @@
 			"type": "Dry",
 			"freshHours": { "avg": 0 },
 			"transitionHours": {
-				"avg": 48,
+				"avg": 24,
 				"var": 1
 			},
 			"transitionedStack": {

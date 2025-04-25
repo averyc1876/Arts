@@ -81,8 +81,8 @@ namespace ArtOfGrowing.Blocks
                 if (secondsUsed > 2.5f - 0.05f && world.Side == EnumAppSide.Server)
                 {
                     string size2 = "wild";
-                    float koef = 1;
-                    switch (Size)
+                    float koef = 8;
+                    if (Size != null) switch (Size)
                     {
                         case "wild":
                             koef = 2;
@@ -113,8 +113,13 @@ namespace ArtOfGrowing.Blocks
                             size2 = "gigantic";
                             break;
                     }
-                    ItemStack seeds = new ItemStack(api.World.GetItem(new AssetLocation("artofgrowing:seeds-" + Size + "-pumpkin")),GameMath.RoundRandom(api.World.Rand, 1.2f));
-                    ItemStack seeds2 = new ItemStack(api.World.GetItem(new AssetLocation("artofgrowing:seeds-" + size2 + "-pumpkin")),GameMath.RoundRandom(api.World.Rand, 0.3f));
+                    ItemStack seeds = new ItemStack(api.World.GetItem(new AssetLocation("seeds-pumpkin")),GameMath.RoundRandom(api.World.Rand, 1.2f));
+                    ItemStack seeds2 = new ItemStack(api.World.GetItem(new AssetLocation("seeds-pumpkin")),GameMath.RoundRandom(api.World.Rand, 0.3f));
+                    if (Size != null)
+                    {
+                        seeds = new ItemStack(api.World.GetItem(new AssetLocation("artofgrowing:seeds-" + Size + "-pumpkin")),GameMath.RoundRandom(api.World.Rand, 1.2f));
+                        seeds2 = new ItemStack(api.World.GetItem(new AssetLocation("artofgrowing:seeds-" + size2 + "-pumpkin")), GameMath.RoundRandom(api.World.Rand, 0.3f));
+                    }
 				    api.World.BlockAccessor.SetBlock(0, blockSel.Position);
                     api.World.SpawnItemEntity(new ItemStack(api.World.GetItem(new AssetLocation("vegetable-pumpkin")),GameMath.RoundRandom(api.World.Rand, koef - 0.3f)), blockSel.Position.ToVec3d() +
 						new Vec3d(0, 0.1, 0));  

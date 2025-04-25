@@ -1,0 +1,43 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"dough": "game:item/food/grain/speltbread"
+	},
+	"elements": [
+		{
+			"name": "dough 19",
+			"from": [ 6.5, 0.0, 6.5 ],
+			"to": [ 9.5, 2.0, 9.5 ],
+			"rotationOrigin": [ 8.0, 0.0, 8.0 ],
+			"faces": {
+				"north": { "texture": "#dough", "uv": [ 1.0, 10.0, 4.0, 12.0 ], "windMode": [-1,-1,-1,-1] },
+				"east": { "texture": "#dough", "uv": [ 0.5, 9.5, 3.5, 11.5 ], "windMode": [-1,-1,-1,-1] },
+				"south": { "texture": "#dough", "uv": [ 0.5, 12.0, 3.5, 14.0 ], "windMode": [-1,-1,-1,-1] },
+				"west": { "texture": "#dough", "uv": [ 0.5, 10.0, 3.5, 12.0 ], "windMode": [-1,-1,-1,-1] },
+				"up": { "texture": "#dough", "uv": [ 1.0, 9.5, 4.0, 12.5 ] },
+				"down": { "texture": "#dough", "uv": [ 4.5, 9.5, 7.5, 12.5 ] }
+			},
+			"children": [
+				{
+					"name": "dough 20",
+					"from": [ 0.5, 2.0, 0.5 ],
+					"to": [ 2.5, 2.5, 2.5 ],
+					"rotationOrigin": [ 2.0, 3.0, 2.0 ],
+					"faces": {
+						"north": { "texture": "#dough", "uv": [ 1.5, 10.5, 3.5, 11.0 ], "windMode": [-1,-1,-1,-1] },
+						"east": { "texture": "#dough", "uv": [ 1.5, 10.5, 3.5, 11.0 ], "windMode": [-1,-1,-1,-1] },
+						"south": { "texture": "#dough", "uv": [ 1.5, 12.5, 3.5, 13.0 ], "windMode": [-1,-1,-1,-1] },
+						"west": { "texture": "#dough", "uv": [ 1.5, 12.5, 3.5, 13.0 ], "windMode": [-1,-1,-1,-1] },
+						"up": { "texture": "#dough", "uv": [ 1.5, 10.0, 3.5, 12.0 ] }
+					}
+				}
+			]
+		}
+	]}

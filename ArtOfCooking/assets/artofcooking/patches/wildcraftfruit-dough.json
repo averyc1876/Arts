@@ -18,5 +18,86 @@
     ],
     "file": "artofcooking:itemtypes/food/flatbread.json",
     "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/0/states/-",
+    "value": "acorn",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "artofcooking:itemtypes/food/bun.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/1/states/-",
+    "value": "acorn",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "file": "artofcooking:itemtypes/food/doughpiece.json",
+    "side": "Server"
+  },
+
+  {
+    "file": "artofcooking:recipes/doughforming/1acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/2acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/3acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/4acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/5acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "artofcooking:recipes/doughforming/6acornbread.json",
+    "op": "replace",
+    "path": "/enabled",
+    "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
   }
 ]

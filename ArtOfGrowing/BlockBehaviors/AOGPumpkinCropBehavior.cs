@@ -25,7 +25,7 @@ namespace ArtOfGrowing.BlockBehaviors
         public override void Initialize(JsonObject properties)
         {
             base.Initialize(properties);
-
+            
             size = properties["size"].AsString();
             vineGrowthStage = properties["vineGrowthStage"].AsInt();
             vineGrowthQuantityGen = properties["vineGrowthQuantity"].AsObject<NatFloat>();

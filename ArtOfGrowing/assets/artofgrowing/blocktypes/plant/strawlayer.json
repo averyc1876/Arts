@@ -14,10 +14,6 @@
 			"states": [ "spelt", "rice", "flax", "rye", "amaranth" ]
 		},
 		{
-			"code": "size",
-			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
-		},
-		{
 			"code": "state",
 			"states": [ "wet", "dry" ]
 		},
@@ -29,15 +25,15 @@
 	"attributes": {
 		"transientPropsByType": {
 			"strawlayer-*-wet-free": {
-				"convertFrom": "strawlayer-{type}-{size}-wet-free",
-				"convertTo": "strawlayer-{type}-{size}-dry-free",
-				"inGameHours": "24",
+				"convertFrom": "strawlayer-{type}-wet-free",
+				"convertTo": "strawlayer-{type}-dry-free",
+				"inGameHours": "12",
 				"resetBelowTemperature": -1,
 				"stopBelowTemperature": 8
 			},
 			"strawlayer-*-dry-*": {
 				"convertFrom": "strawlayer-*-straw-{cover}",
-				"convertTo": "haylayer-free-veryshort-straw-{cover}",
+				"convertTo": "haylayer-free-verytall-straw-{cover}",
 				"inGameHours": "240"
 			}
 		},
@@ -77,25 +73,7 @@
 		}
 	},
 	"shapeByType": {
-		"*-wild-*": {
-			"base": "block/haylayer/free-eaten"
-		},
-		"*-small-*": {
-			"base": "block/haylayer/free-veryshort"
-		},
-		"*-medium-*": {
-			"base": "block/haylayer/free-short"
-		},
-		"*-decent-*": {
-			"base": "block/haylayer/free-mediumshort"
-		},
-		"*-large-*": {
-			"base": "block/haylayer/free-medium"
-		},
-		"*-hefty-*": {
-			"base": "block/haylayer/free-tall"
-		},
-		"*-gigantic-*": {
+		"*": {
 			"base": "block/haylayer/free-verytall"
 		}
 	},
@@ -114,42 +92,29 @@
 		"*": [
 			{
 				"type": "item",
-				"code": "grainbundle-{type}-{size}-{state}",
+				"code": "grainbundle-{type}-{state}",
 				"quantityByType": {
 					"*-spelt-*": {
-						"avg": 12,
-						"var": 2
-					},
-					"*-rice-*": {
 						"avg": 13,
 						"var": 2
 					},
+					"*-rice-*": {
+						"avg": 14,
+						"var": 2
+					},
 					"*-flax-*": {
-						"avg": 8,
+						"avg": 9,
 						"var": 1
 					},
 					"*-rye-*": {
-						"avg": 11,
+						"avg": 12,
 						"var": 2
 					},
 					"*-amaranth-*": {
-						"avg": 6,
+						"avg": 7,
 						"var": 1
 					}
 				}
-			},
-			{
-				"type": "item",
-				"codeByType": {
-					"*-wild-*": "grainbundle-{type}-small-{state}",
-					"*-small-*": "grainbundle-{type}-medium-{state}",
-					"*-medium-*": "grainbundle-{type}-decent-{state}",
-					"*-decent-*": "grainbundle-{type}-large-{state}",
-					"*-large-*": "grainbundle-{type}-hefty-{state}",
-					"*-hefty-*": "grainbundle-{type}-gigantic-{state}",
-					"*-gigantic-*": "grainbundle-{type}-gigantic-{state}"
-				},
-				"quantity": { "avg": 0.3 }
 			}
 		]
 	},
@@ -166,14 +131,14 @@
 	"sounds": {
 		"place": "game:block/plant",
 		"breakByType": {
-			"*": "block/plant"
+			"*": "game:block/plant"
 		},
 		"hitByType": {
-			"*": "block/plant"
+			"*": "game:block/plant"
 		},
 		"walkByType": {
-			"*-snow": "walk/snow",
-			"*": "block/plant"
+			"*-snow": "game:walk/snow",
+			"*": "game:block/plant"
 		}
 	},
 	"lightAbsorption": 0,

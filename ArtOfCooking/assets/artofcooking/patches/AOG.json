@@ -1,0 +1,22 @@
+[
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/1/states/-",
+    "value": "pumpkin",
+    "dependsOn": [
+      { "modid": "artofgrowing" }
+    ],
+    "file": "artofcooking:itemtypes/food/doughpiece.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/variantgroups/0/states/-",
+    "value": "pumpkin",
+    "dependsOn": [
+      { "modid": "artofgrowing" }
+    ],
+    "file": "artofcooking:itemtypes/food/bun.json",
+    "side": "Server"
+  }
+]

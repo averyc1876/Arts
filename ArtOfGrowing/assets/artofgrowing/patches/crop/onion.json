@@ -17,32 +17,32 @@
       "*-2": { "base": "block/plant/crop/onion/stage1to4" },
       "*-3": { "base": "block/plant/crop/onion/stage1to4" },
       "*-4": { "base": "block/plant/crop/onion/stage1to4" },
-      "*-5": { "base": "block/plant/crop/onion/stage1to4" },
-      "*-6": { "base": "block/plant/crop/onion/stage1to4" },
-      "*": { "base": "artofgrowing:block/crop/onion/wild/stage7" }
+      "*-5": { "base": "block/plant/crop/onion/stage5" },
+      "*-6": { "base": "block/plant/crop/onion/stage6" },
+      "*": { "base": "block/plant/crop/onion/stage7" }
     },
     "file": "game:blocktypes/plant/crop/onion.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
-    "op": "remove",
-    "path": "/textures",
-    "file": "game:blocktypes/plant/crop/onion.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
+    "op": "addmerge",
     "path": "/texturesByType",
     "value": {
       "*-11": {
-        "bulb": { "base": "game:item/resource/rot/rot-solids" },
-        "s": { "base": "game:block/plant/crop/onion/s{stage}" },
-        "e": { "base": "game:block/plant/crop/onion/e{stage}" }
+        "bulb": { "base": "item/resource/rot/rot-solids" },
+        "s7": { "base": "block/plant/crop/onion/s{stage}" },
+        "e7": { "base": "block/plant/crop/onion/e{stage}" }
       },
       "*": {
-        "bulb": { "base": "game:block/plant/crop/onion/bulb" },
-        "s": { "base": "game:block/plant/crop/onion/s{stage}" },
-        "e": { "base": "game:block/plant/crop/onion/e{stage}" }
+        "bulb": { "base": "block/plant/crop/onion/bulb" },
+        "s7": { "base": "block/plant/crop/onion/s{stage}" },
+        "e7": { "base": "block/plant/crop/onion/e{stage}" }
       }
     },
     "file": "game:blocktypes/plant/crop/onion.json",
@@ -111,8 +111,8 @@
       "*-6": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-onion",
-          
+          "code": "vegetable-onion",
+
           "quantity": {
             "avg": 3,
             "var": 1
@@ -130,8 +130,8 @@
       "*-7": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-onion",
-          
+          "code": "vegetable-onion",
+
           "quantity": {
             "avg": 12,
             "var": 2
@@ -149,8 +149,8 @@
       "*-8": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-onion",
-          
+          "code": "vegetable-onion",
+
           "quantity": {
             "avg": 10,
             "var": 2
@@ -165,8 +165,8 @@
       "*-9": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-onion",
-          
+          "code": "vegetable-onion",
+
           "quantity": {
             "avg": 8,
             "var": 2
@@ -181,8 +181,8 @@
       "*-10": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-onion",
-          
+          "code": "vegetable-onion",
+
           "quantity": {
             "avg": 6,
             "var": 2
@@ -197,13 +197,8 @@
       "*-11": [
         {
           "type": "item",
-          "code": "artofgrowing:seeds-wild-{type}",
-          "quantity": { "avg": 1.2 }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:seeds-small-{type}",
-          "quantity": { "avg": 0.3 }
+          "code": "seeds-{type}",
+          "quantity": { "avg": 3.2 }
         },
         {
           "type": "item",
@@ -225,7 +220,13 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/onion.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",
@@ -237,8 +238,14 @@
   {
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
-    "value": 2.1,
+    "value": 2.9,
     "file": "game:blocktypes/plant/crop/onion.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]

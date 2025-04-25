@@ -1,4 +1,5 @@
 ﻿using ArtOfGrowing.BlockEntites;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
-using static Vintagestory.Server.Timer;
 
 namespace ArtOfGrowing.Blocks
 {
@@ -24,10 +25,36 @@ namespace ArtOfGrowing.Blocks
             {
                 base.OnBlockBroken(world, pos, byPlayer, 0);
                 
-                if (Variant["size"] != null && Variant["stage"] != null && Variant["stage"] == CropProps.GrowthStages.ToString())
-                    world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:strawlayer-" + Variant["type"] + "-" + Variant["size"] + "-wet-free")).Id, pos);
                 if (Variant["stage"] != null && Variant["stage"] == CropProps.GrowthStages.ToString())
-                    world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:strawlayer-" + Variant["type"] + "-wild-wet-free")).Id, pos);
+                {
+                    ItemStack[] array = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
+                    List<ItemStack> list = new List<ItemStack>();
+                    ItemStack[] drops = array;
+                    ItemStack hayStack = drops[0].Clone();
+                    drops[0].StackSize = 0;
+                    AOGBlockGroundStorage blockgs = world.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+                    blockgs.CreateStorageFromMowing(world, pos, hayStack);
+                    
+                    if (drops != null)
+                    {
+                        for (int j = 0; j < drops.Length; j++)
+                        {
+                            if (SplitDropStacks)
+                            {
+                                for (int k = 0; k < drops[j].StackSize; k++)
+                                {
+                                    ItemStack itemStack = drops[j].Clone();
+                                    itemStack.StackSize = 1;
+                                    world.SpawnItemEntity(itemStack, pos);
+                                }
+                            }
+                            else
+                            {
+                                world.SpawnItemEntity(drops[j].Clone(), pos);
+                            }
+                        }
+                    }
+                }
                 else
                     world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-free-veryshort-straw-free")).Id, pos);                               
             }
@@ -40,25 +67,71 @@ namespace ArtOfGrowing.Blocks
         public override void OnBlockBroken(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
         {
             base.OnBlockBroken(world, pos, byPlayer, dropQuantityMultiplier);
+            var grass = "grass";
+            switch (FirstCodePart()) 
+            { 
+                case "talldrygrass":
+                    grass = "drygrass";
+                    break;
+            }
 
             if (byPlayer?.InventoryManager.ActiveTool == EnumTool.Knife && Variant["tallgrass"] != null && Variant["tallgrass"] != "eaten")
             {
-                world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-veryshort-grass-free")).Id, pos);
+                world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-veryshort-" + grass + "-free")).Id, pos);
             }
         
             if (byPlayer?.InventoryManager.ActiveTool == EnumTool.Scythe && Variant["tallgrass"] != null && Variant["tallgrass"] != "eaten")
             {
                 bool trimMode = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Attributes.GetInt("toolMode", 0) == 0;
-                if (trimMode) world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-" + Variant["tallgrass"] + "-grass-free")).Id, pos);
-                else world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-free-" + Variant["tallgrass"] + "-grass-free")).Id, pos);
+                if (trimMode) world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-eaten-" + Variant["tallgrass"] + "-" + grass + "-free")).Id, pos);
+                else world.BlockAccessor.SetBlock(world.GetBlock(new AssetLocation("artofgrowing:haylayer-free-" + Variant["tallgrass"] + "-" + grass + "-free")).Id, pos);
             }            
         }
     }    
     internal class AOGBlockHayLayer: Block, IDrawYAdjustable
     {
+        public static float WildCropDropMul = 0.25f;
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
+        }
+        public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
+        {
+            if (FirstCodePart() != "strawlayer") return base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
+
+            BlockEntityFarmland befarmland = world.BlockAccessor.GetBlockEntity(pos.DownCopy()) as BlockEntityFarmland;
+            if (befarmland == null)
+            {
+                dropQuantityMultiplier *= byPlayer?.Entity.Stats.GetBlended("wildCropDropRate")?? 1;
+            }
+
+            SplitDropStacks = false;
+
+            ItemStack[] drops = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
+
+            if (befarmland == null)
+            {
+                List<ItemStack> moddrops = new List<ItemStack>();
+                foreach (var drop in drops)
+                {
+                    if (!(drop.Item is ItemPlantableSeed))
+                    {
+                        drop.StackSize = GameMath.RoundRandom(world.Rand, WildCropDropMul * drop.StackSize);
+                    }
+
+                    if (drop.StackSize > 0) moddrops.Add(drop);
+                }
+
+                drops = moddrops.ToArray();
+            }
+
+
+            if (befarmland != null)
+            {
+                drops = befarmland.GetDrops(drops);
+            }
+
+            return drops;
         }
         public override void OnBlockBroken(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
         {

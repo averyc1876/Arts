@@ -12,12 +12,7 @@
     "op": "replace",
     "path": "/entityClassByType",
     "value": {
-      "tallgrass-eaten-*": "Transient",
-      "tallgrass-veryshort-*": "Transient",
-      "tallgrass-short-*": "Transient",
-      "tallgrass-mediumshort-*": "Transient",
-      "tallgrass-medium-*": "Transient",
-      "tallgrass-tall-*": "Transient"
+      "*": "Transient"
     }
   },
   {
@@ -28,44 +23,54 @@
       "tallgrass-eaten-free": {
         "convertFrom": "tallgrass-eaten-free",
         "convertTo": "tallgrass-veryshort-free",
-        "inGameHours": "50",
+        "inGameHours": "150",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
       },
       "tallgrass-veryshort-free": {
         "convertFrom": "tallgrass-veryshort-free",
         "convertTo": "tallgrass-short-free",
-        "inGameHours": "50",
+        "inGameHours": "250",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
       },
       "tallgrass-short-free": {
         "convertFrom": "tallgrass-short-free",
         "convertTo": "tallgrass-mediumshort-free",
-        "inGameHours": "50",
+        "inGameHours": "350",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
       },
       "tallgrass-mediumshort-free": {
         "convertFrom": "tallgrass-mediumshort-free",
         "convertTo": "tallgrass-medium-free",
-        "inGameHours": "50",
+        "inGameHours": "450",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
       },
       "tallgrass-medium-free": {
         "convertFrom": "tallgrass-medium-free",
         "convertTo": "tallgrass-tall-free",
-        "inGameHours": "50",
+        "inGameHours": "550",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
       },
       "tallgrass-tall-free": {
         "convertFrom": "tallgrass-tall-free",
         "convertTo": "tallgrass-verytall-free",
-        "inGameHours": "50",
+        "inGameHours": "650",
         "resetBelowTemperature": -1,
         "stopBelowTemperature": 8
+      },
+      "tallgrass-verytall-*": {
+        "convertFrom": "tallgrass-verytall-{cover}",
+        "convertTo": "artofgrowing:talldrygrass-verytall-{cover}",
+        "inGameHours": "120"
+      },
+      "tallgrass-*-snow*": {
+        "convertFrom": "tallgrass-{tallgrass}-{cover}",
+        "convertTo": "artofgrowing:talldrygrass-{tallgrass}-{cover}",
+        "inGameHours": "12"
       }
     }
   }

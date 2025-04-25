@@ -169,9 +169,8 @@ namespace ArtOfCooking.BlockEntities
 
             loadMesh();
         }
-        public void OnFormed(IPlayer byPlayer)
+        public void OnFormed(IPlayer byPlayer, string lavashType)
         {
-            string lavashType = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item.Variant["type"];
             ItemStack lavashStack = new ItemStack(Api.World.GetItem(new AssetLocation("artofcooking:lavash-" + lavashType + "-raw")), 1);
             if (lavashStack == null) return;
 
@@ -184,7 +183,8 @@ namespace ArtOfCooking.BlockEntities
 
         public bool OnInteract(IPlayer byPlayer)
         {
-            var shawarmaBlock = inv[0].Itemstack.Block as AOCBlockShawarma;
+            AOCBlockShawarma shawarmaBlock = inv[0]?.Itemstack?.Block as AOCBlockShawarma;
+            if (shawarmaBlock == null) return false;
 
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
 

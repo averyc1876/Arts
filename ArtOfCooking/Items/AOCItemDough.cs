@@ -90,7 +90,7 @@ namespace ArtOfCooking.Items
             var block = api.World.BlockAccessor.GetBlock(blockSel.Position);
             BlockEntityDoughForm bec = byEntity.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityDoughForm;
             bool sneaking = byEntity.Controls.ShiftKey;
-            if (bec != null && bec.BaseMaterial.Collectible.Variant["type"] != Variant["type"]) return;
+            if (bec != null && bec.BaseMaterial.Collectible.Variant["type"] != Variant["type"] && bec.BaseMaterial.Collectible.Variant["variety"] != Variant["variety"]) return;
 
             if (block.Attributes?.IsTrue("pieFormingSurface") == true && blockSel.Face == BlockFacing.UP && !sneaking)
             {
@@ -132,6 +132,38 @@ namespace ArtOfCooking.Items
                 handling = EnumHandHandling.PreventDefaultAction;
                 return;
             }
+            if (block.Attributes?.IsTrue("pieFormingSurface") == true && blockSel.Face == BlockFacing.UP && sneaking)
+            {
+                IPlayer player = byEntity.World.PlayerByUid((byEntity as EntityPlayer)?.PlayerUID);
+                BlockPos placePos = blockSel.Position.AddCopy(blockSel.Face);
+
+                if (!byEntity.World.Claims.TryAccess(player, placePos, EnumBlockAccessFlags.BuildOrBreak))
+                {
+                    slot.MarkDirty();
+                    return;
+                }
+
+                IWorldAccessor world = byEntity.World;
+                AOCBlockDoughKnead doughknead = world.GetBlock(new AssetLocation("artofcooking:doughknead-" + Variant["variety"] + "-" + Variant["type"])) as AOCBlockDoughKnead;
+                if (doughknead == null) return;
+                int quantity = 15;
+                if (Variant["variety"] == "pastry") quantity = 4;
+                if (slot.StackSize < quantity) return;
+                BlockPos belowPos = blockSel.Position.AddCopy(blockSel.Face).Down();
+                Block belowBlock = world.BlockAccessor.GetBlock(belowPos);
+
+                if (!belowBlock.CanAttachBlockAt(byEntity.World.BlockAccessor, doughknead, belowPos, BlockFacing.UP)) return;
+
+
+                if (!world.BlockAccessor.GetBlock(placePos).IsReplacableBy(doughknead)) return;
+
+                world.BlockAccessor.SetBlock(doughknead.BlockId, placePos);
+
+                if (doughknead.Sounds != null) world.PlaySoundAt(doughknead.Sounds.Place, blockSel.Position.X, blockSel.Position.Y, blockSel.Position.Z);
+                doughknead.OnCreate (slot, quantity);
+                handling = EnumHandHandling.PreventDefaultAction;
+                return;
+            }
 
             base.OnHeldInteractStart(slot, byEntity, blockSel, entitySel, firstEvent, ref handling);
 
@@ -170,7 +202,7 @@ namespace ArtOfCooking.Items
             {
                 slot.TakeOut(1);
                 slot.MarkDirty();
-                bea.AvailableVoxels += 72;
+                bea.AvailableVoxels += 9;
             }
 
             // The server side call is made using a custom network packet
@@ -1561,8 +1593,15 @@ namespace ArtOfCooking.Items
             return new WorldInteraction[] {
                 new WorldInteraction()
                 {
-                    ActionLangCode = "heldhelp-placetodoughform",
+                    ActionLangCode = "artofcooking:heldhelp-placetodoughform",
                     Itemstacks = tableStacks,
+                    MouseButton = EnumMouseButton.Right,
+                },
+                new WorldInteraction()
+                {
+                    ActionLangCode = "artofcooking:heldhelp-placetorolling",
+                    Itemstacks = tableStacks,
+                    HotKeyCode = "ctrl",
                     MouseButton = EnumMouseButton.Right,
                 }
             }.Append(base.GetHeldInteractionHelp(inSlot));

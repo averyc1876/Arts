@@ -1,8 +1,9 @@
-﻿using ArtOfGrowing.Items;
-using Microsoft.VisualBasic;
+﻿using ArtOfGrowing.Blocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
+using System.Reflection;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -13,16 +14,13 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ArtOfGrowing
+namespace ArtOfGrowing.BlockEntites
 {
     public class AOGBlockEntityGroundStorage : BlockEntityDisplay, IBlockEntityContainer, IRotatable, IHeatSource, ITemperatureSensitive
     {
         static SimpleParticleProperties smokeParticles;
 
-        protected static Random rand = new Random();
-        
         static AOGBlockEntityGroundStorage()
         {
             smokeParticles = new SimpleParticleProperties(
@@ -47,14 +45,15 @@ namespace ArtOfGrowing
         public object inventoryLock = new object(); // Because OnTesselation runs in another thread
 
         protected InventoryGeneric inventory;
+
         Vec3d tmpPos = new Vec3d();
 
         public AOGGroundStorageProperties StorageProps { get; protected set; }
         public bool forceStorageProps = false;
-        protected AOGEnumGroundStorageLayout? overrideLayout;
+        protected EnumGroundStorageLayout? overrideLayout;
 
         public int TransferQuantity => StorageProps?.TransferQuantity ?? 1;
-        public int BulkTransferQuantity => StorageProps.Layout == AOGEnumGroundStorageLayout.Stacking ? StorageProps.BulkTransferQuantity : 1;
+        public int BulkTransferQuantity => StorageProps.Layout == EnumGroundStorageLayout.Stacking ? StorageProps.BulkTransferQuantity : 1;
 
         protected virtual int invSlotCount => 4;
         protected Cuboidf[] colBoxes;
@@ -68,6 +67,9 @@ namespace ArtOfGrowing
         public bool clientsideFirstPlacement = false;
 
         private AOGGroundStorageRenderer renderer;
+
+        private AOGBlockGroundStorage blockStorage;
+
         public bool UseRenderer;
         public bool NeedsRetesselation;
 
@@ -85,7 +87,7 @@ namespace ArtOfGrowing
         /// Cache the upload meshes for stacking layout so it can be reused by the AOGGroundStorageRenderer
         /// </summary>
         private Dictionary<string, MultiTextureMeshRef> UploadedMeshCache =>
-            ObjectCacheUtil.GetOrCreate(Api, "AOGhaystorageUMC", () => new Dictionary<string, MultiTextureMeshRef>());
+            ObjectCacheUtil.GetOrCreate(Api, "AOGgroundStorageUMC", () => new Dictionary<string, MultiTextureMeshRef>());
 
         private bool burning;
         private double burnStartTotalHours;
@@ -99,16 +101,17 @@ namespace ArtOfGrowing
 
         public bool IsHot => burning;
 
-        
-        AOGBlockGroundStorage blockStorage;
-
         public override int DisplayedItems {
             get
             {
                 if (StorageProps == null) return 0;
                 switch (StorageProps.Layout)
                 {
-                    case AOGEnumGroundStorageLayout.Stacking: return 1;
+                    case EnumGroundStorageLayout.SingleCenter: return 1;
+                    case EnumGroundStorageLayout.Halves: return 2;
+                    case EnumGroundStorageLayout.WallHalves: return 2;
+                    case EnumGroundStorageLayout.Quadrants: return 4;
+                    case EnumGroundStorageLayout.Stacking: return 1;
                 }
 
                 return 0;
@@ -130,29 +133,14 @@ namespace ArtOfGrowing
             get {
                 switch (StorageProps.Layout)
                 {
-                    case AOGEnumGroundStorageLayout.Stacking: return StorageProps.StackingCapacity;
+                    case EnumGroundStorageLayout.SingleCenter: return 1;
+                    case EnumGroundStorageLayout.Halves: return 2;
+                    case EnumGroundStorageLayout.WallHalves: return 2;
+                    case EnumGroundStorageLayout.Quadrants: return 4;
+                    case EnumGroundStorageLayout.Stacking: return StorageProps.StackingCapacity;
                     default: return 1;
                 }
             }
-        }
-        protected virtual float Inventory_OnAcquireTransitionSpeed(EnumTransitionType transType, ItemStack stack, float baseMul)
-        {
-            bool canWater = StorageProps.CanWater;
-            bool water = false;
-            Api.World.BlockAccessor.SearchFluidBlocks(
-                new BlockPos(Pos.X, Pos.Y, Pos.Z),
-                new BlockPos(Pos.X, Pos.Y, Pos.Z),
-                (block, pos) =>
-                {
-                    if (block.LiquidCode == "water") water = true;
-                    return true;
-                }
-            );
-            if (stack.Item.FirstCodePart() == "grass" && !water) return 4;
-            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water) return 16;
-            if (transType == EnumTransitionType.Dry && water || transType == EnumTransitionType.Melt && !water) return 0;
-            if (Api == null) return 0; 
-            return 0.5f;
         }
 
         public override InventoryBase Inventory
@@ -162,10 +150,10 @@ namespace ArtOfGrowing
 
         public override string InventoryClassName
         {
-            get { return "AOGhaystorage"; }
+            get { return "AOGgroundstorage"; }
         }
 
-        public override string AttributeTransformCode => "AOGhaystorageTransform";
+        public override string AttributeTransformCode => "AOGgroundStorageTransform";
 
         public float MeshAngle { get; set; }
         public BlockFacing AttachFace { get; set; }
@@ -175,7 +163,7 @@ namespace ArtOfGrowing
             get
             {
                 // Prio 1: Get from list of explicility defined textures
-                if (StorageProps.Layout == AOGEnumGroundStorageLayout.Stacking && StorageProps.StackingTextures != null)
+                if (StorageProps.Layout == EnumGroundStorageLayout.Stacking && StorageProps.StackingTextures != null)
                 {
                     if (StorageProps.StackingTextures.TryGetValue(textureCode, out var texturePath))
                     {
@@ -191,7 +179,7 @@ namespace ArtOfGrowing
         public bool CanAttachBlockAt(BlockFacing blockFace, Cuboidi attachmentArea)
         {
             if (StorageProps == null) return false;
-            return blockFace == BlockFacing.UP && StorageProps.Layout == AOGEnumGroundStorageLayout.Stacking && inventory[0].StackSize == Capacity && StorageProps.UpSolid;
+            return blockFace == BlockFacing.UP && StorageProps.Layout == EnumGroundStorageLayout.Stacking && inventory[0].StackSize == Capacity && StorageProps.UpSolid;
         }
 
         public AOGBlockEntityGroundStorage() : base()
@@ -224,6 +212,77 @@ namespace ArtOfGrowing
             StorageProps = storageProps;
             forceStorageProps = true;
         }
+
+
+        public override void Initialize(ICoreAPI api)
+        {
+            capi = api as ICoreClientAPI;
+            base.Initialize(api);
+
+            blockStorage = Block as AOGBlockGroundStorage;
+
+            if (api is ICoreServerAPI)
+            {
+                RegisterGameTickListener(Update, 3000);
+            }
+
+            inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
+
+            var bh = GetBehavior<BEBehaviorBurning>();
+            // TODO properly fix this (GenDeposit [halite] /Genstructures issue) , Th3Dilli
+            if (bh != null)
+            {
+                bh.FirePos = Pos.Copy();
+                bh.FuelPos = Pos.Copy();
+                bh.OnFireDeath = _ => { Extinguish(); };
+            }
+            UpdateIgnitable();
+
+            DetermineStorageProperties(null);
+
+            if (capi != null)
+            {
+                float temp = 0;
+                if (!Inventory.Empty)
+                {
+                    foreach (var slot in Inventory)
+                    {
+                        temp = Math.Max(temp, slot.Itemstack?.Collectible.GetTemperature(capi.World, slot.Itemstack) ?? 0);
+                    }
+                }
+
+                if (temp >= 450)
+                {
+                    renderer = new AOGGroundStorageRenderer(capi, this);
+                }
+                updateMeshes();
+                //initMealRandomizer();
+            }
+
+            UpdateBurningState();
+        }     
+
+        protected virtual float Inventory_OnAcquireTransitionSpeed(EnumTransitionType transType, ItemStack stack, float baseMul)
+        {
+            bool canWater = false;
+            if (StorageProps != null) canWater = StorageProps.CanWater;
+            bool water = false;
+            Api.World.BlockAccessor.SearchFluidBlocks(
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                new BlockPos(Pos.X, Pos.Y, Pos.Z),
+                (block, pos) =>
+                {
+                    if (block.LiquidCode == "water") water = true;
+                    return true;
+                }
+            );
+            if (stack.Item.FirstCodePart() == "grass" && !water) return 4;
+            if (transType == EnumTransitionType.Dry && !water || transType == EnumTransitionType.Melt && water) return 16;
+            if (transType == EnumTransitionType.Dry && water || transType == EnumTransitionType.Melt && !water) return 0;
+            if (Api == null) return 0; 
+            return 0.5f;
+        }
+        
         private void Update(float dt)
         { 
             ItemSlot invSlot = inventory[0];
@@ -269,63 +328,30 @@ namespace ArtOfGrowing
                             case EnumTransitionType.Dry:
                                 invSlot.Itemstack?.Collectible.SetTransitionState(invSlot.Itemstack, EnumTransitionType.Dry, 0);
                                 MarkDirty();
+                                MarkDirty(true);
+                                Inventory[0].MarkDirty();
                             break;
                         }
+
                     }
 
                 }
+
             }
-        }
 
-
-        public override void Initialize(ICoreAPI api)
-        {
-            capi = api as ICoreClientAPI;
-            base.Initialize(api);
-
-            blockStorage = Block as AOGBlockGroundStorage;
             
-            inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
-            
-            if (api is ICoreServerAPI)
+            if (invSlot.Itemstack != null)
             {
-                RegisterGameTickListener(Update, 3000);
-            }
-
-            var bh = GetBehavior<BEBehaviorBurning>();
-            // TODO properly fix this (GenDeposit [halite] /Genstructures issue) , Th3Dilli
-            if (bh != null)
-            {
-                bh.FirePos = Pos.Copy();
-                bh.FuelPos = Pos.Copy();
-                bh.OnFireDeath = _ => { Extinguish(); };
-            }
-            UpdateIgnitable();
-
-            DetermineStorageProperties(null);
-
-            if (capi != null)
-            {
-                float temp = 0;
-                if (!Inventory.Empty)
-                {
-                    foreach (var slot in Inventory)
-                    {
-                        temp = Math.Max(temp, slot.Itemstack?.Collectible.GetTemperature(capi.World, slot.Itemstack) ?? 0);
-                    }
+                AssetLocation code = invSlot.Itemstack.Collectible.Code;
+                invSlot.Itemstack.Collectible.UpdateAndGetTransitionStates(Api.World, invSlot);
+                if (invSlot.Itemstack?.Collectible.Code != code)
+                {                    
+                    AOGBlockGroundStorage blockgs = Api.World.GetBlock(new AssetLocation("haystorage")) as AOGBlockGroundStorage;
+                    blockgs.CreateStorageFromMowing(Api.World, Pos, invSlot.Itemstack);
                 }
-
-                if (temp >= 450)
-                {
-                    renderer = new AOGGroundStorageRenderer(capi, this);
-                }
-                updateMeshes();
-                //initMealRandomizer();
             }
 
-            UpdateBurningState();
         }
-
         public void CoolNow(float amountRel)
         {
             if (!Inventory.Empty)
@@ -428,6 +454,18 @@ namespace ArtOfGrowing
 
             DetermineStorageProperties(hotbarSlot);
 
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "rope" || 
+                hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "stick") 
+            { 
+                return true; 
+            }
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "flail") 
+            { 
+                hotbarSlot.Itemstack.TempAttributes.SetInt("renderVariant", 1);
+                hotbarSlot.Itemstack.Attributes.SetInt("renderVariant", 1);
+                return true; 
+            }
+
             bool ok = false;
 
             if (StorageProps != null)
@@ -438,9 +476,42 @@ namespace ArtOfGrowing
                 // changed since > 1.18.1 since east west on WE rotation was broken, to allow upgrading/downgrading without issues we invert the sign for all* usages instead of saving new value
                 var hitPos = rotatedOffset(bs.HitPosition.ToVec3f(), -MeshAngle);
 
+                if (StorageProps.Layout == EnumGroundStorageLayout.Quadrants && inventory.Empty)
+                {
+                    double dx = Math.Abs(hitPos.X - 0.5);
+                    double dz = Math.Abs(hitPos.Z - 0.5);
+                    if (dx < 2 / 16f && dz < 2 / 16f)
+                    {
+                        overrideLayout = EnumGroundStorageLayout.SingleCenter;
+                        DetermineStorageProperties(hotbarSlot);
+                    }
+                }
+
                 switch (StorageProps.Layout)
                 {
-                    case AOGEnumGroundStorageLayout.Stacking:
+                    case EnumGroundStorageLayout.SingleCenter:
+                        ok = putOrGetItemSingle(inventory[0], player, bs);
+                        break;
+
+
+                    case EnumGroundStorageLayout.WallHalves:
+                    case EnumGroundStorageLayout.Halves:
+                        if (hitPos.X < 0.5)
+                        {
+                            ok = putOrGetItemSingle(inventory[0], player, bs);
+                        }
+                        else
+                        {
+                            ok = putOrGetItemSingle(inventory[1], player, bs);
+                        }
+                        break;
+
+                    case EnumGroundStorageLayout.Quadrants:
+                        int pos = ((hitPos.X > 0.5) ? 2 : 0) + ((hitPos.Z > 0.5) ? 1 : 0);
+                        ok = putOrGetItemSingle(inventory[pos], player, bs);
+                        break;
+
+                    case EnumGroundStorageLayout.Stacking:
                         ok = putOrGetItemStacking(player, bs);
                         break;
                 }
@@ -451,6 +522,8 @@ namespace ArtOfGrowing
             if (ok)
             {
                 MarkDirty();    // Don't re-draw on client yet, that will be handled in FromTreeAttributes after we receive an updating packet from the server  (updating meshes here would have the wrong inventory contents, and also create a potential race condition)
+                MarkDirty(true);
+                Inventory[0].MarkDirty();
             }
 
             if (inventory.Empty && !clientsideFirstPlacement)
@@ -464,6 +537,31 @@ namespace ArtOfGrowing
 
         public bool OnPlayerInteractStep(float secondsUsed, IPlayer byPlayer, BlockSelection blockSel)
         {
+            ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "rope" || 
+                hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "stick" )
+            {  
+                if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "rope") byPlayer.Entity.StartAnimation("squeezehoneycomb");
+                else byPlayer.Entity.StartAnimation("cleaverhit");    
+                return secondsUsed < 1f; 
+            }
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "flail" )
+            {  
+                byPlayer.Entity.StartAnimation("cleaverhit");     
+                
+                int renderVariant = GameMath.Clamp((int)Math.Ceiling(secondsUsed * 4), 0, 4);
+                int prevRenderVariant = hotbarSlot.Itemstack.Attributes.GetInt("renderVariant", 0);
+
+                hotbarSlot.Itemstack.TempAttributes.SetInt("renderVariant", renderVariant);
+                hotbarSlot.Itemstack.Attributes.SetInt("renderVariant", renderVariant);
+
+                if (prevRenderVariant != renderVariant)
+                {
+                    byPlayer?.InventoryManager.BroadcastHotbarSlot();
+                } 
+                return secondsUsed < 1f; 
+            }
+
             if (isUsingSlot?.Itemstack?.Collectible is IContainedInteractable collIci)
             {
                 return collIci.OnContainedInteractStep(secondsUsed, this, isUsingSlot, byPlayer, blockSel);
@@ -475,6 +573,22 @@ namespace ArtOfGrowing
 
         public void OnPlayerInteractStop(float secondsUsed, IPlayer byPlayer, BlockSelection blockSel)
         {
+            byPlayer.Entity.StopAnimation("squeezehoneycomb");
+            byPlayer.Entity.StopAnimation("cleaverhit");
+            ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "rope" || 
+                hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "stick") 
+            {  
+                if (secondsUsed > 0.9f) TryInteract(byPlayer); 
+            }
+            
+            if (hotbarSlot?.Itemstack?.Collectible?.FirstCodePart() == "flail" ) 
+            {  
+                hotbarSlot.Itemstack.TempAttributes.RemoveAttribute("renderVariant");
+                hotbarSlot.Itemstack.Attributes.SetInt("renderVariant", 0);
+                if (secondsUsed > 0.9f) TryInteract(byPlayer); 
+            }
+
             if (isUsingSlot?.Itemstack.Collectible is IContainedInteractable collIci)
             {
                 collIci.OnContainedInteractStop(secondsUsed, this, isUsingSlot, byPlayer, blockSel);
@@ -483,13 +597,153 @@ namespace ArtOfGrowing
             isUsingSlot = null;
         }
 
+        public bool TryInteract(IPlayer player)
+        {
+            if (StorageProps == null) return false;
+            
+            ItemStack itemstack = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
+            bool ropeStack = itemstack?.Collectible.FirstCodePart() == "rope";
+            bool stickStack = itemstack?.Collectible.FirstCodePart() == "stick";
+            bool flailStack = itemstack?.Collectible.FirstCodePart() == "flail";
+            
+            float koef = 1;
+            int count = 4;
+            if (flailStack) count = 16;
+            var atrSize = inventory[0].Itemstack.Item.Variant["size"];
+            if (atrSize != null) 
+                switch (atrSize)
+                {
+                    case "wild":
+                        koef = 0.2f;
+                        break;
+                    case "small":
+                        koef = 0.4f;
+                        break;
+                    case "medium":
+                        koef = 0.6f;
+                        break;
+                    case "decent":
+                        koef = 0.8f;
+                        break;
+                    case "large":
+                        koef = 1;
+                        break;
+                    case "hefty":
+                        koef = 1.5f;
+                        break;
+                    case "gigantic":
+                        koef = 2;
+                        break;
+                }
+            int bulk = GameMath.Min(count, TotalStackSize/StorageProps.DropUse);
+            int dropUse = StorageProps.DropUse * bulk;
+            int dropCount = StorageProps.DropCount * bulk;
+            float dropCount2 = StorageProps.DropCount2 * bulk;
+            
+            switch (StorageProps.CanDrop)
+            {
+                case AOGEnumDropType.Items:
+                    if (itemstack != null && inventory[0].Itemstack.StackSize >= dropUse)
+                    {
+                        if (!flailStack && !stickStack) return false;
+                        var dropItem = StorageProps.DropItem.Clone();
+                        var dropItem2 = StorageProps.DropItem2.Clone();
+                        
+                        ItemStack dropI = new(Api.World.GetItem(dropItem))
+                        {
+                            StackSize = dropCount
+                        };
+
+                        ItemStack dropI2 = new(Api.World.GetItem(dropItem2))
+                        {
+                            StackSize = GameMath.RoundRandom(Api.World.Rand, dropCount2 * koef)
+                        };   
+                        
+                        inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
+                        
+                        Api.World.SpawnItemEntity(dropI, Pos.ToVec3d().Add(0.5, 0.5, 0.5));                                      
+                        Api.World.SpawnItemEntity(dropI2, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
+
+                        if (TotalStackSize == 0)
+                        {
+                            Api.World.BlockAccessor.SetBlock(0, Pos);
+                        }
+                        
+                        if (flailStack) 
+                        {
+                            itemstack.Collectible.DamageItem(Api.World, player.Entity, player.InventoryManager.ActiveHotbarSlot, 1);
+                        }
+                        
+                        Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+                        
+                        MarkDirty();
+
+                        (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+
+                        return true;
+                    }
+                    break;
+                case AOGEnumDropType.Block:
+                    if (itemstack != null && inventory[0].Itemstack.StackSize >= dropUse && ropeStack)
+                    {
+                        var dropBlock = StorageProps.DropBlock.Clone();
+                        ItemStack dropB = new(Api.World.GetBlock(dropBlock))
+                        {
+                            StackSize = dropCount
+                        };                       
+                        inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
+                        
+                        Api.World.SpawnItemEntity(dropB, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
+                        
+                        if (TotalStackSize == 0)
+                        {
+                            Api.World.BlockAccessor.SetBlock(0, Pos);
+                        }
+                        
+                        Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+                        
+                        if (player != null && player.WorldData.CurrentGameMode == EnumGameMode.Survival)
+                        {
+                            player.InventoryManager.ActiveHotbarSlot.TakeOut(dropCount);
+                        }
+                        MarkDirty();
+
+                        (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+
+                        return true;
+                    }
+                    break;
+            }  
+            
+            return false;
+        }
+
         public ItemSlot GetSlotAt(BlockSelection bs)
         {
             if (StorageProps == null) return null;
 
             switch (StorageProps.Layout)
             {
-                case AOGEnumGroundStorageLayout.Stacking:
+                case EnumGroundStorageLayout.SingleCenter:
+                    return inventory[0];
+
+                case EnumGroundStorageLayout.Halves:
+                case EnumGroundStorageLayout.WallHalves:
+                    if (bs.HitPosition.X < 0.5)
+                    {
+                        return inventory[0];
+                    }
+                    else
+                    {
+                        return inventory[1];
+                    }
+
+                case EnumGroundStorageLayout.Quadrants:
+                    var hitPos = rotatedOffset(bs.HitPosition.ToVec3f(),-MeshAngle);
+                    int pos = ((hitPos.X > 0.5) ? 2 : 0) + ((hitPos.Z > 0.5) ? 1 : 0);
+                    return inventory[pos];
+
+                case EnumGroundStorageLayout.Stacking:
                     return inventory[0];
             }
 
@@ -560,7 +814,7 @@ namespace ArtOfGrowing
             if (overrideLayout != null)
             {
                 StorageProps = StorageProps.Clone();
-                StorageProps.Layout = (AOGEnumGroundStorageLayout)overrideLayout;
+                StorageProps.Layout = (EnumGroundStorageLayout)overrideLayout;
             }
         }
 
@@ -618,7 +872,9 @@ namespace ArtOfGrowing
 
             if (invSlot.Empty)
             {
-                if (hotbarSlot.TryPutInto(Api.World, invSlot, TransferQuantity) > 0)
+                bool putBulk = player.Entity.Controls.CtrlKey;
+
+                if (hotbarSlot.TryPutInto(Api.World, invSlot, putBulk ? BulkTransferQuantity : TransferQuantity) > 0)
                 {
                     Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound.WithPathPrefixOnce("sounds/"), Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
                 }
@@ -673,120 +929,12 @@ namespace ArtOfGrowing
             }
 
             return false;
-        }
-
+        }       
+        
         public bool TryTakeItem(IPlayer player)
         {
             bool takeBulk = player.Entity.Controls.CtrlKey;
             int q = GameMath.Min(takeBulk ? BulkTransferQuantity : TransferQuantity, TotalStackSize);
-            
-            float koef = 1;
-            var atrSize = inventory[0].Itemstack.Item.Variant["size"];
-                switch (atrSize)
-                {
-                    case "wild":
-                        koef = 0.2f;
-                        break;
-                    case "small":
-                        koef = 0.4f;
-                        break;
-                    case "medium":
-                        koef = 0.6f;
-                        break;
-                    case "decent":
-                        koef = 0.8f;
-                        break;
-                    case "large":
-                        koef = 1;
-                        break;
-                    case "hefty":
-                        koef = 1.5f;
-                        break;
-                    case "gigantic":
-                        koef = 2;
-                        break;
-                }
-            int dropUse = StorageProps.DropUse;
-            int dropCount = StorageProps.DropCount;
-            float dropCount2 = StorageProps.DropCount2;
-            if (takeBulk)
-            {
-                dropUse = StorageProps.DropUse * StorageProps.DropBulk;
-                dropCount = StorageProps.DropCount * StorageProps.DropBulk;
-                dropCount2 = StorageProps.DropCount2 * StorageProps.DropBulk;
-            }
-            ItemStack itemstack = player.InventoryManager.ActiveHotbarSlot?.Itemstack;
-            bool ropeStack = itemstack?.Collectible.FirstCodePart() == "rope";
-            bool stickStack = itemstack?.Collectible.FirstCodePart() == "stick";
-            
-            switch (StorageProps.CanDrop)
-            {
-                case AOGEnumDropType.Items:
-                    if (itemstack != null && inventory[0].Itemstack.StackSize >= dropUse && stickStack)
-                    {
-                        var dropItem = StorageProps.DropItem.Clone();
-                        var dropItem2 = StorageProps.DropItem2.Clone();
-                        
-                        ItemStack dropI = new(Api.World.GetItem(dropItem))
-                        {
-                            StackSize = dropCount
-                        };
-
-                        ItemStack dropI2 = new(Api.World.GetItem(dropItem2))
-                        {
-                            StackSize = GameMath.RoundRandom(Api.World.Rand, dropCount2 * koef)
-                        };   
-                        
-                        inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
-                        
-                        Api.World.SpawnItemEntity(dropI, Pos.ToVec3d().Add(0.5, 0.5, 0.5));                                      
-                        Api.World.SpawnItemEntity(dropI2, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
-
-                        if (TotalStackSize == 0)
-                        {
-                            Api.World.BlockAccessor.SetBlock(0, Pos);
-                        }
-                        
-                        Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
-                        
-                        MarkDirty();
-
-                        (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-
-                        return true;
-                    }
-                    break;
-                case AOGEnumDropType.Block:
-                    if (itemstack != null && inventory[0].Itemstack.StackSize >= dropUse && ropeStack)
-                    {
-                        var dropBlock = StorageProps.DropBlock.Clone();
-                        ItemStack dropB = new(Api.World.GetBlock(dropBlock))
-                        {
-                            StackSize = dropCount
-                        };                       
-                        inventory[0].Itemstack.StackSize = inventory[0].Itemstack.StackSize - dropUse;
-                        
-                        Api.World.SpawnItemEntity(dropB, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
-                        
-                        if (TotalStackSize == 0)
-                        {
-                            Api.World.BlockAccessor.SetBlock(0, Pos);
-                        }
-                        
-                        Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X, Pos.Y, Pos.Z, null, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
-                        
-                        if (player != null && player.WorldData.CurrentGameMode == EnumGameMode.Survival)
-                        {
-                            player.InventoryManager.ActiveHotbarSlot.TakeOut(dropCount);
-                        }
-                        MarkDirty();
-
-                        (player as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-
-                        return true;
-                    }
-                    break;
-            }  
 
             if (inventory[0]?.Itemstack != null)
             {
@@ -818,6 +966,79 @@ namespace ArtOfGrowing
 
             return true;
         }
+
+        public bool putOrGetItemSingle(ItemSlot ourSlot, IPlayer player, BlockSelection bs)
+        {
+            isUsingSlot = null;
+            if (!ourSlot.Empty && ourSlot.Itemstack.Collectible is IContainedInteractable collIci)
+            {
+                if (collIci.OnContainedInteractStart(this, ourSlot, player, bs))
+                {
+                    AOGBlockGroundStorage.IsUsingContainedBlock = true;
+                    isUsingSlot = ourSlot;
+                    return true;
+                }
+            }
+
+            ItemSlot hotbarSlot = player.InventoryManager.ActiveHotbarSlot;
+            if (!hotbarSlot.Empty && !inventory.Empty)
+            {
+                bool layoutEqual = StorageProps.Layout == hotbarSlot.Itemstack.Collectible.GetBehavior<AOGCollectibleBehaviorGroundStorable>()?.StorageProps.Layout;
+                if (!layoutEqual) return false;
+            }
+
+            lock (inventoryLock)
+            {
+                if (ourSlot.Empty)
+                {
+                    if (hotbarSlot.Empty) return false;
+
+                    if (player.WorldData.CurrentGameMode == EnumGameMode.Creative)
+                    {
+                        ItemStack stack = hotbarSlot.Itemstack.Clone();
+                        stack.StackSize = 1;
+                        if (new DummySlot(stack).TryPutInto(Api.World, ourSlot, TransferQuantity) > 0) {
+                            Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, player, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+                            Api.World.Logger.Audit("{0} Put 1x{1} into Ground storage at {2}.",
+                                player.PlayerName,
+                                ourSlot.Itemstack.Collectible.Code,
+                                Pos
+                            );
+                        }
+                    } else {
+                        if (hotbarSlot.TryPutInto(Api.World, ourSlot, TransferQuantity) > 0)
+                        {
+                            Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, player, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+                            Api.World.Logger.Audit("{0} Put 1x{1} into Ground storage at {2}.",
+                                player.PlayerName,
+                                ourSlot.Itemstack.Collectible.Code,
+                                Pos
+                            );
+                        }
+                    }
+                }
+                else
+                {
+                    if (!player.InventoryManager.TryGiveItemstack(ourSlot.Itemstack, true))
+                    {
+                        Api.World.SpawnItemEntity(ourSlot.Itemstack, Pos);
+                    }
+
+                    Api.World.PlaySoundAt(StorageProps.PlaceRemoveSound, Pos.X + 0.5, Pos.InternalY, Pos.Z + 0.5, player, 0.88f + (float)Api.World.Rand.NextDouble() * 0.24f, 16);
+
+                    Api.World.Logger.Audit("{0} Took 1x{1} from Ground storage at {2}.",
+                        player.PlayerName,
+                        ourSlot.Itemstack?.Collectible.Code,
+                        Pos
+                    );
+                    ourSlot.Itemstack = null;
+                    ourSlot.MarkDirty();
+                }
+            }
+
+            return true;
+        }
+
         public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
         {
             base.FromTreeAttributes(tree, worldForResolving);
@@ -832,7 +1053,7 @@ namespace ArtOfGrowing
             overrideLayout = null;
             if (tree.HasAttribute("overrideLayout"))
             {
-                overrideLayout = (AOGEnumGroundStorageLayout)tree.GetInt("overrideLayout");
+                overrideLayout = (EnumGroundStorageLayout)tree.GetInt("overrideLayout");
             }
 
             if (Api != null)
@@ -892,7 +1113,7 @@ namespace ArtOfGrowing
                 inventory.DropAll(Pos.ToVec3d().Add(0.5, 0.5, 0.5), 4);
             }*/
         }
-
+        
         public virtual string GetBlockName()
         {
             var props = StorageProps;
@@ -903,6 +1124,7 @@ namespace ArtOfGrowing
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
         {
             if (inventory.Empty) return;
+
             string[] contentSummary = getContentSummary();
 
             ItemStack stack = inventory.FirstNonEmptySlot.Itemstack;
@@ -934,6 +1156,7 @@ namespace ArtOfGrowing
             dsc.Append(DryInfoCompact(Api, inventory.FirstNonEmptySlot));
             dsc.Append(MeltInfoCompact(Api, inventory.FirstNonEmptySlot));
         }
+        
         public static string PerishableInfoCompact(ICoreAPI Api, ItemSlot contentSlot, bool withStackName = true)
         {
             if (contentSlot.Empty) return "";
@@ -1150,7 +1373,7 @@ namespace ArtOfGrowing
                     {
                         renderer = new AOGGroundStorageRenderer(capi, this);
                     }
-                },"AOGGroundStorageRendererE");
+                },"AOGgroundStorageRendererE");
             }
             if (UseRenderer)
             {
@@ -1166,7 +1389,7 @@ namespace ArtOfGrowing
                         renderer.Dispose();
                         renderer = null;
                     }
-                }, "AOGGroundStorageRendererD");
+                }, "AOGgroundStorageRendererD");
             }
             NeedsRetesselation = false;
             lock (inventoryLock)
@@ -1215,7 +1438,30 @@ namespace ArtOfGrowing
         {
             switch (StorageProps.Layout)
             {
-                case AOGEnumGroundStorageLayout.Stacking:
+                case EnumGroundStorageLayout.SingleCenter:
+                    offs[0] = new Vec3f();
+                    break;
+
+                case EnumGroundStorageLayout.Halves:
+                case EnumGroundStorageLayout.WallHalves:
+                    // Left
+                    offs[0] = new Vec3f(-0.25f, 0, 0);
+                    // Right
+                    offs[1] = new Vec3f(0.25f, 0, 0);
+                    break;
+
+                case EnumGroundStorageLayout.Quadrants:
+                    // Top left
+                    offs[0] = new Vec3f(-0.25f, 0, -0.25f);
+                    // Top right
+                    offs[1] = new Vec3f(-0.25f, 0, 0.25f);
+                    // Bot left
+                    offs[2] = new Vec3f(0.25f, 0, -0.25f);
+                    // Bot right
+                    offs[3] = new Vec3f(0.25f, 0, 0.25f);
+                    break;
+
+                case EnumGroundStorageLayout.Stacking:
                     offs[0] = new Vec3f();
                     break;
             }
@@ -1233,15 +1479,16 @@ namespace ArtOfGrowing
                 MeshRefs[index] = capi.TesselatorManager.GetDefaultBlockMeshRef(stack.Block);
             }
             // shingle/bricks are items but uses Stacking layout to get the mesh, so this should be not needed atm
-            else if(stack.Class == EnumItemClass.Item && StorageProps.Layout != AOGEnumGroundStorageLayout.Stacking)
+            else if(stack.Class == EnumItemClass.Item && StorageProps.Layout != EnumGroundStorageLayout.Stacking)
             {
                 MeshRefs[index] = capi.TesselatorManager.GetDefaultItemMeshRef(stack.Item);
             }
-            if (StorageProps.Layout == AOGEnumGroundStorageLayout.Stacking)
+            if (StorageProps.Layout == EnumGroundStorageLayout.Stacking)
             {
+                
                 var key = getMeshCacheKey(stack);
                 var mesh = getMesh(stack);
-                
+
                 if (mesh != null)
                 {
                     UploadedMeshCache.TryGetValue(key, out MeshRefs[index]);

@@ -1,26 +1,17 @@
 {
 	"code": "grainbundle",
 	"class": "AOGItemInteract",
+	"storageFlags": 33,
 	"maxstacksizeByType": {
-		"*-wild": 128,
-		"*-small": 96,
-		"*-medium": 64,
-		"*-decent": 48,
-		"*-large": 32,
-		"*-hefty": 24,
-		"*-gigantic": 16
+		"*": 64
 	},
 	"variantgroups": [
 		{
 			"code": "type",
 			"states": [ "soybean", "peanut" ]
-		},
-		{
-			"code": "size",
-			"states": [ "wild", "small", "medium", "decent", "large", "hefty", "gigantic" ]
 		}
 	],
-	"shape": { "base": "item/food/vegetable/{size}/{type}" },
+	"shape": { "base": "game:item/food/legume/{type}" },
 	"behaviors": [
 		{
 			"name": "GroundStorable",
@@ -76,20 +67,12 @@
 				"type": "item",
 				"code": "game:rot"
 			},
-			"transitionRatioByType": {
-				"*-wild-*": 0.0625,
-				"*-small-*": 0.125,
-				"*-medium-*": 0.25,
-				"*-decent-*": 0.5,
-				"*-large-*": 1,
-				"*-hefty-*": 2,
-				"*-gigantic-*": 4
-			}
+			"transitionRatio": 1
 		}
 	],
 	"materialDensity": 600,
 	"guiTransformByType": {
-		"*-soybean-*": {
+		"*-soybean": {
 			"translation": {
 				"x": 0,
 				"y": 0,
@@ -107,7 +90,7 @@
 			},
 			"scale": 2.58
 		},
-		"*-peanut-*": {
+		"*-peanut": {
 			"translation": {
 				"x": -1,
 				"y": 1,
@@ -127,7 +110,7 @@
 		}
 	},
 	"fpHandTransformByType": {
-		"*-peanut-*": {
+		"*-peanut": {
 			"rotation": {
 				"x": -8,
 				"y": -81,
@@ -136,7 +119,7 @@
 		}
 	},
 	"groundTransformByType": {
-		"*-soybean-*": {
+		"*-soybean": {
 			"translation": {
 				"x": 0,
 				"y": 0.39,
@@ -154,7 +137,7 @@
 			},
 			"scale": 4
 		},
-		"*-peanut-*": {
+		"*-peanut": {
 			"translation": {
 				"x": 0,
 				"y": 0,
@@ -174,7 +157,7 @@
 		}
 	},
 	"tpHandTransformByType": {
-		"*-soybean-*": {
+		"*-soybean": {
 			"translation": {
 				"x": 0.02,
 				"y": -0.7,
@@ -192,7 +175,7 @@
 			},
 			"scale": 0.45
 		},
-		"*-peanut-*": {
+		"*-peanut": {
 			"translation": {
 				"x": -0.05,
 				"y": -1.45,

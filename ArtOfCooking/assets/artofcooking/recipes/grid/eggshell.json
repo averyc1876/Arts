@@ -1,0 +1,22 @@
+[
+  {
+    "ingredientPattern": "E",
+    "ingredients": {
+      "E": {
+        "type": "item",
+        "code": "eggshell-*",
+        "quantity": 24,
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "crushedeggshells",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "crushedeggshells",
+      "quantity": 1
+    }
+  }
+]

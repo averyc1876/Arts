@@ -4,10 +4,22 @@
     "path": "/attributes/contentConfig",
     "value": [
       {
+        "code": "grain-pumpkin",
+        "content": {
+          "type": "item",
+          "code": "grain-pumpkin"
+        },
+        "foodFor": [ "chicken-*" ],
+        "quantityPerFillLevel": 2,
+        "maxFillLevels": 8,
+        "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
+        "textureCode": "contents-pumpkin"
+      },
+      {
         "code": "seeds-flax",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-flax"
+          "code": "seeds-flax"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -19,7 +31,7 @@
         "code": "seeds-spelt",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-spelt"
+          "code": "seeds-spelt"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -31,7 +43,7 @@
         "code": "seeds-rice",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-rice"
+          "code": "seeds-rice"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -43,7 +55,7 @@
         "code": "seeds-rye",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-rye"
+          "code": "seeds-rye"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -55,7 +67,7 @@
         "code": "seeds-sunflower",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-sunflower"
+          "code": "seeds-sunflower"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -67,7 +79,7 @@
         "code": "seeds-amaranth",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-amaranth"
+          "code": "seeds-amaranth"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
@@ -79,25 +91,13 @@
         "code": "seeds-pumpkin",
         "content": {
           "type": "item",
-          "code": "artofgrowing:seeds-*-pumpkin"
+          "code": "seeds-pumpkin"
         },
         "foodFor": [ "chicken-*" ],
         "quantityPerFillLevel": 2,
         "maxFillLevels": 8,
         "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
         "textureCode": "contents-pumpkin-seeds"
-      },
-      {
-        "code": "grain-pumpkin",
-        "content": {
-          "type": "item",
-          "code": "grain-pumpkin"
-        },
-        "foodFor": [ "chicken-*" ],
-        "quantityPerFillLevel": 2,
-        "maxFillLevels": 8,
-        "shapesPerFillLevel": [ "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill1", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill2", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill3", "block/wood/trough/small/grainfill4", "block/wood/trough/small/grainfill4" ],
-        "textureCode": "contents-pumpkin"
       }
     ],
     "file": "game:blocktypes/wood/trough-small.json",

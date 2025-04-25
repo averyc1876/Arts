@@ -111,7 +111,7 @@ namespace ArtOfGrowing.BlockEntites
         {
             base.Initialize(api);
             
-            size = Block.Variant["size"];
+            if (Block.Variant["size"] != null) size = Block.Variant["size"];
             stage1VineBlock = api.World.GetBlock(new AssetLocation("pumpkin-vine-" + size + "-1-normal"));
             pumpkinBlock = api.World.GetBlock(new AssetLocation("pumpkin-fruit-" + size + "-1"));
 

@@ -14,7 +14,7 @@
               "normal-top": "artofgrowing:block/thatch/normal-top",
               "straw1": "artofgrowing:block/thatch/straw1"
             },
-            "modelItemsToStackSizeRatio": 1.125,
+            "modelItemsToStackSizeRatio": 1.25,
             "stackingCapacity": 128,
             "maxStackingHeight": 1,
             "collisionBox": {
@@ -26,6 +26,7 @@
               "z2": 1
             },
             "cbScaleYByLayer": 0.125,
+            "burnHoursPerItem": 0.1,
             "transferQuantity": 1,
             "bulkTransferQuantity": 8,
             "dropUse": 8,

@@ -154,6 +154,6 @@
 		"scale": 0.76
 	},
 	"durabilitybytype": {
-		"*": 300
+		"*": 500
 	}
 }

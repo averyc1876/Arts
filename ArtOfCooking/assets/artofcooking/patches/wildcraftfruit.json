@@ -1,25 +1,7 @@
 [
   {
-    "op": "replace",
+    "op": "remove",
     "path": "/class",
-    "value": "AOCItemDough",
-    "file": "wildcraftfruit:itemtypes/food/dough.json",
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "Server"
-  },
-  {
-    "op": "addmerge",
-    "path": "/attributes/handbook",
-    "value": {
-      "extraSections": [
-        {
-          "title": "artofcooking:item-handbooktitle-doughforming",
-          "text": "artofcooking:item-handbooktext-doughforming"
-        }
-      ]
-    },
     "file": "wildcraftfruit:itemtypes/food/dough.json",
     "dependsOn": [
       { "modid": "wildcraftfruit" }
@@ -62,10 +44,20 @@
     "side": "server"
   },
   {
-    "file": "artofcooking:recipes/grid/dough-acorn.json",
+    "file": "artofcooking:recipes/grid/dough.json",
     "op": "replace",
-    "path": "/enabled",
+    "path": "/1/enabled",
     "value": true,
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "server"
+  },
+  {
+    "file": "wildcraftfruit:recipes/grid/acorndough.json",
+    "op": "addmerge",
+    "path": "/enabled",
+    "value": false,
     "dependsOn": [
       { "modid": "wildcraftfruit" }
     ],

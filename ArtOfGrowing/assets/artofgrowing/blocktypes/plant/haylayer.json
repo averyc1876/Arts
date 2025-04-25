@@ -29,22 +29,22 @@
 	],
 	"attributes": {
 		"transientPropsByType": {
-			"haylayer-*-grass-free": {
-				"convertFrom": "haylayer-{overlay}-{tallgrass}-grass-free",
-				"convertTo": "haylayer-{overlay}-{tallgrass}-drygrass-free",
-				"inGameHours": "24",
+			"haylayer-*-grass-*": {
+				"convertFrom": "haylayer-{overlay}-{tallgrass}-grass-{cover}",
+				"convertTo": "haylayer-{overlay}-{tallgrass}-drygrass-{cover}",
+				"inGameHours": "12",
 				"resetBelowTemperature": -1,
 				"stopBelowTemperature": 8
 			},
 			"haylayer-*-drygrass-*": {
 				"convertFrom": "haylayer-{overlay}-{tallgrass}-drygrass-{cover}",
-				"convertTo": "haylayer-{overlay}-{tallgrass}-agedgrass-{cover}",
-				"inGameHours": "500"
+				"convertTo": "game:tallgrass-eaten-{cover}",
+				"inGameHours": "200"
 			},
 			"haylayer-*-straw-*": {
 				"convertFrom": "haylayer-{overlay}-{tallgrass}-straw-{cover}",
 				"convertTo": "haylayer-{overlay}-{tallgrass}-agedgrass-{cover}",
-				"inGameHours": "500"
+				"inGameHours": "200"
 			}
 		},
 		"drawnHeightByType": {
@@ -108,8 +108,8 @@
 		"*-drygrass-*": {
 			"normal-top": { "base": "game:block/plant/grassroofing/normal-top" },
 			"straw1": { "base": "game:block/plant/grassroofing/straw1" },
-			"north": { "base": "artofgrowing:block/plant/grass/eaten-north" },
-			"south": { "base": "artofgrowing:block/plant/grass/eaten-south" }
+			"north": { "base": "artofgrowing:block/plant/drygrass/eaten-north" },
+			"south": { "base": "artofgrowing:block/plant/drygrass/eaten-south" }
 		},
 		"*-agedgrass-*": {
 			"normal-top": { "base": "game:block/hay/aged-top" },
@@ -247,14 +247,14 @@
 	"sounds": {
 		"place": "game:block/plant",
 		"breakByType": {
-			"*": "block/plant"
+			"*": "game:block/plant"
 		},
 		"hitByType": {
-			"*": "block/plant"
+			"*": "game:block/plant"
 		},
 		"walkByType": {
-			"*-snow": "walk/snow",
-			"*": "block/plant"
+			"*-snow": "game:walk/snow",
+			"*": "game:block/plant"
 		}
 	},
 	"lightAbsorption": 0,

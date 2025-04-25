@@ -1,9 +1,9 @@
 [
   {
-    "op": "replace",
+    "op": "addmerge",
     "path": "/class",
-    "value": "AOCItemDough",
-    "file": "game:itemtypes/food/dough.json",
+    "value": "AOCItemFlour",
+    "file": "game:itemtypes/food/flour.json",
     "side": "Server"
   },
   {
@@ -12,11 +12,17 @@
     "value": {
       "extraSections": [
         {
-          "title": "artofcooking:item-handbooktitle-doughforming",
-          "text": "artofcooking:item-handbooktext-doughforming"
+          "title": "artofcooking:item-handbooktitle-doughknead",
+          "text": "artofcooking:item-handbooktext-doughknead"
         }
       ]
     },
+    "file": "game:itemtypes/food/flour.json",
+    "side": "Server"
+  },
+  {
+    "op": "remove",
+    "path": "/class",
     "file": "game:itemtypes/food/dough.json",
     "side": "Server"
   },

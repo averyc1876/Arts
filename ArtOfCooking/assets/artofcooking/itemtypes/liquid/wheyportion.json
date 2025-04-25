@@ -1,0 +1,91 @@
+{
+	"code": "wheyportion",
+	"class": "ItemLiquidPortion",
+	"matterState": "liquid",
+	"attributes": {
+		"handbook": {
+			"ignoreCreativeInvStacks": true
+		},
+		"inContainerTexture": {
+			"base": "artofcooking:block/food/dairy/whey",
+			"alpha": 180
+		},
+		"inBowlShape": { "base": "game:block/food/meal/liquid" },
+		"waterTightContainerProps": {
+			"containable": true,
+			"itemsPerLitre": 100,
+			"texture": {
+				"base": "artofcooking:block/food/dairy/whey",
+				"alpha": 180
+			},
+			"allowSpill": true,
+			"whenSpilled": {
+				"action": "DropContents",
+				"stack": {
+					"type": "item",
+					"code": "artofcooking:wheyportion"
+				}
+			},
+			"nutritionPropsPerLitre": {
+				"saturation": 50,
+				"foodcategory": "Dairy"
+			}
+		}
+	},
+	"shape": { "base": "game:item/liquid" },
+	"texture": {
+		"base": "artofcooking:block/food/dairy/whey",
+		"alpha": 180
+	},
+	"maxstacksize": 5000,
+	"materialDensity": 200,
+	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 192 },
+			"transitionHours": { "avg": 192 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatio": 0.002
+		}
+	],
+	"guiTransform": {
+		"translation": {
+			"x": 0,
+			"y": 1,
+			"z": 0
+		},
+		"rotation": {
+			"x": 123,
+			"y": -33,
+			"z": -13
+		},
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 1.4
+	},
+	"fpHandTransform": {
+		"translation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"rotation": {
+			"x": 25,
+			"y": 157,
+			"z": -5
+		}
+	},
+	"tpHandTransform": {
+		"translation": {
+			"x": -1.5,
+			"y": -1,
+			"z": -1.4
+		}
+	}
+}

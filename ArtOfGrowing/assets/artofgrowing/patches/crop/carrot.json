@@ -17,32 +17,32 @@
       "*-2": { "base": "block/plant/crop/carrot/stage1to4" },
       "*-3": { "base": "block/plant/crop/carrot/stage1to4" },
       "*-4": { "base": "block/plant/crop/carrot/stage1to4" },
-      "*-5": { "base": "block/plant/crop/carrot/stage1to4" },
-      "*-6": { "base": "artofgrowing:block/crop/carrot/wild/stage6" },
-      "*": { "base": "artofgrowing:block/crop/carrot/wild/stage7" }
+      "*-5": { "base": "block/plant/crop/carrot/stage5" },
+      "*-6": { "base": "block/plant/crop/carrot/stage6" },
+      "*": { "base": "block/plant/crop/carrot/stage7" }
     },
     "file": "game:blocktypes/plant/crop/carrot.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
-    "op": "remove",
-    "path": "/textures",
-    "file": "game:blocktypes/plant/crop/carrot.json",
-    "side": "Server"
-  },
-  {
-    "op": "add",
+    "op": "addmerge",
     "path": "/texturesByType",
     "value": {
       "*-11": {
-        "bulb": { "base": "game:item/resource/rot/rot-solids" },
-        "s": { "base": "game:block/plant/crop/carrot/s{stage}" },
-        "e": { "base": "game:block/plant/crop/carrot/e{stage}" }
+        "bulb": { "base": "item/resource/rot/rot-solids" },
+        "s7": { "base": "block/plant/crop/carrot/s{stage}" },
+        "e7": { "base": "block/plant/crop/carrot/e{stage}" }
       },
       "*": {
-        "bulb": { "base": "game:block/plant/crop/carrot/bulb" },
-        "s": { "base": "game:block/plant/crop/carrot/s{stage}" },
-        "e": { "base": "game:block/plant/crop/carrot/e{stage}" }
+        "bulb": { "base": "block/plant/crop/carrot/bulb" },
+        "s7": { "base": "block/plant/crop/carrot/s{stage}" },
+        "e7": { "base": "block/plant/crop/carrot/e{stage}" }
       }
     },
     "file": "game:blocktypes/plant/crop/carrot.json",
@@ -77,7 +77,7 @@
       "*-6": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-carrot",          
+          "code": "vegetable-carrot",
           "quantity": {
             "avg": 3,
             "var": 1
@@ -92,7 +92,7 @@
       "*-7": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-carrot",          
+          "code": "vegetable-carrot",
           "quantity": {
             "avg": 11,
             "var": 2
@@ -107,7 +107,7 @@
       "*-8": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-carrot",          
+          "code": "vegetable-carrot",
           "quantity": {
             "avg": 9,
             "var": 2
@@ -122,7 +122,7 @@
       "*-9": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-carrot",          
+          "code": "vegetable-carrot",
           "quantity": {
             "avg": 7,
             "var": 2
@@ -137,7 +137,7 @@
       "*-10": [
         {
           "type": "item",
-          "code": "artofgrowing:vegetable-wild-carrot",          
+          "code": "vegetable-carrot",
           "quantity": {
             "avg": 5,
             "var": 2
@@ -152,13 +152,8 @@
       "*-11": [
         {
           "type": "item",
-          "code": "artofgrowing:seeds-wild-{type}",
-          "quantity": { "avg": 1.2 }
-        },
-        {
-          "type": "item",
-          "code": "artofgrowing:seeds-small-{type}",
-          "quantity": { "avg": 0.3 }
+          "code": "seeds-{type}",
+          "quantity": { "avg": 3.2 }
         },
         {
           "type": "item",
@@ -180,7 +175,13 @@
       ]
     },
     "file": "game:blocktypes/plant/crop/carrot.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   },
   {
     "op": "replace",
@@ -192,8 +193,14 @@
   {
     "op": "replace",
     "path": "/cropProps/totalGrowthMonths",
-    "value": 1.2,
+    "value": 2.0,
     "file": "game:blocktypes/plant/crop/carrot.json",
-    "side": "Server"
+    "side": "Server",
+    "dependsOn": [
+      {
+        "modid": "aogbreedingaddon",
+        "invert": true
+      }
+    ]
   }
 ]
