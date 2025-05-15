@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using CoreOfArts.Systems;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,9 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace ArtOfCooking.Systems
+namespace CoreOfArts.Systems
 {
-    public class AOCRecipeLoader : ModSystem
+    public class COARecipeLoader : ModSystem
     {
         ICoreServerAPI api;
 
@@ -28,7 +29,10 @@ namespace ArtOfCooking.Systems
             if (!(api is ICoreServerAPI sapi)) return;
             this.api = sapi;
 
-            LoadRecipes<DoughFormingRecipe>("dough forming recipe", "recipes/doughforming", (r) => sapi.RegisterDoughFormingRecipe(r));
+            LoadRecipes<COADoughFormingRecipe>("dough forming recipe", "recipes/doughforming", (r) => sapi.RegisterDoughFormingRecipe(r));
+            
+            LoadRecipes<COALiquidMixingRecipe>("liquid mixing recipe", "recipes/liquidmixing", (r) => sapi.RegisterLiquidMixingRecipe(r));
+
             sapi.World.Logger.StoryEvent(Lang.Get("Kneaded dough..."));
         }
         public void LoadRecipes<T>(string name, string path, Action<T> RegisterMethod) where T : IRecipeBase<T>
@@ -142,13 +146,21 @@ namespace ArtOfCooking.Systems
 
     public static class AOCApiAdditions
     {
-        public static List<DoughFormingRecipe> GetDoughformingRecipes(this ICoreAPI api)
+        public static List<COADoughFormingRecipe> GetDoughformingRecipes(this ICoreAPI api)
         {
-            return api.ModLoader.GetModSystem<AOCRecipeRegistrySystem>().DoughFormingRecipes;
+            return api.ModLoader.GetModSystem<COARecipeRegistrySystem>().DoughFormingRecipes;
         }
-        public static void RegisterDoughFormingRecipe(this ICoreServerAPI api, DoughFormingRecipe r)
+        public static List<COALiquidMixingRecipe> GetLiquidMixingRecipes(this ICoreAPI api)
         {
-            api.ModLoader.GetModSystem<AOCRecipeRegistrySystem>().RegisterDoughFormingRecipe(r);
+            return api.ModLoader.GetModSystem<COARecipeRegistrySystem>().LiquidMixingRecipes;
+        }
+        public static void RegisterDoughFormingRecipe(this ICoreServerAPI api, COADoughFormingRecipe r)
+        {
+            api.ModLoader.GetModSystem<COARecipeRegistrySystem>().RegisterDoughFormingRecipe(r);
+        }
+        public static void RegisterLiquidMixingRecipe(this ICoreServerAPI api, COALiquidMixingRecipe r)
+        {
+            api.ModLoader.GetModSystem<COARecipeRegistrySystem>().RegisterLiquidMixingRecipe(r);
         }
     }
     public class AOCDisableRecipeRegisteringSystem : ModSystem
@@ -157,14 +169,15 @@ namespace ArtOfCooking.Systems
         public override bool ShouldLoad(EnumAppSide forSide) => forSide == EnumAppSide.Server;
         public override void AssetsFinalize(ICoreAPI api)
         {
-            AOCRecipeRegistrySystem.canRegister = false;
+            COARecipeRegistrySystem.canRegister = false;
         }
     }
-    public class AOCRecipeRegistrySystem : ModSystem
+    public class COARecipeRegistrySystem : ModSystem
     {
         public static bool canRegister = true;
 
-        public List<DoughFormingRecipe> DoughFormingRecipes = new List<DoughFormingRecipe>();
+        public List<COADoughFormingRecipe> DoughFormingRecipes = new List<COADoughFormingRecipe>();
+        public List<COALiquidMixingRecipe> LiquidMixingRecipes = new List<COALiquidMixingRecipe>();
 
 
         public override double ExecuteOrder()
@@ -179,14 +192,34 @@ namespace ArtOfCooking.Systems
 
         public override void Start(ICoreAPI api)
         {
-            DoughFormingRecipes = api.RegisterRecipeRegistry<RecipeRegistryGeneric<DoughFormingRecipe>>("doughformingrecipes").Recipes;
+            DoughFormingRecipes = api.RegisterRecipeRegistry<RecipeRegistryGeneric<COADoughFormingRecipe>>("doughformingrecipes").Recipes;
+        
+            LiquidMixingRecipes = api.RegisterRecipeRegistry<RecipeRegistryGeneric<COALiquidMixingRecipe>>("liquidmixingrecipes").Recipes;
         }
-        public void RegisterDoughFormingRecipe(DoughFormingRecipe recipe)
+        public void RegisterDoughFormingRecipe(COADoughFormingRecipe recipe)
         {
             if (!canRegister) throw new InvalidOperationException("Coding error: Can no long register cooking recipes. Register them during AssetsLoad/AssetsFinalize and with ExecuteOrder < 99999");
             recipe.RecipeId = DoughFormingRecipes.Count + 1;
 
             DoughFormingRecipes.Add(recipe);
+        }        
+        public void RegisterLiquidMixingRecipe(COALiquidMixingRecipe recipe)
+        {
+            if (!canRegister) throw new InvalidOperationException("Coding error: Can no long register cooking recipes. Register them during AssetsLoad/AssetsFinalize and with ExecuteOrder < 99999");
+            if (recipe.Code == null)
+            {
+                throw new ArgumentException("LiquidMixing recipes must have a non-null code! (choose freely)");
+            }
+
+            foreach (var ingred in recipe.Ingredients)
+            {
+                if (ingred.ConsumeQuantity != null && ingred.ConsumeQuantity > ingred.Quantity)
+                {
+                    throw new ArgumentException("Liquid Mixing recipe with code {0} has an ingredient with ConsumeQuantity > Quantity. Not a valid recipe!");
+                }
+            }
+
+            LiquidMixingRecipes.Add(recipe);
         }
 
     }

@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="CoreOfArts">
+      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
     <Reference Include="VintagestoryAPI">
       <HintPath>$(VINTAGE_STORY)/VintagestoryAPI.dll</HintPath>
       <Private>false</Private>
@@ -115,6 +119,7 @@
 </ItemGroup>
 
 <ItemGroup>
+  <Folder Include="assets\game\patches\" />
   <Folder Include="assets\game\shapes\item\" />
 </ItemGroup>
 

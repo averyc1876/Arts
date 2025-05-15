@@ -1,35 +1,43 @@
 {
-	"enabled": false,
-	"code": "butterportion",
+	"code": "pastrydoughbase",
 	"class": "ItemLiquidPortion",
 	"matterState": "liquid",
 	"attributes": {
 		"handbook": {
 			"ignoreCreativeInvStacks": true
 		},
-		"inContainerTexture": { "base": "artofcooking:block/food/dairy/clarifiedbutter" },
+		"inContainerTexture": {
+			"base": "artofcooking:block/food/egg/egg-whole",
+			"overlays": [ "block/food/dairy/milk-overlays" ]
+		},
 		"inBowlShape": { "base": "game:block/food/meal/liquid" },
 		"waterTightContainerProps": {
 			"containable": true,
 			"itemsPerLitre": 100,
 			"isopaque": true,
-			"texture": { "base": "artofcooking:block/food/dairy/clarifiedbutter" },
+			"texture": {
+				"base": "artofcooking:block/food/egg/egg-whole",
+				"overlays": [ "block/food/dairy/milk-overlays" ]
+			},
 			"allowSpill": true,
 			"whenSpilled": {
 				"action": "DropContents",
 				"stack": {
 					"type": "item",
-					"code": "artofcooking:butterportion"
+					"code": "artofcooking:pastrydoughbase"
 				}
 			},
 			"nutritionPropsPerLitre": {
-				"saturation": 140,
+				"saturation": 150,
 				"foodcategory": "Dairy"
 			}
 		}
 	},
 	"shape": { "base": "game:item/liquid" },
-	"texture": { "base": "artofcooking:block/food/dairy/clarifiedbutter" },
+	"texture": {
+		"base": "artofcooking:block/food/egg/egg-whole",
+		"overlays": [ "block/food/dairy/milk-overlays" ]
+	},
 	"creativeinventoryStacks": [
 		{
 			"tabs": [ "general", "liquids" ],
@@ -41,7 +49,7 @@
 						"ucontents": [
 							{
 								"type": "item",
-								"code": "artofcooking:butterportion",
+								"code": "artofcooking:pastrydoughbase",
 								"makefull": true
 							}
 						]
@@ -55,7 +63,7 @@
 	"transitionableProps": [
 		{
 			"type": "Perish",
-			"freshHours": { "avg": 240 },
+			"freshHours": { "avg": 96 },
 			"transitionHours": { "avg": 96 },
 			"transitionedStack": {
 				"type": "item",

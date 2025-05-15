@@ -3,9 +3,9 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
 
-namespace ArtOfCooking.Systems
+namespace CoreOfArts.Systems
 {
-    public class DoughFormingRecipe : LayeredVoxelRecipe<DoughFormingRecipe>, IByteSerializable
+    public class COADoughFormingRecipe : LayeredVoxelRecipe<COADoughFormingRecipe>, IByteSerializable
     {
         public override int QuantityLayers => 16;
         public override string RecipeCategoryCode => "dough forming";
@@ -15,9 +15,9 @@ namespace ArtOfCooking.Systems
         /// Creates a deep copy
         /// </summary>
         /// <returns></returns>
-        public override DoughFormingRecipe Clone()
+        public override COADoughFormingRecipe Clone()
         {
-            DoughFormingRecipe recipe = new DoughFormingRecipe();
+            COADoughFormingRecipe recipe = new COADoughFormingRecipe();
 
             recipe.Pattern = new string[Pattern.Length][];
             for (int i = 0; i < recipe.Pattern.Length; i++)

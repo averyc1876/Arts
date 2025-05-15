@@ -42,7 +42,7 @@
 	},
 	"creativeinventoryStacks": [
 		{
-			"tabs": [ "general", "liquids", "artofcooking" ],
+			"tabs": [ "general", "liquids" ],
 			"stacks": [
 				{
 					"type": "block",

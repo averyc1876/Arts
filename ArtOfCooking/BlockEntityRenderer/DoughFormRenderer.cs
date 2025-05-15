@@ -1,5 +1,5 @@
 ﻿using ArtOfCooking.Items;
-using ArtOfCooking.Systems;
+using CoreOfArts.Systems;
 using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -105,7 +105,7 @@ namespace ArtOfCooking.BlockEntityRenderer
 
 
 
-        public void RegenMesh(ItemStack workitem, bool[,,] Voxels, DoughFormingRecipe recipeToOutline, int recipeLayer)
+        public void RegenMesh(ItemStack workitem, bool[,,] Voxels, COADoughFormingRecipe recipeToOutline, int recipeLayer)
         {
             workItemMeshRef?.Dispose();
             workItemMeshRef = null;
@@ -192,7 +192,7 @@ namespace ArtOfCooking.BlockEntityRenderer
             workItemMeshRef = api.Render.UploadMesh(workItemMesh);
         }
 
-        private void RegenOutlineMesh(DoughFormingRecipe recipeToOutline, bool[,,] Voxels, int recipeLayer)
+        private void RegenOutlineMesh(COADoughFormingRecipe recipeToOutline, bool[,,] Voxels, int recipeLayer)
         {
             MeshData recipeOutlineMesh = new MeshData(24, 36, false, false, true, false);
             recipeOutlineMesh.SetMode(EnumDrawMode.Lines);

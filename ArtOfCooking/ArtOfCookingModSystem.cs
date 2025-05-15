@@ -1,7 +1,6 @@
 ﻿using ArtOfCooking.BlockBehaviors;
 using ArtOfCooking.BlockEntities;
 using ArtOfCooking.Blocks;
-using ArtOfCooking.CollectibleBehaviors;
 using ArtOfCooking.Items;
 using ArtOfCooking.Systems;
 using Vintagestory;
@@ -27,13 +26,10 @@ public class ArtOfCooking : ModSystem
         api.RegisterBlockClass("AOCBlockEmptySpoon", typeof(AOCBlockEmptySpoon));
         api.RegisterBlockEntityClass("AOCBlockEntitySpoon", typeof(AOCBlockEntitySpoon));
         
-        api.RegisterCollectibleBehaviorClass("AOCEgg", typeof(AOCCollectibleBehaviorEgg));
         api.RegisterBlockBehaviorClass("AOCTable", typeof(AOCBlockBehaviorTable));
         
-        api.RegisterItemClass("AOCItemFlour", typeof(AOCItemFlour));
-        api.RegisterBlockClass("AOCBlockDoughKnead", typeof(AOCBlockDoughKnead));
-        
         api.RegisterItemClass("AOCItemFood", typeof(AOCItemFood));
+        api.RegisterItemClass("AOCItemEgg", typeof(AOCItemEgg));
     }
     public override void AssetsFinalize(ICoreAPI api)
     {

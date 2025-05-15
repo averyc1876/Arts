@@ -1,4 +1,5 @@
 {
+	"enabled": false,
 	"code": "sourcreamportion",
 	"class": "ItemLiquidPortion",
 	"matterState": "liquid",
@@ -30,6 +31,26 @@
 	},
 	"shape": { "base": "game:item/liquid" },
 	"texture": { "base": "artofcooking:block/food/dairy/sourcream" },
+	"creativeinventoryStacks": [
+		{
+			"tabs": [ "general", "liquids" ],
+			"stacks": [
+				{
+					"type": "block",
+					"code": "game:woodbucket",
+					"attributes": {
+						"ucontents": [
+							{
+								"type": "item",
+								"code": "artofcooking:sourcreamportion",
+								"makefull": true
+							}
+						]
+					}
+				}
+			]
+		}
+	],
 	"maxstacksize": 5000,
 	"materialDensity": 200,
 	"transitionableProps": [

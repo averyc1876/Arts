@@ -1,5 +1,6 @@
 {
 	"code": "eggyolk",
+	"class": "AOCItemEgg",
 	"maxstacksize": 32,
 	"variantgroups": [
 		{
@@ -21,9 +22,6 @@
 					"z2": 1
 				}
 			}
-		},
-		{
-			"name": "AOCEgg"
 		}
 	],
 	"attributes": {
@@ -34,6 +32,11 @@
 				"z": 0
 			}
 		}
+	},
+	"nutritionProps": {
+		"satiety": 7,
+		"health": -1,
+		"foodcategory": "Protein"
 	},
 	"shape": { "base": "item/food/eggyolk" },
 	"creativeinventory": {
@@ -104,5 +107,15 @@
 		"scale": 5
 	},
 	"transitionableProps": [
+		{
+			"type": "Perish",
+			"freshHours": { "avg": 120 },
+			"transitionHours": { "avg": 24 },
+			"transitionedStack": {
+				"type": "item",
+				"code": "game:rot"
+			},
+			"transitionRatio": 0.5
+		}
 	]
 }

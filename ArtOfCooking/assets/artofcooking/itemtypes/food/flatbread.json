@@ -1,5 +1,9 @@
 {
 	"code": "flatbread",
+	"classByType": {
+		"*-raw": "Item",
+		"*": "AOCItemFood"
+	},
 	"behaviors": [
 		{
 			"name": "GroundStorable",
@@ -107,14 +111,6 @@
 				"startScaleY": 0.9,
 				"endScaleY": 0.95,
 				"resultCode": "artofcooking:flatbread-{type}-partbaked"
-			},
-			"handbook": {
-				"extraSections": [
-					{
-						"title": "artofcooking:item-handbooktitle-doughforming",
-						"text": "artofcooking:item-handbooktext-doughforming"
-					}
-				]
 			}
 		},
 		"*-partbaked": {
@@ -126,7 +122,17 @@
 				"endScaleY": 1.10,
 				"resultCode": "artofcooking:flatbread-{type}-perfect",
 				"initialCode": "artofcooking:flatbread-{type}-raw"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 45,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 20,
+					"foodcategory": "Protein"
+				}
+			]
 		},
 		"*-perfect": {
 			"bakingProperties": {
@@ -137,7 +143,17 @@
 				"endScaleY": 1.13,
 				"resultCode": "artofcooking:flatbread-{type}-charred",
 				"initialCode": "artofcooking:flatbread-{type}-partbaked"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 50,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 25,
+					"foodcategory": "Protein"
+				}
+			]
 		},
 		"*-charred": {
 			"bakingProperties": {
@@ -147,7 +163,17 @@
 				"startScaleY": 1.13,
 				"endScaleY": 1.10,
 				"initialCode": "artofcooking:flatbread-{type}-perfect"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 40,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 15,
+					"foodcategory": "Protein"
+				}
+			]
 		}
 	},
 	"combustiblePropsByType": {

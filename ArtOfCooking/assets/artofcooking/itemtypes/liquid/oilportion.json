@@ -1,5 +1,6 @@
 {
-	"code": "oil",
+	"enabled": false,
+	"code": "oilportion",
 	"variantGroups": [
 		{
 			"code": "type",
@@ -17,10 +18,10 @@
 			"ignoreCreativeInvStacks": true
 		},
 		"distillationPropsbytype": {
-			"oil-{type}-unrefined": {
+			"oilportion-{type}-unrefined": {
 				"distilledStack": {
 					"type": "item",
-					"code": "oil-{type}-refined"
+					"code": "artofcooking:oilportion-{type}-refined"
 				},
 				"ratio": 0.75
 			}
@@ -48,7 +49,7 @@
 				"action": "DropContents",
 				"stack": {
 					"type": "item",
-					"code": "artofcooking:oil-{type}-{state}"
+					"code": "artofcooking:oilportion-{type}-{state}"
 				}
 			}
 		}
@@ -61,6 +62,26 @@
 			"*-refined": 100
 		}
 	},
+	"creativeinventoryStacks": [
+		{
+			"tabs": [ "general", "liquids" ],
+			"stacks": [
+				{
+					"type": "block",
+					"code": "game:woodbucket",
+					"attributes": {
+						"ucontents": [
+							{
+								"type": "item",
+								"code": "artofcooking:oilportion-{type}-{state}",
+								"makefull": true
+							}
+						]
+					}
+				}
+			]
+		}
+	],
 	"maxstacksize": 5000,
 	"materialDensity": 200,
 	"guiTransform": {

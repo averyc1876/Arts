@@ -1,0 +1,19 @@
+{
+	"code": "pastrydoughbase",
+	"ingredients": [
+		{
+			"type": "item",
+			"code": "game:milkportion",
+			"litres": 0.6
+		},
+		{
+			"type": "item",
+			"code": "eggportion-raw-whole",
+			"litres": 0.4
+		}
+	],
+	"output": {
+		"type": "item",
+		"code": "pastrydoughbase"
+	}
+}

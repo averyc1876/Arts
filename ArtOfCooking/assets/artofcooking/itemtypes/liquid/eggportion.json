@@ -48,6 +48,15 @@
 			}
 		}
 	},
+	"nutritionProps": {
+		"satietyByType": {
+			"*-white": 90,
+			"*-yolk": 140,
+			"*-whole": 100
+		},
+		"health": -5,
+		"foodcategory": "Protein"
+	},
 	"shape": { "base": "game:item/liquid" },
 	"texture": {
 		"base": "artofcooking:block/food/egg/egg-{type}",
@@ -55,7 +64,7 @@
 	},
 	"creativeinventoryStacks": [
 		{
-			"tabs": [ "general", "liquids", "artofcooking" ],
+			"tabs": [ "general", "liquids" ],
 			"stacks": [
 				{
 					"type": "block",

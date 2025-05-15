@@ -86,14 +86,6 @@
 				"startScaleY": 0.9,
 				"endScaleY": 0.95,
 				"resultCode": "artofcooking:lavash-{type}-partbaked"
-			},
-			"handbook": {
-				"extraSections": [
-					{
-						"title": "artofcooking:item-handbooktitle-doughforming",
-						"text": "artofcooking:item-handbooktext-doughforming"
-					}
-				]
 			}
 		},
 		"*-partbaked": {

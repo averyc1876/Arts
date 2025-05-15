@@ -1,16 +1,24 @@
 {
-  "game:It changes...": "Оно меняется...",
+    "game:Dough forming": "Лепка из теста",
+    "game:artsguides-doughforming-title": "Arts Guides: Лепка из теста",
+    "game:artsguides-doughforming-text": "<strong>Лепка из теста</strong><br><br><i>Лепка различных изделий из теста - разве не об этом вы мечтали?</i><br><br>Лепка из теста позволяет производить множество разных хлебо-булочных изделий. Как и в случае с лепкой из глины, зажмите <hk>shift</hk> + <hk>rightmouse</hk> с <a href=\"handbooksearch://тесто\">тестом</a> в руках, чтобы создать поверхность для лепки глины. Лепить из теста можно только на <a href=\"handbooksearch:\/\/стол\">столе<\/a>. Вам будет предложен выбор рецептов. Выбрав, вам нужно будет его сформовать. Используйте <hk>leftmouse</hk>, чтобы удалять воксели, и <hk>rightmouse</hk>, чтобы добавлять. Когда изделие будет готово, возьмите его и запеките в <a href=\"handbook:\/\/block-clayoven-north\">глиняной печи</a>.<br><br>Совет: вы можете выбрать различные режимы инструмента (нажмите <hk>toolmodeselect</hk>), чтобы добавить / убрать несколько вокселей сразу, а также скопировать целые слои глины в режиме копирования слоя.",
 
-  "game:recipeingredient-item-vegetable-cookedcattailroot": "корень",
-  "game:recipeingredient-item-vegetable-cookedcattailroot-insturmentalcase": "корнем",
-  "game:meal-ingredient-soup-primary-vegetable-cookedcattailroot": "Корневой",
-  "game:meal-ingredient-soup-secondary-vegetable-cookedcattailroot": "Корень",
-  "game:meal-ingredient-stew-primary-vegetable-cookedcattailroot": "Корневое",
-  "game:meal-ingredient-stew-secondary-vegetable-cookedcattailroot": "Корневое",
-  "game:recipeingredient-item-vegetable-cookedpapyrusroot": "корень",
-  "game:recipeingredient-item-vegetable-cookedpapyrusroot-insturmentalcase": "корнем",
-  "game:meal-ingredient-soup-primary-vegetable-cookedpapyrusroot": "Корневой",
-  "game:meal-ingredient-soup-secondary-vegetable-cookedpapyrusroot": "Корень",
-  "game:meal-ingredient-stew-primary-vegetable-cookedpapyrusroot": "Корневое",
-  "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Корневое"
+    "game:It changes...": "Оно меняется...",
+    "coreofart:heldhelp-mixing": "Смешать жидкости",
+    "coreofart:heldhelp-basemixing": "Смешать с жидкостью",
+    "coreofart:heldhelp-doughkneading": "Замесить тесто",
+    "game:Mixing (in world)": "Смешивание (в мире)",
+
+    "game:recipeingredient-item-vegetable-cookedcattailroot": "корень",
+    "game:recipeingredient-item-vegetable-cookedcattailroot-insturmentalcase": "корнем",
+    "game:meal-ingredient-soup-primary-vegetable-cookedcattailroot": "Корневой",
+    "game:meal-ingredient-soup-secondary-vegetable-cookedcattailroot": "Корень",
+    "game:meal-ingredient-stew-primary-vegetable-cookedcattailroot": "Корневое",
+    "game:meal-ingredient-stew-secondary-vegetable-cookedcattailroot": "Корневое",
+    "game:recipeingredient-item-vegetable-cookedpapyrusroot": "корень",
+    "game:recipeingredient-item-vegetable-cookedpapyrusroot-insturmentalcase": "корнем",
+    "game:meal-ingredient-soup-primary-vegetable-cookedpapyrusroot": "Корневой",
+    "game:meal-ingredient-soup-secondary-vegetable-cookedpapyrusroot": "Корень",
+    "game:meal-ingredient-stew-primary-vegetable-cookedpapyrusroot": "Корневое",
+    "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Корневое"
 }

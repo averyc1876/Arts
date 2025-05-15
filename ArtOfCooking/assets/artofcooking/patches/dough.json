@@ -1,51 +1,121 @@
 [
-  {
-    "op": "addmerge",
-    "path": "/class",
-    "value": "AOCItemFlour",
-    "file": "game:itemtypes/food/flour.json",
-    "side": "Server"
-  },
-  {
-    "op": "addmerge",
-    "path": "/attributes/handbook",
-    "value": {
-      "extraSections": [
-        {
-          "title": "artofcooking:item-handbooktitle-doughknead",
-          "text": "artofcooking:item-handbooktext-doughknead"
-        }
-      ]
+    {
+        "op": "addmerge",
+        "path": "/behaviors/-",
+        "value": {
+            "name": "COAInLiquidMixing",
+            "properties": {
+                "mixingType": "doughkneading",
+                "inLiquidMixingList": [
+                    {
+                        "initialCode": "game:flour-{type}",
+                        "sourceSize": 1,
+                        "inputLitres": 1,
+                        "inputStack": {
+                            "type": "item",
+                            "code": "game:waterportion"
+                        },
+                        "outputStacks": [
+                            {
+                                "type": "item",
+                                "code": "artofcooking:doughpiece-unleavened-{type}",
+                                "stackSize": 8
+                            }
+                        ],
+                        "needExactLitres": true,
+                        "canBulk": true,
+                        "mixingTime": 2.5,
+                        "animation": "squeezehoneycomb",
+                        "sound": "sounds/player/squeezehoneycomb"
+                    },
+                    {
+                        "initialCode": "game:flour-{type}",
+                        "sourceSize": 1,
+                        "inputLitres": 1,
+                        "inputStack": {
+                            "type": "item",
+                            "code": "artofcooking:pastrydoughbase"
+                        },
+                        "outputStacks": [
+                            {
+                                "type": "item",
+                                "code": "artofcooking:doughpiece-pastry-{type}",
+                                "stackSize": 8
+                            }
+                        ],
+                        "needExactLitres": true,
+                        "canBulk": true,
+                        "mixingTime": 2.5,
+                        "animation": "squeezehoneycomb",
+                        "sound": "sounds/player/squeezehoneycomb"
+                    },
+                    {
+                        "initialCode": "game:flour-{type}",
+                        "sourceSize": 1,
+                        "inputLitres": 1,
+                        "inputStack": {
+                            "type": "item",
+                            "code": "butchering:bloodportion"
+                        },
+                        "outputStacks": [
+                            {
+                                "type": "item",
+                                "code": "artofcooking:doughpiece-blooddough-{type}",
+                                "stackSize": 8
+                            }
+                        ],
+                        "needExactLitres": true,
+                        "canBulk": true,
+                        "mixingTime": 2.5,
+                        "animation": "squeezehoneycomb",
+                        "sound": "sounds/player/squeezehoneycomb"
+                    }
+                ]
+            }
+        },
+        "file": "game:itemtypes/food/flour.json",
+        "side": "Server"
     },
-    "file": "game:itemtypes/food/flour.json",
-    "side": "Server"
-  },
-  {
-    "op": "remove",
-    "path": "/class",
-    "file": "game:itemtypes/food/dough.json",
-    "side": "Server"
-  },
-  {
-    "op": "addmerge",
-    "path": "/behaviors",
-    "value": [
-      {
-        "name": "GroundStorable",
-        "properties": {
-          "layout": "Quadrants",
-          "collisionBox": {
-            "x1": 0,
-            "y1": 0,
-            "z1": 0,
-            "x2": 1,
-            "y2": 0.125,
-            "z2": 1
-          }
-        }
-      }
-    ],
-    "file": "game:itemtypes/food/dough.json",
-    "side": "Server"
-  }
+    {
+        "op": "addmerge",
+        "path": "/attributes/handbook",
+        "value": {
+            "extraSections": [
+                {
+                    "title": "artofcooking:item-handbooktitle-doughknead",
+                    "text": "artofcooking:item-handbooktext-doughknead"
+                }
+            ]
+        },
+        "file": "game:itemtypes/food/flour.json",
+        "side": "Server"
+    },
+    {
+        "op": "remove",
+        "path": "/class",
+        "file": "game:itemtypes/food/dough.json",
+        "side": "Server"
+    },
+    {
+        "op": "addmerge",
+        "path": "/behaviors",
+        "value": [
+            {
+                "name": "GroundStorable",
+                "properties": {
+                    "layout": "Quadrants",
+                    "collisionBox": {
+                        "x1": 0,
+                        "y1": 0,
+                        "z1": 0,
+                        "x2": 1,
+                        "y2": 0.125,
+                        "z2": 1
+                    }
+                }
+            }
+        ],
+        "file": "game:itemtypes/food/dough.json",
+        "side": "Server"
+    }
 ]

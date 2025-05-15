@@ -1,0 +1,23 @@
+[
+    {
+        "file": "game:recipes/grid/dough.json",
+        "op": "addmerge",
+        "path": "/0/enabled",
+        "value": false,
+        "side": "server"
+    },
+    {
+        "file": "game:recipes/grid/dough.json",
+        "op": "addmerge",
+        "path": "/1/enabled",
+        "value": false,
+        "side": "server"
+    },
+    {
+        "file": "game:recipes/grid/dough.json",
+        "op": "addmerge",
+        "path": "/2/enabled",
+        "value": false,
+        "side": "server"
+    }
+]

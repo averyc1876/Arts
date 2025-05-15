@@ -1,6 +1,5 @@
 ﻿using ArtOfCooking.BlockEntityRenderer;
 using ArtOfCooking.Blocks;
-using ArtOfCooking.Systems;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using CoreOfArts.Systems;
 
 namespace ArtOfCooking.BlockEntities
 {
@@ -32,7 +32,7 @@ namespace ArtOfCooking.BlockEntities
         // Permanent data
         ItemStack workItemStack;
         int selectedRecipeId = -1;
-        DoughFormingRecipe selectedRecipe;
+        COADoughFormingRecipe selectedRecipe;
         public int AvailableVoxels;
         public bool[,,] Voxels = new bool[16, 16, 16];
 
@@ -48,7 +48,7 @@ namespace ArtOfCooking.BlockEntities
         DoughFormRenderer workitemRenderer;
 
 
-        public DoughFormingRecipe SelectedRecipe
+        public COADoughFormingRecipe SelectedRecipe
         {
             get { return selectedRecipe; }
         }
@@ -704,7 +704,7 @@ namespace ArtOfCooking.BlockEntities
             if (packetid == (int)EnumDoughFormingPacket.SelectRecipe)
             {
                 int recipeid = SerializerUtil.Deserialize<int>(data);
-                DoughFormingRecipe recipe = Api.GetDoughformingRecipes().FirstOrDefault(r => r.RecipeId == recipeid);
+                COADoughFormingRecipe recipe = Api.GetDoughformingRecipes().FirstOrDefault(r => r.RecipeId == recipeid);
 
                 if (recipe == null)
                 {
@@ -753,7 +753,7 @@ namespace ArtOfCooking.BlockEntities
                 ingredient = new ItemStack(world.GetItem(new AssetLocation("artofcooking:doughpiece-" + ingredient.Collectible.Variant["variety"] + "-" + ingredient.Collectible.LastCodePart())));
             }
 
-            List<DoughFormingRecipe> recipes = Api.GetDoughformingRecipes()
+            List<COADoughFormingRecipe> recipes = Api.GetDoughformingRecipes()
                 .Where(r => r.Ingredient.SatisfiesAsIngredient(ingredient))
                 .OrderBy(r => r.Output.ResolvedItemstack.Collectible.Code) // Cannot sort by name, thats language dependent!
                 .ToList();

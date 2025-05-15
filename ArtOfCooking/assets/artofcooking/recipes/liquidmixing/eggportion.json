@@ -1,0 +1,19 @@
+{
+	"code": "eggportion",
+	"ingredients": [
+		{
+			"type": "item",
+			"code": "artofcooking:eggportion-raw-white",
+			"litres": 0.15
+		},
+		{
+			"type": "item",
+			"code": "artofcooking:eggportion-raw-yolk",
+			"litres": 0.05
+		}
+	],
+	"output": {
+		"type": "item",
+		"code": "artofcooking:eggportion-raw-whole"
+	}
+}

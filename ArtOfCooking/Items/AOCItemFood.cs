@@ -18,51 +18,54 @@ namespace ArtOfCooking.Items
 {
     public class AOCItemFood : Item
     {
-        public virtual FoodNutritionProperties GetExtraNutritionProperties(IWorldAccessor world, ItemStack itemstack, Entity forEntity)
+        public virtual FoodNutritionProperties[] GetExtraNutritionProperties(IWorldAccessor world, ItemStack itemstack, Entity forEntity)
         {
-            FoodNutritionProperties extraNutrition = itemstack.ItemAttributes?["extraNutritionProps"]?.AsObject<FoodNutritionProperties>(null, itemstack.Collectible.Code.Domain);
-            return extraNutrition;
+            FoodNutritionProperties[] extraNutritions = itemstack.ItemAttributes?["extraNutritionProps"]?.AsObject<FoodNutritionProperties[]>(null, itemstack.Collectible.Code.Domain);
+            return extraNutritions;
         }        
         protected override void tryEatStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity)
         {
-            FoodNutritionProperties nutriProps = GetExtraNutritionProperties(byEntity.World, slot.Itemstack, byEntity);
+            FoodNutritionProperties[] nutriProperties = GetExtraNutritionProperties(byEntity.World, slot.Itemstack, byEntity);
 
-            if (byEntity.World is IServerWorldAccessor && nutriProps != null && secondsUsed >= 0.95f)
+            if (byEntity.World is IServerWorldAccessor && nutriProperties != null && secondsUsed >= 0.95f)
             {
-                TransitionState state = UpdateAndGetTransitionState(api.World, slot, EnumTransitionType.Perish);
-                float spoilState = state != null ? state.TransitionLevel : 0;
-
-                float satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, slot.Itemstack, byEntity);
-                float healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, slot.Itemstack, byEntity);
-
-                byEntity.ReceiveSaturation(nutriProps.Satiety * satLossMul, nutriProps.FoodCategory);
-
-                IPlayer player = null;
-                if (byEntity is EntityPlayer) player = byEntity.World.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
-
-                if (nutriProps.EatenStack != null)
+                foreach (var nutriProps in nutriProperties)
                 {
-                    if (slot.Empty)
+                    TransitionState state = UpdateAndGetTransitionState(api.World, slot, EnumTransitionType.Perish);
+                    float spoilState = state != null ? state.TransitionLevel : 0;
+
+                    float satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, slot.Itemstack, byEntity);
+                    float healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, slot.Itemstack, byEntity);
+
+                    byEntity.ReceiveSaturation(nutriProps.Satiety * satLossMul, nutriProps.FoodCategory);
+
+                    IPlayer player = null;
+                    if (byEntity is EntityPlayer) player = byEntity.World.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
+
+                    if (nutriProps.EatenStack != null)
                     {
-                        slot.Itemstack = nutriProps.EatenStack.ResolvedItemstack.Clone();
-                    }
-                    else
-                    {
-                        if (player == null || !player.InventoryManager.TryGiveItemstack(nutriProps.EatenStack.ResolvedItemstack.Clone(), true))
+                        if (slot.Empty)
                         {
-                            byEntity.World.SpawnItemEntity(nutriProps.EatenStack.ResolvedItemstack.Clone(), byEntity.SidedPos.XYZ);
+                            slot.Itemstack = nutriProps.EatenStack.ResolvedItemstack.Clone();
+                        }
+                        else
+                        {
+                            if (player == null || !player.InventoryManager.TryGiveItemstack(nutriProps.EatenStack.ResolvedItemstack.Clone(), true))
+                            {
+                                byEntity.World.SpawnItemEntity(nutriProps.EatenStack.ResolvedItemstack.Clone(), byEntity.SidedPos.XYZ);
+                            }
                         }
                     }
-                }
 
-                float healthChange = nutriProps.Health * healthLossMul;
+                    float healthChange = nutriProps.Health * healthLossMul;
 
-                float intox = byEntity.WatchedAttributes.GetFloat("intoxication");
-                byEntity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + nutriProps.Intoxication));
+                    float intox = byEntity.WatchedAttributes.GetFloat("intoxication");
+                    byEntity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + nutriProps.Intoxication));
 
-                if (healthChange != 0)
-                {
-                    byEntity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Internal, Type = healthChange > 0 ? EnumDamageType.Heal : EnumDamageType.Poison }, Math.Abs(healthChange));
+                    if (healthChange != 0)
+                    {
+                        byEntity.ReceiveDamage(new DamageSource() { Source = EnumDamageSource.Internal, Type = healthChange > 0 ? EnumDamageType.Heal : EnumDamageType.Poison }, Math.Abs(healthChange));
+                    }
                 }
             }
             base.tryEatStop(secondsUsed, slot, byEntity);
@@ -146,20 +149,25 @@ namespace ArtOfCooking.Items
 
 
             FoodNutritionProperties nutriProps = GetNutritionProperties(world, stack, entity);
-            FoodNutritionProperties extraNutriProps = GetExtraNutritionProperties(world, stack, entity);
-            if (nutriProps != null && extraNutriProps != null)
+            FoodNutritionProperties[] extraNutriProperties = GetExtraNutritionProperties(world, stack, entity);
+            if (nutriProps != null)
             {
                 float satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, stack, entity);
                 float healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, stack, entity);
                 
                 dsc.AppendLine(Lang.Get("nutrition-facts-line-satiety", Lang.Get("foodcategory-" + nutriProps.FoodCategory.ToString().ToLowerInvariant()), Math.Round(nutriProps.Satiety * satLossMul)));
-                dsc.AppendLine(Lang.Get("nutrition-facts-line-satiety", Lang.Get("foodcategory-" + extraNutriProps.FoodCategory.ToString().ToLowerInvariant()), Math.Round(extraNutriProps.Satiety * satLossMul)));
+                float extraNutriHealth = 0;
+                foreach (var extraNutriProps in extraNutriProperties)
+                {
+                    dsc.AppendLine(Lang.Get("nutrition-facts-line-satiety", Lang.Get("foodcategory-" + extraNutriProps.FoodCategory.ToString().ToLowerInvariant()), Math.Round(extraNutriProps.Satiety * satLossMul)));
+                    extraNutriHealth += extraNutriProps.Health;
+                }
                 
-                if (Math.Abs(nutriProps.Health * healthLossMul) > 0.001f || Math.Abs(extraNutriProps.Health * healthLossMul) > 0.001f)
+                if (Math.Abs((nutriProps.Health + extraNutriHealth) * healthLossMul) > 0.001f)
                 {
                     dsc.AppendLine("- " + Lang.Get("Health: {0}{1} hp", 
-                        (Math.Round(nutriProps.Health * healthLossMul, 2) + Math.Round(extraNutriProps.Health * healthLossMul, 2) > 0f) ? "+" : "", 
-                        Math.Round(nutriProps.Health * healthLossMul, 2) + Math.Round(extraNutriProps.Health * healthLossMul, 2)));
+                        (Math.Round((nutriProps.Health + extraNutriHealth) * healthLossMul, 2) > 0f) ? "+" : "", 
+                        Math.Round((nutriProps.Health + extraNutriHealth) * healthLossMul, 2)));
                 }
             }       
 

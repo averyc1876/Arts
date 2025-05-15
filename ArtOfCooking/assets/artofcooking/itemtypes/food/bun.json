@@ -42,7 +42,7 @@
 		"*-acorn-raw": {
 			"dough": {
 				"base": "wildcraftfruit:items/grain/{type}bread",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
+				"overlays": [ "block/food/egg/egg-overlays" ]
 			}
 		},
 		"*-acorn-partbaked": {
@@ -111,7 +111,17 @@
 				"endScaleY": 1.10,
 				"resultCode": "artofcooking:bun-{type}-perfect",
 				"initialCode": "artofcooking:bun-{type}-raw"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 30,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 15,
+					"foodcategory": "Protein"
+				}
+			]
 		},
 		"*-perfect": {
 			"displaycaseable": true,
@@ -124,7 +134,17 @@
 				"endScaleY": 1.13,
 				"resultCode": "artofcooking:bun-{type}-charred",
 				"initialCode": "artofcooking:bun-{type}-partbaked"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 35,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 20,
+					"foodcategory": "Protein"
+				}
+			]
 		},
 		"*-charred": {
 			"displaycaseable": true,
@@ -136,7 +156,17 @@
 				"startScaleY": 1.13,
 				"endScaleY": 1.10,
 				"initialCode": "artofcooking:bun-{type}-perfect"
-			}
+			},
+			"extraNutritionProps": [
+				{
+					"saturation": 25,
+					"foodcategory": "Dairy"
+				},
+				{
+					"saturation": 10,
+					"foodcategory": "Protein"
+				}
+			]
 		}
 	},
 	"combustiblePropsByType": {

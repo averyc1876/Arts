@@ -1,66 +1,46 @@
 [
-  {
-    "op": "remove",
-    "path": "/class",
-    "file": "wildcraftfruit:itemtypes/food/dough.json",
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "Server"
-  },
-  {
-    "op": "addmerge",
-    "path": "/behaviors",
-    "value": [
-      {
-        "name": "GroundStorable",
-        "properties": {
-          "layout": "Quadrants",
-          "collisionBox": {
-            "x1": 0,
-            "y1": 0,
-            "z1": 0,
-            "x2": 1,
-            "y2": 0.125,
-            "z2": 1
-          }
-        }
-      }
-    ],
-    "file": "wildcraftfruit:itemtypes/food/dough.json",
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "Server"
-  },
-  {
-    "file": "artofcooking:recipes/cooking/compoteportion-wildcraftfruit.json",
-    "op": "replace",
-    "path": "/enabled",
-    "value": true,
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "server"
-  },
-  {
-    "file": "artofcooking:recipes/grid/dough.json",
-    "op": "replace",
-    "path": "/1/enabled",
-    "value": true,
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "server"
-  },
-  {
-    "file": "wildcraftfruit:recipes/grid/acorndough.json",
-    "op": "addmerge",
-    "path": "/enabled",
-    "value": false,
-    "dependsOn": [
-      { "modid": "wildcraftfruit" }
-    ],
-    "side": "server"
-  }
+    {
+        "op": "remove",
+        "path": "/class",
+        "file": "wildcraftfruit:itemtypes/food/dough.json",
+        "dependsOn": [
+            { "modid": "wildcraftfruit" }
+        ],
+        "side": "Server"
+    },
+    {
+        "op": "addmerge",
+        "path": "/behaviors",
+        "value": [
+            {
+                "name": "GroundStorable",
+                "properties": {
+                    "layout": "Quadrants",
+                    "collisionBox": {
+                        "x1": 0,
+                        "y1": 0,
+                        "z1": 0,
+                        "x2": 1,
+                        "y2": 0.125,
+                        "z2": 1
+                    }
+                }
+            }
+        ],
+        "file": "wildcraftfruit:itemtypes/food/dough.json",
+        "dependsOn": [
+            { "modid": "wildcraftfruit" }
+        ],
+        "side": "Server"
+    },
+    {
+        "file": "artofcooking:recipes/cooking/compoteportion-wildcraftfruit.json",
+        "op": "replace",
+        "path": "/enabled",
+        "value": true,
+        "dependsOn": [
+            { "modid": "wildcraftfruit" }
+        ],
+        "side": "server"
+    }
 ]

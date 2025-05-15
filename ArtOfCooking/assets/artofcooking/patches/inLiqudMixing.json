@@ -1,0 +1,180 @@
+[
+    {
+        "op": "addmerge",
+        "path": "/behaviors",
+        "value": [
+            {
+                "name": "COAInLiquidMixing",
+                "properties": {
+                    "inLiquidMixingList": [
+                        {
+                            "initialCode": "game:salt",
+                            "sourceSize": 1,
+                            "inputLitres": 2,
+                            "outputLitres": 2,
+                            "inputStack": {
+                                "type": "item",
+                                "code": "game:waterportion"
+                            },
+                            "outputLiquid": {
+                                "type": "item",
+                                "code": "game:brineportion"
+                            },
+                            "needExactLitres": true,
+                            "canBulk": true
+                        }
+                    ]
+                }
+            }
+        ],
+        "file": "game:itemtypes/resource/crushed/salt.json",
+        "side": "Server"
+    },
+    {
+        "op": "addmerge",
+        "path": "/behaviors",
+        "value": [
+            {
+                "name": "COAInLiquidMixing",
+                "properties": {
+                    "inLiquidMixingList": [
+                        {
+                            "initialCode": "game:lime",
+                            "sourceSize": 1,
+                            "inputLitres": 1,
+                            "outputLitres": 1,
+                            "inputStack": {
+                                "type": "item",
+                                "code": "game:waterportion"
+                            },
+                            "outputLiquid": {
+                                "type": "item",
+                                "code": "game:limewaterportion"
+                            },
+                            "needExactLitres": true,
+                            "canBulk": true
+                        }
+                    ]
+                }
+            }
+        ],
+        "file": "game:itemtypes/resource/crushed/lime.json",
+        "side": "Server"
+    },
+    {
+        "op": "addmerge",
+        "path": "/behaviorsByType",
+        "value": {
+            "crushed-alum": [
+                {
+                    "name": "COAInLiquidMixing",
+                    "properties": {
+                        "inLiquidMixingList": [
+                            {
+                                "initialCode": "game:crushed-alum",
+                                "sourceSize": 1,
+                                "inputLitres": 5,
+                                "outputLitres": 5,
+                                "inputStack": {
+                                    "type": "item",
+                                    "code": "game:waterportion"
+                                },
+                                "outputLiquid": {
+                                    "type": "item",
+                                    "code": "game:dilutedalumportion"
+                                },
+                                "needExactLitres": true,
+                                "canBulk": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "crushed-cassiterite": [
+                {
+                    "name": "COAInLiquidMixing",
+                    "properties": {
+                        "inLiquidMixingList": [
+                            {
+                                "initialCode": "game:crushed-cassiterite",
+                                "sourceSize": 1,
+                                "inputLitres": 5,
+                                "outputLitres": 5,
+                                "inputStack": {
+                                    "type": "item",
+                                    "code": "game:waterportion"
+                                },
+                                "outputLiquid": {
+                                    "type": "item",
+                                    "code": "game:dilutedcassiteriteportion"
+                                },
+                                "needExactLitres": true,
+                                "canBulk": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "crushed-chromite": [
+                {
+                    "name": "COAInLiquidMixing",
+                    "properties": {
+                        "inLiquidMixingList": [
+                            {
+                                "initialCode": "game:crushed-chromite",
+                                "sourceSize": 1,
+                                "inputLitres": 5,
+                                "outputLitres": 5,
+                                "inputStack": {
+                                    "type": "item",
+                                    "code": "game:waterportion"
+                                },
+                                "outputLiquid": {
+                                    "type": "item",
+                                    "code": "game:dilutedchromiteportion"
+                                },
+                                "needExactLitres": true,
+                                "canBulk": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "file": "game:itemtypes/resource/crushed/crushed.json",
+        "side": "Server"
+    },
+    {
+        "op": "addmerge",
+        "path": "/behaviorsByType",
+        "value": {
+            "powder-borax": [
+                {
+                    "name": "COAInLiquidMixing",
+                    "properties": {
+                        "inLiquidMixingList": [
+                            {
+                                "initialCode": "game:powder-borax",
+                                "sourceSize": 2,
+                                "inputLitres": 5,
+                                "outputLitres": 5,
+                                "inputStack": {
+                                    "type": "item",
+                                    "code": "game:waterportion"
+                                },
+                                "outputLiquid": {
+                                    "type": "item",
+                                    "code": "game:dilutedboraxportion"
+                                },
+                                "needExactLitres": true,
+                                "canBulk": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "file": "game:itemtypes/resource/crushed/powder.json",
+        "side": "Server"
+    }
+]

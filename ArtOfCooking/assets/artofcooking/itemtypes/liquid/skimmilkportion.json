@@ -1,4 +1,5 @@
 {
+	"enabled": false,
 	"code": "skimmilkportion",
 	"class": "ItemLiquidPortion",
 	"matterState": "liquid",
@@ -29,6 +30,26 @@
 	},
 	"shape": { "base": "game:item/liquid" },
 	"texture": { "base": "artofcooking:block/food/dairy/skimmilk" },
+	"creativeinventoryStacks": [
+		{
+			"tabs": [ "general", "liquids" ],
+			"stacks": [
+				{
+					"type": "block",
+					"code": "game:woodbucket",
+					"attributes": {
+						"ucontents": [
+							{
+								"type": "item",
+								"code": "artofcooking:skimmilkportion",
+								"makefull": true
+							}
+						]
+					}
+				}
+			]
+		}
+	],
 	"maxstacksize": 5000,
 	"materialDensity": 200,
 	"transitionableProps": [
