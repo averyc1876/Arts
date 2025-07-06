@@ -10,6 +10,15 @@
   },
   {
     "op": "addmerge",
+    "path": "/texturesByType/*/compote",
+    "value": {
+      "base": "artofcooking:block/liquid/compote"
+    },
+    "file": "game:blocktypes/clay/pot.json",
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
     "path": "/attributesByType/claypot-cooked/textureMapping/vegetable-cookedcattailroot",
     "value": [
       "vegetable",
@@ -39,16 +48,13 @@
     "side": "Server"
   },
   {
-    "op": "replace",
-    "path": "/classByType/claypot-burned",
-    "value": "COABlockCookingContainer",
+    "op": "addmerge",
+    "path": "/attributesByType/claypot-cooked/textureMapping/compoteportion",
+    "value": [
+      "liquid",
+      "compote"
+    ],
     "file": "game:blocktypes/clay/pot.json",
-    "side": "Server",
-    "dependsOn": [
-      {
-        "modid": "artsxskills",
-        "invert": true
-      }
-    ]
+    "side": "Server"
   }
 ]

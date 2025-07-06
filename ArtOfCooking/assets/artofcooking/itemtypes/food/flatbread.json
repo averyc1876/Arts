@@ -1,387 +1,427 @@
 {
-	"code": "flatbread",
-	"classByType": {
-		"*-raw": "Item",
-		"*": "AOCItemFood"
-	},
-	"behaviors": [
-		{
-			"name": "GroundStorable",
-			"properties": {
-				"layout": "Quadrants",
-				"collisionBox": {
-					"x1": 0,
-					"y1": 0,
-					"z1": 0,
-					"x2": 1,
-					"y2": 0.1,
-					"z2": 1
-				}
-			}
-		}
-	],
-	"maxstacksizeByType": {
-		"*-charred": 192,
-		"*": 128
-	},
-	"variantgroups": [
-		{
-			"code": "type",
-			"states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
-		},
-		{
-			"code": "state",
-			"states": [ "raw", "partbaked", "perfect", "charred" ]
-		}
-	],
-	"shape": { "base": "item/food/flatbread" },
+  "code": "flatbread",
+  "classByType": {
+    "*-pastry-raw": "Item",
+    "*-pastry-*": "AOCItemFood",
+    "*": "Item"
+  },
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Quadrants",
+        "collisionBox": {
+          "x1": 0,
+          "y1": 0,
+          "z1": 0,
+          "x2": 1,
+          "y2": 0.1,
+          "z2": 1
+        }
+      }
+    }
+  ],
+  "maxstacksizeByType": {
+    "*-charred": 192,
+    "*": 128
+  },
+  "variantgroups": [
+    {
+      "code": "variety",
+      "states": [ "unleavened", "pastry" ]
+    },
+    {
+      "code": "type",
+      "states": [ "spelt", "rye", "flax", "rice", "cassava", "amaranth", "sunflower" ]
+    },
+    {
+      "code": "state",
+      "states": [ "raw", "partbaked", "perfect", "charred" ]
+    }
+  ],
+  "shape": { "base": "item/food/flatbread" },
+  "texturesByType": {
+    "*-pastry-acorn-raw": {
+      "dough": {
+        "base": "wildcraftfruit:block/food/pie/{type}1",
+        "overlays": [ "block/food/egg/egg-overlays" ]
+      }
+    },
+    "*-pastry-acorn-partbaked": {
+      "dough": {
+        "base": "wildcraftfruit:block/food/pie/{type}2",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-pastry-acorn-perfect": {
+      "dough": {
+        "base": "wildcraftfruit:block/food/pie/{type}3",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-pastry-acorn-charred": {
+      "dough": {
+        "base": "wildcraftfruit:block/food/pie/{type}4",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-pastry-*-raw": {
+      "dough": {
+        "base": "game:block/food/pie/{type}1",
+        "overlays": [ "block/food/egg/egg-overlays" ]
+      }
+    },
+    "*-pastry-*-partbaked": {
+      "dough": {
+        "base": "game:block/food/pie/{type}2",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-pastry-*-perfect": {
+      "dough": {
+        "base": "game:block/food/pie/{type}3",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-pastry-*-charred": {
+      "dough": {
+        "base": "game:block/food/pie/{type}4",
+        "overlays": [ "block/food/egg/egg-dough-overlays" ]
+      }
+    },
+    "*-acorn-raw": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}1" } },
+    "*-acorn-partbaked": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}2" } },
+    "*-acorn-perfect": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}3" } },
+    "*-acorn-charred": { "dough": { "base": "wildcraftfruit:block/food/pie/{type}4" } },
+    "*-partbaked": { "dough": { "base": "game:block/food/pie/{type}2" } },
+    "*-perfect": { "dough": { "base": "game:block/food/pie/{type}3" } },
+    "*-charred": { "dough": { "base": "game:block/food/pie/{type}4" } },
+    "*": { "dough": { "base": "game:block/food/pie/{type}1" } }
+  },
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ],
+    "artofcooking": [ "*" ]
+  },
+  "attributes": {
+    "shelvable": true,
+    "onDisplayTransform": {
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.9
+    }
+  },
+  "attributesByType": {
+    "*-raw": {
+      "bakingProperties": {
+        "temp": 160,
+        "levelFrom": 0.0,
+        "levelTo": 0.25,
+        "startScaleY": 0.9,
+        "endScaleY": 0.95,
+        "resultCode": "artofcooking:flatbread-{variety}-{type}-partbaked"
+      },
+      "inPiePropertiesByType": {
+        "*-unleavened-*": {
+          "texture": "game:block/food/pie/{type}{bakeLevel}",
+          "partType": "Crust"
+        }
+      },
+      "nutritionPropsWhenInMealByType": {
+        "*-unleavened-flax-*": {
+          "satiety": 60,
+          "foodcategory": "Grain"
+        },
+        "*-unleavened-rice-*": {
+          "satiety": 140,
+          "foodcategory": "Grain"
+        },
+        "*-unleavened-acorn-*": {
+          "satiety": 150,
+          "foodcategory": "Grain"
+        },
+        "*-unleavened-*": {
+          "satiety": 120,
+          "foodcategory": "Grain"
+        }
+      }
+    },
+    "*-partbaked": {
+      "bakingProperties": {
+        "temp": 160,
+        "levelFrom": 0.25,
+        "levelTo": 0.5,
+        "startScaleY": 0.95,
+        "endScaleY": 1.10,
+        "resultCode": "artofcooking:flatbread-{variety}-{type}-perfect",
+        "initialCode": "artofcooking:flatbread-{variety}-{type}-raw"
+      },
+      "extraNutritionPropsByType": {
+        "*-pastry-*": [
+          {
+            "saturation": 45,
+            "foodcategory": "Dairy"
+          },
+          {
+            "saturation": 20,
+            "foodcategory": "Protein"
+          }
+        ]
+      }
+    },
+    "*-perfect": {
+      "bakingProperties": {
+        "temp": 160,
+        "levelFrom": 0.5,
+        "levelTo": 0.75,
+        "startScaleY": 1.10,
+        "endScaleY": 1.13,
+        "resultCode": "artofcooking:flatbread-{variety}-{type}-charred",
+        "initialCode": "artofcooking:flatbread-{variety}-{type}-partbaked"
+      },
+      "extraNutritionPropsByType": {
+        "*-pastry-*": [
+          {
+            "saturation": 50,
+            "foodcategory": "Dairy"
+          },
+          {
+            "saturation": 25,
+            "foodcategory": "Protein"
+          }
+        ]
+      }
+    },
+    "*-charred": {
+      "bakingProperties": {
+        "temp": 160,
+        "levelFrom": 0.75,
+        "levelTo": 1,
+        "startScaleY": 1.13,
+        "endScaleY": 1.10,
+        "initialCode": "artofcooking:flatbread-{variety}-{type}-perfect"
+      },
+      "extraNutritionPropsByType": {
+        "*-pastry-*": [
+          {
+            "saturation": 40,
+            "foodcategory": "Dairy"
+          },
+          {
+            "saturation": 15,
+            "foodcategory": "Protein"
+          }
+        ]
+      }
+    }
+  },
+  "combustiblePropsByType": {
+    "*-raw": {
+      "meltingPoint": 200,
+      "meltingDuration": 20,
+      "smeltedRatio": 1,
+      "smeltingType": "bake",
+      "smeltedStack": {
+        "type": "item",
+        "code": "artofcooking:flatbread-{variety}-{type}-charred"
+      },
+      "requiresContainer": false
+    },
+    "*-partbaked": {
+      "meltingPoint": 200,
+      "meltingDuration": 15,
+      "smeltedRatio": 1,
+      "smeltingType": "bake",
+      "smeltedStack": {
+        "type": "item",
+        "code": "artofcooking:flatbread-{variety}-{type}-charred"
+      },
+      "requiresContainer": false
+    },
+    "*-perfect": {
+      "meltingPoint": 200,
+      "meltingDuration": 15,
+      "smeltedRatio": 1,
+      "smeltingType": "bake",
+      "smeltedStack": {
+        "type": "item",
+        "code": "artofcooking:flatbread-{variety}-{type}-charred"
+      },
+      "requiresContainer": false
+    }
+  },
+  "nutritionPropsByType": {
+    "*-flax-partbaked": {
+      "saturation": 45,
+      "foodcategory": "Grain"
+    },
+    "*-flax-perfect": {
+      "saturation": 80,
+      "foodcategory": "Grain"
+    },
+    "*-flax-charred": {
+      "saturation": 50,
+      "foodcategory": "Grain"
+    },
 
-	"texturesbytype": {
-		"*-acorn-raw": {
-			"dough": {
-				"base": "wildcraftfruit:block/food/pie/{type}1",
-				"overlays": [ "block/food/egg/egg-overlays" ]
-			}
-		},
-		"*-acorn-partbaked": {
-			"dough": {
-				"base": "wildcraftfruit:block/food/pie/{type}2",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		},
-		"*-acorn-perfect": {
-			"dough": {
-				"base": "wildcraftfruit:block/food/pie/{type}3",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		},
-		"*-acorn-charred": {
-			"dough": {
-				"base": "wildcraftfruit:block/food/pie/{type}4",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		},
-		"*-raw": {
-			"dough": {
-				"base": "game:block/food/pie/{type}1",
-				"overlays": [ "block/food/egg/egg-overlays" ]
-			}
-		},
-		"*-partbaked": {
-			"dough": {
-				"base": "game:block/food/pie/{type}2",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		},
-		"*-perfect": {
-			"dough": {
-				"base": "game:block/food/pie/{type}3",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		},
-		"*-charred": {
-			"dough": {
-				"base": "game:block/food/pie/{type}4",
-				"overlays": [ "block/food/egg/egg-dough-overlays" ]
-			}
-		}
-	},
-	"creativeinventory": {
-		"general": [ "*" ],
-		"items": [ "*" ],
-		"artofcooking": [ "*" ]
-	},
-	"attributes": {
-		"shelvable": true,
-		"onDisplayTransform": {
-			"origin": {
-				"x": 0.5,
-				"y": 0,
-				"z": 0.5
-			},
-			"scale": 0.9
-		}
-	},
-	"attributesByType": {
-		"*-raw": {
-			"bakingProperties": {
-				"temp": 160,
-				"levelFrom": 0.0,
-				"levelTo": 0.25,
-				"startScaleY": 0.9,
-				"endScaleY": 0.95,
-				"resultCode": "artofcooking:flatbread-{type}-partbaked"
-			}
-		},
-		"*-partbaked": {
-			"bakingProperties": {
-				"temp": 160,
-				"levelFrom": 0.25,
-				"levelTo": 0.5,
-				"startScaleY": 0.95,
-				"endScaleY": 1.10,
-				"resultCode": "artofcooking:flatbread-{type}-perfect",
-				"initialCode": "artofcooking:flatbread-{type}-raw"
-			},
-			"extraNutritionProps": [
-				{
-					"saturation": 45,
-					"foodcategory": "Dairy"
-				},
-				{
-					"saturation": 20,
-					"foodcategory": "Protein"
-				}
-			]
-		},
-		"*-perfect": {
-			"bakingProperties": {
-				"temp": 160,
-				"levelFrom": 0.5,
-				"levelTo": 0.75,
-				"startScaleY": 1.10,
-				"endScaleY": 1.13,
-				"resultCode": "artofcooking:flatbread-{type}-charred",
-				"initialCode": "artofcooking:flatbread-{type}-partbaked"
-			},
-			"extraNutritionProps": [
-				{
-					"saturation": 50,
-					"foodcategory": "Dairy"
-				},
-				{
-					"saturation": 25,
-					"foodcategory": "Protein"
-				}
-			]
-		},
-		"*-charred": {
-			"bakingProperties": {
-				"temp": 160,
-				"levelFrom": 0.75,
-				"levelTo": 1,
-				"startScaleY": 1.13,
-				"endScaleY": 1.10,
-				"initialCode": "artofcooking:flatbread-{type}-perfect"
-			},
-			"extraNutritionProps": [
-				{
-					"saturation": 40,
-					"foodcategory": "Dairy"
-				},
-				{
-					"saturation": 15,
-					"foodcategory": "Protein"
-				}
-			]
-		}
-	},
-	"combustiblePropsByType": {
-		"*-raw": {
-			"meltingPoint": 200,
-			"meltingDuration": 20,
-			"smeltedRatio": 1,
-			"smeltingType": "bake",
-			"smeltedStack": {
-				"type": "item",
-				"code": "artofcooking:flatbread-{type}-charred"
-			},
-			"requiresContainer": false
-		},
-		"*-partbaked": {
-			"meltingPoint": 200,
-			"meltingDuration": 15,
-			"smeltedRatio": 1,
-			"smeltingType": "bake",
-			"smeltedStack": {
-				"type": "item",
-				"code": "artofcooking:flatbread-{type}-charred"
-			},
-			"requiresContainer": false
-		},
-		"*-perfect": {
-			"meltingPoint": 200,
-			"meltingDuration": 15,
-			"smeltedRatio": 1,
-			"smeltingType": "bake",
-			"smeltedStack": {
-				"type": "item",
-				"code": "artofcooking:flatbread-{type}-charred"
-			},
-			"requiresContainer": false
-		}
-	},
-	"nutritionPropsByType": {
-		"*-flax-partbaked": {
-			"saturation": 85,
-			"foodcategory": "Grain"
-		},
-		"*-flax-perfect": {
-			"saturation": 130,
-			"foodcategory": "Grain"
-		},
-		"*-flax-charred": {
-			"saturation": 100,
-			"foodcategory": "Grain"
-		},
+    "*-rice-partbaked": {
+      "saturation": 80,
+      "foodcategory": "Grain"
+    },
+    "*-rice-perfect": {
+      "saturation": 165,
+      "foodcategory": "Grain"
+    },
+    "*-rice-charred": {
+      "saturation": 110,
+      "foodcategory": "Grain"
+    },
 
-		"*-rice-partbaked": {
-			"saturation": 130,
-			"foodcategory": "Grain"
-		},
-		"*-rice-perfect": {
-			"saturation": 215,
-			"foodcategory": "Grain"
-		},
-		"*-rice-charred": {
-			"saturation": 160,
-			"foodcategory": "Grain"
-		},
+    "*-acorn-partbaked": {
+      "saturation": 85,
+      "foodcategory": "Grain"
+    },
+    "*-acorn-perfect": {
+      "saturation": 175,
+      "foodcategory": "Grain"
+    },
+    "*-acorn-charred": {
+      "saturation": 115,
+      "foodcategory": "Grain"
+    },
 
-		"*-acorn-partbaked": {
-			"saturation": 135,
-			"foodcategory": "Grain"
-		},
-		"*-acorn-perfect": {
-			"saturation": 225,
-			"foodcategory": "Grain"
-		},
-		"*-acorn-charred": {
-			"saturation": 165,
-			"foodcategory": "Grain"
-		},
-
-		"*-partbaked": {
-			"saturation": 125,
-			"foodcategory": "Grain"
-		},
-		"*-perfect": {
-			"saturation": 200,
-			"foodcategory": "Grain"
-		},
-		"*-charred": {
-			"saturation": 155,
-			"foodcategory": "Grain"
-		}
-	},
-	"transitionablePropsByType": {
-		"*-raw": [
-			{
-				"type": "Perish",
-				"freshHours": { "avg": 48 },
-				"transitionHours": { "avg": 24 },
-				"transitionedStack": {
-					"type": "item",
-					"code": "game:rot"
-				},
-				"transitionRatio": 1
-			}
-		],
-		"*-partbaked": [
-			{
-				"type": "Perish",
-				"freshHours": { "avg": 180 },
-				"transitionHours": { "avg": 24 },
-				"transitionedStack": {
-					"type": "item",
-					"code": "game:rot"
-				},
-				"transitionRatio": 1
-			}
-		],
-		"*-perfect": [
-			{
-				"type": "Perish",
-				"freshHours": { "avg": 288 },
-				"transitionHours": { "avg": 36 },
-				"transitionedStack": {
-					"type": "item",
-					"code": "game:rot"
-				},
-				"transitionRatio": 1
-			}
-		],
-		"*-charred": [
-			{
-				"type": "Perish",
-				"freshHours": { "avg": 630 },
-				"transitionHours": { "avg": 60 },
-				"transitionedStack": {
-					"type": "item",
-					"code": "game:rot"
-				},
-				"transitionRatio": 1
-			}
-		]
-	},
-	"materialDensity": 200,
-	"heldTpIdleAnimation": "holdbothhands",
-	"heldRightReadyAnimation": "holdbothhands",
-	"guiTransform": {
-		"translation": {
-			"x": 2.5,
-			"y": 1,
-			"z": 0
-		},
-		"rotation": {
-			"x": 137,
-			"y": 131,
-			"z": 0
-		},
-		"origin": {
-			"x": 0.5,
-			"y": 0.05,
-			"z": 0.5
-		},
-		"scale": 2.69
-	},
-	"groundTransform": {
-		"translation": {
-			"x": 0,
-			"y": 0,
-			"z": 0
-		},
-		"rotation": {
-			"x": 0,
-			"y": 0,
-			"z": 0
-		},
-		"origin": {
-			"x": 0.5,
-			"y": 0,
-			"z": 0.5
-		},
-		"scale": 4.5
-	},
-	"tpHandTransform": {
-		"translation": {
-			"x": -0.06,
-			"y": 0.4,
-			"z": 1.1
-		},
-		"rotation": {
-			"x": 10,
-			"y": 6,
-			"z": -89
-		},
-		"origin": {
-			"x": 0.03,
-			"y": 0,
-			"z": -0.1
-		},
-		"scale": 0.7
-	},
-	"fpHandTransform": {
-		"translation": {
-			"x": 0,
-			"y": 0,
-			"z": 0
-		},
-		"rotation": {
-			"x": 51,
-			"y": 90,
-			"z": -30
-		},
-		"scale": 1.9
-	}
+    "*-partbaked": {
+      "saturation": 75,
+      "foodcategory": "Grain"
+    },
+    "*-perfect": {
+      "saturation": 150,
+      "foodcategory": "Grain"
+    },
+    "*-charred": {
+      "saturation": 105,
+      "foodcategory": "Grain"
+    }
+  },
+  "transitionablePropsByType": {
+    "*-raw": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 48 },
+        "transitionHours": { "avg": 24 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      }
+    ],
+    "*-partbaked": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 180 },
+        "transitionHours": { "avg": 24 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      }
+    ],
+    "*-perfect": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 288 },
+        "transitionHours": { "avg": 36 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      }
+    ],
+    "*-charred": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 630 },
+        "transitionHours": { "avg": 60 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      }
+    ]
+  },
+  "materialDensity": 200,
+  "guiTransform": {
+    "translation": {
+      "x": 2.5,
+      "y": 1,
+      "z": 0
+    },
+    "rotation": {
+      "x": 137,
+      "y": 131,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.05,
+      "z": 0.5
+    },
+    "scale": 2.69
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "scale": 4.5
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -0.1,
+      "y": 0.4,
+      "z": 0.8
+    },
+    "rotation": {
+      "x": 10,
+      "y": 6,
+      "z": -89
+    },
+    "origin": {
+      "x": 0.03,
+      "y": 0,
+      "z": -0.1
+    },
+    "scale": 0.7
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 51,
+      "y": 90,
+      "z": -30
+    },
+    "scale": 1.9
+  }
 }

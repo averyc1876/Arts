@@ -1,4 +1,7 @@
 {
+  "game:artsguides-liquidmixing-title": "Arts Guides: Mixing in the world",
+  "game:artsguides-liquidmixing-text": "<strong>Mixing in the world</strong><br><br><i>Isn't it strange that such a simple action as mixing two liquids was not available? Or that mixing objects with liquids is only available in a barrel? Anyway, that's not the case anymore!</i><br><br>From now on, you can mix two liquids together. To do this, just pick up the container with the liquid that is in the mixing recipe and press <hk>ctrl</hk> + <hk>rightmouse</hk> on the container with another liquid from the same recipe placed in the world. It is important to observe several conditions::<br>- there should be enough liquid in the container in your hands for the recipe to work (there may be more liquid - exactly as much as the recipe needs will be used);<br>- there should be enough space in the container placed in the world to accommodate the resulting liquid (its amount is the sum of the original liquids).<br>You can mix liquids in any quantity, but not less than indicated in the recipe. It is only important to keep the proportions.<br><br>Also, some recipes for mixing objects with liquids can now be made in the world! Add salt to water or dissolve minerals in water - now it can be done without using a barrel. Similar to mixing liquids, holding an object in your hand and pressing <hk>ctrl</hk> + <hk>rightmouse</hk> on a container with liquid, you will mix them.<br><br>All recipes are displayed in the directory.",
+
   "game:It changes...": "It changes...",
 
   "game:recipeingredient-item-vegetable-cookedcattailroot": "root",
@@ -12,5 +15,14 @@
   "game:meal-ingredient-soup-primary-vegetable-cookedpapyrusroot": "Root",
   "game:meal-ingredient-soup-secondary-vegetable-cookedpapyrusroot": "Root",
   "game:meal-ingredient-stew-primary-vegetable-cookedpapyrusroot": "Root",
-  "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Root"
+  "game:meal-ingredient-stew-secondary-vegetable-cookedpapyrusroot": "Root",
+
+  "game:Main cooking ingredient for": "The main ingredient for dishes:",
+  "game:Additional cooking ingredient for": "An additional ingredient for dishes:",
+  "game:meal-recipe-porridge": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Porridge<\/a>",
+  "game:meal-recipe-meatystew": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Meaty stew<\/a>",
+  "game:meal-recipe-vegetablestew": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Vegetable stew<\/a>",
+  "game:meal-recipe-soup": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Soup<\/a>",
+  "game:meal-recipe-jam": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Jam<\/a>",
+  "game:meal-recipe-scrambledeggs": "• <a href=\"handbook:\/\/craftinginfo-mealcooking\">Scrambled eggs<\/a>"
 }

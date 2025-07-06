@@ -39,7 +39,7 @@ namespace ArtOfCooking.Systems
 
             switch (recipeCode)
             {
-                case "newscrambledeggs":
+                case "aocscrambledeggs":
                     {
                         max = 0;
 
@@ -51,12 +51,29 @@ namespace ArtOfCooking.Systems
                                 max += val.Value;
                                 continue;
                             }
-
-                            GarnishedNames.Add(ingredientName(val.Key, true));
+                            
+                            MashedNames.Add(ingredientName(val.Key, true));
                         }
 
 
-                        recipeCode = "newscrambledeggs";
+                        recipeCode = "aocscrambledeggs";
+                        break;
+                    }
+                case "aoccompote":
+                    {
+                        max = 0;
+
+                        foreach (var val in quantitiesByStack)
+                        {
+                            max += val.Value;
+                            if (val.Key.Collectible.Code.Path.Contains("waterportion")) continue;
+                            if (val.Key.Collectible.Code.Path.Contains("compoteportion")) continue;
+                            
+                            MashedNames.Add(ingredientName(val.Key, true));
+                        }
+
+
+                        recipeCode = "aoccompote";
                         break;
                     }
             }
@@ -84,7 +101,7 @@ namespace ArtOfCooking.Systems
 
 
 
-            if (SecondaryIngredient != null && recipeCode != "newscrambledeggs")
+            if (SecondaryIngredient != null && recipeCode != "aocscrambledeggs")
             {
                 mainIngredients = Lang.Get("multi-main-ingredients-format", getMainIngredientName(PrimaryIngredient, recipeCode), getMainIngredientName(SecondaryIngredient, recipeCode, true));
             }
@@ -96,10 +113,16 @@ namespace ArtOfCooking.Systems
 
             switch (recipeCode)
             {
-                case "newscrambledeggs":
-                    if (GarnishedNames.Count > 0)
+                case "aocscrambledeggs":
+                    if (MashedNames.Count > 0)
                     {
-                        everythingelse = getMealAddsString("meal-adds-vegetablestew-garnish", GarnishedNames);
+                        everythingelse = getMealAddsString("meal-adds-porridge-mashed", MashedNames);
+                    }
+                    return Lang.Get(MealFormat, everythingelse).Trim().UcFirst();
+                case "aoccompote":
+                    if (MashedNames.Count > 0)
+                    {
+                        everythingelse = getMealAddsString("meal-adds-porridge-mashed", MashedNames);
                     }
                     return Lang.Get(MealFormat, everythingelse).Trim().UcFirst();
             }

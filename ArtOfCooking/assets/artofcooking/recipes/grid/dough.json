@@ -1,143 +1,143 @@
 [
-    {
-        "enabled": false,
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "butchering:blooddough-*",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-blooddough-{type}",
-            "quantity": 8
-        }
+  {
+    "enabled": false,
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "butchering:blooddough-*",
+        "name": "type"
+      }
     },
-    {
-        "enabled": false,
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "wildcraftfruit:dough-*",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-unleavened-{type}",
-            "quantity": 8
-        }
-    },
-    {
-        "enabled": false,
-        "ingredientPattern": "AF",
-        "ingredients": {
-            "A": {
-                "type": "item",
-                "code": "wildcraftfruit:flour-acorn"
-            },
-            "F": {
-                "type": "item",
-                "code": "game:flour-*",
-                "allowedVariants": [ "rice", "rye", "spelt", "amaranth" ],
-                "name": "type"
-            }
-        },
-        "width": 2,
-        "height": 1,
-        "name": "flour-acorn",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "artofcooking:flour-acorn",
-            "quantity": 2
-        }
-    },
-    {
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "lavash-*-raw",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-unleavened-{type}",
-            "quantity": 15
-        }
-    },
-    {
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "flatbread-*-raw",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-pastry-{type}",
-            "quantity": 4
-        }
-    },
-    {
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "game:dough-*",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-unleavened-{type}",
-            "quantity": 8
-        }
-    },
-    {
-        "ingredientPattern": "L",
-        "ingredients": {
-            "L": {
-                "type": "item",
-                "code": "bun-*-raw",
-                "name": "type"
-            }
-        },
-        "width": 1,
-        "height": 1,
-        "name": "dough",
-        "shapeless": true,
-        "output": {
-            "type": "item",
-            "code": "doughpiece-pastry-{type}",
-            "quantity": 3
-        }
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-blooddough-{type}",
+      "quantity": 8
     }
+  },
+  {
+    "enabled": false,
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "wildcraftfruit:dough-*",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-unleavened-{type}",
+      "quantity": 8
+    }
+  },
+  {
+    "enabled": false,
+    "ingredientPattern": "AF",
+    "ingredients": {
+      "A": {
+        "type": "item",
+        "code": "wildcraftfruit:flour-acorn"
+      },
+      "F": {
+        "type": "item",
+        "code": "game:flour-*",
+        "allowedVariants": [ "rice", "rye", "spelt", "amaranth" ],
+        "name": "type"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "name": "flour-acorn",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "artofcooking:flour-acorn",
+      "quantity": 2
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "lavash-*-raw",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-{type}",
+      "quantity": 15
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "flatbread-*-raw",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-{type}",
+      "quantity": 4
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "game:dough-*",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-unleavened-{type}",
+      "quantity": 8
+    }
+  },
+  {
+    "ingredientPattern": "L",
+    "ingredients": {
+      "L": {
+        "type": "item",
+        "code": "bun-*-raw",
+        "name": "type"
+      }
+    },
+    "width": 1,
+    "height": 1,
+    "name": "dough",
+    "shapeless": true,
+    "output": {
+      "type": "item",
+      "code": "doughpiece-pastry-{type}",
+      "quantity": 3
+    }
+  }
 ]

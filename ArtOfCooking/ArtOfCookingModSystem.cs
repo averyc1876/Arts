@@ -30,6 +30,8 @@ public class ArtOfCooking : ModSystem
         
         api.RegisterItemClass("AOCItemFood", typeof(AOCItemFood));
         api.RegisterItemClass("AOCItemEgg", typeof(AOCItemEgg));
+        
+        api.RegisterItemClass("AOCItemRollingPin", typeof(AOCItemRollingPin));
     }
     public override void AssetsFinalize(ICoreAPI api)
     {

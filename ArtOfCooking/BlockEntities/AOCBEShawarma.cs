@@ -171,7 +171,7 @@ namespace ArtOfCooking.BlockEntities
         }
         public void OnFormed(IPlayer byPlayer, string lavashType)
         {
-            ItemStack lavashStack = new ItemStack(Api.World.GetItem(new AssetLocation("artofcooking:lavash-" + lavashType + "-raw")), 1);
+            ItemStack lavashStack = new ItemStack(Api.World.GetItem(new AssetLocation("artofcooking:lavash-unleavened-" + lavashType + "-raw")), 1);
             if (lavashStack == null) return;
 
             inv[0].Itemstack = new ItemStack(Block);
@@ -305,11 +305,11 @@ namespace ArtOfCooking.BlockEntities
                 return true;
             }
 
-            var foodCats = cStacks.Select(stack => stack?.Collectible.NutritionProps?.FoodCategory ?? stack?.ItemAttributes?["nutritionPropsWhenInMeal"]?.AsObject<FoodNutritionProperties>()?.FoodCategory ?? EnumFoodCategory.Vegetable).ToArray();
+            var foodCats = cStacks.Select(stack => stack?.Collectible.NutritionProps?.FoodCategory ?? EnumFoodCategory.Vegetable).ToArray();
             var stackprops = cStacks.Select(stack => stack?.ItemAttributes["inCookedMealProperties"]?.AsObject<inCookedMealProperties>(null, stack.Collectible.Code.Domain)).ToArray();
 
             ItemStack cstack = slot.Itemstack;
-            EnumFoodCategory foodCat = slot.Itemstack?.Collectible.NutritionProps?.FoodCategory ?? slot.Itemstack?.ItemAttributes?["nutritionPropsWhenInMeal"]?.AsObject<FoodNutritionProperties>()?.FoodCategory ?? EnumFoodCategory.Vegetable;
+            EnumFoodCategory foodCat = slot.Itemstack?.Collectible.NutritionProps?.FoodCategory ?? EnumFoodCategory.Vegetable;
 
 
             for (int i = 1; i < cStacks.Length - 1; i++)
@@ -366,6 +366,44 @@ namespace ArtOfCooking.BlockEntities
 
         public override void OnBlockBroken(IPlayer byPlayer = null)
         {
+            if (inv[0].Itemstack.Attributes.GetAsBool("wrapped") == true)
+            {
+                base.OnBlockBroken(byPlayer);
+            }
+            else
+            {
+                AOCBlockShawarma shawarmaBlock = inv[0]?.Itemstack?.Block as AOCBlockShawarma;
+                if (shawarmaBlock == null) return;
+                ItemStack[] cStacks = shawarmaBlock.GetContents(Api.World, inv[0].Itemstack);
+
+                if (Api.Side == EnumAppSide.Server)
+                {
+                    if (cStacks[0] != null)
+                    {
+                        Api.World.SpawnItemEntity(cStacks[0], Pos.ToVec3d().Add(0.5, 0.25, 0.5));
+                    }
+                    if (cStacks[1] != null)
+                    {
+                        Api.World.SpawnItemEntity(cStacks[1], Pos.ToVec3d().Add(0.5, 0.25, 0.5));
+                    }
+                    if (cStacks[2] != null)
+                    {
+                        Api.World.SpawnItemEntity(cStacks[2], Pos.ToVec3d().Add(0.5, 0.25, 0.5));
+                    }
+                    if (cStacks[3] != null)
+                    {
+                        Api.World.SpawnItemEntity(cStacks[3], Pos.ToVec3d().Add(0.5, 0.25, 0.5));
+                    }
+                    if (cStacks[4] != null)
+                    {
+                        Api.World.SpawnItemEntity(cStacks[4], Pos.ToVec3d().Add(0.5, 0.25, 0.5));
+                    }
+                    inv[0].Itemstack = null;
+                }
+
+                Api.World.BlockAccessor.SetBlock(0, Pos);
+
+            }
         }
     }
 }

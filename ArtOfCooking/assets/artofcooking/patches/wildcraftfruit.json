@@ -1,46 +1,78 @@
 [
-    {
-        "op": "remove",
-        "path": "/class",
-        "file": "wildcraftfruit:itemtypes/food/dough.json",
-        "dependsOn": [
-            { "modid": "wildcraftfruit" }
-        ],
-        "side": "Server"
+  {
+    "op": "remove",
+    "path": "/class",
+    "file": "wildcraftfruit:itemtypes/food/dough.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/behaviors",
+    "value": [
+      {
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Quadrants",
+          "collisionBox": {
+            "x1": 0,
+            "y1": 0,
+            "z1": 0,
+            "x2": 1,
+            "y2": 0.125,
+            "z2": 1
+          }
+        }
+      }
+    ],
+    "file": "wildcraftfruit:itemtypes/food/dough.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/ingredients/1/validStacks/-",
+    "value": {
+      "type": "item",
+      "code": "wildcraftfruit:fruit-*",
+      "shapeElement": "bowl/fruit base 1/*"
     },
-    {
-        "op": "addmerge",
-        "path": "/behaviors",
-        "value": [
-            {
-                "name": "GroundStorable",
-                "properties": {
-                    "layout": "Quadrants",
-                    "collisionBox": {
-                        "x1": 0,
-                        "y1": 0,
-                        "z1": 0,
-                        "x2": 1,
-                        "y2": 0.125,
-                        "z2": 1
-                    }
-                }
-            }
-        ],
-        "file": "wildcraftfruit:itemtypes/food/dough.json",
-        "dependsOn": [
-            { "modid": "wildcraftfruit" }
-        ],
-        "side": "Server"
+    "file": "artofcooking:recipes/cooking/aoccompote.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/ingredients/2/validStacks/-",
+    "value": {
+      "type": "item",
+      "code": "wildcraftfruit:fruit-*",
+      "shapeElement": "bowl/fruit base 2/*"
     },
-    {
-        "file": "artofcooking:recipes/cooking/compoteportion-wildcraftfruit.json",
-        "op": "replace",
-        "path": "/enabled",
-        "value": true,
-        "dependsOn": [
-            { "modid": "wildcraftfruit" }
-        ],
-        "side": "server"
-    }
+    "file": "artofcooking:recipes/cooking/aoccompote.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  },
+  {
+    "op": "addmerge",
+    "path": "/ingredients/3/validStacks/-",
+    "value": {
+      "type": "item",
+      "code": "wildcraftfruit:fruit-*",
+      "shapeElement": "bowl/fruit base 3/*"
+    },
+    "file": "artofcooking:recipes/cooking/aoccompote.json",
+    "dependsOn": [
+      { "modid": "wildcraftfruit" }
+    ],
+    "side": "Server"
+  }
 ]

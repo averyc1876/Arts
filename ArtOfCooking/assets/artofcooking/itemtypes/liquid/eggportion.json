@@ -48,8 +48,8 @@
 			}
 		}
 	},
-	"nutritionProps": {
-		"satietyByType": {
+	"nutritionPropsPerLitre": {
+		"saturationByType": {
 			"*-white": 90,
 			"*-yolk": 140,
 			"*-whole": 100

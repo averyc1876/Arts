@@ -26,6 +26,7 @@ namespace ArtOfCooking.Blocks
         ICoreClientAPI capi;
 
         WorldInteraction[] interactions;
+        BlockFacing[] AttachedToFaces = new BlockFacing[] { BlockFacing.DOWN };
 
         public override void OnLoaded(ICoreAPI api)
         {
@@ -219,7 +220,7 @@ namespace ArtOfCooking.Blocks
             ItemStack cstack = cStacks[1];
             if (cstack == null)
             {
-                return Lang.Get("artofcooking:item-lavash-" + lstack.Item.Variant["type"] + "-" + lstack.Item.Variant["state"]);
+                return Lang.Get("artofcooking:item-lavash-unleavened-" + lstack.Item.Variant["type"] + "-" + lstack.Item.Variant["state"]);
             }
             string lType = Lang.Get("game:meal-ingredient-porridge-primary-grain-" + lstack.Item.Variant["type"]);
             return Lang.Get("artofcooking:{0} shawarma", lType);
@@ -322,7 +323,7 @@ namespace ArtOfCooking.Blocks
 
             float[] nmul = GetNutritionHealthMul(pos, null, forPlayer.Entity);
 
-            sb.AppendLine(mealblock.GetContentNutritionFacts(api.World, bep.Inventory[0], stacks, null, true, nmul[0] * servingsLeft, nmul[1] * servingsLeft));
+            sb.AppendLine(GetContentNutritionFacts(api.World, bep.Inventory[0], stacks, null, true, nmul[0] * servingsLeft, nmul[1] * servingsLeft));
 
             return sb.ToString();
         }
@@ -351,14 +352,92 @@ namespace ArtOfCooking.Blocks
             return base.UpdateAndGetTransitionStatesNative(world, inslot);
         }
 
-
-        public override string GetContentNutritionFacts(IWorldAccessor world, ItemSlot inSlotorFirstSlot, ItemStack[] contentStacks, EntityAgent forEntity, bool mulWithStacksize = false, float nutritionMul = 1, float healthMul = 1)
+        new public static FoodNutritionProperties[] GetContentNutritionProperties(IWorldAccessor world, ItemSlot inSlot, ItemStack[] contentStacks, EntityAgent forEntity, bool mulWithStacksize = false, float nutritionMul = 1f, float healthMul = 1f)
         {
-            UnspoilContents(world, contentStacks);
+            List<FoodNutritionProperties> list = new List<FoodNutritionProperties>();
+            if (contentStacks == null)
+            {
+                return list.ToArray();
+            }
 
-            return base.GetContentNutritionFacts(world, inSlotorFirstSlot, contentStacks, forEntity, mulWithStacksize, nutritionMul, healthMul);
+            for (int i = 0; i < contentStacks.Length; i++)
+            {
+                if (contentStacks[i] != null)
+                {
+                    CollectibleObject collectible = contentStacks[i].Collectible;
+                    FoodNutritionProperties foodNutritionProperties = ((collectible.CombustibleProps == null || collectible.CombustibleProps.SmeltedStack == null) ? collectible.GetNutritionProperties(world, contentStacks[i], forEntity) : collectible.CombustibleProps.SmeltedStack.ResolvedItemstack.Collectible.GetNutritionProperties(world, collectible.CombustibleProps.SmeltedStack.ResolvedItemstack, forEntity));
+
+                    if (foodNutritionProperties != null)
+                    {
+                        float num = ((!mulWithStacksize) ? 1 : contentStacks[i].StackSize);
+                        FoodNutritionProperties foodNutritionProperties2 = foodNutritionProperties.Clone();
+                        DummySlot dummySlot = new DummySlot(contentStacks[i], inSlot.Inventory);
+                        float spoilState = contentStacks[i].Collectible.UpdateAndGetTransitionState(world, dummySlot, EnumTransitionType.Perish)?.TransitionLevel ?? 0f;
+                        float num2 = GlobalConstants.FoodSpoilageSatLossMul(spoilState, dummySlot.Itemstack, forEntity);
+                        float num3 = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, dummySlot.Itemstack, forEntity);
+                        foodNutritionProperties2.Satiety *= num2 * nutritionMul * num;
+                        foodNutritionProperties2.Health *= num3 * healthMul * num;
+                        list.Add(foodNutritionProperties2);
+                    }
+                }
+            }
+
+            return list.ToArray();
         }
 
+        new public FoodNutritionProperties[] GetContentNutritionProperties(IWorldAccessor world, ItemSlot inSlot, EntityAgent forEntity)
+        {
+            ItemStack[] nonEmptyContents = GetNonEmptyContents(world, inSlot.Itemstack);
+            if (nonEmptyContents == null || nonEmptyContents.Length == 0)
+            {
+                return null;
+            }
+
+            float[] nutritionHealthMul = GetNutritionHealthMul(null, inSlot, forEntity);
+            return GetContentNutritionProperties(world, inSlot, nonEmptyContents, forEntity, GetRecipeCode(world, inSlot.Itemstack) == null, nutritionHealthMul[0], nutritionHealthMul[1]);
+        }
+
+        public override string GetContentNutritionFacts(IWorldAccessor world, ItemSlot inSlotorFirstSlot, ItemStack[] contentStacks, EntityAgent forEntity, bool mulWithStacksize = false, float nutritionMul = 1f, float healthMul = 1f)
+        {
+            UnspoilContents(world, contentStacks);
+            FoodNutritionProperties[] contentNutritionProperties = GetContentNutritionProperties(world, inSlotorFirstSlot, contentStacks, forEntity, mulWithStacksize, nutritionMul, healthMul);
+            Dictionary<EnumFoodCategory, float> dictionary = new Dictionary<EnumFoodCategory, float>();
+            float num = 0f;
+            for (int i = 0; i < contentNutritionProperties.Length; i++)
+            {
+                FoodNutritionProperties foodNutritionProperties = contentNutritionProperties[i];
+                if (foodNutritionProperties != null)
+                {
+                    dictionary.TryGetValue(foodNutritionProperties.FoodCategory, out var value);
+                    DummySlot dummySlot = new DummySlot(contentStacks[i], inSlotorFirstSlot.Inventory);
+                    float spoilState = contentStacks[i].Collectible.UpdateAndGetTransitionState(api.World, dummySlot, EnumTransitionType.Perish)?.TransitionLevel ?? 0f;
+                    float num2 = GlobalConstants.FoodSpoilageSatLossMul(spoilState, dummySlot.Itemstack, forEntity);
+                    float num3 = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, dummySlot.Itemstack, forEntity);
+                    num += foodNutritionProperties.Health * num3;
+                    dictionary[foodNutritionProperties.FoodCategory] = value + foodNutritionProperties.Satiety * num2;
+                }
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine(Lang.Get("Nutrition Facts"));
+            foreach (KeyValuePair<EnumFoodCategory, float> item in dictionary)
+            {
+                stringBuilder.AppendLine(Lang.Get("nutrition-facts-line-satiety", Lang.Get("foodcategory-" + item.Key.ToString().ToLowerInvariant()), Math.Round(item.Value)));
+            }
+
+            if (num != 0f)
+            {
+                stringBuilder.AppendLine("- " + Lang.Get("Health: {0}{1} hp", (num > 0f) ? "+" : "", num));
+            }
+
+            return stringBuilder.ToString();
+        }
+
+        new public string GetContentNutritionFacts(IWorldAccessor world, ItemSlot inSlot, EntityAgent forEntity, bool mulWithStacksize = false)
+        {
+            float[] nutritionHealthMul = GetNutritionHealthMul(null, inSlot, forEntity);
+            return GetContentNutritionFacts(world, inSlot, GetNonEmptyContents(world, inSlot.Itemstack), forEntity, mulWithStacksize, nutritionHealthMul[0], nutritionHealthMul[1]);
+        }
 
         protected void UnspoilContents(IWorldAccessor world, ItemStack[] cstacks)
         {
@@ -434,8 +513,16 @@ namespace ArtOfCooking.Blocks
             ItemStack rndStack = cstacks[capi.World.Rand.Next(stacks.Length)];
             return rndStack.Collectible.GetRandomColor(capi, rndStack);
         }
+        public override void OnBlockBroken(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1f)
+        {
+            if (EntityClass != null)
+            {
+                world.BlockAccessor.GetBlockEntity(pos)?.OnBlockBroken(byPlayer);
+            }
 
+            world.BlockAccessor.SetBlock(0, pos);
 
+        }
         public override WorldInteraction[] GetPlacedBlockInteractionHelp(IWorldAccessor world, BlockSelection selection, IPlayer forPlayer)
         {
             var baseinteractions = base.GetPlacedBlockInteractionHelp(world, selection, forPlayer);

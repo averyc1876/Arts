@@ -1,0 +1,68 @@
+{
+  "code": "aoccompote",
+  "perishableProps": {
+    "freshHours": { "avg": 1440 },
+    "transitionHours": { "avg": 168 },
+    "transitionRatio": 1,
+    "transitionedStack": {
+      "type": "item",
+      "code": "game:rot"
+    }
+  },
+  "shape": { "base": "game:block/food/meal/compote" },
+  "ingredients": [
+    {
+      "code": "water",
+      "validStacks": [
+        {
+          "type": "item",
+          "code": "game:waterportion",
+          "shapeElement": "bowl/compote",
+          "cookedStack": {
+            "type": "item",
+            "code": "artofcooking:compoteportion"
+          }
+        }
+      ],
+      "minQuantity": 1,
+      "maxQuantity": 1,
+      "portionSizeLitres": 1
+    },
+    {
+      "code": "fruit-base-1",
+      "validStacks": [
+        {
+          "type": "item",
+          "code": "game:fruit-*",
+          "shapeElement": "bowl/fruit base 1/*"
+        }
+      ],
+      "minQuantity": 1,
+      "maxQuantity": 1
+    },
+    {
+      "code": "fruit-base-2",
+      "validStacks": [
+        {
+          "type": "item",
+          "code": "game:fruit-*",
+          "shapeElement": "bowl/fruit base 2/*"
+        }
+      ],
+      "minQuantity": 0,
+      "maxQuantity": 1
+    },
+    {
+      "code": "fruit-base-3",
+      "validStacks": [
+        {
+          "type": "item",
+          "code": "game:fruit-*",
+          "shapeElement": "bowl/fruit base 3/*"
+        }
+      ],
+      "minQuantity": 0,
+      "maxQuantity": 1
+    }
+  ]
+}

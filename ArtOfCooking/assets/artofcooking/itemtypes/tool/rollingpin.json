@@ -1,5 +1,7 @@
 {
+	"enabled": false,
 	"code": "rollingpin",
+	"class": "AOCItemRollingPin",
 	"storageFlags": 257,
 	"damagedby": [ "blockbreaking", "attacking" ],
 	"attributes": {

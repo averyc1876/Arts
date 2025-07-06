@@ -72,6 +72,7 @@ namespace CoreOfArts
                 list.COAcreatedByMixingInfo(inSlot, capi, allStacks, openDetailPageFor);
                 list.COAaddMixingIngredientForInfo(inSlot, capi, allStacks, openDetailPageFor);
                 list.COAaddCreatedByInfo(inSlot, capi, allStacks, openDetailPageFor);
+                list.COACookingRecipes(inSlot, capi, allStacks, openDetailPageFor);
                 __result = list.ToArray();
             }
         }   

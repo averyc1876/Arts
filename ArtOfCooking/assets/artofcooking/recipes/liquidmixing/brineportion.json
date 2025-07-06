@@ -1,19 +1,19 @@
 {
-	"code": "pastrydoughbase",
+	"code": "brineportion",
 	"ingredients": [
 		{
 			"type": "item",
-			"code": "game:milkportion",
+			"code": "game:waterportion",
 			"litres": 0.8
 		},
 		{
 			"type": "item",
-			"code": "eggportion-raw-whole",
+			"code": "game:vinegarportion",
 			"litres": 0.2
 		}
 	],
 	"output": {
 		"type": "item",
-		"code": "pastrydoughbase"
+		"code": "game:brineportion"
 	}
 }

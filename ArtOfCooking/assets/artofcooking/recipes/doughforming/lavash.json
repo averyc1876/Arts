@@ -1,7 +1,7 @@
 {
 	"ingredient": {
 		"type": "item",
-		"code": "doughpiece-unleavened-*",
+		"code": "doughpiece-*",
 		"name": "type"
 	},
 	"pattern": [

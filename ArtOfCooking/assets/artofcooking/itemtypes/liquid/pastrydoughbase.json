@@ -26,10 +26,6 @@
 					"type": "item",
 					"code": "artofcooking:pastrydoughbase"
 				}
-			},
-			"nutritionPropsPerLitre": {
-				"saturation": 150,
-				"foodcategory": "Dairy"
 			}
 		}
 	},

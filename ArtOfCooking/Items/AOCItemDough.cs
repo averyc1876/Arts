@@ -1564,13 +1564,6 @@ namespace ArtOfCooking.Items
                     ActionLangCode = "artofcooking:heldhelp-placetodoughform",
                     Itemstacks = tableStacks,
                     MouseButton = EnumMouseButton.Right,
-                },
-                new WorldInteraction()
-                {
-                    ActionLangCode = "artofcooking:heldhelp-placetorolling",
-                    Itemstacks = tableStacks,
-                    HotKeyCode = "ctrl",
-                    MouseButton = EnumMouseButton.Right,
                 }
             }.Append(base.GetHeldInteractionHelp(inSlot));
         }

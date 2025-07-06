@@ -2,12 +2,13 @@
 	"code": "shawarma",
 	"class": "AOCBlockShawarma",
 	"behaviors": [
-		{ "name": "UnstableFalling" },
 		{ "name": "SneakPlacing" },
-		{ "name": "RightClickPickup" }
+		{ "name": "RightClickPickup" },
+		{ "name": "Unstable" }
 	],
 	"entityClass": "AOCBEShawarma",
-	"maxstacksize": 32,
+	"maxstacksize": 8,
+	"resistance": 0.3,
 	"variantgroups": [
 		{
 			"code": "state",
@@ -31,7 +32,7 @@
 							"ucontents": [
 								{
 									"type": "item",
-									"code": "artofcooking:lavash-spelt-perfect"
+									"code": "artofcooking:lavash-unleavened-spelt-perfect"
 								},
 								{
 									"type": "item",
@@ -48,10 +49,6 @@
 								{
 									"type": "item",
 									"code": "game:fruit-redapple"
-								},
-								{
-									"type": "item",
-									"code": "artofcooking:lavash-spelt-perfect"
 								}
 							],
 							"wrapped": true,

@@ -20,7 +20,7 @@ namespace CoreOfArts.Blocks
     {
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         { 
-            if (!byEntity.Controls.ShiftKey)
+            if (!byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
             {
                 foreach (var recipe in api.GetLiquidMixingRecipes())
                 {
@@ -58,6 +58,7 @@ namespace CoreOfArts.Blocks
                 {
                     ActionLangCode = "coreofart:heldhelp-mixing",
                     MouseButton = EnumMouseButton.Right,
+                    HotKeyCode = "ctrl",
                     Itemstacks = stacks.ToArray(),
                     GetMatchingStacks = (wi, bs, es) => {
                         bool canMixing = false;

@@ -1,9 +1,11 @@
 ﻿using ArtOfCooking.BlockEntities;
 using ArtOfCooking.Blocks;
+using CoreOfArts.Systems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Vintagestory.API;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -28,7 +30,8 @@ namespace ArtOfCooking.Items
                 if (beg != null)
                 {
                     ItemSlot rollingSlot = beg.GetSlotAt(blockSel);
-                    return rollingSlot?.Itemstack?.Attributes["extraNutritionProps"] != null;
+                    var canRoll = rollingSlot?.Itemstack?.Collectible?.Attributes?.KeyExists("canRollingInto") == true;
+                    return canRoll;
                 }
             }
 
@@ -37,13 +40,13 @@ namespace ArtOfCooking.Items
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
-            Block block = byEntity.World.BlockAccessor.GetBlock(blockSel.Position);
-            if (block != null && !byEntity.Controls.ShiftKey)
-            {
+            if (blockSel != null && CanRolling(blockSel.Block, blockSel) && !byEntity.Controls.ShiftKey)
+            {                
+                Block block = byEntity.World.BlockAccessor.GetBlock(blockSel.Position);
 
-                if (byEntity.World.Side == EnumAppSide.Client)
+                if (block != null && byEntity.World.Side == EnumAppSide.Client)
                 {
-                    byEntity.World.PlaySoundAt(new AssetLocation("sounds/block/woodcreak_4"), byEntity, null, true, 16, 3f);
+                    byEntity.World.PlaySoundAt(new AssetLocation("sounds/effect/squish2"), byEntity, null, true, 16, 0.5f);
                 }
                 handling = EnumHandHandling.PreventDefault;
             }
@@ -57,14 +60,14 @@ namespace ArtOfCooking.Items
         {
             if (blockSel?.Block != null && CanRolling(blockSel.Block, blockSel))
             {
-                if (!byEntity.Controls.ShiftKey || slot.Itemstack.Collectible.FirstCodePart() == "eggyolk")
+                if (byEntity.Controls.ShiftKey)
                     return false;
                 if (byEntity.World is IClientWorldAccessor)
                 {
                     byEntity.StartAnimation("squeezehoneycomb");
                 }
 
-                return secondsUsed < 1f;
+                return secondsUsed < 2f;
             }
 
             return base.OnHeldInteractStep(secondsUsed, slot, byEntity, blockSel, entitySel);
@@ -74,72 +77,55 @@ namespace ArtOfCooking.Items
             BlockSelection blockSel, EntitySelection entitySel)
         {
             byEntity.StopAnimation("squeezehoneycomb");
+                
+            if (byEntity.Controls.ShiftKey) return;
 
             if (blockSel != null)
             {
                 Block block = byEntity.World.BlockAccessor.GetBlock(blockSel.Position);
                 if (CanRolling(block, blockSel))
                 {
-                    if (secondsUsed < 0.9f) return;
+                    if (secondsUsed < 1.9f) return;
 
                     IWorldAccessor world = byEntity.World;
+                    var pos = blockSel?.Position;
 
-                    if (!CanRolling(block, blockSel)) return;
+                    if (!CanRolling(block, blockSel) || pos == null) return;
 
-                    string source = Variant["source"];
-                    ItemStack eggStack = new ItemStack(world.GetItem(new AssetLocation("artofcooking:eggportion-raw-whole")), 99999);
-                    ItemStack eggshellStack = new ItemStack(world.GetItem(new AssetLocation("artofcooking:eggshell-" + source)), 2);
-                    ItemStack yolkStack = null;
-                    float portion = 1;
-                    if (byEntity.Controls.CtrlKey && slot.Itemstack.Collectible.FirstCodePart() == "egg")
-                    {
-                        eggStack = new ItemStack(world.GetItem(new AssetLocation("artofcooking:eggportion-raw-white")), 99999);
-                        eggshellStack = new ItemStack(world.GetItem(new AssetLocation("artofcooking:eggshell-" + source)), 1);
-                        yolkStack = new ItemStack(world.GetItem(new AssetLocation("artofcooking:eggyolk-" + source)), 1);
-                        portion = 1 / 4 * 3;
-                    }
+                    var beg = api.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityGroundStorage;
+                    if (beg == null) return;
 
-                    ILiquidSink blockCnt = block as ILiquidSink;
-                    if (blockCnt != null)
+                    ItemSlot rollingSlot = beg.GetSlotAt(blockSel);
+                    var rollingProps = rollingSlot?.Itemstack?.Collectible?.Attributes["canRollingInto"]?.AsObject<JsonItemStack>();
+
+                    if (rollingProps != null)
                     {
-                        if (blockCnt.TryPutLiquid(blockSel.Position, eggStack, portion) == 0) return;
-                    }
-                    else
-                    {
-                        var beg = api.World.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityGroundStorage;
-                        if (beg != null)
+                        ItemStack outputStack = null;
+                        switch (rollingProps.Type)
                         {
-                            ItemSlot crackIntoSlot = beg.GetSlotAt(blockSel);
-
-                            if (crackIntoSlot != null && crackIntoSlot?.Itemstack?.Block != null && CanRolling(crackIntoSlot.Itemstack.Block, null))
-                            {
-                                blockCnt = crackIntoSlot.Itemstack.Block as ILiquidSink;
-                                blockCnt.TryPutLiquid(crackIntoSlot.Itemstack, eggStack, portion);
-                                beg.MarkDirty(true);
-                            }
+                            case EnumItemClass.Item:                                
+                                var outputItem = api.World.GetItem(new AssetLocation(rollingProps.Code));
+                                if (outputItem != null) outputStack = new ItemStack(outputItem, 1);
+                                break;
+                            case EnumItemClass.Block:
+                                var outputBlock = api.World.GetBlock(new AssetLocation(rollingProps.Code));
+                                if (outputBlock != null) outputStack = new ItemStack(outputBlock, 1);
+                                break;
                         }
-                    }
 
-                    slot.TakeOut(1);
-                    slot.MarkDirty();
+                        rollingSlot.TakeOutWhole();
+                        rollingSlot.Itemstack = outputStack;
+                        rollingSlot.MarkDirty();
+                        beg.MarkDirty(true);
 
-                    IPlayer byPlayer = null;
-                    if (byEntity is EntityPlayer) byPlayer = world.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
-                    if (byPlayer?.InventoryManager.TryGiveItemstack(eggshellStack) == false)
-                    {
-                        byEntity.World.SpawnItemEntity(eggshellStack, byEntity.SidedPos.XYZ);
+                        if (world.Side == EnumAppSide.Client)
+                        {
+                            world.PlaySoundAt(new AssetLocation("sounds/effect/squish2"), byEntity, null, true, 16, 0.5f);
+                        }
+                        slot.Itemstack.Collectible.DamageItem(api.World, byEntity, slot, 1);
+                        
+                        return;
                     }
-                    if (yolkStack != null && byPlayer?.InventoryManager.TryGiveItemstack(yolkStack) == false)
-                    {
-                        byEntity.World.SpawnItemEntity(yolkStack, byEntity.SidedPos.XYZ);
-                    }
-
-                    if (world.Side == EnumAppSide.Client)
-                    {
-                        world.PlaySoundAt(new AssetLocation("sounds/effect/squish2"), byEntity, null, true, 16, 0.5f);
-                    }
-
-                    return;
                 }
             }
             base.OnHeldInteractStop(secondsUsed, slot, byEntity, blockSel, entitySel);

@@ -19,7 +19,6 @@ namespace ArtsXSkills
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
-            api.RegisterBlockClass("ArtsXSlillsBlockCookingContainer", typeof(ArtsXSlillsBlockCookingContainer));  
             api.RegisterItemClass("ArtsXSkillsItemPlantableSeed", typeof(ArtsXSkillsItemPlantableSeed));
         }
         

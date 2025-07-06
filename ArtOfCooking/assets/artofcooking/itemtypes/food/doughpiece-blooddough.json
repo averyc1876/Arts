@@ -12,8 +12,6 @@
 				}
 			]
 		},
-		"displaycaseable": true,
-		"shelvable": true,
 		"inPieProperties": {
 			"texture": "game:block/food/pie/{type}{bakeLevel}",
 			"partType": "Crust"
