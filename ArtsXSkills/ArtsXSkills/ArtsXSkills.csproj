@@ -3,16 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtsXSkills</OutputPath>
+    <OutputPath>$(APPDATA)\VintagestoryData\Mods\ArtsXSkills</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="ArtOfGrowing">
-      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
+      <HintPath>$(APPDATA)\VintagestoryData\Mods\ArtOfGrowing\ArtOfGrowing.dll</HintPath>
 		<Private>false</Private>
     </Reference>
     <Reference Include="CoreOfArts">
-      <HintPath>C:\Users\Tasya\AppData\Roaming\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
+      <HintPath>$(APPDATA)\VintagestoryData\Mods\CoreOfArts\CoreOfArts.dll</HintPath>
 		<Private>false</Private>
     </Reference>
     <Reference Include="VintagestoryAPI">
