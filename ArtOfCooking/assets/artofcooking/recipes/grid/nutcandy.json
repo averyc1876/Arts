@@ -476,7 +476,7 @@
     "ingredients": {
       "K": {
         "type": "block",
-        "code": "game:bowl-{color}-fired"
+        "code": "game:bowl-fired"
       },
       "H": {
         "type": "item",

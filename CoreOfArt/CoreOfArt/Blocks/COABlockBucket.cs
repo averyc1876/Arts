@@ -54,7 +54,7 @@ namespace CoreOfArts.Blocks
                     MouseButton = EnumMouseButton.Right,
                     HotKeyCode = "ctrl",
                     Itemstacks = stacks.ToArray(),
-                    GetMatchingStacks = (wi, _, _) => {
+                    GetMatchingStacks = (wi, bs, es) => {
                         bool canMixing = false;
                         foreach (var recipe in api.GetLiquidMixingRecipes())
                         {
