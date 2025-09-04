@@ -12,17 +12,17 @@ namespace ArtOfGrowing.Items
     {
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
         {
-            if (byEntity.Controls.ShiftKey)
+            if (byEntity.Controls.ShiftKey && byEntity.Controls.CtrlKey)
             {
-                if (byEntity.Controls.CtrlKey)
-                {
-                    Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
-                    return;
-                }
-
-                OnHeldInteractStartThatch(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+                Interact(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
                 return;
             }
+            
+			if (itemslot.Itemstack.Item.Code.FirstCodePart() == "thatch")
+			{
+				OnHeldInteractStartThatch(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
+				return;
+			}
             
             base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
         }
